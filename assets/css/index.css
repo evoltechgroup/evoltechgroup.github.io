@@ -3698,7 +3698,8 @@ Footer Section CSS
 .plate.full {
   width: 100%;
   z-index: 1;
-  box-shadow: 0 2px 48px 0 rgba(0, 0, 0, 0.06);
+  box-shadow: 2px 4px 12px rgb(0 0 0 / 8%);
+  border-radius: 18px;
 }
 
 .plate.ml-plate {
@@ -4367,7 +4368,7 @@ Footer Section CSS
 
 /* Footer links */
 
-.foot-links{
+.foot-links {
   text-decoration: none;
   color: #737b9a;
 }
