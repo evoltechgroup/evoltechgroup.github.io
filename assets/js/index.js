@@ -20,9 +20,14 @@ $(".navbar .navbar-nav li a").on("click", function (e) {
   e.preventDefault();
 });
 // Mean Menu
-jQuery(".mean-menu").meanmenu({
+var path = window.location.pathname;
+var page = path.split("/").pop();
+if(page==='index.html'){
+$(".mean-menu").meanmenu({
   meanScreenWidth: "991",
 });
+}
+
 
 //testimonial carousal Jquery
 // var sync1 = $(".client-content-carousel"),

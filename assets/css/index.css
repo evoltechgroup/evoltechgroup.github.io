@@ -5084,3 +5084,38 @@ testimonial-section{
 .work-process.d-none-arrow:hover {
   transform: none !important;
 }
+
+/*********************************/
+/*         Team members          */
+/*===============================*/
+.team img {
+  transition: all 0.5s ease;
+}
+
+.team .name:hover {
+  color: #2f55d4 !important;
+}
+
+.team .team-icon {
+  position: absolute;
+  bottom: 50%;
+  transform: translateY(50%);
+  right: 0;
+  opacity: 0;
+  left: 0;
+  text-align: center;
+  transition: all 0.5s ease;
+}
+
+.team:hover img {
+  box-shadow: 0 0 3px rgba(60, 72, 88, 0.15);
+  opacity: 0.2;
+}
+
+.team:hover .overlay-team {
+  opacity: 0.6;
+}
+
+.team:hover .team-icon {
+  opacity: 1;
+}
