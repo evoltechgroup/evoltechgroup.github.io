@@ -1,5 +1,5 @@
-@import url("/assets/fonts/font-awesome/css/font-awesome.css");
-@import url("/assets/fonts/elegant_font/HTML_CSS/style.css"); /* Normal code */
+@import url("../fonts/font-awesome/css/font-awesome.css");
+@import url("../fonts/elegant_font/HTML_CSS/style.css"); /* Normal code */
 
 body {
   font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue",
