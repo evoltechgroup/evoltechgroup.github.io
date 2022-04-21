@@ -1,5 +1,3 @@
-feather.replace();
-
 $(window).on("scroll", function () {
   if ($(this).scrollTop() > 120) {
     $(".navbar-area").addClass("is-sticky");
@@ -24,6 +22,10 @@ $(".navbar .navbar-nav li a").on("click", function (e) {
 // Mean Menu
 var path = window.location.pathname;
 var page = path.split("/").pop();
+
+if (page === "about.html") {
+  feather.replace();
+}
 if (page === "index.html") {
   $(".mean-menu").meanmenu({
     meanScreenWidth: "991",
@@ -57,7 +59,6 @@ if (page === "index.html") {
   window.addEventListener("load", () => {
     testimonial_slider.init();
   });
-  
 }
 //testimonial carousal Jquery
 // var sync1 = $(".client-content-carousel"),
@@ -144,7 +145,6 @@ $(window).on("scroll", function () {
 $(".go-top").on("click", function () {
   $("html, body").animate({ scrollTop: "0" }, 500);
 });
-
 
 try {
   const counter = document.querySelectorAll(".counter-value");
