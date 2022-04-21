@@ -1,3 +1,5 @@
+feather.replace();
+
 $(window).on("scroll", function () {
   if ($(this).scrollTop() > 120) {
     $(".navbar-area").addClass("is-sticky");
@@ -22,13 +24,41 @@ $(".navbar .navbar-nav li a").on("click", function (e) {
 // Mean Menu
 var path = window.location.pathname;
 var page = path.split("/").pop();
-if(page==='index.html'){
-$(".mean-menu").meanmenu({
-  meanScreenWidth: "991",
-});
+if (page === "index.html") {
+  $(".mean-menu").meanmenu({
+    meanScreenWidth: "991",
+  });
+
+  const testimonial_slider = new Swiper(
+    ".testimonial-slider .swiper-container",
+    {
+      resizeObserver: true,
+      spaceBetween: 0,
+      initialSlide: 1,
+      init: false,
+      speed: 250,
+      slideToClickedSlide: true,
+      breakpoints: {
+        0: {
+          direction: "horizontal",
+          centeredSlides: true,
+          loop: true,
+          slidesPerView: 1.7,
+        },
+        992: {
+          direction: "vertical",
+          centeredSlides: true,
+          loop: true,
+          slidesPerView: 1.7,
+        },
+      },
+    }
+  );
+  window.addEventListener("load", () => {
+    testimonial_slider.init();
+  });
+  
 }
-
-
 //testimonial carousal Jquery
 // var sync1 = $(".client-content-carousel"),
 //   sync2 = $(".client-thumb-carousel"),
@@ -115,62 +145,34 @@ $(".go-top").on("click", function () {
   $("html, body").animate({ scrollTop: "0" }, 500);
 });
 
-const testimonial_slider = new Swiper(".testimonial-slider .swiper-container", {
-  resizeObserver: true,
-  spaceBetween: 0,
-  initialSlide: 1,
-  init: false,
-  speed: 250,
-  slideToClickedSlide: true,
-  breakpoints: {
-    0: {
-      direction: "horizontal",
-      centeredSlides: true,
-      loop: true,
-      slidesPerView: 1.7,
-    },
-    992: {
-      direction: "vertical",
-      centeredSlides: true,
-      loop: true,
-      slidesPerView: 1.7,
-    },
-  },
-});
-
-window.addEventListener("load", () => {
-  testimonial_slider.init();
-});
 
 try {
-  const counter = document.querySelectorAll('.counter-value');
+  const counter = document.querySelectorAll(".counter-value");
   const speed = 2500; // The lower the slower
 
-  counter.forEach(counter_value => {
-      const updateCount = () => {
-          const target = +counter_value.getAttribute('data-target');
-          const count = +counter_value.innerText;
+  counter.forEach((counter_value) => {
+    const updateCount = () => {
+      const target = +counter_value.getAttribute("data-target");
+      const count = +counter_value.innerText;
 
-          // Lower inc to slow and higher to slow
-          var inc = target / speed;
+      // Lower inc to slow and higher to slow
+      var inc = target / speed;
 
-          if (inc < 1) {
-              inc = 1;
-          }
+      if (inc < 1) {
+        inc = 1;
+      }
 
-          // Check if target is reached
-          if (count < target) {
-              // Add inc to count and output in counter_value
-              counter_value.innerText = (count + inc).toFixed(0);
-              // Call function every ms
-              setTimeout(updateCount, 1);
-          } else {
-              counter_value.innerText = target;
-          }
-      };
+      // Check if target is reached
+      if (count < target) {
+        // Add inc to count and output in counter_value
+        counter_value.innerText = (count + inc).toFixed(0);
+        // Call function every ms
+        setTimeout(updateCount, 1);
+      } else {
+        counter_value.innerText = target;
+      }
+    };
 
-      updateCount();
+    updateCount();
   });
-} catch (err) {
-
-}
+} catch (err) {}
