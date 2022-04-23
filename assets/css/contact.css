@@ -102,3 +102,11 @@
       height: 551px;
     }
   }
+
+  .bg-half-170 {
+    padding: 170px 0;
+    background-size: cover;
+    align-self: center;
+    position: relative;
+    background-position: center center;
+  } 

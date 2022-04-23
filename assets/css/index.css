@@ -2238,7 +2238,7 @@ home
     font-size: 1rem;
   }
   .testimonial-slide .content {
-    width: 150%;
+    width: 100%;
     margin-top: 5rem;
     text-align: center;
   }
@@ -2339,6 +2339,10 @@ home
     );
     background: linear-gradient(-90deg, #fff 20%, rgba(0, 0, 0, 0) 100%);
   }
+}
+
+.testimonial-slider{
+  overflow-x: hidden;
 }
 
 /* <!-------- Customer Reviews - End-------->*/
