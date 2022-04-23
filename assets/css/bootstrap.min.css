@@ -544,14 +544,14 @@ progress {
 @media (min-width: 576px) {
   .container,
   .container-sm {
-    max-width: calc(100vw - 20rem);
+    max-width: calc(100vw - 15rem);
   }
 }
 @media (min-width: 768px) {
   .container,
   .container-md,
   .container-sm {
-    max-width: calc(100vw - 10rem);
+    max-width: calc(100vw - 15rem);
   }
 }
 @media (min-width: 992px) {
@@ -559,7 +559,7 @@ progress {
   .container-lg,
   .container-md,
   .container-sm {
-    max-width: calc(100vw - 20rem);
+    max-width: calc(100vw - 15rem);
   }
 }
 @media (min-width: 1200px) {
@@ -568,7 +568,7 @@ progress {
   .container-md,
   .container-sm,
   .container-xl {
-    max-width: calc(100vw - 20rem);
+    max-width: calc(100vw - 15rem);
   }
 }
 @media (min-width: 1400px) {
@@ -578,7 +578,7 @@ progress {
   .container-sm,
   .container-xl,
   .container-xxl {
-    max-width: calc(100vw - 20rem);
+    max-width: calc(100vw - 15rem);
   }
 }
 .row {
