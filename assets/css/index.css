@@ -867,8 +867,10 @@ Navbar Area CSS
 }
 
 .exto-nav .navbar .others-options .saas-nav-btn:hover {
-  background-color: #343b4e;
-  color: #ffffff !important;
+  background-color: transparent;
+  color: #00227f !important;
+  transition: 0.3s ease;
+  border-color: #00227f;
 }
 
 .exto-nav .navbar .others-options.saas-option {
@@ -877,7 +879,7 @@ Navbar Area CSS
 
 .exto-nav .navbar .others-options.saas-option .saas-nav-btn {
   background-color: transparent;
-  border: 1px solid #ffffff;
+  border: 1px solid #00227f;
 }
 
 .exto-nav .navbar .others-options.saas-option .saas-nav-btn:hover {
@@ -3626,6 +3628,7 @@ Footer Section CSS
 
 .section-title {
   margin-bottom: 8px;
+  color: #002180;
 }
 
 .section-text {
