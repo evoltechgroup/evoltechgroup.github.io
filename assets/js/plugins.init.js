@@ -406,7 +406,7 @@ try {
             if(element){
                 this.element = element;
                 this.shuffle = new Shuffle(element, {
-                    itemSelector: '.picture-item',
+                    itemSelector: '.tech-item',
                     sizer: element.querySelector('.my-sizer-element'),
                 });
 
