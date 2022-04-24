@@ -471,7 +471,7 @@ try {
     }
 
     document.addEventListener('DOMContentLoaded', () => {
-        window.demo = new Demo(document.getElementById('grid'));
+        window.demo = new Demo(document.getElementById('grid-tech'));
     });
 } catch (err) {
 
