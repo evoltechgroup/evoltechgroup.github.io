@@ -4869,7 +4869,6 @@ Footer Section CSS
 }
 
 .features-absolute {
-  margin: -200px 0 0px;
 }
 
 @media (max-width: 768px) {
@@ -5156,4 +5155,51 @@ testimonial-section{
 
 .team:hover .team-icon {
   opacity: 1;
+}
+
+.bg-half-170 {
+  padding: 170px 0;
+  background-size: cover;
+  align-self: center;
+  position: relative;
+  background-position: center center;
+}
+
+.shape {
+  position: absolute;
+  pointer-events: none;
+  right: 0;
+  bottom: -2px;
+  left: 0;
+}
+
+.shape > svg {
+  transform: scale(2);
+  width: 100%;
+  height: auto;
+  transform-origin: top center;
+}
+
+.shape.integration-hero {
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+  height: 250px;
+  background: #ffffff;
+}
+
+@media (max-width: 768px) {
+  .shape.integration-hero {
+    height: 140px;
+  }
+}
+
+@media (max-width: 425px) {
+  .shape.integration-hero {
+    height: 60px;
+  }
+}
+
+@media (max-width: 425px) {
+  .shape {
+    bottom: -4px;
+  }
 }
