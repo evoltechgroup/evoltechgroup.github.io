@@ -5206,3 +5206,28 @@ testimonial-section{
     bottom: -4px;
   }
 }
+
+/*********************************/
+/*         tech stack          */
+/*===============================*/
+
+.container-filter li {
+      font-size: 13px;
+      padding: 0px 15px; 
+      margin: 5px 3px;
+      font-weight: 700;
+      letter-spacing: 0.8px;
+      cursor: pointer;
+      line-height: 34px;
+      transition: all 0.5s ease;
+      align-content: center;
+      background-color: #00227f;
+      color: white;
+}
+
+.container-filter :hover{
+  background-color: transparent;
+  color: #00227f;
+  transition: 0.4s ease-in-out;
+  border-color: #00227f;
+}
