@@ -2572,7 +2572,6 @@ Footer Section CSS
   }
   .web-new {
     overflow: hidden;
-    height: 450px;
   }
   .web-new-pic {
     position: absolute !important;
@@ -2592,9 +2591,6 @@ Footer Section CSS
   }
   .plate-info br.nohide {
     display: block !important;
-  }
-  .plate {
-    height: auto;
   }
   .plate .ab-pic {
     display: block;
@@ -3910,5 +3906,5 @@ color: #fff;
 
 .lykas{
   transform: scale(1.2);
-  magin-top:2px;
+  margin-top:2px;
 }
