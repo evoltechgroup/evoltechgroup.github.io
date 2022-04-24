@@ -782,10 +782,6 @@ home
   -webkit-transition: all 0.25s ease-out 0s;
   transition: all 0.25s ease-out 0s;
 }
-@media (min-width: 992px) {
-  .testimonial-slide .image {
-  }
-}
 .testimonial-slide .image-wrapper {
   background-color: #fff;
   border-radius: 50%;
@@ -3492,9 +3488,6 @@ Footer Section CSS
   position: relative;
   z-index: 2;
   transition: all 0.5s ease;
-}
-
-.features-absolute {
 }
 
 @media (max-width: 768px) {
