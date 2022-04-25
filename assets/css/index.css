@@ -1,13 +1,12 @@
 @import url("../fonts/font-awesome/css/font-awesome.css");
 @import url("../fonts/elegant_font/HTML_CSS/style.css"); /* Normal code */
-html{
+html {
   overflow-x: hidden !important;
 }
 body {
   font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue",
     Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji",
     "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !important;
-
 }
 
 /* <!-------- Landing - Start-------->*/
@@ -15,30 +14,28 @@ body {
 Saas Home Area CSS
 =================================================*/
 .saas-home-area {
-  position: relative;
-  height: 100vh;
-  z-index: -5;
+  height: calc(95vh - 20px);
   overflow: hidden;
-  background-position: right bottom;
+  background-image: url("../images/bg.png");
   background-repeat: no-repeat;
   background-size: cover;
 }
 
 .saas-home-area .hero-content {
-  margin-top: 70px;
+  margin-top: 190px;
 }
 
 .hero-content h1 {
   color: #002180;
   font-weight: bold;
-  margin: 20px 0 30px 0;
+  margin: 0px 0 30px 0;
 }
 
 .hero-content h2 {
   font-size: 50px;
   color: #002180;
   font-weight: bold;
-  margin: 20px 0 30px 0;
+  margin: 0px 0 30px 0;
 }
 .saas-home-area .hero-content p {
   color: #7d8087;
@@ -469,6 +466,11 @@ Saas Home Area CSS
   filter: grayscale(0) contrast(100%);
 }
 
+@media (max-width: 991.5px) {
+  .logogrid__img {
+    margin: 30px 0 !important;
+  }
+}
 .container {
   display: flex;
   flex-direction: column;
@@ -476,7 +478,7 @@ Saas Home Area CSS
   align-self: center;
 }
 .clients-container {
-  margin-top: -180px;
+  padding-top: 140px;  
   z-index: 9999;
 }
 .text_colour {
@@ -503,7 +505,7 @@ a {
 
 .section {
   position: relative;
-  padding:60px 0;
+  padding: 60px 0;
 }
 .services-section {
   background-color: #ededee;
@@ -872,7 +874,6 @@ home
   .testimonial-slider {
     margin-top: 1rem;
     overflow-x: hidden;
-
   }
 }
 @media (min-width: 992px) {
@@ -966,7 +967,7 @@ home
   }
 }
 
-.testimonial-slider{
+.testimonial-slider {
   overflow-x: hidden;
 }
 
@@ -2325,7 +2326,7 @@ Footer Section CSS
   -webkit-border-radius: 7px;
   border-radius: 7px;
   position: relative;
-  height: 76vh;
+  height: 90vh;
   margin-bottom: 2%;
 }
 .plate.full {
@@ -2353,6 +2354,8 @@ Footer Section CSS
 .plate .mobile-new-pic {
   top: 22vh;
   left: 0;
+  width: 100%;
+  padding: 0px calc(10vw);
 }
 .plate .ml-newest-pic {
   width: 70%;
@@ -2443,7 +2446,7 @@ Footer Section CSS
   opacity: 1;
 }
 .plate-text {
-  font-size: 24px;
+  font-size: 1.3rem;
   line-height: 32px;
 }
 .plate-text.mb {
@@ -2504,8 +2507,7 @@ Footer Section CSS
 
 @media (max-width: 1400px) {
   .devops-plate .plate-info p {
-    width: -webkit-calc(100% - 40px);
-    width: calc(100% - 40px);
+    margin: 0 20px 0 0px;
   }
   .devops-plate .plate-info br {
     display: none;
@@ -2515,6 +2517,12 @@ Footer Section CSS
   }
   .plate {
     height: 600px;
+  }
+}
+
+@media (min-width: 1250.5px) {
+  .qa-new-pic-mobile {
+    margin-top: -10vw;
   }
 }
 
@@ -2731,7 +2739,7 @@ Footer Section CSS
     background-size: 120% !important;
     background-color: #fafafa !important;
   }
-  .text-md-center{
+  .text-md-center {
     text-align: center;
     margin: 0;
   }
@@ -3030,7 +3038,6 @@ Footer Section CSS
   color: #737b9a;
 }
 
-
 .blog {
   transition: all 0.3s ease;
 }
@@ -3047,7 +3054,9 @@ Footer Section CSS
   color: #2f55d4 !important;
 }
 
-.blog .content .post-meta .like, .blog .content .post-meta .comments, .blog .content .post-meta .readmore {
+.blog .content .post-meta .like,
+.blog .content .post-meta .comments,
+.blog .content .post-meta .readmore {
   font-size: 15px;
   transition: all 0.5s ease;
 }
@@ -3133,7 +3142,8 @@ Footer Section CSS
   padding-bottom: 0;
 }
 
-.sidebar .widget .blog-categories li a, .sidebar .widget .blog-categories li span {
+.sidebar .widget .blog-categories li a,
+.sidebar .widget .blog-categories li span {
   font-size: 15px;
 }
 
@@ -3271,7 +3281,8 @@ Footer Section CSS
   -webkit-text-fill-color: transparent;
 }
 
-.candidate-list .like:hover, .candidate-list .like:focus {
+.candidate-list .like:hover,
+.candidate-list .like:focus {
   -webkit-text-stroke: #e43f52;
   -webkit-text-fill-color: #e43f52;
 }
@@ -3310,7 +3321,6 @@ Footer Section CSS
     text-align: left !important;
   }
 }
-
 
 /*********************************/
 /*     Features & Services       */
@@ -3422,7 +3432,8 @@ Footer Section CSS
   transition: all 0.5s ease;
 }
 
-.work-process .step, .work-process .step-icon {
+.work-process .step,
+.work-process .step-icon {
   opacity: 0.06;
 }
 
@@ -3431,7 +3442,7 @@ Footer Section CSS
 }
 
 .work-process.process-arrow:after {
-  content: '';
+  content: "";
   position: absolute;
   width: 60%;
   height: 40px;
@@ -3575,7 +3586,6 @@ Footer Section CSS
   width: 180px;
 }
 
-
 .tns-nav {
   text-align: center;
   margin-top: 10px;
@@ -3626,7 +3636,6 @@ Footer Section CSS
   right: 0;
 }
 
-
 .rounded {
   border-radius: 6px !important;
 }
@@ -3666,7 +3675,6 @@ Footer Section CSS
   margin-top: 100px;
 }
 
-
 .shadow {
   box-shadow: 0 0 3px rgba(60, 72, 88, 0.15) !important;
 }
@@ -3695,16 +3703,16 @@ Footer Section CSS
   transform: translateY(-10px);
 }
 
-testimonial-section{
+testimonial-section {
   background-color: #ededee;
 }
-
 
 .work-process {
   transition: all 0.5s ease;
 }
 
-.work-process .step, .work-process .step-icon {
+.work-process .step,
+.work-process .step-icon {
   opacity: 0.06;
 }
 
@@ -3713,7 +3721,7 @@ testimonial-section{
 }
 
 .work-process.process-arrow:after {
-  content: '';
+  content: "";
   position: absolute;
   width: 60%;
   height: 40px;
@@ -3823,32 +3831,31 @@ testimonial-section{
   }
 }
 
-
 /*********************************/
 /*         tech stack          */
 /*===============================*/
 
 .container-filter li {
-      font-size: 13px;
-      padding: 0px 15px; 
-      margin: 5px 3px;
-      font-weight: 700;
-      letter-spacing: 0.8px;
-      cursor: pointer;
-      line-height: 34px;
-      transition: all 0.5s ease;
-      align-content: center;
-      background-color: #00227f;
-      color: white;
+  font-size: 13px;
+  padding: 0px 15px;
+  margin: 5px 3px;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  cursor: pointer;
+  line-height: 34px;
+  transition: all 0.5s ease;
+  align-content: center;
+  background-color: #00227f;
+  color: white;
 }
 
-.container-filter:hover{
+.container-filter:hover {
   background-color: transparent;
   color: #00227f;
   transition: 0.4s ease-in-out;
   border-color: #00227f;
 }
-.nav-pills .nav-link.active p{
+.nav-pills .nav-link.active p {
   color: #ffffff !important;
 }
 .sticky-bar {
@@ -3869,7 +3876,7 @@ testimonial-section{
 
 .bg-overlay-white {
   background-color: rgba(255, 255, 255, 0.5);
-}   
+}
 
 .it-home {
   animation: slideleft 20000s infinite linear;
@@ -3884,20 +3891,24 @@ testimonial-section{
   }
 }
 .w-100 {
-  width: 100%!important;
+  width: 100% !important;
 }
-.text-white{
-color: #fff;
+.text-white {
+  color: #fff;
 }
-.title-heading{
-  z-index:5;
+.title-heading {
+  z-index: 5;
 }
 
-.stg{
+.stg {
   margin-top: 10px;
 }
 
-.lykas{
+.lykas {
   transform: scale(1.2);
-  margin-top:2px;
+  margin-top: 2px;
+}
+
+.registeration-form{
+  margin: 0 40px;
 }
