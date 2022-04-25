@@ -1067,6 +1067,7 @@ Navbar Area CSS
   }
   .exto-responsive-nav .exto-responsive-menu.mean-container .mean-nav ul {
     font-size: 14px;
+    border-radius: 20px;
   }
   .exto-responsive-nav .exto-responsive-menu.mean-container .mean-nav ul li a {
     font-size: 15px;
@@ -1128,62 +1129,6 @@ Navbar Area CSS
   .navbar-area-two.is-sticky {
     background: #8a8a8a !important;
   }
-  .saas-home-area {
-    height: 100%;
-    padding-bottom: 130px;
-    background-position: right;
-  }
-  .saas-home-area .hero-content {
-    text-align: center;
-    margin-top: 100px;
-  }
-  .saas-home-area .hero-content span {
-    margin-bottom: 5px;
-  }
-  .saas-home-area .hero-content h1 {
-    font-size: 25px;
-    margin: 12px 0 8px 0;
-  }
-  .saas-home-area .hero-content p {
-    font-size: 14px;
-  }
-  .saas-home-area .hero-content .saas-btn {
-    margin-top: 22px;
-  }
-  .saas-home-area .hero-content .saas-btn .saas-btn-one {
-    padding: 10px 12px;
-    font-size: 13px;
-  }
-  .saas-home-area .hero-content .saas-btn .saas-btn-one i {
-    font-size: 14px;
-  }
-  .saas-home-area .hero-content .saas-btn .saas-btn-two {
-    padding: 10px 12px;
-    font-size: 13px;
-    margin-left: 5px;
-  }
-  .saas-home-area .hero-content .saas-btn .saas-btn-two i {
-    font-size: 14px;
-  }
-  .features-section {
-    padding-top: 0;
-  }
-  .creative-shape {
-    bottom: -5px;
-  }
-  .circle-img {
-    display: none;
-  }
-  .saas-image img {
-    position: unset;
-    width: 100%;
-  }
-  .saas-image img:last-child {
-    display: none;
-  }
-  .footer-section.startup-footer .footer-area-content .default-btn {
-    margin-top: 0;
-  }
 
   .exto-responsive-nav .exto-responsive-menu.mean-container .others-options {
     display: block;
@@ -1192,12 +1137,13 @@ Navbar Area CSS
     display: none;
   }
   .saas-nav-btn {
+    font-size: .8rem;
     position: absolute;
-    top: -8px;
+    top: -2px;
     right: 46px;
     background-color: #00227f;
     display: inline-block;
-    padding: 10px;
+    padding: 7px;
     border-radius: 4px;
     color: #ffffff;
   }
@@ -1205,18 +1151,17 @@ Navbar Area CSS
     font-size: 12px;
   }
 }
-
-@media only screen and (max-width: 767px) {
-  .saas-home-area {
-    height: 100%;
-    padding-bottom: 100px;
-  }
-}
-
 @media only screen and (min-width: 768px) and (max-width: 991px) {
-  .hero-content {
-    margin-top: 0 !important;
-    padding: 100px 0;
+  .saas-nav-btn {
+    font-size: .8rem;
+    position: absolute;
+    top: 0px;
+    right: 46px;
+    background-color: #00227f;
+    display: inline-block;
+    padding: 8px;
+    border-radius: 4px;
+    color: #ffffff;
   }
   .navbar-area {
     -webkit-box-shadow: 0 7px 13px 0 rgba(0, 0, 0, 0.1);
@@ -1246,51 +1191,6 @@ Navbar Area CSS
     font-weight: 700;
     padding-top: 0;
   }
-  .saas-home-area {
-    height: 100%;
-    padding-bottom: 100px;
-  }
-  .saas-home-area .hero-content {
-    text-align: center;
-  }
-  .saas-home-area .hero-content h1 {
-    font-size: 25px;
-    margin: 12px 0 8px 0;
-  }
-  .saas-home-area .hero-content p {
-    font-size: 14px;
-  }
-  .saas-home-area .hero-content .saas-btn {
-    margin-top: 22px;
-  }
-  .saas-home-area .hero-content .saas-btn .saas-btn-one {
-    padding: 10px 12px;
-    font-size: 15px;
-  }
-  .saas-home-area .hero-content .saas-btn .saas-btn-two {
-    padding: 10px 12px;
-    font-size: 15px;
-    margin-left: 5px;
-  }
-  .features-section {
-    padding-top: 0;
-  }
-  .creative-shape {
-    bottom: -5px;
-  }
-  .circle-img {
-    display: none;
-  }
-  .saas-image img {
-    position: unset;
-  }
-  .saas-image img:last-child {
-    left: 265px;
-  }
-  .saas-image img.banner-tab {
-    position: absolute;
-    right: 0;
-  }
   .exto-responsive-nav .exto-responsive-menu.mean-container .others-options {
     display: block;
   }
@@ -1299,7 +1199,7 @@ Navbar Area CSS
   }
   .saas-nav-btn {
     position: absolute;
-    top: -8px;
+    top: -2px;
     right: 46px;
     background-color: #00227f;
     display: inline-block;
@@ -1313,9 +1213,6 @@ Navbar Area CSS
 }
 
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
-  .saas-home-area .hero-content h1 {
-    font-size: 40px;
-  }
   .saas-image img {
     left: -42px;
     width: 330px;
@@ -1366,5 +1263,11 @@ Navbar Area CSS
   .saas-home-area .saas-image img:last-child {
     left: 300px;
     top: -95px;
+  }
+}
+
+@media (max-width: 395px) {
+  .logo img{
+    width: 70%;
   }
 }
