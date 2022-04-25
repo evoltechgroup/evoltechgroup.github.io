@@ -26,10 +26,12 @@ var page = path.split("/").pop();
 if (page === "about.html") {
   feather.replace();
 }
+
+$(".mean-menu").meanmenu({
+  meanScreenWidth: "991",
+});
+
 if (page === "index.html") {
-  $(".mean-menu").meanmenu({
-    meanScreenWidth: "991",
-  });
 
   const testimonial_slider = new Swiper(
     ".testimonial-slider .swiper-container",
