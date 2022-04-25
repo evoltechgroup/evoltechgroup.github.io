@@ -478,7 +478,7 @@ Saas Home Area CSS
   align-self: center;
 }
 .clients-container {
-  padding-top: 140px;  
+  padding-top: 40px;  
   z-index: 9999;
 }
 .text_colour {
@@ -505,7 +505,7 @@ a {
 
 .section {
   position: relative;
-  padding: 60px 0;
+  padding: 30px 0;
 }
 .services-section {
   background-color: #ededee;
@@ -519,7 +519,7 @@ a {
 
 .left-text {
   font-weight: 400;
-  font-size: 20px;
+  font-size: 16px;
   color: #6f8ba4;
   line-height: 28px;
   letter-spacing: 1px;
@@ -2253,6 +2253,7 @@ Footer Section CSS
 .section-title {
   margin-bottom: 8px;
   color: #002180;
+  font-weight: 700;
 }
 
 .section-text {
@@ -2813,8 +2814,8 @@ Footer Section CSS
     margin-bottom: 20px;
   }
   .plate-text {
-    font-size: 17px;
-    line-height: 24px;
+    font-size: 14px;
+    line-height: 20px;
     width: 100%;
   }
   .plate-info {
@@ -2953,7 +2954,7 @@ Footer Section CSS
     height: 580px !important;
   }
   .plate .qa-new-pic {
-    height: 500px;
+    height: 336px;
     width: auto !important;
     margin: 50px 0 0 -20px;
   }
