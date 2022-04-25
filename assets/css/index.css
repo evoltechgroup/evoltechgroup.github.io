@@ -2898,15 +2898,13 @@ Footer Section CSS
     margin-top: 50px !important;
   }
   .mobile-new-pic {
-    margin-top: 60px !important;
+    margin-top: 100px !important;
   }
   .mobile-new {
     height: 500px;
   }
   .plate .mobile-new-pic {
     height: 300px;
-    width: auto;
-    margin: 40px 0 -100px -54px;
   }
   .devops-plate .plate-text br,
   .mobile-new .plate-text br,
