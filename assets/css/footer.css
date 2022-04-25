@@ -685,3 +685,8 @@ Footer Section CSS
     margin-left: 0;
   }
   
+  @media (max-width:767px) {
+    .footer-area-content{
+      text-align: center;
+    }    
+  }
