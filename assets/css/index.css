@@ -2368,7 +2368,7 @@ Footer Section CSS
   -webkit-transform: translateX(-50%);
   -ms-transform: translateX(-50%);
   transform: translateX(-50%);
-  top: 44%;
+  top: 35%;
 }
 .plate .qa-new-pic-mobile {
   width: 70%;
@@ -2897,8 +2897,9 @@ Footer Section CSS
   .web-new-pic {
     margin-top: 50px !important;
   }
-  .mobile-new-pic {
-    margin-top: 100px !important;
+  .plate .mobile-new-pic {
+    margin-top: 90px !important;
+    padding: 0 5vw;
   }
   .mobile-new {
     height: 500px;

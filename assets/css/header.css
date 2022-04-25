@@ -1090,7 +1090,6 @@ Navbar Area CSS
   }
   .exto-responsive-nav .exto-responsive-menu.mean-container .navbar-nav {
     overflow-y: scroll;
-    height: 336px;
     -webkit-box-shadow: 0 7px 13px 0 rgba(0, 0, 0, 0.1);
     box-shadow: 0 7px 13px 0 rgba(0, 0, 0, 0.1);
   }
