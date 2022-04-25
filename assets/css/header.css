@@ -1210,8 +1210,7 @@ Navbar Area CSS
 @media only screen and (max-width: 767px) {
   .saas-home-area {
     height: 100%;
-    padding-top: 100px;
-    padding-bottom: 0;
+    padding-bottom: 100px;
   }
 }
 
