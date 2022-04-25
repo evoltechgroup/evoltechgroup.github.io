@@ -1574,6 +1574,28 @@ Footer Section CSS
   margin-left: 0;
 }
 
+  
+@media (max-width:767px) {
+  .footer-area-content{
+    text-align: center;
+  }
+  .footer-right-content{
+    justify-content: center;
+    padding: 20px 0;
+  }
+  .footer-right-content li{
+    padding: 0px 10px;
+  }
+  .copyright-area{
+    padding-top: 0;
+    padding-bottom: 0;
+    text-align: center;
+  }
+  .copyright-area .text-end{
+    text-align: center !important;
+  }
+
+}
 /*================================================
   Go Top CSS
   =================================================*/
