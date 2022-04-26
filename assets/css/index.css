@@ -4237,9 +4237,6 @@ testimonial-section {
     height: 140px;
   }
 }
-.plate-flex-wrapper {
-  padding: 0 15px;
-}
 
 @media (max-width: 425px) {
   .shape.integration-hero {
