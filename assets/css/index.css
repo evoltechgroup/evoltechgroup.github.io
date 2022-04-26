@@ -4237,9 +4237,6 @@ testimonial-section {
   }
 
 }
-.plate-flex-wrapper{
-  padding: 0 15px;
-}
 
 @media (max-width: 425px) {
   .shape.integration-hero {
@@ -4291,7 +4288,12 @@ testimonial-section {
   .saas-home-area .hero-content .saas-btn .saas-btn-two i {
     font-size: 14px;
   }
-
+  .footer-area-content{
+    text-align: center;
+  } 
+  .img-footer{
+    width: 40%;
+  } 
 }
 
 @media only screen and (min-width: 768px) and (max-width: 991px) {

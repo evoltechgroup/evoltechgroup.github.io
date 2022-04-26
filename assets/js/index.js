@@ -31,37 +31,37 @@ $(".mean-menu").meanmenu({
   meanScreenWidth: "991",
 });
 
-if (page === "index.html") {
+// if (page === "index.html") {
 
-  const testimonial_slider = new Swiper(
-    ".testimonial-slider .swiper-container",
-    {
-      resizeObserver: true,
-      spaceBetween: 0,
-      initialSlide: 1,
-      init: false,
-      speed: 250,
-      slideToClickedSlide: true,
-      breakpoints: {
-        0: {
-          direction: "horizontal",
-          centeredSlides: true,
-          loop: true,
-          slidesPerView: 1.7,
-        },
-        992: {
-          direction: "vertical",
-          centeredSlides: true,
-          loop: true,
-          slidesPerView: 1.7,
-        },
-      },
-    }
-  );
-  window.addEventListener("load", () => {
-    testimonial_slider.init();
-  });
-}
+//   const testimonial_slider = new Swiper(
+//     ".testimonial-slider .swiper-container",
+//     {
+//       resizeObserver: true,
+//       spaceBetween: 0,
+//       initialSlide: 1,
+//       init: false,
+//       speed: 250,
+//       slideToClickedSlide: true,
+//       breakpoints: {
+//         0: {
+//           direction: "horizontal",
+//           centeredSlides: true,
+//           loop: true,
+//           slidesPerView: 1.7,
+//         },
+//         992: {
+//           direction: "vertical",
+//           centeredSlides: true,
+//           loop: true,
+//           slidesPerView: 1.7,
+//         },
+//       },
+//     }
+//   );
+//   window.addEventListener("load", () => {
+//     testimonial_slider.init();
+//   });
+// }
 //testimonial carousal Jquery
 // var sync1 = $(".client-content-carousel"),
 //   sync2 = $(".client-thumb-carousel"),
