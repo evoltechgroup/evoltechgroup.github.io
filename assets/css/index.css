@@ -22,7 +22,7 @@ Saas Home Area CSS
 }
 
 .saas-home-area .hero-content {
-  margin-top: 190px;
+  margin-top: 25vh;
 }
 
 .hero-content h1 {
@@ -4237,9 +4237,6 @@ testimonial-section {
     height: 140px;
   }
 }
-.plate-flex-wrapper {
-  padding: 0 15px;
-}
 
 @media (max-width: 425px) {
   .shape.integration-hero {
@@ -4297,6 +4294,12 @@ testimonial-section {
   } 
   .img-footer{
     width: 40%;
+  }
+  .p-sm1-0{
+    padding: 0 !important;
+  }
+  .plate-flex-wrapper{
+    padding: 0;
   }
 }
 
