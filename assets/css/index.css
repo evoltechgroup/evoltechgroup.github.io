@@ -473,7 +473,7 @@ Saas Home Area CSS
   align-self: center;
 }
 .clients-container {
-  padding-top: 40px;  
+  padding-top: 40px;
   z-index: 9999;
 }
 .text_colour {
@@ -1574,27 +1574,25 @@ Footer Section CSS
   margin-left: 0;
 }
 
-  
-@media (max-width:767px) {
-  .footer-area-content{
+@media (max-width: 767px) {
+  .footer-area-content {
     text-align: center;
   }
-  .footer-right-content{
+  .footer-right-content {
     justify-content: center;
     padding: 20px 0;
   }
-  .footer-right-content li{
+  .footer-right-content li {
     padding: 0px 10px;
   }
-  .copyright-area{
+  .copyright-area {
     padding-top: 0;
     padding-bottom: 0;
     text-align: center;
   }
-  .copyright-area .text-end{
+  .copyright-area .text-end {
     text-align: center !important;
   }
-
 }
 /*================================================
   Go Top CSS
@@ -2316,22 +2314,28 @@ Footer Section CSS
 }
 .plate.backend-plate-new {
   background: #fafafa;
+  border-radius: 18px;
 }
 .plate.backend-plate-new .plate-info {
   z-index: 2;
+  border-radius: 18px;
 }
 .plate .backend-newest {
   height: 90%;
   left: 460px;
   top: 5%;
+  border-radius: 18px;
 }
 .plate.devops-plate {
   overflow: visible;
+  border-radius: 18px;
+
 }
 .plate .devops-newest {
   width: 80%;
   left: 10%;
   top: 42%;
+  border-radius: 18px;
 }
 .plate-info {
   position: absolute;
@@ -2410,7 +2414,6 @@ Footer Section CSS
   overflow: hidden !important;
 }
 
-
 /* servies css end */
 
 /* Footer links */
@@ -2450,7 +2453,6 @@ Footer Section CSS
 .blog .content .post-meta .comments:hover {
   color: #2eca8b !important;
 }
-
 
 @media (max-width: 780px) {
   .backend-plate,
@@ -2531,6 +2533,7 @@ Footer Section CSS
   .plate.half {
     width: 100%;
     box-shadow: 0 2px 48px 0 rgba(0, 0, 0, 0.06);
+    border-radius: 32px !important;
   }
   .index-plates-block {
     padding: 0;
@@ -3457,7 +3460,6 @@ testimonial-section {
   background: #ffffff;
 }
 
-
 /*********************************/
 /*         tech stack          */
 /*===============================*/
@@ -3536,7 +3538,7 @@ testimonial-section {
   margin-top: 2px;
 }
 
-.registeration-form{
+.registeration-form {
   margin: 0 40px;
 }
 
@@ -3546,7 +3548,7 @@ testimonial-section {
   .logogrid__img {
     margin: 30px 0 !important;
   }
-  .clients-container{
+  .clients-container {
     padding-top: 50px !important;
   }
 }
@@ -4202,7 +4204,6 @@ testimonial-section {
   }
 }
 
-
 @media (min-width: 1024px) {
   .job-profile {
     top: -378px;
@@ -4235,7 +4236,9 @@ testimonial-section {
   .shape.integration-hero {
     height: 140px;
   }
-
+}
+.plate-flex-wrapper {
+  padding: 0 15px;
 }
 
 @media (max-width: 425px) {
@@ -4288,12 +4291,13 @@ testimonial-section {
   .saas-home-area .hero-content .saas-btn .saas-btn-two i {
     font-size: 14px;
   }
+
   .footer-area-content{
     text-align: center;
   } 
   .img-footer{
     width: 40%;
-  } 
+  }
 }
 
 @media only screen and (min-width: 768px) and (max-width: 991px) {
