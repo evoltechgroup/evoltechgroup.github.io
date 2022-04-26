@@ -2479,7 +2479,7 @@ Footer Section CSS
     left: 350px !important;
   }
   .mobile-new {
-    height: 370px;
+    height: 370px !important;
   }
   .fs-block .plate-info br {
     display: none !important;
@@ -3761,7 +3761,7 @@ testimonial-section {
   }
   .mobile-new {
     overflow: hidden;
-    height: 450px;
+    height: 450px !important;
   }
   .fs-block .plate-info.top-center {
     top: auto;
@@ -3957,7 +3957,7 @@ testimonial-section {
     left: 350px !important;
   }
   .mobile-new {
-    height: 370px;
+    height: 370px !important;
   }
   .fs-block .plate-info br {
     display: none !important;
