@@ -688,5 +688,8 @@ Footer Section CSS
   @media (max-width:767px) {
     .footer-area-content{
       text-align: center;
-    }    
+    } 
+    .img-footer{
+      width: 55%;
+    }   
   }
