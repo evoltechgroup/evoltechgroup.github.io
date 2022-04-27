@@ -26,6 +26,7 @@ Saas Home Area CSS
 }
 
 .hero-content h1 {
+  font-family: orkney;
   color: #002180;
   font-weight: bold;
   margin: 0px 0 30px 0;
@@ -38,10 +39,11 @@ Saas Home Area CSS
   margin: 0px 0 30px 0;
 }
 .saas-home-area .hero-content p {
+  font-family: orkney;
   color: #7d8087;
-  font-weight: 500;
+  font-weight: bold;
   margin: 0 0 0 0;
-  font-size: 20px;
+  font-size: 25px;
 }
 
 .saas-home-area .hero-content span {
@@ -2289,15 +2291,21 @@ Footer Section CSS
   left: 0;
   width: 100%;
   transform: scale(1.1);
-  -webkit-mask-image:-webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,.1)), to(rgba(0,0,0,1)));
-  mask-image: linear-gradient(to top, rgba(0,0,0,0), rgba(0,0,0,1));
+  -webkit-mask-image: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    from(rgba(0, 0, 0, 0.1)),
+    to(rgba(0, 0, 0, 1))
+  );
+  mask-image: linear-gradient(to top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1));
 }
 .plate .ml-newest-pic {
   width: 70%;
   left: 30%;
   top: 0;
 }
-.plate object.serverless{
+.plate object.serverless {
   width: 75%;
   left: 52%;
   top: 25%;
@@ -2319,6 +2327,13 @@ Footer Section CSS
   top: 0;
   right: 0;
 }
+.plate .web-half {
+  top: 20vh;
+  height: 70%;
+}
+.plate .mobile-half {
+  width: 100%;
+}
 .plate.backend-plate-new {
   background: #fafafa;
   border-radius: 18px;
@@ -2336,7 +2351,6 @@ Footer Section CSS
 .plate.devops-plate {
   overflow: visible;
   border-radius: 18px;
-
 }
 .plate .devops-newest {
   width: 80%;
@@ -2540,7 +2554,7 @@ Footer Section CSS
   .plate.half {
     width: 100%;
     box-shadow: 0 2px 48px 0 rgba(0, 0, 0, 0.06);
-    border-radius: 32px !important;
+    border-radius: 18px !important;
   }
   .index-plates-block {
     padding: 0;
@@ -3549,6 +3563,12 @@ testimonial-section {
   .plate {
     height: 500px !important;
   }
+  .plate-mobile {
+    height: 100% !important;
+  }
+  .plate .mobile-half {
+    margin-top: -20vh;
+  }
 }
 
 @media (max-width: 991px) {
@@ -3934,7 +3954,7 @@ testimonial-section {
     width: 75% !important;
     max-width: 100%;
   }
-  .logogrid__img{
+  .logogrid__img {
     width: 60% !important;
   }
 }
@@ -4121,8 +4141,6 @@ testimonial-section {
   .index-plates-block#services .plate {
     height: 580px !important;
   }
-  .plate .qa-new-pic {
-  }
   .plate .qa-new-pic-mobile {
     width: 100%;
     height: 550px;
@@ -4255,11 +4273,14 @@ testimonial-section {
     margin-bottom: 5px;
   }
   .saas-home-area .hero-content h1 {
+    font-family: orkney;
     font-size: 25px;
     margin: 12px 0 8px 0;
   }
   .saas-home-area .hero-content p {
+    font-family: orkney;
     font-size: 14px;
+    font-weight: bold;
   }
   .saas-home-area .hero-content .saas-btn {
     margin-top: 22px;
@@ -4280,16 +4301,16 @@ testimonial-section {
     font-size: 14px;
   }
 
-  .footer-area-content{
+  .footer-area-content {
     text-align: center;
-  } 
-  .img-footer{
+  }
+  .img-footer {
     width: 40%;
   }
-  .p-sm1-0{
+  .p-sm1-0 {
     padding: 0 !important;
   }
-  .plate-flex-wrapper{
+  .plate-flex-wrapper {
     padding: 0;
   }
 }
@@ -4308,11 +4329,14 @@ testimonial-section {
     text-align: center;
   }
   .saas-home-area .hero-content h1 {
+    font-family: orkney;
     font-size: 25px;
     margin: 12px 0 8px 0;
   }
   .saas-home-area .hero-content p {
+    font-family: orkney;
     font-size: 14px;
+    font-weight: bold;
   }
   .saas-home-area .hero-content .saas-btn {
     margin-top: 22px;
@@ -4328,9 +4352,9 @@ testimonial-section {
   }
 }
 
-.btn-outline-primary{
+.btn-outline-primary {
   font-size: 1.05rem !important;
 }
-.btn-outline-primary:hover{
+.btn-outline-primary:hover {
   filter: drop-shadow(2px 4px 4px #002180);
 }
