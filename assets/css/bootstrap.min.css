@@ -6656,7 +6656,7 @@ fieldset:disabled .btn {
   padding-right: 1.5rem !important;
 }
 .pe-5 {
-  padding-right: 3rem !important;
+  padding-right: 5rem !important;
 }
 .pb-0 {
   padding-bottom: 0 !important;
@@ -7837,6 +7837,10 @@ fieldset:disabled .btn {
   .py-md-5 {
     padding-top: 3rem !important;
     padding-bottom: 3rem !important;
+  }
+  .py-md-10 {
+    padding-top: 10rem !important;
+    padding-bottom: 0rem !important;
   }
   .pt-md-0 {
     padding-top: 0 !important;
