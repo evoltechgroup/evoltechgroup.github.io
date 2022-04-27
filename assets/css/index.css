@@ -2329,10 +2329,11 @@ Footer Section CSS
 }
 .plate .web-half {
   top: 20vh;
-  height: 70%;
+  height: 75%;
 }
 .plate .mobile-half {
   width: 100%;
+  margin-top:10%;
 }
 .plate.backend-plate-new {
   background: #fafafa;
@@ -3554,6 +3555,11 @@ testimonial-section {
 /* MEDIA */
 
 @media (max-width: 991.5px) {
+  .plate-text {
+    font-size: 14px;
+    line-height: 24px;
+    width: 100%;
+  }
   .logogrid__img {
     margin: 30px 0 !important;
   }
@@ -3567,7 +3573,7 @@ testimonial-section {
     height: 100% !important;
   }
   .plate .mobile-half {
-    margin-top: -20vh;
+    margin-top: -30%;
   }
 }
 
@@ -4007,11 +4013,6 @@ testimonial-section {
     -webkit-border-radius: 0;
     border-radius: 0;
     margin-bottom: 20px;
-  }
-  .plate-text {
-    font-size: 14px;
-    line-height: 24px;
-    width: 100%;
   }
   .plate-info {
     width: -webkit-calc(100% - 80px);
