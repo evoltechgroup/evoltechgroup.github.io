@@ -204,7 +204,7 @@ sup {
 }
 a {
   color: #00227F;
-  text-decoration: underline;
+  text-decoration: none;
 }
 a:hover {
   color: #00227F;
@@ -6056,7 +6056,7 @@ fieldset:disabled .btn {
   display: none !important;
 }
 .shadow {
-  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+  box-shadow: 0 0.5rem 0.5rem rgba(0, 0, 0, 0.15) !important;
 }
 .shadow-sm {
   box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075) !important;
@@ -6793,7 +6793,7 @@ fieldset:disabled .btn {
   color: #6c757d !important;
 }
 .text-success {
-  color: #198754 !important;
+  color: #00227F !important;
 }
 .text-info {
   color: #0dcaf0 !important;
@@ -6886,7 +6886,7 @@ fieldset:disabled .btn {
   pointer-events: auto !important;
 }
 .rounded {
-  border-radius: 0.25rem !important;
+  border-radius: 1.15rem !important;
 }
 .rounded-0 {
   border-radius: 0 !important;
