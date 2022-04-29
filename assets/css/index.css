@@ -588,7 +588,7 @@ home
   left: 0px;
   z-index: 1;
   background: #002180;
-  transform: rotate3d(0,1,0,5deg);
+  transform: rotate3d(0, 1, 0, 5deg);
   /* background: rgb(141, 202, 255); */
   /* background: linear-gradient(
     45deg,
@@ -661,11 +661,11 @@ home
   z-index: 2;
   width: 100%;
 }
-.what_we_do{
+.what_we_do {
   background-color: #000;
   border-radius: 10px;
   padding: 50px;
-  margin:15px 15px 50px 15px;
+  margin: 15px 15px 50px 15px;
   filter: drop-shadow(2px 4px 4px #00000062);
 }
 .section-heading {
@@ -2332,7 +2332,7 @@ Footer Section CSS
 }
 .plate .mobile-half {
   width: 100%;
-  margin-top:10%;
+  margin-top: 10%;
 }
 .plate.backend-plate-new {
   background: #fafafa;
@@ -2575,6 +2575,52 @@ Footer Section CSS
   }
   .stack-block .content {
     padding: 90px 30px;
+  }
+}
+@media (min-width: 845.5px) and (max-width: 1025.5px) {
+  .what_we_do {
+    padding: 90px 0;
+  }
+  .hover_card {
+    width: 100% !important;
+  }
+  .hover_cards li {
+    width: 100%;
+  }
+  .hover_card__image.idea_card {
+    margin-left: 0;
+    width: 52.5vw !important;
+  }
+  .hover_card__image.develop_card {
+    width: 55vw !important;
+  }
+  .hover_card__image.design_card {
+    width: 55vw !important;
+  }
+  .hover_card__image.deliver_card {
+    width: 55vw !important;
+  }
+}
+@media (max-width: 845.5px) {
+  .what_we_do {
+    padding: 20px 0 !important;
+  }
+  .hover_cards li {
+    padding: 0 10vw;
+  }
+
+  .hover_card__overlay {
+    width: 100%;
+  }
+  .hover_card__image {
+    margin-left: 0 !important;
+    width: 100% !important;
+  }
+  .hover_card__description {
+    font-size: 1rem;
+  }
+  .hover_card__header {
+    font-size: 1rem;
   }
 }
 
@@ -3725,7 +3771,7 @@ testimonial-section {
 }
 
 @media (max-width: 1250px) {
-  .p-manual-1{
+  .p-manual-1 {
     padding: 0 5vw !important;
   }
   .devops-newest {
@@ -4229,6 +4275,9 @@ testimonial-section {
 }
 
 @media (max-width: 767px) {
+  .hover_card {
+    height: 100% !important;
+  }
   .company-logo {
     float: none !important;
     text-align: left !important;
@@ -4254,11 +4303,30 @@ testimonial-section {
   .shape.integration-hero {
     height: 60px;
   }
-}
-
-@media (max-width: 425px) {
   .shape {
     bottom: -4px;
+  }
+  .hover_cards {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)) !important;
+  }
+  .hover_card {
+    height: 250px !important;
+  }
+  .hover_card__description {
+    font-size: 0.7rem;
+  }
+  .hover_card__header {
+    padding: 30px !important;
+  }
+  .hover_card__header .hover_card__thumb,
+  .hover_card__header .hover_card__title {
+    font-size: 1rem;
+  }
+  .hover_card__image.develop_card {
+    height: 250px !important;
+  }
+  .hover_card__image{
+    margin-top: 20px !important;
   }
 }
 
@@ -4368,7 +4436,7 @@ testimonial-section {
 }
 
 body {
-  font-family: 'Noto Sans JP', sans-serif;
+  font-family: "Noto Sans JP", sans-serif;
   background-color: #fef8f8;
 }
 
@@ -4383,27 +4451,27 @@ body {
 .hover_card {
   position: relative;
   display: block;
-  height: 450px;  
+  height: 450px;
   border-radius: 25px;
   overflow: hidden;
   text-decoration: none;
 }
 
-.hover_card__image.idea_card {      
+.hover_card__image.idea_card {
   width: 450px;
-  margin-left:-45px;
+  margin-left: -45px;
 }
-.hover_card__image.develop_card {      
+.hover_card__image.develop_card {
   margin-left: -60px;
   height: 650px;
   width: 544px;
 }
-.hover_card__image.design_card {      
+.hover_card__image.design_card {
   width: 450px;
 }
-.hover_card__image.deliver_card {     
+.hover_card__image.deliver_card {
   margin-left: -30px;
-  width:420px ;
+  width: 420px;
 }
 
 .hover_card__overlay {
@@ -4411,30 +4479,30 @@ body {
   bottom: 0;
   left: 0;
   right: 0;
-  z-index: 1;      
-  border-radius: 20px;    
-  background-color: var(--surface-color);      
+  z-index: 1;
+  border-radius: 20px;
+  background-color: var(--surface-color);
   transform: translateY(100%);
-  transition: .2s ease-in-out;
+  transition: 0.2s ease-in-out;
 }
 
 .hover_card:hover .hover_card__overlay {
   transform: translateY(0);
 }
 
-.hover_card:hover .hover_card__image.idea_card{
+.hover_card:hover .hover_card__image.idea_card {
   filter: drop-shadow(0px 0px 5px #00c3ff);
 }
-.hover_card:hover .hover_card__image.design_card{
+.hover_card:hover .hover_card__image.design_card {
   filter: drop-shadow(0px 0px 5px #ffffff);
 }
-.hover_card:hover .hover_card__image.develop_card{
+.hover_card:hover .hover_card__image.develop_card {
   filter: drop-shadow(0px 0px 5px #0051ff);
 }
-.hover_card:hover .hover_card__image.deliver_card{
+.hover_card:hover .hover_card__image.deliver_card {
   filter: drop-shadow(0px 0px 5px #ff0000);
 }
-.p-manual-1{
+.p-manual-1 {
   padding: 2vh 12.5vw;
 }
 .hover_card__header {
@@ -4443,10 +4511,10 @@ body {
   align-items: center;
   gap: 2em;
   padding: 2em;
-  border-radius:25px 0 0 0;    
+  border-radius: 25px 0 0 0;
   background-color: #fff;
   transform: translateY(-100%);
-  transition: .2s ease-in-out;
+  transition: 0.2s ease-in-out;
 }
 
 .hover_card__arc {
@@ -4454,14 +4522,14 @@ body {
   height: 80px;
   position: absolute;
   bottom: 100%;
-  right: 0;      
+  right: 0;
   z-index: 1;
 }
 
 .hover_card__arc path {
   fill: #fff;
   d: path("M 40 80 c 22 0 40 -22 40 -40 v 40 Z");
-}       
+}
 
 .hover_card:hover .hover_card__header {
   transform: translateY(0);
@@ -4474,20 +4542,20 @@ body {
 
 .hover_card__title {
   font-size: 1.25rem;
-  margin:0 !important;
+  margin: 0 !important;
   color: #003cff;
 }
 
 .hover_card__tagline {
   display: block;
   margin: 1em 0;
-  font-family: "MockFlowFont";  
-  font-size: .8em; 
-  color: #6f8ba4;  
+  font-family: "MockFlowFont";
+  font-size: 0.8em;
+  color: #6f8ba4;
 }
 
 .hover_card__status {
-  font-size: .8em;
+  font-size: 0.8em;
   color: #6f8ba4;
 }
 
@@ -4495,6 +4563,6 @@ body {
   padding: 0 2em 3em;
   margin: 0;
   color: #6f8ba4;
-  font-family: "MockFlowFont";   
+  font-family: "MockFlowFont";
   overflow: hidden;
-}    
+}
