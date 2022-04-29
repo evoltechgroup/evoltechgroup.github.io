@@ -661,13 +661,13 @@ home
   z-index: 2;
   width: 100%;
 }
-/* <!-------- What We DO - End-------->*/
-
-/* <!-------- Services - Start-------->*/
-/* <!-------- Services - End-------->*/
-
-/* <!-------- Customer Reviews - Start-------->*/
-
+.what_we_do{
+  background-color: #000;
+  border-radius: 10px;
+  padding: 50px;
+  margin:15px 15px 50px 15px;
+  filter: drop-shadow(2px 4px 4px #00000062);
+}
 .section-heading {
   position: relative;
   z-index: 2;
@@ -3725,6 +3725,9 @@ testimonial-section {
 }
 
 @media (max-width: 1250px) {
+  .p-manual-1{
+    padding: 0 5vw !important;
+  }
   .devops-newest {
     position: static !important;
     width: 70%;
@@ -4396,7 +4399,7 @@ body {
   width: 544px;
 }
 .hover_card__image.design_card {      
-  width: 500px;
+  width: 450px;
 }
 .hover_card__image.deliver_card {     
   margin-left: -30px;
@@ -4419,6 +4422,21 @@ body {
   transform: translateY(0);
 }
 
+.hover_card:hover .hover_card__image.idea_card{
+  filter: drop-shadow(0px 0px 5px #00c3ff);
+}
+.hover_card:hover .hover_card__image.design_card{
+  filter: drop-shadow(0px 0px 5px #ffffff);
+}
+.hover_card:hover .hover_card__image.develop_card{
+  filter: drop-shadow(0px 0px 5px #0051ff);
+}
+.hover_card:hover .hover_card__image.deliver_card{
+  filter: drop-shadow(0px 0px 5px #ff0000);
+}
+.p-manual-1{
+  padding: 2vh 12.5vw;
+}
 .hover_card__header {
   position: relative;
   display: flex;
@@ -4426,7 +4444,7 @@ body {
   gap: 2em;
   padding: 2em;
   border-radius:25px 0 0 0;    
-  background-color: var(--surface-color);
+  background-color: #fff;
   transform: translateY(-100%);
   transition: .2s ease-in-out;
 }
@@ -4441,7 +4459,7 @@ body {
 }
 
 .hover_card__arc path {
-  fill: var(--surface-color);
+  fill: #fff;
   d: path("M 40 80 c 22 0 40 -22 40 -40 v 40 Z");
 }       
 
@@ -4451,15 +4469,13 @@ body {
 
 .hover_card__thumb {
   flex-shrink: 0;
-  width: 50px;
-  height: 50px;      
-  border-radius: 25%;      
+  font-size: 1.25rem;
 }
 
 .hover_card__title {
-  font-size: 1em;
-  margin: 0 0 .3em;
-  color: #6A515E;
+  font-size: 1.25rem;
+  margin:0 !important;
+  color: #003cff;
 }
 
 .hover_card__tagline {
