@@ -26,7 +26,6 @@ Saas Home Area CSS
 }
 
 .hero-content h1 {
-  font-family: orkney;
   color: #002180;
   font-weight: bold;
   margin: 0px 0 30px 0;
@@ -39,7 +38,6 @@ Saas Home Area CSS
   margin: 0px 0 30px 0;
 }
 .saas-home-area .hero-content p {
-  font-family: orkney;
   color: #7d8087;
   font-weight: bold;
   margin: 0 0 0 0;
@@ -590,6 +588,7 @@ home
   left: 0px;
   z-index: 1;
   background: #002180;
+  transform: rotate3d(0,1,0,5deg);
   /* background: rgb(141, 202, 255); */
   /* background: linear-gradient(
     45deg,
@@ -4274,12 +4273,10 @@ testimonial-section {
     margin-bottom: 5px;
   }
   .saas-home-area .hero-content h1 {
-    font-family: orkney;
     font-size: 25px;
     margin: 12px 0 8px 0;
   }
   .saas-home-area .hero-content p {
-    font-family: orkney;
     font-size: 14px;
     font-weight: bold;
   }
@@ -4330,12 +4327,10 @@ testimonial-section {
     text-align: center;
   }
   .saas-home-area .hero-content h1 {
-    font-family: orkney;
     font-size: 25px;
     margin: 12px 0 8px 0;
   }
   .saas-home-area .hero-content p {
-    font-family: orkney;
     font-size: 14px;
     font-weight: bold;
   }
@@ -4359,3 +4354,132 @@ testimonial-section {
 .btn-outline-primary:hover {
   filter: drop-shadow(2px 4px 4px #002180);
 }
+
+:root {
+  --surface-color: #fff;
+  --curve: 40;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Noto Sans JP', sans-serif;
+  background-color: #fef8f8;
+}
+
+.hover_cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  padding: 0;
+  list-style-type: none;
+}
+
+.hover_card {
+  position: relative;
+  display: block;
+  height: 450px;  
+  border-radius: 25px;
+  overflow: hidden;
+  text-decoration: none;
+}
+
+.hover_card__image.idea_card {      
+  width: 450px;
+  margin-left:-45px;
+}
+.hover_card__image.develop_card {      
+  margin-left: -60px;
+  height: 650px;
+  width: 544px;
+}
+.hover_card__image.design_card {      
+  margin-left: -60px;
+  width: 420px;
+}
+.hover_card__image.deliver_card {     
+  margin-left: -30px;
+  width:420px ;
+}
+
+.hover_card__overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;      
+  border-radius: 20px;    
+  background-color: var(--surface-color);      
+  transform: translateY(100%);
+  transition: .2s ease-in-out;
+}
+
+.hover_card:hover .hover_card__overlay {
+  transform: translateY(0);
+}
+
+.hover_card__header {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 2em;
+  padding: 2em;
+  border-radius:25px 0 0 0;    
+  background-color: var(--surface-color);
+  transform: translateY(-100%);
+  transition: .2s ease-in-out;
+}
+
+.hover_card__arc {
+  width: 80px;
+  height: 80px;
+  position: absolute;
+  bottom: 100%;
+  right: 0;      
+  z-index: 1;
+}
+
+.hover_card__arc path {
+  fill: var(--surface-color);
+  d: path("M 40 80 c 22 0 40 -22 40 -40 v 40 Z");
+}       
+
+.hover_card:hover .hover_card__header {
+  transform: translateY(0);
+}
+
+.hover_card__thumb {
+  flex-shrink: 0;
+  width: 50px;
+  height: 50px;      
+  border-radius: 25%;      
+}
+
+.hover_card__title {
+  font-size: 1em;
+  margin: 0 0 .3em;
+  color: #6A515E;
+}
+
+.hover_card__tagline {
+  display: block;
+  margin: 1em 0;
+  font-family: "MockFlowFont";  
+  font-size: .8em; 
+  color: #6f8ba4;  
+}
+
+.hover_card__status {
+  font-size: .8em;
+  color: #6f8ba4;
+}
+
+.hover_card__description {
+  padding: 0 2em 3em;
+  margin: 0;
+  color: #6f8ba4;
+  font-family: "MockFlowFont";   
+  overflow: hidden;
+}    
