@@ -112,7 +112,13 @@ h3 {
 @media (min-width: 1200px) {
   .h3,
   h3 {
-    font-size: 1.75rem;
+
+   font-family: 'Gilroy';
+   font-style: normal;
+   font-weight: 700;
+   font-size: 48px;
+   line-height: 58px;
+   color: #000000 !important;
   }
 }
 .h4,
@@ -131,7 +137,12 @@ h5 {
 }
 .h6,
 h6 {
-  font-size: 1rem;
+  font-family: 'Gilroy';
+font-style: normal;
+font-weight: 500;
+font-size: 21px;
+line-height: 140%;
+color: #333333 !important;
 }
 p {
   margin-top: 0;
@@ -2633,6 +2644,18 @@ fieldset:disabled .btn {
   background-color: #00227F;
   border-color: #00227F;
 }
+
+.btn-primary-abt {
+  background: #CFEAA3;
+  border-radius: 20px;
+}
+.btn-primary-abt:hover {
+  box-shadow: 0 0 11px rgba(33,33,33,.2); 
+}
+
+
+
+
 .btn-primary:hover {
   color: #00227F;
   background-color: transparent;
@@ -6789,6 +6812,15 @@ fieldset:disabled .btn {
   color: #002180 !important;
   font-weight: bold !important;
 }
+.text-primary-abt-land {
+  color: #002180 !important;
+  font-family: 'Gilroy' !important;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 72px;
+  line-height: 100%;
+}
+
 .text-secondary {
   color: #6c757d !important;
 }
@@ -6817,7 +6849,12 @@ fieldset:disabled .btn {
   color: #212529 !important;
 }
 .text-muted {
-  color: #6c757d !important;
+  font-family: 'Gilroy';
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+line-height: 140%;
+color: #666666 !important;
 }
 .text-black-50 {
   color: rgba(0, 0, 0, 0.5) !important;

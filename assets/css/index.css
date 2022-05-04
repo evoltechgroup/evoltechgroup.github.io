@@ -2184,8 +2184,8 @@ Footer Section CSS
 
 .section-title {
   margin-bottom: 8px;
-  color: #002180;
-  font-weight: 700;
+  color: black;
+  font-weight: 700 bold;
 }
 
 .section-text {
