@@ -2,11 +2,10 @@
 
 import Image from "next/image";
 import { useState } from "react";
-
-import ServicesSection from "./ServicesSection";
-import TestimonialsSection from "./testimonials";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
+import ServicesSection from "../ServicesSection";
+import Testimonials from "../testimonials";
+import Header from "../../components/Header";
+import Footer from "../../components/Footer";
 
 export default function HomePage() {
   return (
@@ -85,7 +84,7 @@ export default function HomePage() {
 
       {/* 2nd Section: Services & Solutions */}
       <ServicesSection />
-      <TestimonialsSection />
+      <Testimonials />
 
       {/* Join Our Team Section */}
       <section className="relative w-full bg-[#F1F8FF] py-20 flex flex-col items-center">
