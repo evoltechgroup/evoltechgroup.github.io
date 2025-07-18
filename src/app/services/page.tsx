@@ -4,8 +4,6 @@ import Footer from "../../components/Footer";
 export default function Services() {
   return (
     <main className="bg-[#0B0F2B] text-white font-sans min-h-screen">
-      <Header />
-
       {/* Hero Section */}
       <section className="relative h-screen flex flex-col justify-center items-center text-center pt-20">
         <div className="max-w-4xl mx-auto px-6">
@@ -18,7 +16,6 @@ export default function Services() {
           </p>
         </div>
       </section>
-      <Footer />
     </main>
   );
 }

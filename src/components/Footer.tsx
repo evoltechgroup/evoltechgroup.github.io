@@ -4,11 +4,9 @@ import Link from "next/link";
 
 export default function Footer() {
   return (
-    <footer className="bg-[#181B2B] text-white py-6 w-full">
-      <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between px-6 md:px-10 text-center md:text-left">
-        
-        {/* Logo & Copyright */}
-        <div className="flex flex-col md:flex-col lg:flex-row items-center gap-2 mb-4 md:mb-0">
+    <footer className="bg-[#181B2B] text-white h-[5rem] py-4 w-full">
+      <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between px-6">
+        <div className="flex items-center gap-2 mb-2 md:mb-0">
           <img
             src="/assets/logos/Group 346.svg"
             alt="EvolTech Logo"
@@ -36,13 +34,11 @@ export default function Footer() {
           <Link href="/contact" className="hover:underline">
             Contact
           </Link>
-
-          {/* Social Icons */}
+          <span className="text-gray-500">/</span>
           <a
             href="mailto:info@evoltech.com"
             className="hover:opacity-80"
-            aria-label="Email us"
-          >
+            aria-label="Email us">
             <i className="fa-regular fa-envelope"></i>
           </a>
           <a
@@ -50,8 +46,7 @@ export default function Footer() {
             className="hover:opacity-80"
             aria-label="Connect on LinkedIn"
             target="_blank"
-            rel="noopener noreferrer"
-          >
+            rel="noopener noreferrer">
             <i className="fa-brands fa-linkedin-in"></i>
           </a>
         </nav>

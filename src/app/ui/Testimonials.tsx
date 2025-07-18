@@ -1,4 +1,7 @@
 "use client";
+import { testimonialLeftSide, testimonialRightSide } from "@/assets/effects";
+import { followArrowRightV2, smileEmoji } from "@/assets/svg";
+import Text from "@/components/Text";
 import { useState } from "react";
 
 interface Testimonial {
@@ -20,7 +23,7 @@ const testimonials: Testimonial[] = [
   },
 ];
 
-function TestimonialsSection() {
+function Testimonials() {
   const [index, setIndex] = useState<number>(0);
   const t = testimonials[index];
   const next = () => setIndex((i) => (i + 1) % testimonials.length);
@@ -28,58 +31,30 @@ function TestimonialsSection() {
     setIndex((i) => (i - 1 + testimonials.length) % testimonials.length);
 
   return (
-    <section className="relative w-full bg-[#eaf6ff] py-20 flex flex-col items-center">
+    <section className="relative w-full bg-[#2A2B68] py-10 flex flex-col items-center h-screen overflow-hidden">
+      <div className="absolute hidden sm:flex inset-0 z-0 w-full h-full  justify-between bg-blend-soft-light opacity-50">
+        <div className="">{testimonialLeftSide}</div>
+        <div className="">{testimonialRightSide}</div>
+      </div>
       <div className="max-w-3xl w-full mx-auto flex flex-col items-center">
-        <h2 className="text-4xl font-bold text-center mb-2 text-[#0B0F2B]">
-          Testimonials
-        </h2>
-        <div className="flex items-center gap-2 mb-2">
-          <span className="text-[#0B0F2B] font-medium text-lg">Happy</span>
-          <span className="inline-block align-middle">
-            <img
-              src="/assets/icons/smile-emoji.png"
-              alt=":)"
-              className="w-7 h-7 "
-            />
-          </span>
-          <span className="text-[#0B0F2B] font-medium text-lg">
-            customers about us
-          </span>
-        </div>
-        {/* Decorative Arrow */}
-        <div className="w-full flex justify-center mb-6">
-          <svg
-            width="70"
-            height="50"
-            viewBox="0 0 70 50"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            className="-ml-8 md:ml-0"
-          >
-            <path
-              d="M2 48C10 36 30 10 68 2"
-              stroke="#FFB800"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-            <path
-              d="M60 2L68 2L68 10"
-              stroke="#FFB800"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-          </svg>
+        <div className="w-1/2 flex flex-col gap-5 items-center justify-center mb-4">
+          <Text
+            className="font-semibold text-3xl sm:text-[56px] max-w-[50rem] text-center"
+            tag="p">
+            Testimonials
+          </Text>
+          <Text className="whitespace-nowrap font-normal text-xl sm:text-4xl text-[#C6C7F3]">
+            The heart
+            <span className="inline-block align-middle ml-2 -mt-4 mr-2 h-5">
+              {smileEmoji}
+            </span>
+            of EvolTech’s success.
+          </Text>
+          <div className="flex gap-2 justify-start items-start -ml-15 w-[70%]">
+            <span className="text-[#FFBB00]">{followArrowRightV2}</span>
+          </div>
         </div>
         <div className="relative w-full flex justify-center">
-          <button
-            onClick={prev}
-            aria-label="Previous"
-            className="absolute left-0 top-1/2 -translate-y-1/2 z-10 p-2 focus:outline-none"
-          >
-            <span className="sr-only">Previous</span>
-          </button>
           <div className="bg-white rounded-2xl shadow-lg px-8 py-8 max-w-2xl w-full flex flex-col items-center relative transition-all duration-500">
             <img
               src="/assets/icons/left-quote.png"
@@ -91,25 +66,18 @@ function TestimonialsSection() {
               alt="quote right"
               className="absolute right-4 bottom-4 w-6 h-6 opacity-40"
             />
-            <p className="text-[#222] text-center text-base whitespace-pre-line min-h-[160px]">
+            <p className="text-[#222] text-center text-base whitespace-pre-line p-6 min-h-[150px]">
               {t.text}
             </p>
           </div>
-          <button
-            onClick={next}
-            aria-label="Next"
-            className="absolute right-0 top-1/2 -translate-y-1/2 z-10 p-2 focus:outline-none"
-          >
-            <span className="sr-only">Next</span>
-          </button>
         </div>
         <div className="mt-6 text-center">
-          <div className="font-bold text-[#0B0F2B] text-lg">{t.author}</div>
+          <div className="font-bold text-[#C6C7F3] text-lg">{t.author}</div>
           <button className="bg-yellow-400 text-[#0B0F2B] px-4 py-1 rounded-full font-semibold text-xs mt-2 cursor-default">
             {t.company}
           </button>
         </div>
-        {/* Slider dots */}
+
         <div className="flex gap-2 justify-center mt-4">
           {testimonials.map((_, i) => (
             <span
@@ -125,4 +93,4 @@ function TestimonialsSection() {
   );
 }
 
-export default TestimonialsSection;
+export default Testimonials;

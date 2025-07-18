@@ -1,0 +1,29 @@
+.vertical-gradient-line {
+  width: 10px;
+  height: 100%;
+  background-color: #4444445a;
+  background: linear-gradient(to bottom, #00000000, #66666600, #66666600);
+}
+
+@keyframes crossfade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes crossfade-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+.img-fade-in {
+  animation: crossfade-in 0.8s ease-in-out forwards;
+}
+.img-fade-out {
+  animation: crossfade-out 0.8s ease-in-out forwards;
+}
