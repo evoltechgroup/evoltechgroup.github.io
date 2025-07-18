@@ -1,12 +1,12 @@
 "use client";
 
 import { useRouter, usePathname } from "next/navigation";
-import { useEffect } from "react";
-import HomePage from "./home/HomePage";
+import "./App.css";
 import About from "./about/page";
 import Services from "./services/page";
 import Careers from "./careers/page";
 import Contact from "./contact/page";
+import HomePage from "./home";
 
 export default function App() {
   const router = useRouter();

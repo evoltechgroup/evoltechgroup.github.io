@@ -1,18 +1,11 @@
 "use client";
-
-import Image from "next/image";
-import { useState } from "react";
-
 import ServicesSection from "./ServicesSection";
-import TestimonialsSection from "./testimonials";
-import Header from "@/components/Header";
+import TestimonialsSection from "./ui/Testimonials";
 import Footer from "@/components/Footer";
 
 export default function HomePage() {
   return (
     <main className="bg-[#0B0F2B] text-white font-sans min-h-screen">
-      <Header />
-
       {/* Hero Section */}
       <section className="relative h-screen flex flex-col justify-center items-center text-center overflow-hidden">
         <video
