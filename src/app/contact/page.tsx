@@ -4,8 +4,6 @@ import Footer from "../../components/Footer";
 export default function Contact() {
   return (
     <main className="bg-[#0B0F2B] text-white font-sans min-h-screen">
-      <Header />
-
       {/* Hero Section */}
       <section className="relative h-screen flex flex-col justify-center items-center text-center pt-20">
         <div className="max-w-4xl mx-auto px-6">
@@ -85,13 +83,11 @@ export default function Contact() {
                   <textarea
                     rows={4}
                     className="w-full px-4 py-2 bg-white/20 border border-white/30 rounded-lg focus:outline-none focus:border-yellow-400"
-                    placeholder="Tell us about your project..."
-                  ></textarea>
+                    placeholder="Tell us about your project..."></textarea>
                 </div>
                 <button
                   type="submit"
-                  className="bg-yellow-400 text-[#0B0F2B] px-6 py-2 rounded-full font-semibold hover:bg-yellow-300 transition"
-                >
+                  className="bg-yellow-400 text-[#0B0F2B] px-6 py-2 rounded-full font-semibold hover:bg-yellow-300 transition">
                   Send Message
                 </button>
               </form>
@@ -99,8 +95,6 @@ export default function Contact() {
           </div>
         </div>
       </section>
-
-      <Footer />
     </main>
   );
 }
