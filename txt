@@ -1,0 +1,91 @@
+"use client";
+
+import Link from "next/link";
+
+
+export default function Header() {
+const [isOpen, setisOpen] = useState(false);
+
+  return (
+    <header className="w-full absolute top-0 left-0 z-20 flex items-center justify-between px-10 py-6">
+      {/* Logo */}
+      <div className="flex items-center">
+        <Link href="/">
+          <img
+            src="/assets/logos/Group 346.svg"
+            alt="EvolTech Logo"
+            className="h-8 cursor-pointer"
+          />
+        </Link>
+      </div>
+      {/* Center Nav */}
+      <nav className="flex-1 flex justify-center gap-10 text-sm font-medium">
+        <ul className="flex items-center gap-6  text-lg text-[#C7E5FF] font-medium">
+  <li>
+    <Link href="/about" className="hover:text-yellow-400 transition-colors">
+      Who we are
+    </Link>
+  </li>
+  <li className="text-[#63A4DD] text-base select-none" aria-hidden="true">/</li>
+  <li>
+    <Link href="/services" className="  hover:text-yellow-400 transition-colors">
+      Services
+    </Link>
+  </li>
+  <li className="text-[#63A4DD] text-base select-none" aria-hidden="true">/</li>
+  <li>
+    <Link href="/careers" className=" hover:text-yellow-400 transition-colors">
+      Careers
+    </Link>
+  </li>
+</ul>
+      </nav>
+      {/* Contact Us Button */}
+      <div>
+        <Link
+          href="/contact"
+          className="bg-transparent border border-yellow-400 text-yellow-400 px-6 py-2 rounded-full font-semibold hover:bg-yellow-400 hover:text-[#0B0F2B] transition"
+        >
+          Contact us
+        </Link>
+      </div>
+<button
+className="md:hdden"
+onClick={() => setisOpen(!isOpen)}
+aria-label="Toggle Menu"
+>
+    {isopen ? <X size={28} /> : <Menu size={28} />}
+</button>
+{isopen && (
+    <div className="absolute top-16 left-0 w-full bg-[#0B0F2B] p-6">
+     <Link href="/about" className="hover:text-yellow-400 transition-colors">
+      Who we are
+    </Link>
+
+
+    <Link href="/services" className="  hover:text-yellow-400 transition-colors">
+      Services
+    </Link>
+ 
+  <li className="text-[#63A4DD] text-base select-none" aria-hidden="true">/</li>
+ 
+    <Link href="/careers" className=" hover:text-yellow-400 transition-colors">
+      Careers
+    </Link>
+ 
+    
+      {/* Contact Us Button */}
+     
+        <Link
+          href="/contact"
+          className="bg-transparent border border-yellow-400 text-yellow-400 px-6 py-2 rounded-full font-semibold hover:bg-yellow-400 hover:text-[#0B0F2B] transition"
+        >
+          Contact us
+        </Link>
+        </div>
+)}
+
+
+    </header>
+  );
+}

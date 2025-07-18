@@ -54,7 +54,7 @@ export default function HomePage() {
           </div>
           {/* Info Cards */}
           <div className="flex  justify-center gap-6 w-full max-w-3xl">
-            <div className="bg-white/10 backdrop-blur-md rounded-lg px-6 py-4 min-w-[180px]">
+            <div className=" rounded-lg px-6 py-4 min-w-[180px]">
               <div className="font-semibold text-white mb-1">Experience</div>
               <div className="text-xs text-white/80">
                 10+ years delivering innovative tech solutions.
