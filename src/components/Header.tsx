@@ -2,29 +2,30 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import { Menu, X } from "lucide-react"; // Install lucide-react or use any icons
+import { Menu, X } from "lucide-react";
+import logo from "@/assets/logo/logo.svg";
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <header className="w-full relative top-0 left-0 z-20 bg-transparent text-white">
+    <header className="w-full absolute top-0 left-0 z-20 bg-transparent text-white">
       <div className="flex items-center justify-between px-6 md:px-10 py-4">
         {/* Logo */}
         <Link href="/">
           <img
-            src="/assets/logos/Group 346.svg"
+            src={logo.src}
             alt="EvolTech Logo"
-            className="h-8 cursor-pointer"
+            className="h-6 lg:h-8 cursor-pointer"
           />
         </Link>
 
         {/* Desktop Nav */}
-        <nav className="hidden md:flex gap-8 text-sm font-medium">
+        <nav className="hidden md:flex gap-8 text-[#C7E5FF] text-lg font-medium">
           <Link href="/about" className="hover:text-yellow-400">
             Who we are
           </Link>
-          <span className="text-[#63A4DD]">/</span>
+          <span className="text-[#63A4DD]  ">/</span>
           <Link href="/services" className="hover:text-yellow-400">
             Services
           </Link>
@@ -56,7 +57,7 @@ export default function Header() {
 
       {/* Mobile Dropdown Menu */}
       {isOpen && (
-        <div className="md:hidden bg-transparent px-6 py-4 space-y-4">
+        <div className="md:hidden bg-[#051736] px-6 py-4 space-y-4">
           <Link href="/about" className="block hover:text-yellow-400">
             Who we are
           </Link>

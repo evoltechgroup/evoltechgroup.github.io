@@ -1,7 +1,14 @@
 "use client";
-import ServicesSection from "./ServicesSection";
+import ServicesSection from "../components/services/ServicesSection";
 import TestimonialsSection from "./ui/Testimonials";
-import Footer from "@/components/Footer";
+import Text from "@/components/Text";
+// import Footer from "@/components/Footer";
+import { infoCards } from "@/data/about-us";
+import InfoCard from "@/components/Card/InfoCard";
+import { mainFollowArrow } from "@/assets/svg";
+
+
+
 
 export default function HomePage() {
   return (
@@ -16,25 +23,27 @@ export default function HomePage() {
           muted
           playsInline
         />
-        <div className="relative z-10 flex flex-col items-center w-full pt-10">
-          <h1 className="text-5xl md:text-[4rem] font-bold mb-6 tracking-tight">
+        <div className="relative z-10 flex flex-col items-center w-full sm:top-10 lg:pt-10">
+          <Text className="text-2xl sm:text-5xl lg:text-[4rem] font-bold  mb-6 tracking-tight">
             Build 
-         <span className="w-2 h-2 rounded-full bg-yellow-400 inline-block" /> {" "} 
+            <span className="w-2 h-2 rounded-full bg-yellow-400 inline-block" /> {" "} 
             <span className="">Scale 
               <span className="w-2 h-2 rounded-full bg-yellow-400 inline-block" />{" "}
               </span> 
               Succeed
               <span className="w-2 h-2 rounded-full bg-yellow-400 inline-block" />
-          </h1>
-          <p className="mb-8 text-base md:text-lg max-w-xl text-center text-white/90">
-            We bring visionary ideas to life with cutting-edge tech, strategic
-            consulting, and seamless back office solutions.
-            <br />
-            Our 50+ experts in full-stack, AI, and cloud computing build
-            innovative apps and deliver operational excellence to fuel your
-            growth and efficiency.
-          </p>
-          <button className="bg-[#FFB700] text-[#0B0F2B] px-7 py-2 rounded-full font-semibold hover:bg-yellow-300 transition flex items-center gap-2 mx-auto mb-12">
+        </Text>
+          <div className="flex flex-col gap-5 items-center mb-4 lg:mb-0">
+           
+            <Text className="text-xl font-normal max-w-[39rem] text-center text-[#C5E1FF] tracking-wide leading-relaxed">
+             We bring visionary ideas to life with cutting-edge tech, strategic consulting, and seamless back office solutions. 
+Our 50+ experts in full-stack, AI, and cloud computing build innovative apps and deliver operational excellence to fuel your growth and efficiency.
+            </Text>
+            <div className="text-[#FFBB00] flex   w-full">
+              {mainFollowArrow}
+            </div>
+          </div>
+          <button className="text-base lg:text-lg font-medium bg-[#FFB700] text-[#0B0F2B] px-7 py-2 rounded-full  hover:bg-[#FFBB00] transition flex items-center gap-2 mx-auto mb-12 shadow-[0_0_15px_#FFB700] hover:shadow-[0_0_25px_#FFD95E]">
             Discover more
           <svg xmlns="http://www.w3.org/2000/svg" 
           width="24" height="24">
@@ -49,35 +58,19 @@ export default function HomePage() {
             <span className="w-2 h-2 rounded-full bg-white/30 inline-block" />
             <span className="w-2 h-2 rounded-full bg-white/30 inline-block" />
           </div>
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 text-start justify-center gap-4 lg:gap-6 ">
+                      {infoCards.map((item, idx) => {
+                        return (
+                          <InfoCard
+                            title={item.title}
+                            description={item.description}
+                            key={idx}
+                          />
+                        );
+                      })}
+                    </div>
           {/* Info Cards */}
-          <div className="flex  justify-center gap-6 w-full max-w-5xl">
-            
-            <div className="border  border-[#25354E] rounded-3xl px-6 py-4 min-w-[180px] text-start relative">
-              <div className="absolute -left-0.5  top-5 h-10 w-1 bg-[#8DCAFF]  shadow-md "/>
-              <div className="font-semibold  text-2xl  text-white mb-1">Experience</div>
-              <div className="text-lg text-[#B7CAEA]">
-                10+ years delivering innovative tech solutions.
-              </div>
-            </div>
-            <div className="border border-[#25354E] rounded-3xl px-6 py-4 min-w-[180px] text-start">
-              <div className="font-semibold text-2xl  text-white mb-1">Team</div>
-              <div className="text-lg text-[#B7CAEA]">
-                55% women powering our global workforce.
-              </div>
-            </div>
-            <div className="border border-[#25354E] rounded-3xl px-6 py-4 min-w-[180px] text-start">
-              <div className="font-semibold text-2xl  text-white mb-1">Leadership</div>
-              <div className="text-lg text-[#B7CAEA]">
-                25+ years in Banking & Fintech expertise.
-              </div>
-            </div>
-            <div className="border border-[#25354E] rounded-3xl px-6 py-4 min-w-[180px] text-start">
-              <div className="font-semibold text-2xl  text-white mb-1">Global Reach</div>
-              <div className="text-lg text-[#B7CAEA]">
-                US & India offices supporting 24/7 operations.
-              </div>
-            </div>
-          </div>
+        
         </div>
       </section>
 
@@ -92,7 +85,7 @@ export default function HomePage() {
             <img
               src="/assets/images/team-meeting.png"
               alt="Join Our Team"
-              className="rounded-[32px] w-[370px] h-[470px] object-cover"
+              className="rounded-4xl w-[370px] h-[470px] object-cover"
             />
           </div>
           <div className="flex-1 ">
@@ -129,7 +122,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      <Footer />
     </main>
   );
 }
