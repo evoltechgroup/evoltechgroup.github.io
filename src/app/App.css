@@ -4,6 +4,9 @@
   background-color: #4444445a;
   background: linear-gradient(to bottom, #00000000, #66666600, #66666600);
 }
+body {
+  font-family: "Gilroy", sans-serif;
+}
 
 @keyframes crossfade-in {
   from {
