@@ -2,9 +2,7 @@
 const colors = require("tailwindcss/colors");
 
 module.exports = {
-  content: [
-    "./src/**/*.{js,ts,jsx,tsx}", // Important: tells Tailwind where to scan
-  ],
+  content: ["./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     colors: {
       black: colors.black,
@@ -19,7 +17,11 @@ module.exports = {
       pink: colors.pink,
       periwinkle: "#D2D2FF",
     },
-    extend: {},
+    extend: {
+      fontFamily: {
+        gilroy: ["Gilroy", "sans-serif"],
+      },
+    },
   },
   plugins: [],
 };

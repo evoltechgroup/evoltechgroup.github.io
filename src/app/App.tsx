@@ -1,5 +1,4 @@
 "use client";
-
 import { useRouter, usePathname } from "next/navigation";
 import "./App.css";
 import About from "./about/page";
@@ -9,7 +8,6 @@ import Contact from "./contact/page";
 import HomePage from "./home";
 
 export default function App() {
-  const router = useRouter();
   const pathname = usePathname();
 
   // Route mapping

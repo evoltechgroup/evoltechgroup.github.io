@@ -1,5 +1,5 @@
 import React, { type ReactElement } from "react";
-import cx from "classnames";
+import cx from "clsx";
 
 type TextTag =
   | "p"
