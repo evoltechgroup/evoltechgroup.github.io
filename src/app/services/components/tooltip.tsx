@@ -16,7 +16,7 @@ const MessageBox = ({
   className,
 }: MessageBoxProps) => {
   return (
-    <div className="pt-20">
+    <div className="">
       <div
         className={`relative rounded-2xl p-8 max-w-2xl mx-auto shadow-lg ${
           className || ""

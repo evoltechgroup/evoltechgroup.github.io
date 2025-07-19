@@ -81,7 +81,7 @@ const VisiontoVictory = () => {
         arrowHeight={120}
         maxWidth="lg:max-w-6xl"
       />
-      <div className="flex justify-center">
+      <div className="flex justify-center pb-20">
         <div className="flex flex-wrap justify-center gap-6 px-4 py-10 max-w-6xl">
           {processCards.map((card) => (
             <div
