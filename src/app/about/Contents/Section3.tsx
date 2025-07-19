@@ -8,9 +8,8 @@ import {
 import Button from "@/components/Button";
 import Text from "@/components/Text";
 import React from "react";
-import Effect1 from "@/assets/effects/effect1.png";
-import Effect2 from "@/assets/effects/effect2.png";
 import TeamShowCase from "../components/TeamShowCase";
+import { bottomRing, leftRing } from "@/assets/effects";
 
 const Section3 = () => {
   return (
@@ -19,10 +18,10 @@ const Section3 = () => {
         {blueRectangleGradient}
       </div>
       <div className="absolute bottom-0 right-0 z-1 w-full h-full">
-        <img src={Effect2.src} />
+        <div>{leftRing}</div>
       </div>
       <div className="absolute right-0 bottom-0 z-1">
-        <img src={Effect1.src} />
+        <div>{bottomRing}</div>
       </div>
       <div className="relative z-10 p-5 flex flex-col justify-center items-stretch">
         <div className="mt-10 w-full flex flex-col gap-5 items-center justify-center">
