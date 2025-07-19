@@ -63,7 +63,8 @@ const Text = ({
       id={id}
       className={textClass}
       title={title}
-      style={{ width, color: textColor, ...style }}>
+      style={{ width, color: textColor, ...style }}
+    >
       {children}
     </Tag>
   );

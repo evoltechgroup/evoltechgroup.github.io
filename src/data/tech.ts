@@ -1,0 +1,32 @@
+import {
+  nodeJsIcon,
+  dockerIcon,
+  googleCloudIcon,
+  javaIcon,
+  mysqlIcon,
+  kubernetesIcon,
+} from "@/assets/icons/TECHSTACK";
+
+export const TechIcons = [
+  { name: "react", image: nodeJsIcon },
+  { name: "angular", image: googleCloudIcon },
+  { name: "typescript", image: googleCloudIcon },
+  { name: "vue", image: googleCloudIcon },
+  { name: "python", image: googleCloudIcon },
+  { name: "django", image: googleCloudIcon },
+  { name: "nodejs", image: googleCloudIcon },
+  { name: "java", image: javaIcon },
+  { name: "tensorflow", image: googleCloudIcon },
+  { name: "pytorch", image: googleCloudIcon },
+  { name: "scikitlearn", image: googleCloudIcon },
+  { name: "postgres", image: googleCloudIcon },
+  { name: "mongodb", image: googleCloudIcon },
+  { name: "mysql", image: mysqlIcon },
+  { name: "aws", image: googleCloudIcon },
+  { name: "azure", image: googleCloudIcon },
+  { name: "googlecloud", image: googleCloudIcon },
+  { name: "kubernetes", image: kubernetesIcon },
+  { name: "docker", image: dockerIcon },
+  { name: "jenkins", image: googleCloudIcon },
+  { name: "github", image: googleCloudIcon },
+];
