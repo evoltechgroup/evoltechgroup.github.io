@@ -3,7 +3,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import Label from "@/components/Label";
 import { TechIcons } from "@/data/tech";
-import { nodeJsIcon } from "@/assets/icons/TECHSTACK";
+import Image from "next/image";
 
 interface TechStack {
   image: { src: string };
@@ -22,12 +22,12 @@ const staggeredPadding = [
 ];
 
 const labelTexts = [
-  ["Frontend."],
-  ["Backend."],
-  ["AI & Machine Learning."],
-  ["Databases."],
-  ["Cloud Platforms."],
-  ["Devops Tools."],
+  ["Frontend"],
+  ["Backend"],
+  ["AI & Machine Learning"],
+  ["Databases"],
+  ["Cloud Platforms"],
+  ["Devops Tools"],
 ];
 
 const labelOffsets = [[10], [18, 0], [15], [8]];
@@ -68,8 +68,8 @@ const TechStackShowCase: React.FC = () => {
   // Preload images to prevent loading delays
   useEffect(() => {
     TechIcons.forEach((image: any) => {
-      const img = new Image();
-      img.src = image.image.src;
+      const img = new window.Image();
+      img.src = image.image;
     });
   }, []);
 
@@ -86,7 +86,7 @@ const TechStackShowCase: React.FC = () => {
   }
 
   return (
-    <div className="flex relative justify-center top-20 pb-10 ">
+    <div className="flex relative justify-center">
       {/* Starting vertical line */}
       <div className="flex relative">
         <div
@@ -140,7 +140,7 @@ const TechStackShowCase: React.FC = () => {
                     className="relative h-[100px] w-[172px]  overflow-hidden flex items-center justify-center"
                   >
                     <div className="tech-icon h-10 w-full flex items-center justify-center">
-                      {currentImage.image}
+                      <Image src={currentImage.image} alt={currentImage.name} />
                     </div>
                   </div>
                 );

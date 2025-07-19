@@ -82,8 +82,10 @@ const BannerHeader: React.FC<BannerHeaderProps> = ({
 
     if (arrowPosition === "left") {
       return (
-        <div className="flex items-center gap-0 px-10">
-          <ArrowComponent />
+        <div className="flex gap-0 px-10">
+          <div className="pt-8 flex">
+            <ArrowComponent />
+          </div>
           {subHeaderElement}
         </div>
       );
@@ -91,9 +93,11 @@ const BannerHeader: React.FC<BannerHeaderProps> = ({
 
     // Default: right position
     return (
-      <div className="flex items-center gap-4">
+      <div className="flex">
         {subHeaderElement}
-        <ArrowComponent />
+        <div className="pt-4 flex">
+          <ArrowComponent />
+        </div>
       </div>
     );
   };
