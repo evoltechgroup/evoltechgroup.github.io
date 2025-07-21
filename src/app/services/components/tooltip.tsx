@@ -1,3 +1,4 @@
+import { polygonIcon } from "@/assets/svg";
 import React from "react";
 
 interface MessageBoxProps {
@@ -16,25 +17,20 @@ const MessageBox = ({
   className,
 }: MessageBoxProps) => {
   return (
-    <div className="">
+    <div className="relative overflow-visible">
       <div
-        className={`relative rounded-2xl p-8 max-w-2xl mx-auto shadow-lg ${
+        className={`relative rounded-2xl p-8 max-w-xl mx-auto shadow-lg ${
           className || ""
         }`}
-        style={{ backgroundColor }}
-      >
-        {/* Large triangle pointing up with rounded tip */}
-        <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-          <div
-            className="w-10 h-10 rotate-45 rounded-sm"
-            style={{ backgroundColor }}
-          />
+        style={{ backgroundColor }}>
+        <div
+          className={`absolute -top-10 left-1/2 transform -translate-x-1/2 w-[80px] h-[70px] z-1 `}
+          style={{ color: backgroundColor }}>
+          {polygonIcon}
         </div>
-
         <p
-          className="text-center text-lg leading-relaxed italic font-normal"
-          style={{ color: textColor }}
-        >
+          className="text-center text-lg relative z-20 leading-relaxed italic font-normal"
+          style={{ color: textColor }}>
           {text}
         </p>
       </div>

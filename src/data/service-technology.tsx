@@ -7,6 +7,14 @@ import {
   TechnologyCardImg6,
 } from "@/assets/images/technology";
 import { CardData } from "./service-consulting";
+import {
+  bulbIcon,
+  codeIcon,
+  deployIcon,
+  maintainIcon,
+  sketchIcon,
+  testIcon,
+} from "@/assets/svg";
 
 export const technologyCard: CardData[] = [
   {
@@ -68,5 +76,163 @@ export const technologyCard: CardData[] = [
       "Our cloud engineering services build secure, scalable infrastructures on platforms like AWS, Azure, and Google Cloud. We design architectures that ensure high availability and performance, from serverless applications to hybrid cloud setups.",
       "Our experts handle migrations, set up CI/CD pipelines with Jenkins and GitHub Actions, and implement DevOps practices to streamline operations. With cost optimization and security at the core, we empower your business to scale effortlessly.",
     ],
+  },
+];
+
+export const servicesCards = [
+  {
+    id: 1,
+    title: "Software Engineers",
+    description: [
+      "Build full-stack web and mobile apps using React, Django, and Node.js.",
+    ],
+    bgColor: "#E4EFF8",
+  },
+  {
+    id: 2,
+    title: "Data Scientists",
+    description: [
+      "Analyze data and create predictive models for actionable insights.",
+    ],
+    bgColor: "#EBE9F9",
+  },
+  {
+    id: 3,
+    title: "AI/ML Engineers",
+    description: [
+      "Develop AI solutions for automation, NLP, and computer vision.",
+    ],
+    bgColor: "#E9F6E8",
+  },
+  {
+    id: 4,
+    title: "Cloud Architects",
+    description: [
+      "Design scalable cloud infrastructures on AWS, Azure, and Google Cloud.",
+    ],
+    bgColor: "#FAF3EB",
+  },
+  {
+    id: 5,
+    title: "DevOps Engineers",
+    description: [
+      "Automate CI/CD pipelines with Docker, Kubernetes, and Jenkins.",
+    ],
+    bgColor: "#F8ECF9",
+  },
+  {
+    id: 6,
+    title: "UI/UX Designers",
+    description: ["Craft intuitive interfaces using Figma and Adobe XD."],
+    bgColor: "#E4EFF8",
+  },
+  {
+    id: 7,
+    title: "Back-Office Operations Specialists",
+    description: [
+      "Optimize processes with custom software for efficiency and cost savings.",
+    ],
+    bgColor: "#EBE9F9",
+  },
+];
+
+export const cloudServicesCards = [
+  {
+    id: 1,
+    title: "Cloud Infrastructure Setup",
+    description: [
+      "Design scalable architectures on AWS, Azure, and Google Cloud using Terraform.",
+    ],
+    bgColor: "#E4EFF8",
+  },
+  {
+    id: 2,
+    title: "CI/CD Services",
+    description: [
+      "Automate pipelines with Jenkins, GitHub Actions, and AWS CodePipeline.",
+    ],
+    bgColor: "#EBE9F9",
+  },
+  {
+    id: 3,
+    title: "Custom Pipeline Development",
+    description: ["Tailor workflows for microservices and serverless apps."],
+    bgColor: "#E9F6E8",
+  },
+  {
+    id: 4,
+    title: "Cloud Migration",
+    description: ["Seamlessly transition on-premises systems to the cloud."],
+    bgColor: "#FAF3EB",
+  },
+  {
+    id: 5,
+    title: "Cost Optimization",
+    description: [
+      "Reduce costs with AWS Cost Explorer and Azure Cost Management.",
+    ],
+    bgColor: "#F8ECF9",
+  },
+];
+
+export const processCards = [
+  {
+    id: 1,
+    title: "Discovery",
+    description: [
+      "Conduct workshops using Miro to define user needs and project scope",
+      " Align solutions with client goals in Banking, FinTech, and other industries.",
+    ],
+    bgColor: "#E4EFF8",
+    icon: bulbIcon,
+  },
+  {
+    id: 2,
+    title: "Design",
+    description: [
+      "Create wireframes and prototypes with Figma and Adobe XD",
+      " Focus on user-centric design for seamless experiences.",
+    ],
+    bgColor: "#EBE9F9",
+    icon: sketchIcon,
+  },
+  {
+    id: 3,
+    title: "Development",
+    description: [
+      "Use agile Scrum with Jira for sprint management",
+      " Employ Git for version control and collaboration.",
+    ],
+    bgColor: "#E9F6E8",
+    icon: codeIcon,
+  },
+  {
+    id: 4,
+    title: "Testing",
+    description: [
+      "Perform automated testing with Selenium and Jest",
+      "Ensure quality through manual testing and user feedback.",
+    ],
+    bgColor: "#FAF3EB",
+    icon: testIcon,
+  },
+  {
+    id: 5,
+    title: "Deployment",
+    description: [
+      "Automate releases with CI/CD pipelines using Jenkins, GitHub Actions, or AWS CodePipeline.",
+    ],
+    bgColor: "#F8ECF9",
+    icon: deployIcon,
+  },
+  {
+    id: 6,
+    title: "Maintenance",
+    description: [
+      "Monitor performance with New Relic and Datadog",
+      "Provide ongoing updates to adapt to evolving needs.",
+    ],
+    bgColor: "#E4EFF8",
+    icon: maintainIcon,
   },
 ];
