@@ -20,8 +20,8 @@ const Section1 = () => {
         arrowSrc={TechArrow}
         arrowAlt="Tech Arrow"
         arrowPosition="right"
-        arrowWidth={90}
-        arrowHeight={40}
+        arrowWidth={70}
+        arrowHeight={35}
       />
       <TechStackShowCase />
 

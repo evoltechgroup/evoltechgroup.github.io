@@ -3,7 +3,7 @@ import React from "react";
 interface TechCardWithChip {
   id: number;
   title: string;
-  description: string;
+  description: string[];
   bgColor: string;
   icon?: React.ReactNode;
 }
@@ -15,6 +15,9 @@ const TechCardWithChip: React.FC<TechCardWithChip> = ({
   bgColor,
   icon,
 }) => {
+  const safeDescription = Array.isArray(description)
+    ? description
+    : [description];
   return (
     <div key={id} className="flex flex-col gap-4 max-w-[290px] w-full mx-auto">
       {icon && (
@@ -31,9 +34,13 @@ const TechCardWithChip: React.FC<TechCardWithChip> = ({
       >
         {title}
       </div>
-      <p className="text-sm text-[#444444] font-medium max-w-[280px]">
-        {description}
-      </p>
+      {safeDescription.map((paragraph, idx) => (
+        <p
+          key={idx}
+          className="text-sm text-[#444444] font-normal max-w-[280px]"
+          dangerouslySetInnerHTML={{ __html: paragraph }}
+        />
+      ))}
     </div>
   );
 };

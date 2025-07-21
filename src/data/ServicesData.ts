@@ -9,8 +9,8 @@ import BackOffice from "@/assets/images/backoffice.jpg";
 
 export interface ServiceBullet {
   label: string;          // short heading
-  text?: string;          // optional subtext
-  bgClass?: string;       // Tailwind bg color for chip
+  text: string[];          // optional subtext
+  bgClass: string;       // Tailwind bg color for chip
   colSpan?: string;       // optional grid span class (e.g., "col-span-2")
 }
 
@@ -40,28 +40,28 @@ export const servicesData: ServiceItem[] = [
     bullets: [
       {
         label: "Banking",
-        text: "Digital banking, Consumer, Commercial and Residential lending.",
-        bgClass: "bg-[#E4EFF8]",
+        text: ["Digital banking, Consumer, Commercial and Residential lending."],
+        bgClass: "#E4EFF8",
       },
       {
         label: "Mortgage",
-        text: "Navigating lending and servicing complexities for compliance and efficiency.",
-        bgClass: "bg-[#EBE9F9]",
+        text: ["Navigating lending and servicing complexities for compliance and efficiency."],
+        bgClass: "#EBE9F9",
       },
       {
         label: "Retail",
-        text: "Enhancing customer experiences and operational efficiency to drive loyalty.",
-        bgClass: "bg-[#E9F6E8]",
+        text: ["Enhancing customer experiences and operational efficiency to drive loyalty."],
+        bgClass: "#E9F6E8",
       },
       {
         label: "Insurance",
-        text: "Innovating products and services to stay competitive in a dynamic market.",
-        bgClass: "bg-[#FAF3EB]",
+        text: ["Innovating products and services to stay competitive in a dynamic market."],
+        bgClass: "#FAF3EB",
       },
        {
         label: "FinTech",
-        text: "Leading in Embedded finance, digital payments, and other financial technology trends.",
-        bgClass: "bg-[#F8ECF9]",
+        text: ["Leading in Embedded finance, digital payments, and other financial technology trends."],
+        bgClass: "#F8ECF9",
       },
     ],
   },
@@ -77,21 +77,21 @@ export const servicesData: ServiceItem[] = [
     ctaHref: "/services/technology",
     bullets: [
       { label: "End-to-End Solutions",
-        text: "Comprehensive tech for your business",
-        bgClass: "bg-[#E4EFF8]" },
+        text: ["Comprehensive tech for your business"],
+        bgClass: "#E4EFF8" },
       { label: "Product Development",
-        text: "From concept to market-ready launch",
-         bgClass: "bg-[#EBE9F9]" },
+        text: ["From concept to market-ready launch"],
+         bgClass: "#EBE9F9" },
       { label: "UI/UX Design",
-        text: " Crafting engaging and intuitive user experiences",
-         bgClass: "bg-[#E9F6E8]" },
+        text: ["Crafting engaging and intuitive user experiences"],
+         bgClass: "#E9F6E8" },
       { label: "Cloud Engineering",
-        text:"Scalable systems for seamless performance",
-         bgClass: "bg-[#FAF3EB]" },
+        text:["Scalable systems for seamless performance"],
+         bgClass: "#FAF3EB" },
       {
         label: "AI-Driven Expertise",
-        text: "Full-Stack development powered by Artificial Intelligence",
-        bgClass: "bg-[#F8ECF9]",
+        text: ["Full-Stack development powered by Artificial Intelligence"],
+        bgClass: "#F8ECF9",
         colSpan: "md:col-span-2",
       },
     ],
@@ -109,28 +109,28 @@ export const servicesData: ServiceItem[] = [
     bullets: [
        {
         label: "Extended Workforce",
-        text: "Seamless integration with your team for enhanced capabilities.",
-        bgClass: "bg-[#E4EFF8]",
+        text: ["Seamless integration with your team for enhanced capabilities."],
+        bgClass: "#E4EFF8",
       },
       {
         label: "Scalable Model",
-        text: "Flexible, cost-effective solutions that adapt to your needs.",
-        bgClass: "bg-[#EBE9F9]",
+        text: ["Flexible, cost-effective solutions that adapt to your needs."],
+        bgClass: "#EBE9F9",
       },
       {
         label: "Customized Support",
-        text: "Tailored processes designed for your industry and goals.",
-        bgClass: "bg-[#E9F6E8]",
+        text: ["Tailored processes designed for your industry and goals."],
+        bgClass: "#E9F6E8",
       },
       {
         label: "Global Integration",
-        text: "24/7 support with diverse expertise for cohesive operations.",
-        bgClass: "bg-[#FAF3EB]",
+        text:[ "24/7 support with diverse expertise for cohesive operations."],
+        bgClass: "#FAF3EB",
       },
       {
         label: "Operational Efficiency",
-        text: "Technology-driven solutions for productivity and cost savings.",
-        bgClass: "bg-[#F8ECF9]",
+        text: ["Technology-driven solutions for productivity and cost savings."],
+        bgClass: "#F8ECF9",
       },
     ],
   },

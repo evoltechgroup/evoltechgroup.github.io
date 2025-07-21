@@ -86,7 +86,7 @@ const TechStackShowCase: React.FC = () => {
   }
 
   return (
-    <div className="flex relative justify-center">
+    <div className="flex relative justify-center pt-15">
       {/* Starting vertical line */}
       <div className="flex relative">
         <div
@@ -113,9 +113,7 @@ const TechStackShowCase: React.FC = () => {
         return (
           <div key={idx} className="flex items-stretch h-1/2">
             <div
-              className={`${padding} flex flex-col items-center ${verticalAlignment} w-full`}
-            >
-              {/* Label for this column */}
+              className={`${padding} flex flex-col items-center ${verticalAlignment} w-full `}>
               {labelText && (
                 <div className="w-full mb-5 text-center shaddow-lg">
                   <Label text={labelText[0]} />
@@ -124,10 +122,6 @@ const TechStackShowCase: React.FC = () => {
 
               {group.map((slot, i) => {
                 const currentImage = TechIcons[slot.current];
-                const previousImage =
-                  slot.previous !== null ? TechIcons[slot.previous] : null;
-
-                // Calculate slot index based on previous columns
                 let slotIndex = 0;
                 for (let j = 0; j < idx; j++) {
                   slotIndex += columnSizes[j];
@@ -137,8 +131,7 @@ const TechStackShowCase: React.FC = () => {
                 return (
                   <div
                     key={slotIndex}
-                    className="relative h-[100px] w-[172px]  overflow-hidden flex items-center justify-center"
-                  >
+                    className="relative h-[100px] w-[172px]  overflow-hidden flex items-center justify-center">
                     <div className="tech-icon h-10 w-full flex items-center justify-center">
                       <Image src={currentImage.image} alt={currentImage.name} />
                     </div>
@@ -162,8 +155,6 @@ const TechStackShowCase: React.FC = () => {
           </div>
         );
       })}
-
-      {/* Ending vertical line */}
       <div className="flex relative">
         <div
           className="h-full"

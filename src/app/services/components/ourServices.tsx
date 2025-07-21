@@ -32,20 +32,19 @@ const OurService: React.FC = () => {
   ];
 
   return (
-    <div className="max-w-6xl mx-auto pb-20">
+    <div className="max-w-6xl mx-auto pb-20 pt-5">
       <h2 className="text-2xl font-semibold text-gray-800 mb-5 text-center">
         Our services include:
       </h2>
       <div className="flex justify-around  p-5 gap-4 rounded-lg">
         {services.map((service, index) => (
-          <div key={index} className="flex-1 max-w-content">
-            <h3 className="text-lg relative">
-              <span className="absolute left-[-15px] text-[#52AEFD] font-extrabold">
-                |
+          <div key={index} className="flex-1  max-w-content">
+            <div className="flex border-l-4 border-l-[#4C96D7]  items-center">
+              <span className="text-sm font-medium text-gray-800 w-full pl-3 text-start">
+                {service.title}
               </span>
-              {service.title}
-            </h3>
-            <p className="text-gray-700 text-sm leading-5">
+            </div>
+            <p className="text-[#444444] text-sm mt-3 font-normal leading-5">
               {service.description}
             </p>
           </div>
