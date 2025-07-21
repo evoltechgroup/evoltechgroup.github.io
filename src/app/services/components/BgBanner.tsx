@@ -77,7 +77,8 @@ const BgBanner: React.FC<BgBannerProps> = ({
             <div className="w-[106px] h-[106px]">{consultingIcon}</div>
             <Text
               className="font-semibold text-xl sm:text-6xl text-center whitespace-nowrap text-[#fff]"
-              tag="p">
+              tag="p"
+            >
               {title}
             </Text>
             <Text className="text-base sm:text-3xl max-w-[40rem] text-center text-[#C5E1FF]">
@@ -92,12 +93,12 @@ const BgBanner: React.FC<BgBannerProps> = ({
           </div>
 
           <div className="w-1/2 h-full hidden sm:flex">
-            <div className="relative w-full h-full flex items-end">
+            <div className="relative w-full h-full flex items-end pl-20">
               <div className="max-w-[430px] max-h-[620px] border relative rounded-[48px] rounded-bl-none rounded-br-none overflow-hidden border-white">
                 <Image
                   src={foregroundImage}
                   alt={foregroundImageAlt}
-                  className={`w-full h-full rounded-[48px]  ${
+                  className={`w-full h-full rounded-[48px] rounded-bl-none rounded-br-none  ${
                     id === "consultancy" && "relative -translate-y-[120px]"
                   }`}
                   height={620}
