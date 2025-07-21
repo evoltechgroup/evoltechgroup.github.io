@@ -18,7 +18,7 @@ interface BannerHeaderProps {
   arrowPosition?: "left" | "right" | "top" | "bottom";
   arrowWidth?: number;
   arrowHeight?: number;
-  arrowSrc?: string | StaticImageData;
+  arrowSrc?: string | StaticImageData | React.ReactNode;
   arrowAlt?: string;
 }
 
@@ -43,21 +43,27 @@ const BannerHeader: React.FC<BannerHeaderProps> = ({
 }) => {
   const ArrowComponent = () =>
     showArrow ? (
-      <div className={`arrow w-${arrowWidth} h-${arrowHeight}`}>
-        <Image
-          src={arrowSrc}
-          alt={arrowAlt}
-          width={arrowWidth}
-          height={arrowHeight}
-        />
+      <div
+        className={`arrow ${arrowWidth ? `w-[${arrowWidth}px]` : ""} ${
+          arrowHeight ? `h-[${arrowHeight}px]` : ""
+        } ${arrowPosition}`}>
+        {typeof arrowSrc === "string" || (arrowSrc && "src" in arrowSrc) ? (
+          <Image
+            src={arrowSrc as string | StaticImageData}
+            alt={arrowAlt}
+            width={arrowWidth}
+            height={arrowHeight}
+          />
+        ) : (
+          arrowSrc
+        )}
       </div>
     ) : null;
 
   const renderSubHeaderWithArrow = () => {
     const subHeaderElement = (
       <div
-        className={`sub-header ${subHeaderTextSize} font-light lg:mt-6 ${subHeaderTextColor}`}
-      >
+        className={`sub-header text-xl ${subHeaderTextSize} max-w-3xl font-normal lg:mt-6 ${subHeaderTextColor}`}>
         {subHeaderText}
       </div>
     );
@@ -104,17 +110,14 @@ const BannerHeader: React.FC<BannerHeaderProps> = ({
   return (
     <div className={`header-component flex justify-center ${className}`}>
       <div
-        className={`flex flex-col items-center text-center ${maxWidth} gap-2`}
-      >
+        className={`flex flex-col items-center text-center ${maxWidth} gap-2`}>
         <div
           className={`chip rounded-full max-w-content justify-center text-center px-4 py-2 ${chipTextColor}`}
-          style={{ backgroundColor: chipBackgroundColor }}
-        >
+          style={{ backgroundColor: chipBackgroundColor }}>
           {chipText}
         </div>
         <div
-          className={`header ${headerTextSize} font-bold ${headerTextColor}`}
-        >
+          className={`header ${headerTextSize} font-bold ${headerTextColor}`}>
           {headerText}
         </div>
         <div className="px-40">{renderSubHeaderWithArrow()}</div>

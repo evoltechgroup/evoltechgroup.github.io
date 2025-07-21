@@ -28,7 +28,7 @@ const Section4 = () => {
       </div>
 
       <MessageBox
-        text="Our team’s expertise ensures comprehensive solutions tailored to your needs."
+        text="Our expertise builds trust by ensuring your systems meet rigorous security standards."
         backgroundColor="#FFFFFF"
       />
     </div>

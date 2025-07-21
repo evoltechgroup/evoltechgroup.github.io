@@ -17,7 +17,6 @@ interface Testimonial {
 
 function Testimonials() {
   const [index, setIndex] = useState(0);
-  const [isHovered, setIsHovered] = useState(false);
   const [fade, setFade] = useState(true);
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
@@ -30,25 +29,19 @@ function Testimonials() {
   };
 
   useEffect(() => {
-    if (!isHovered) {
-      timeoutRef.current = setTimeout(next, 5000);
-    }
+    timeoutRef.current = setTimeout(next, 5000);
 
     return () => {
       if (timeoutRef.current) {
         clearTimeout(timeoutRef.current);
       }
     };
-  }, [index, isHovered]);
+  }, [index]);
 
   const t = testimonials[index];
 
   return (
-    <section
-      className="relative w-full bg-[#2A2B68] py-10 flex flex-col items-center h-full  overflow-hidden"
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-    >
+    <section className="relative w-full bg-[#2A2B68] py-10 flex flex-col items-center h-full  overflow-hidden">
       <div className="absolute hidden sm:flex inset-0 z-0 pointer-events-none w-full h-full justify-between bg-blend-soft-light opacity-50">
         <div>{testimonialLeftSide}</div>
         <div>{testimonialRightSide}</div>
@@ -61,8 +54,7 @@ function Testimonials() {
         <div className="w-full sm:w-2/3 flex flex-col gap-5 items-center justify-center mb-4">
           <Text
             className="font-semibold text-3xl text-white sm:text-[56px] text-center"
-            tag="p"
-          >
+            tag="p">
             Testimonials
           </Text>
           <Text className="whitespace-nowrap font-normal text-xl sm:text-4xl text-[#C6C7F3] text-center">
@@ -92,8 +84,7 @@ function Testimonials() {
             <p
               className={`text-[#222] text-center text-base whitespace-pre-line px-4 transition-opacity duration-300 ${
                 fade ? "opacity-100" : "opacity-0"
-              }`}
-            >
+              }`}>
               {t.text}
             </p>
           </div>

@@ -1,11 +1,29 @@
 "use client";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
 
 export default function Header() {
   const pathname = usePathname();
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 10);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
-    <header className="w-full absolute top-0 left-0 z-20 flex items-center justify-between px-10 py-6">
+    <header
+      className={`w-full fixed top-0 left-0 z-50 flex items-center justify-between px-10 py-6 transition-all duration-300
+        ${
+          isScrolled
+            ? "bg-[#0B0F2B]/70 backdrop-blur-md shadow-md"
+            : "bg-transparent"
+        }`}>
       {/* Logo */}
       <div className="flex items-center">
         <Link href="/">
@@ -18,7 +36,7 @@ export default function Header() {
       </div>
 
       {/* Center Nav */}
-      <nav className="flex-1 flex justify-center gap-5 text-sm font-medium text-white relative">
+      <nav className="flex-1 flex justify-center gap-5 text-sm font-medium text-white relative items-center">
         <Link href="/about" className="hover:text-yellow-400 transition">
           Who we are
         </Link>
@@ -28,11 +46,10 @@ export default function Header() {
             <span className="text-white transition cursor-pointer">
               Services
             </span>
-            <div className="h-3" />
           </div>
 
           <div
-            className="absolute top-full left-1/2  -translate-x-1/2 mt-1
+            className="absolute top-full left-1/2  -translate-x-1/2 mt-3
                    bg-[#282D45] text-[#BBBBBB] rounded-full shadow-lg p-1 py-1
                    opacity-0 invisible group-hover:opacity-100 group-hover:visible
                    transition-opacity duration-200 z-50 flex gap-2 whitespace-nowrap pointer-events-auto">

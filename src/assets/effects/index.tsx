@@ -444,8 +444,8 @@ const rectangle191Tech = (
         r="1"
         gradientUnits="userSpaceOnUse"
         gradientTransform="translate(345 408.5) rotate(48.2694) scale(431.171 472.089)">
-        <stop stop-color="#5E00FF" />
-        <stop offset="1" stop-color="#07084B" />
+        <stop stopColor="#5E00FF" />
+        <stop offset="1" stopColor="#07084B" />
       </radialGradient>
     </defs>
   </svg>
@@ -873,6 +873,90 @@ const topRing = (
   </svg>
 );
 
+const topRightRing = (
+  <svg
+    width="236"
+    height="456"
+    viewBox="0 0 236 456"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg">
+    <g opacity="0.3">
+      <path
+        opacity="0.3"
+        d="M140.308 110.507C68.0908 -175.593 482.78 17.1764 365.529 153.078C307.053 220.802 453.557 319.609 379.045 369.088C304.569 418.485 272.454 343.989 187.338 306.332C81.1256 259.341 157.504 178.549 140.308 110.507Z"
+        stroke="#4D92CE"
+        strokeWidth="1.1"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeDasharray="0.37 0.37"
+      />
+      <path
+        opacity="0.37"
+        d="M129.817 112.408C86.0502 -152.144 461.215 6.53762 372.7 148.117C328.703 218.536 438.873 336.353 364.219 371.837C289.181 407.201 246.586 348.729 177.355 303.258C91.724 246.979 140.774 178.455 129.817 112.408Z"
+        stroke="#4D92CE"
+        strokeWidth="1.2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeDasharray="0.37 0.37"
+      />
+      <path
+        opacity="0.44"
+        d="M119.017 114.298C102.193 -127.704 439.652 -4.28729 379.785 143.185C350.188 216.217 424.201 353.449 349.195 374.754C273.72 396.242 220.78 354.046 167.135 300.238C102.373 235.332 123.446 178.697 119.017 114.298Z"
+        stroke="#4D92CE"
+        strokeWidth="1.2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeDasharray="0.37 0.37"
+      />
+      <path
+        opacity="0.51"
+        d="M108.464 116.113C116.507 -102.329 417.528 -15.0825 386.69 138.304C371.506 213.859 409.318 370.274 334.204 377.577C258.259 385 195.258 359.935 157.185 297.074C113.189 224.483 106.174 179.119 108.464 116.113Z"
+        stroke="#4D92CE"
+        strokeWidth="1.2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeDasharray="0.37 0.37"
+      />
+      <path
+        opacity="0.58"
+        d="M97.6314 118.014C128.217 -76.4412 395.745 -26.0375 393.843 133.417C392.963 211.495 394.477 387.121 319.194 380.571C242.627 373.843 168.755 366.748 146.875 294.094C122.874 214.56 87.9074 179.858 97.6314 118.014Z"
+        stroke="#4D92CE"
+        strokeWidth="1.3"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeDasharray="0.37 0.37"
+      />
+      <path
+        opacity="0.65"
+        d="M87.084 119.875C137.672 -50.8351 373.628 -36.9024 400.974 128.446C414.25 209.046 379.663 403.677 304.261 383.284C227.181 362.393 141.594 373.28 136.887 290.919C131.947 204.462 69.2059 180.321 87.084 119.875Z"
+        stroke="#4D92CE"
+        strokeWidth="1.3"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeDasharray="0.37 0.37"
+      />
+      <path
+        opacity="0.72"
+        d="M76.4506 121.77C144.873 -26.7368 351.081 -47.6476 408.038 123.564C435.391 206.87 365.047 420.42 289.384 386.256C211.816 351.006 113.709 379.623 126.811 287.968C140.242 194.024 49.4229 180.378 76.4506 121.77Z"
+        stroke="#4D92CE"
+        strokeWidth="1.4"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeDasharray="0.37 0.37"
+      />
+      <path
+        opacity="0.79"
+        d="M65.8633 123.497C151.002 -4.98956 329.181 -58.5598 415.139 118.509C456.763 204.326 350.345 437.01 274.446 388.963C196.411 339.581 85.6133 385.128 116.743 284.752C148.393 182.757 28.8339 179.284 65.8633 123.497Z"
+        stroke="#4D92CE"
+        strokeWidth="1.4"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeDasharray="0.37 0.37"
+      />
+    </g>
+  </svg>
+);
+
 const rightRing = (
   <svg
     width="99"
@@ -1057,6 +1141,7 @@ export {
   testimonialBottom,
   leftRing,
   topRing,
+  topRightRing,
   rightRing,
   bottomRing,
 };

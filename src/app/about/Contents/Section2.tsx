@@ -1,4 +1,4 @@
-"use client";;
+"use client";
 import Button from "@/components/Button";
 import Text from "@/components/Text";
 import ThreeBars from "@/assets/logo/Three-Bars.svg";
@@ -16,7 +16,7 @@ const Section2 = () => {
       className="bg-white text-black relative w-full"
       style={{
         backgroundImage:
-          "linear-gradient(to bottom, rgba(217, 229, 251, 1) 0%, #ffff 50%)",
+          "linear-gradient(to bottom, rgba(217, 229, 251, 1) 0%, #ffff 100%)",
       }}>
       <div className="relative z-10 w-full p-5 items-center justify-center">
         <div className="flex flex-col gap-4 items-center justify-center mt-10">
