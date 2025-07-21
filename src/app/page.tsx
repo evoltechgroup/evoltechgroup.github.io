@@ -9,11 +9,13 @@ import { mainFollowArrow } from "@/assets/svg";
 
 
 
+import JoinOurTeam from "./about/components/JoinOurTeam";
+// import ServicesSection from "./ServicesSection";
+import Testimonials from "./ui/Testimonials";
 
 export default function HomePage() {
   return (
-    <main className="bg-[#0B0F2B] text-white font-sans min-h-screen">
-      {/* Hero Section */}
+    <main className="bg-[#0B0F2B] text-white min-h-screen">
       <section className="relative h-screen flex flex-col justify-center items-center text-center overflow-hidden">
         <video
           className="absolute inset-0 w-full h-full object-cover opacity-100 filter contrast-105 saturate-125 sharp-video"
@@ -76,52 +78,8 @@ Our 50+ experts in full-stack, AI, and cloud computing build innovative apps and
 
       {/* 2nd Section: Services & Solutions */}
       <ServicesSection />
-      <TestimonialsSection />
-
-      {/* Join Our Team Section */}
-      <section className="relative w-full bg-[#F1F8FF] py-20 flex flex-col items-center">
-        <div className="max-w-5xl w-full mx-auto flex flex-col md:flex-row items-center gap-8">
-          <div className="flex-1 flex justify-center">
-            <img
-              src="/assets/images/team-meeting.png"
-              alt="Join Our Team"
-              className="rounded-4xl w-[370px] h-[470px] object-cover"
-            />
-          </div>
-          <div className="flex-1 ">
-            <div className="bg-white left-[-35%] rounded-4xl shadow-lg px-10 py-10 flex flex-col gap-4 relative">
-              <span className="absolute left-8 top-6 text-xs font-semibold text-blue-500 bg-blue-100 rounded-full px-3 py-1">
-                Career
-              </span>
-              <h2 className="text-4xl font-bold text-[#0B0F2B] mb-2 mt-2">
-                Join Our Team
-              </h2>
-              <div className="text-lg font-medium text-[#0B0F2B] mb-2">
-                Shape the future with EvolTech.
-              </div>
-              <p className="text-[#222] text-base mb-4">
-                At EvolTech, we're pioneering technology and operations
-                globally. Join our team in the US and India to work on
-                cutting-edge projects in tech development and hybrid captive
-                support.
-              </p>
-              <button className="bg-yellow-400 text-[#0B0F2B] px-6 py-2 rounded-full font-semibold text-base w-fit hover:bg-yellow-300 transition flex items-center gap-2">
-                Join
-                <svg width="18" height="18" fill="none" viewBox="0 0 18 18">
-                  <path
-                    d="M9 3v12M9 15l6-6M9 15l-6-6"
-                    stroke="#0B0F2B"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-              </button>
-            </div>
-          </div>
-        </div>
-      </section>
-
+      <Testimonials />
+      <JoinOurTeam />
     </main>
   );
 }

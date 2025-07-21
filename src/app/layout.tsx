@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "../styles/globals.css";
+import "../styles/fonts.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
@@ -34,7 +35,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+        className={`${geistSans.variable} ${geistMono.variable} antialiased font-gilroy`}>
         <Header />
         {children}
         <Footer />
