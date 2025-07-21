@@ -6,6 +6,7 @@ import Services from "./services/page";
 import Careers from "./careers/page";
 import Contact from "./contact/page";
 import HomePage from "./home";
+import Technology from "./technology/page";
 
 export default function App() {
   const pathname = usePathname();
@@ -25,6 +26,8 @@ export default function App() {
         return <Careers />;
       case "/contact":
         return <Contact />;
+      case "/technology":
+        return <Technology />;
       default:
         return <HomePage />; // Default to home page
     }

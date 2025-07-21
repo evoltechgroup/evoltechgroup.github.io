@@ -11,7 +11,9 @@ interface LabelProps {
 const Label: React.FC<LabelProps> = ({ text }) => {
   return (
     <div className="flex border-l-3 border-l-[#4C96D7] bg-white shadow-[0_10px_10px_-10px_rgba(33,35,38,0.1)] p-2 items-center">
-      <span className="text-sm font-medium text-gray-800">{text}</span>
+      <span className="text-sm font-medium text-gray-800 w-full text-center">
+        {text}
+      </span>
     </div>
   );
 };

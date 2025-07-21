@@ -1,6 +1,3 @@
-import Header from "../../components/Header";
-import Footer from "../../components/Footer";
-
 export default function Services() {
   return (
     <main className="bg-[#0B0F2B] text-white font-sans min-h-screen">
