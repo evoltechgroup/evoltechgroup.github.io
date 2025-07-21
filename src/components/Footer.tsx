@@ -11,7 +11,7 @@ export default function Footer() {
           <img
             src="/assets/logos/Group 346.svg"
             alt="EvolTech Logo"
-            className="h-6 w-auto"
+            className="h-8 w-auto"
           />
           <span className="text-xs hidden sm:block text-gray-300 ml-2">
             Copyright © 2025 EvolTech.

@@ -23,7 +23,8 @@ export default function Header() {
           isScrolled
             ? "bg-[#0B0F2B]/70 backdrop-blur-md shadow-md"
             : "bg-transparent"
-        }`}>
+        }`}
+    >
       {/* Logo */}
       <div className="flex items-center">
         <Link href="/">
@@ -52,7 +53,8 @@ export default function Header() {
             className="absolute top-full left-1/2  -translate-x-1/2 mt-3
                    bg-[#282D45] text-[#BBBBBB] rounded-full shadow-lg p-1 py-1
                    opacity-0 invisible group-hover:opacity-100 group-hover:visible
-                   transition-opacity duration-200 z-50 flex gap-2 whitespace-nowrap pointer-events-auto">
+                   transition-opacity duration-200 z-50 flex gap-2 whitespace-nowrap pointer-events-auto"
+          >
             <div
               className="absolute -top-2 left-1/2 -translate-x-1/2 w-0 h-0 
                         border-l-8 border-r-8 border-b-8 
@@ -66,7 +68,8 @@ export default function Header() {
                         pathname === "/services/consulting"
                           ? "bg-white text-[#0B0F2B]"
                           : "hover:bg-white hover:text-[#0B0F2B]"
-                      }`}>
+                      }`}
+            >
               Consulting
             </Link>
 
@@ -77,7 +80,8 @@ export default function Header() {
                         pathname === "/services/technology"
                           ? "bg-white text-[#0B0F2B]"
                           : "hover:bg-white hover:text-[#0B0F2B]"
-                      }`}>
+                      }`}
+            >
               Technology
             </Link>
 
@@ -88,7 +92,8 @@ export default function Header() {
                         pathname === "/services/back-office"
                           ? "bg-white text-[#0B0F2B]"
                           : "hover:bg-white hover:text-[#0B0F2B]"
-                      }`}>
+                      }`}
+            >
               Back-Office
             </Link>
           </div>
@@ -103,7 +108,8 @@ export default function Header() {
       <div>
         <Link
           href="/contact"
-          className="bg-transparent border border-yellow-400 text-yellow-400 px-6 py-2 rounded-full font-semibold hover:bg-yellow-400 hover:text-[#0B0F2B] transition">
+          className="bg-transparent border border-yellow-400 text-yellow-400 px-6 py-2 rounded-full font-semibold hover:bg-yellow-400 hover:text-[#0B0F2B] transition"
+        >
           Contact us
         </Link>
       </div>
