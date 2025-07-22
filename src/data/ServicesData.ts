@@ -1,26 +1,25 @@
 // src/mockdata/servicesData.ts
 import Consulting from "@/assets/images/consulting/Consultingbanner.png";
-import Consultingicon from "@/assets/icons/consulting-icon.svg"; 
+import Consultingicon from "@/assets/icons/consulting-icon.svg";
 import Technologyicon from "@/assets/icons/technology-icon.svg";
-import Technology from "@/assets/images/technology/Technologybanner.jpg";
 import BackOfficeicon from "@/assets/icons/backoffice-icon.svg";
-import BackOffice from "@/assets/images/backoffice.jpg";
-
+import BackOffice from "@/assets/images/BackOffice.png";
+import { TechnologyBanner } from "@/assets/images/technology";
 
 export interface ServiceBullet {
-  label: string;          // short heading
-  text: string[];          // optional subtext
-  bgClass: string;       // Tailwind bg color for chip
-  colSpan?: string;       // optional grid span class (e.g., "col-span-2")
+  label: string; // short heading
+  text: string[]; // optional subtext
+  bgClass: string; // Tailwind bg color for chip
+  colSpan?: string; // optional grid span class (e.g., "col-span-2")
 }
 
 export interface ServiceItem {
-  key: string;            // "consulting" | "technology" | "backoffice"
-  tabLabel: string;       // label for the tab button
-  title: string;          // big heading in panel
-  blurb: string;          // paragraph under heading
-  iconSrc: string;        // icon path
-  imageSrc: string;       // right-side image path
+  key: string; // "consulting" | "technology" | "backoffice"
+  tabLabel: string; // label for the tab button
+  title: string; // big heading in panel
+  blurb: string; // paragraph under heading
+  iconSrc: string; // icon path
+  imageSrc: string; // right-side image path
   ctaLabel?: string;
   ctaHref?: string;
   bullets: ServiceBullet[];
@@ -40,27 +39,37 @@ export const servicesData: ServiceItem[] = [
     bullets: [
       {
         label: "Banking",
-        text: ["Digital banking, Consumer, Commercial and Residential lending."],
+        text: [
+          "Digital banking, Consumer, Commercial and Residential lending.",
+        ],
         bgClass: "#E4EFF8",
       },
       {
         label: "Mortgage",
-        text: ["Navigating lending and servicing complexities for compliance and efficiency."],
+        text: [
+          "Navigating lending and servicing complexities for compliance and efficiency.",
+        ],
         bgClass: "#EBE9F9",
       },
       {
         label: "Retail",
-        text: ["Enhancing customer experiences and operational efficiency to drive loyalty."],
+        text: [
+          "Enhancing customer experiences and operational efficiency to drive loyalty.",
+        ],
         bgClass: "#E9F6E8",
       },
       {
         label: "Insurance",
-        text: ["Innovating products and services to stay competitive in a dynamic market."],
+        text: [
+          "Innovating products and services to stay competitive in a dynamic market.",
+        ],
         bgClass: "#FAF3EB",
       },
-       {
+      {
         label: "FinTech",
-        text: ["Leading in Embedded finance, digital payments, and other financial technology trends."],
+        text: [
+          "Leading in Embedded finance, digital payments, and other financial technology trends.",
+        ],
         bgClass: "#F8ECF9",
       },
     ],
@@ -71,23 +80,31 @@ export const servicesData: ServiceItem[] = [
     title: "Technology",
     blurb:
       "We bring visionary ideas to life with cutting-edge tech. Our 50+ engineers in full-stack, AI, and cloud build apps that fuel growth and efficiency.",
-    iconSrc: Technologyicon.src ,
-    imageSrc: Technology.src,
+    iconSrc: Technologyicon.src,
+    imageSrc: TechnologyBanner.src,
     ctaLabel: "Discover more",
     ctaHref: "/services/technology",
     bullets: [
-      { label: "End-to-End Solutions",
+      {
+        label: "End-to-End Solutions",
         text: ["Comprehensive tech for your business"],
-        bgClass: "#E4EFF8" },
-      { label: "Product Development",
+        bgClass: "#E4EFF8",
+      },
+      {
+        label: "Product Development",
         text: ["From concept to market-ready launch"],
-         bgClass: "#EBE9F9" },
-      { label: "UI/UX Design",
+        bgClass: "#EBE9F9",
+      },
+      {
+        label: "UI/UX Design",
         text: ["Crafting engaging and intuitive user experiences"],
-         bgClass: "#E9F6E8" },
-      { label: "Cloud Engineering",
-        text:["Scalable systems for seamless performance"],
-         bgClass: "#FAF3EB" },
+        bgClass: "#E9F6E8",
+      },
+      {
+        label: "Cloud Engineering",
+        text: ["Scalable systems for seamless performance"],
+        bgClass: "#FAF3EB",
+      },
       {
         label: "AI-Driven Expertise",
         text: ["Full-Stack development powered by Artificial Intelligence"],
@@ -107,9 +124,11 @@ export const servicesData: ServiceItem[] = [
     ctaLabel: "Discover more",
     ctaHref: "/services/backoffice",
     bullets: [
-       {
+      {
         label: "Extended Workforce",
-        text: ["Seamless integration with your team for enhanced capabilities."],
+        text: [
+          "Seamless integration with your team for enhanced capabilities.",
+        ],
         bgClass: "#E4EFF8",
       },
       {
@@ -124,12 +143,14 @@ export const servicesData: ServiceItem[] = [
       },
       {
         label: "Global Integration",
-        text:[ "24/7 support with diverse expertise for cohesive operations."],
+        text: ["24/7 support with diverse expertise for cohesive operations."],
         bgClass: "#FAF3EB",
       },
       {
         label: "Operational Efficiency",
-        text: ["Technology-driven solutions for productivity and cost savings."],
+        text: [
+          "Technology-driven solutions for productivity and cost savings.",
+        ],
         bgClass: "#F8ECF9",
       },
     ],

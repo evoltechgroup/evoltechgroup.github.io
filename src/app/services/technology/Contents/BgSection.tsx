@@ -1,7 +1,7 @@
 import BgBanner from "../../components/BgBanner";
 
 import ServiceTechologySvg from "@/assets/effects/ServiceTechnology.svg";
-import TechnologyBanner from "@/assets/images/technology/TexhnologyBanner.jpg";
+import { TechnologyBanner } from "@/assets/images/technology";
 import { technologyIcon } from "@/assets/svg";
 
 const BgSection = () => {

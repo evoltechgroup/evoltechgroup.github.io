@@ -26,20 +26,20 @@ export const whyEvoltechCard = [
     bgColor: "#E4EFF8",
   },
   {
-    id: 1,
+    id: 2,
     title: "Hybrid Operations",
     description:
       "Seamless, scalable teams extending your back-office capacity.",
     bgColor: "#EBE9F9",
   },
   {
-    id: 1,
+    id: 3,
     title: "Global Reach",
     description: "US and India offices delivering 24/7 support and solutions.",
     bgColor: "#E9F6E8",
   },
   {
-    id: 1,
+    id: 4,
     title: "Industry Expertise",
     description:
       "Leadership in Banking, Fintech, Retail, and Insurance driving results.",

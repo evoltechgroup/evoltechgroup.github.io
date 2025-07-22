@@ -9,13 +9,13 @@ const Section2 = () => {
       style={{
         backgroundImage:
           "linear-gradient(to bottom, rgba(217, 229, 251, 1) 0%, #ffff 40%)",
-      }}
-    >
+      }}>
       <div className="flex w-full p-5 pt-20 pb-28 sm:px-[5%] gap-10">
-        <div className="w-full flex flex-col gap-5 sm:gap-10 sm:pl-20">
-          {consultingCards.map((card) => (
+        <div className="w-full flex flex-col gap-5 sm:gap-10 sm:pl-20 relative">
+          {consultingCards.map((card, index) => (
             <ImageTextBlock
               key={card.id}
+              index={index}
               imageSrc={card.image.src}
               altText={card.title}
               title={card.title}

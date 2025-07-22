@@ -48,6 +48,7 @@ export const ServicePanel: React.FC<ServicePanelProps> = ({ service }) => {
               title={b.label}
               description={b.text}
               bgColor={b.bgClass}
+              key={i}
             />
           ))}
         </div>
@@ -55,8 +56,7 @@ export const ServicePanel: React.FC<ServicePanelProps> = ({ service }) => {
         {/* CTA */}
         <Link
           href={ctaHref}
-          className="flex gap-2 bg-yellow-400 text-[#0B0F2B] px-6 py-2 rounded-full font-semibold hover:bg-yellow-300 transition mt-6  lg:mt-10 ml-4 lg:ml-0"
-        >
+          className="flex gap-2 bg-yellow-400 text-[#0B0F2B] px-6 py-2 rounded-full font-semibold hover:bg-yellow-300 transition mt-6  lg:mt-10 ml-4 lg:ml-0">
           {ctaLabel}
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24">
             <path d="M12 2a10 10 0 1 0 10 10A10.011 10.011 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8.009 8.009 0 0 1-8 8z" />
@@ -66,11 +66,15 @@ export const ServicePanel: React.FC<ServicePanelProps> = ({ service }) => {
       </div>
 
       {/* Right Image */}
-      <div className="flex-1 flex justify-center">
+      <div className="flex-1 flex justify-center relative">
         <img
           src={imageSrc}
           alt={title}
           className="rounded-[48px] w-[330px] h-[520px] object-cover"
+        />
+        <div
+          style={{ mixBlendMode: "plus-lighter" }}
+          className="absolute inset-0 bg-gradient-to-b from-[#190670] to-[#1B0A41] opacity-80 pointer-events-none"
         />
       </div>
     </div>

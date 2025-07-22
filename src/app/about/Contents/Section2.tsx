@@ -16,7 +16,7 @@ const Section2 = () => {
       className="bg-white text-black relative w-full"
       style={{
         backgroundImage:
-          "linear-gradient(to bottom, rgba(217, 229, 251, 1) 0%, #ffff 100%)",
+          "linear-gradient(to bottom, rgba(217, 229, 251, 1) 0%, #ffff 5 0%)",
       }}>
       <div className="relative z-10 w-full p-5 items-center justify-center">
         <div className="flex flex-col gap-4 items-center justify-center mt-10">
@@ -53,7 +53,7 @@ const Section2 = () => {
             </div>
           </div>
           <div className="w-1/3 hidden sm:flex items-end justify-end ">
-            <Image
+            <img
               src={ThreeBars.src}
               alt="Three bars icon"
               width={ThreeBars.width}

@@ -6,6 +6,7 @@ interface ImageTextBlockProps {
   subtitle: string;
   description: string[];
   extraContent?: React.ReactNode;
+  index?: number;
 }
 
 const ImageTextBlock: React.FC<ImageTextBlockProps> = ({
@@ -15,10 +16,15 @@ const ImageTextBlock: React.FC<ImageTextBlockProps> = ({
   subtitle,
   description,
   extraContent,
+  index = 0,
 }) => {
   return (
     <div className="flex flex-col md:flex-row items-start md:items-center justify-center gap-6 w-full mx-auto px-4 py-4">
-      <div className="w-full h-fit sm:h-full sm:w-fit md:w-fit p-18 pl-0 pt-0 relative flex justify-end items-start">
+      <div
+        className="sticky top-28 w-full sm:w-fit md:w-fit p-0 pt-0 flex justify-end items-start"
+        style={{
+          zIndex: 10 + index,
+        }}>
         <div
           className="rounded-3xl w-[400px] h-[280px] overflow-hidden"
           style={{
@@ -26,7 +32,7 @@ const ImageTextBlock: React.FC<ImageTextBlockProps> = ({
               "rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px",
             borderRadius: "48px",
           }}>
-          <div className="relative ">
+          <div className="relative">
             <img
               src={imageSrc}
               alt={altText}
