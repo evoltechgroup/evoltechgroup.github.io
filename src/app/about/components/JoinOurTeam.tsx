@@ -1,16 +1,25 @@
-import TeamMetting from "@/assets/images/JoinOurTeam.png";
 import { CircleChevronRight } from "lucide-react";
 import Button from "@/components/Button";
-import { leftRing, rightRing, topRing } from "@/assets/effects";
-import Image from "next/image";
+import {
+  leftRing,
+  rightRing,
+  testimonialBottom,
+  topRing,
+} from "@/assets/effects";
+import { JoinOurTeamImg } from "@/assets/images";
 
 const JoinOurTeam = () => {
   return (
     <section className="relative bg-[#F1F8FF] flex flex-col items-center justify-center w-full h-screen mx-auto">
+      <div className="absolute hidden sm:flex inset-0 z-0 pointer-events-none w-full h-full justify-between bg-blend-soft-light opacity-50">
+        <div className="w-fit h-fit absolute left-0 top -0 opacity-15">
+          {testimonialBottom}
+        </div>
+      </div>
       <div className="max-w-6xl max-h-5xl w-full mx-auto h-full flex flex-col md:flex-row mr-20 items-center pt-20 justify-center gap-8">
         <div className="max-w-[500] max-h-full border relative rounded-[48px]  overflow-hidden border-white">
-          <Image
-            src={TeamMetting}
+          <img
+            src={JoinOurTeamImg.src}
             alt={"TeamMetting"}
             className={`w-full h-full rounded-[48px] relative -translate-y-[100px] `}
             height={620}

@@ -19,8 +19,8 @@ const Section1 = () => {
       <div className="absolute inset-0 z-0 w-full h-full flex bg-[#2D2550] overflow-hidden pointer-events-none">
         <div className="absolute inset-0 z-0 w-full h-full flex bg-[#2D2550] overflow-hidden pointer-events-none">
           <div className="absolute z-7 w-full h-full">{eclipseEffect}</div>
-          <Image
-            src={LeftGlobe}
+          <img
+            src={LeftGlobe.src}
             alt="LeftGlobe"
             className="absolute w-[500px] -left-50 -top-20 z-6  mix-blend-color-dodge opacity-40"
           />

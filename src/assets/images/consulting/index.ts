@@ -3,3 +3,4 @@ export { default as ConsultingCardImg2 } from "./ConsultingCard2.jpg";
 export { default as ConsultingCardImg3 } from "./ConsultingCard3.jpg";
 export { default as ConsultingCardImg4 } from "./ConsultingCard4.jpg";
 export { default as ConsultingCardImg5 } from "./ConsultingCard5.jpg";
+export { default as ConsultingBanner } from "./Consultingbanner.png";
