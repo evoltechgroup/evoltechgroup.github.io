@@ -1,6 +1,5 @@
-import RightGlobe from "@/assets/effects/Aboutus/RightGlobe.jpg";
-import LeftGlobe from "@/assets/effects/Aboutus/LEftGlobe.jpg";
 import { mainFollowArrow } from "@/assets/svg";
+import Globe from "@/assets/effects/Aboutus/Globe.jpg";
 import Text from "@/components/Text";
 import { infoCards } from "@/data/about-us";
 import InfoCard from "@/components/Card/InfoCard";
@@ -11,7 +10,6 @@ import {
   rectangle190,
   rectangle191,
 } from "@/assets/effects";
-import Image from "next/image";
 
 const Section1 = () => {
   return (
@@ -20,14 +18,14 @@ const Section1 = () => {
         <div className="absolute inset-0 z-0 w-full h-full flex bg-[#2D2550] overflow-hidden pointer-events-none">
           <div className="absolute z-7 w-full h-full">{eclipseEffect}</div>
           <img
-            src={LeftGlobe.src}
+            src={Globe.src}
             alt="LeftGlobe"
-            className="absolute w-[500px] -left-50 -top-20 z-6  mix-blend-color-dodge opacity-40"
+            className="absolute w-[480px] -left-60 -top-20 z-6  mix-blend-color-dodge opacity-50"
           />
-          <Image
-            src={RightGlobe}
+          <img
+            src={Globe.src}
             alt="RightGlobe"
-            className="absolute -right-[70%] bottom-0 z-6 object-cover h-full mix-blend-color-dodge opacity-40"
+            className="absolute w-[950px] h-[950px] -right-[35%] -top-20 z-6  mix-blend-color-dodge opacity-50"
           />
           <div className="absolute z-4 w-full h-full opacity-100">
             {rectangle191}
@@ -49,7 +47,7 @@ const Section1 = () => {
             <Text className="font-semibold text-6xl text-center" tag="p">
               Who we are
             </Text>
-            <Text className="text-xl max-w-[40rem] text-center text-[#C5E1FF]">
+            <Text className="text-xl max-w-[40rem] !text-center text-[#C5E1FF]">
               We turn visionary ideas into reality with advanced tech, expert
               consulting, and efficient back office solutions, powered by 50+
               specialists in full-stack, AI, and cloud computing.

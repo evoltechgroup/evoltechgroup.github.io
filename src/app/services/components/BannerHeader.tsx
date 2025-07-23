@@ -20,6 +20,7 @@ interface BannerHeaderProps {
   arrowHeight?: number;
   arrowSrc?: string | StaticImageData | React.ReactNode;
   arrowAlt?: string;
+  arrowColor?: string;
 }
 
 const BannerHeader: React.FC<BannerHeaderProps> = ({
@@ -40,13 +41,14 @@ const BannerHeader: React.FC<BannerHeaderProps> = ({
   arrowHeight = 0,
   arrowSrc = ArrowDown,
   arrowAlt = "Arrow",
+  arrowColor = "",
 }) => {
   const ArrowComponent = () =>
     showArrow ? (
       <div
-        className={`arrow ${arrowWidth ? `w-[${arrowWidth}px]` : ""} ${
-          arrowHeight ? `h-[${arrowHeight}px]` : ""
-        } ${arrowPosition}`}>
+        className={`arrow ${arrowColor && `text-[ ]`} ${
+          arrowWidth ? `w-[${arrowWidth}px]` : ""
+        } ${arrowHeight ? `h-[${arrowHeight}px]` : ""} ${arrowPosition}`}>
         {typeof arrowSrc === "string" || (arrowSrc && "src" in arrowSrc) ? (
           <Image
             src={arrowSrc as string | StaticImageData}

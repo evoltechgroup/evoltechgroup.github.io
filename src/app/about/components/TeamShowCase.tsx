@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import Label from "@/components/Label";
 import { TeamImages } from "@/data/team";
 
@@ -27,7 +27,7 @@ const labelTexts = [
   ["Flat structure: they’re the boss, no bureaucracy."],
 ];
 
-const labelOffsets = [[10], [18, 0], [15], [8]];
+const labelOffsets = [[5], [13, -5], [10], [2]];
 
 const FADE_DURATION = 800;
 const SWAP_INTERVAL = 2500;
@@ -115,9 +115,9 @@ const TeamShowCase: React.FC = () => {
         const showLabel = idx !== 2 && labelTexts[labelIndex]; // Assuming labelTexts is defined
 
         return (
-          <div key={idx} className="flex items-stretch h-screen">
+          <div key={idx} className="flex items-stretch h-screen mt-15">
             <div
-              className={`${padding} justify-end flex flex-col items-end pt-10`}>
+              className={`${padding} justify-end flex flex-col items-end pt-20`}>
               {group.map((slot, i) => {
                 const currentImage = TeamImages[slot.current];
                 const previousImage =

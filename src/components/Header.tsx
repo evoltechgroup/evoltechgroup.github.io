@@ -2,7 +2,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-
+import Logo from "@/assets/logo/logo.svg";
 export default function Header() {
   const pathname = usePathname();
   const [isScrolled, setIsScrolled] = useState(false);
@@ -27,21 +27,21 @@ export default function Header() {
       <div className="flex items-center">
         <Link href="/">
           <img
-            src="/assets/logos/Group 346.svg"
+            src={Logo.src}
             alt="EvolTech Logo"
             className="h-8 w-auto cursor-pointer"
           />
         </Link>
       </div>
-
       <nav className="flex-1 flex justify-center gap-5 text-sm font-medium text-white relative items-center">
-        <Link href="/about" className="hover:text-yellow-400 transition">
-          Who we are
-        </Link>
-        <span className="text-[#63A4DD]">/</span>
         <div className="relative group">
           <div className="flex flex-col items-center">
-            <span className="text-white transition cursor-pointer">
+            <span
+              className={` transition cursor-pointer ${
+                pathname.startsWith("/services")
+                  ? "text-[#FFBB00]"
+                  : "text-white"
+              }`}>
               Services
             </span>
           </div>
@@ -87,21 +87,40 @@ export default function Header() {
                           ? "bg-white text-[#0B0F2B]"
                           : "hover:bg-white hover:text-[#0B0F2B]"
                       }`}>
-              Back-Office
+              Operations
             </Link>
           </div>
         </div>
         <span className="text-[#63A4DD]">/</span>
-        <Link href="/careers" className="hover:text-yellow-400 transition">
+        <Link
+          href="/products"
+          className={`hover:text-[#FFBB00] transition ${
+            pathname === "/products" ? "text-[#FFBB00]" : ""
+          }`}>
+          Products
+        </Link>
+        <span className="text-[#63A4DD]">/</span>
+        <Link
+          href="/careers"
+          className={`hover:text-[#FFBB00] transition ${
+            pathname === "/careers" ? "text-[#FFBB00]" : ""
+          }`}>
           Careers
         </Link>
+        <span className="text-[#63A4DD]">/</span>
+        <Link
+          href="/about"
+          className={`hover:text-[#FFBB00] transition ${
+            pathname === "/about" ? "text-[#FFBB00]" : ""
+          }`}>
+          Who we are
+        </Link>
       </nav>
-
       {/* Contact Us Button */}
       <div>
         <Link
           href="/contact"
-          className="bg-transparent border border-yellow-400 text-yellow-400 px-6 py-2 rounded-full font-semibold hover:bg-yellow-400 hover:text-[#0B0F2B] transition">
+          className="bg-transparent border border-yellow-400 text-[#FFBB00] px-6 py-2 rounded-full font-semibold hover:bg-yellow-400 hover:text-[#0B0F2B] transition">
           Contact us
         </Link>
       </div>

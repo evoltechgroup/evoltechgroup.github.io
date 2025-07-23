@@ -15,11 +15,20 @@ module.exports = {
       indigo: colors.indigo,
       purple: colors.violet,
       pink: colors.pink,
-      periwinkle: "#D2D2FF",
     },
     extend: {
+      colors: {
+        periwinkle: "#D2D2FF",
+        customBlue: "#78B5EA",
+        customShadow: "#CAE6FFE5",
+      },
       fontFamily: {
-        gilroy: ["Gilroy", "sans-serif"],
+        gilroy: ["var(--font-gilroy)", "sans-serif"],
+        geist: ["var(--font-geist-sans)", "sans-serif"],
+        mono: ["var(--font-geist-mono)", "monospace"],
+      },
+      boxShadow: {
+        "custom-focus": "0 0 8px #CAE6FFE5",
       },
     },
   },
