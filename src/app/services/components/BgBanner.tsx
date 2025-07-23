@@ -8,7 +8,7 @@ import {
 } from "@/assets/effects";
 import { followArrowDown } from "@/assets/svg";
 import Text from "@/components/Text";
-import Image, { StaticImageData } from "next/image";
+import { StaticImageData } from "next/image";
 import { ReactNode } from "react";
 
 interface BgBannerProps {
@@ -44,7 +44,7 @@ const BgBanner: React.FC<BgBannerProps> = ({
             src={backgroundImages.main.src}
             alt="Background Main Image"
             className={`w-full z-8 h-full absolute object-cover sm:object-contain ${
-              id === "tech" && "mix-blend-overlay opacity-50"
+              id === "tech" && "mix-blend-overlay opacity-50 left-20"
             }`}
           />
         )}
@@ -96,7 +96,7 @@ const BgBanner: React.FC<BgBannerProps> = ({
                   src={foregroundImage.src}
                   alt={foregroundImageAlt}
                   className={`w-full h-full rounded-[48px] rounded-bl-none rounded-br-none  ${
-                    id === "consultancy" && "relative -translate-y-[120px]"
+                    id === "consultancy" && "object-cover"
                   }`}
                   height={620}
                   width={430}

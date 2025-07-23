@@ -24,5 +24,6 @@ export { default as soumi } from "./soumi.jpg";
 export { default as Subhashini } from "./Subhashini.jpg";
 export { default as Surrender } from "./Surender.jpg";
 export { default as Thahir } from "./Thahir.jpg";
+export { default as Thulasi } from "./Thulasi.png";
 export { default as Tom } from "./Tom.jpg";
 export { default as Vijay } from "./Vijay.jpg";

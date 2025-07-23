@@ -2,17 +2,14 @@
 
 import { Linkedin, Mail } from "lucide-react";
 import Link from "next/link";
+import Logo from "@/assets/logo/logo.svg";
 
 export default function Footer() {
   return (
     <footer className="bg-[#181B2B] text-white sm:h-[5rem] py-4 w-full justify-center items-center flex p-10">
       <div className="mx-auto flex flex-col md:flex-row items-center justify-between w-full sm:px-6 ">
         <div className="flex flex-col sm:flex-row items-center gap-2 mb-2 md:mb-0">
-          <img
-            src="/assets/logos/Group 346.svg"
-            alt="EvolTech Logo"
-            className="h-8 w-auto"
-          />
+          <img src={Logo.src} alt="EvolTech Logo" className="h-8 w-auto" />
           <span className="text-xs hidden sm:block text-gray-300 ml-2">
             Copyright © 2025 EvolTech.
           </span>

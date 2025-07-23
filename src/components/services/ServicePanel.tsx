@@ -1,7 +1,6 @@
-// src/components/ServiceTabs/ServicePanel.tsx
 "use client";
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import type { ServiceItem } from "../../data/ServicesData";
 import TechCardWithChip from "@/app/services/components/technChipCards";
@@ -21,9 +20,16 @@ export const ServicePanel: React.FC<ServicePanelProps> = ({ service }) => {
     bullets,
   } = service;
 
+  const [flip, setFlip] = useState(false);
+
+  useEffect(() => {
+    setFlip(true);
+    const timeout = setTimeout(() => setFlip(false), 300);
+    return () => clearTimeout(timeout);
+  }, [imageSrc]);
+
   return (
     <div className="w-full flex flex-col md:flex-row items-start gap-4 animate-fadein">
-      {/* Left Content */}
       <div className="flex-1 flex flex-col items-start">
         <div className="flex items-center mb-8">
           <div className="h-12 w-12 lg:h-24 lg:w-24 mr-3 lg:mr-8 bg-gradient-to-r from-[#5785DC] to-[#5F4793] rounded-2xl lg:rounded-3xl flex items-center justify-center">
@@ -40,7 +46,6 @@ export const ServicePanel: React.FC<ServicePanelProps> = ({ service }) => {
           {blurb}
         </p>
 
-        {/* Bullets grid */}
         <div className="grid  grid-cols-1 md:grid-cols-2 gap-6 lg:w-2xl px-4 lg:px-0 pl-2">
           {bullets.map((b, i) => (
             <TechCardWithChip
@@ -53,7 +58,6 @@ export const ServicePanel: React.FC<ServicePanelProps> = ({ service }) => {
           ))}
         </div>
 
-        {/* CTA */}
         <Link
           href={ctaHref}
           className="flex gap-2 bg-yellow-400 text-[#0B0F2B] px-6 py-2 rounded-full font-semibold hover:bg-yellow-300 transition mt-6  lg:mt-10 ml-4 lg:ml-0">
@@ -65,17 +69,23 @@ export const ServicePanel: React.FC<ServicePanelProps> = ({ service }) => {
         </Link>
       </div>
 
-      {/* Right Image */}
-      <div className="flex-1 flex justify-center relative">
-        <img
-          src={imageSrc}
-          alt={title}
-          className="rounded-[48px] w-[330px] h-[520px] object-cover"
-        />
+      <div className="flex-1 flex justify-center relative perspective">
         <div
-          style={{ mixBlendMode: "plus-lighter" }}
-          className="absolute inset-0 bg-gradient-to-b from-[#190670] to-[#1B0A41] opacity-80 pointer-events-none"
-        />
+          className={`transition-transform duration-700 transform-style-preserve-3d w-[330px] h-[520px] ${
+            flip ? "rotate-y-180" : ""
+          }`}>
+          <div className="absolute w-full h-full backface-hidden">
+            <img
+              src={imageSrc}
+              alt={title}
+              className="rounded-[48px] w-full h-full object-cover"
+            />
+            <div
+              style={{ mixBlendMode: "plus-lighter" }}
+              className="absolute inset-0 rounded-[48px] bg-gradient-to-b from-[#190670] to-[#1B0A41] opacity-80 pointer-events-none"
+            />
+          </div>
+        </div>
       </div>
     </div>
   );

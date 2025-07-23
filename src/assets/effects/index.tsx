@@ -957,6 +957,90 @@ const topRightRing = (
   </svg>
 );
 
+const topRightSmallRing = (
+  <svg
+    width="87"
+    height="84"
+    viewBox="0 0 87 84"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg">
+    <g opacity="0.3">
+      <path
+        opacity="0.3"
+        d="M31.7718 -14.7078C42.3966 -101.558 136.47 -3.8936 89.5082 21.1527C66.0925 33.6292 96.0437 76.6245 70.1445 82.3398C44.2639 88.0364 43.3489 63.9986 23.8358 44.4808C-0.513559 20.1255 29.2509 5.94937 31.7718 -14.7078Z"
+        stroke="#4D92CE"
+        strokeWidth="1.1"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeDasharray="0.37 0.37"
+      />
+      <path
+        opacity="0.37"
+        d="M28.667 -15.3041C44.8558 -93.1515 131.644 -9.14206 92.0218 20.5478C72.3226 35.3181 90.1919 79.6849 65.75 81.5149C41.2147 83.2701 35.6878 62.5432 21.4036 42.5632C3.73967 17.8403 24.6338 4.13436 28.667 -15.3041Z"
+        stroke="#4D92CE"
+        strokeWidth="1.2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeDasharray="0.37 0.37"
+      />
+      <path
+        opacity="0.44"
+        d="M25.4781 -15.9364C46.7069 -84.666 126.838 -14.4422 94.5091 19.9412C78.5127 36.9742 84.3058 82.8438 61.283 80.7147C38.1107 78.5855 27.9822 61.2537 18.9001 40.6348C7.93068 15.7577 19.8158 2.34795 25.4781 -15.9364Z"
+        stroke="#4D92CE"
+        strokeWidth="1.2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeDasharray="0.37 0.37"
+      />
+      <path
+        opacity="0.51"
+        d="M22.3652 -16.563C47.9515 -76.117 121.874 -19.7938 96.9406 19.33C84.6607 38.6024 78.3901 85.9056 56.8349 79.8923C35.0371 73.823 20.2937 60.1531 16.4865 38.6957C12.0822 13.9143 14.9935 0.617789 22.3652 -16.563Z"
+        stroke="#4D92CE"
+        strokeWidth="1.2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeDasharray="0.37 0.37"
+      />
+      <path
+        opacity="0.58"
+        d="M19.1661 -17.1959C48.4217 -67.7049 117.021 -25.1533 99.4415 18.7432C90.8479 40.2432 72.4838 88.9777 52.3636 79.115C31.9071 69.0655 12.2352 59.2028 13.9539 36.7688C15.8221 12.2055 9.86262 -1.13162 19.1661 -17.1959Z"
+        stroke="#4D92CE"
+        strokeWidth="1.3"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeDasharray="0.37 0.37"
+      />
+      <path
+        opacity="0.65"
+        d="M16.05 -17.8091C48.2981 -59.6119 112.066 -30.5236 101.945 18.1312C96.9971 41.8425 66.6163 91.9722 47.9433 78.2682C28.8596 64.2468 4.02465 58.1043 11.5312 34.8224C19.4111 10.383 4.64085 -3.00359 16.05 -17.8091Z"
+        stroke="#4D92CE"
+        strokeWidth="1.3"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeDasharray="0.37 0.37"
+      />
+      <path
+        opacity="0.72"
+        d="M12.9064 -18.4223C47.7122 -52.177 106.979 -35.9068 104.421 17.5365C103.077 43.5017 60.783 95.0396 43.5108 77.4992C25.8278 59.4543 -4.36585 56.8765 9.05979 32.9288C22.8215 8.38337 -0.83672 -5.10354 12.9064 -18.4223Z"
+        stroke="#4D92CE"
+        strokeWidth="1.4"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeDasharray="0.37 0.37"
+      />
+      <path
+        opacity="0.79"
+        d="M9.79358 -19.077C47.0817 -45.507 102.09 -41.267 106.926 16.8977C109.26 45.0834 54.9427 98.0555 39.0901 76.65C22.7894 54.6468 -12.725 55.3939 6.61932 30.9625C26.281 6.13888 -6.4138 -7.60845 9.79358 -19.077Z"
+        stroke="#4D92CE"
+        strokeWidth="1.4"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeDasharray="0.37 0.37"
+      />
+    </g>
+  </svg>
+);
+
 const rightRing = (
   <svg
     width="99"
@@ -1142,6 +1226,7 @@ export {
   leftRing,
   topRing,
   topRightRing,
+  topRightSmallRing,
   rightRing,
   bottomRing,
 };

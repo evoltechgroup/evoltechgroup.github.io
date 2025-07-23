@@ -4,16 +4,15 @@ import {
   testimonialRightSide,
   testimonialBottom,
 } from "@/assets/effects";
-import { followArrowRightV2, smileEmoji } from "@/assets/svg";
+import {
+  followArrowRightV2,
+  leftExclamation,
+  rightExplamation,
+  smileEmoji,
+} from "@/assets/svg";
 import Text from "@/components/Text";
 import { useEffect, useRef, useState } from "react";
 import { testimonials } from "@/data/testimonials";
-
-interface Testimonial {
-  text: string;
-  author: string;
-  company: string;
-}
 
 function Testimonials() {
   const [index, setIndex] = useState(0);
@@ -71,16 +70,12 @@ function Testimonials() {
 
         <div className="relative w-full flex justify-center">
           <div className="bg-white rounded-2xl shadow-lg px-8 py-8 max-w-2xl w-full min-h-[340px] flex flex-col justify-center items-center transition-all duration-500 relative">
-            <img
-              src="/assets/icons/left-quote.png"
-              alt="quote left"
-              className="absolute left-4 top-4 w-6 h-6 opacity-40"
-            />
-            <img
-              src="/assets/icons/right-quote.png"
-              alt="quote right"
-              className="absolute right-4 bottom-4 w-6 h-6 opacity-40"
-            />
+            <div className="absolute left-4 top-4 w-6 h-6 opacity-40">
+              {leftExclamation}
+            </div>
+            <div className="absolute right-4 bottom-4 w-6 h-6 opacity-40">
+              {rightExplamation}
+            </div>
             <p
               className={`text-[#222] text-center text-base whitespace-pre-line px-4 transition-opacity duration-300 ${
                 fade ? "opacity-100" : "opacity-0"
