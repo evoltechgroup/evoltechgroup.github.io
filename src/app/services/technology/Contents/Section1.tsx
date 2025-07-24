@@ -6,7 +6,7 @@ import MessageBox from "../../components/tooltip";
 
 const Section1 = () => {
   return (
-    <div className="bg-[#F8F8F8] py-20">
+    <div className="bg-[#F8F8F8] overflow-hidden w-full h-full md:pb-10">
       <BannerHeader
         chipText="Our Services"
         chipBackgroundColor="#FFDEB7"
@@ -16,7 +16,7 @@ const Section1 = () => {
         subHeaderText="At EvolTech, we harness a robust tech stack to deliver scalable, secure, and innovative solutions."
         subHeaderTextColor="text-black"
         headerTextSize="text-6xl"
-        className=""
+        className="py-5 pt-15 md:py-20"
         arrowSrc={TechArrow}
         arrowAlt="Tech Arrow"
         arrowPosition="right"

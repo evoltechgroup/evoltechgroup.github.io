@@ -7,11 +7,13 @@ import React from "react";
 const Founder = () => {
   return (
     <div className="w-full h-full bg-[#F8F8F8] relative">
-      <div className="absolute w-full h-full overflow-hidden">
-        <div className="absolute -right-10">{topRightRing}</div>
+      <div className="absolute w-full h-full overflow-hidden z-1">
+        <div className="absolute -right-10 bottom-0 md:top-0">
+          {topRightRing}
+        </div>
       </div>
-      <div className="w-full flex gap-10 justify-center items-center h-full p-15 px-44">
-        <div className="h-full flex pb-5 items-end justify-end w-fit pl-10">
+      <div className="relative z-10 w-full flex gap-10 flex-col md:flex-row justify-center items-center h-full p-10 md:p-15 md:px-44">
+        <div className="h-full flex w-full md:pb-5 md:items-end items-center justify-start md:justify-end md:w-fit md:pl-10">
           <div className="absolute overflow-hidden">
             <div>{bottomRing}</div>
           </div>
@@ -32,7 +34,7 @@ const Founder = () => {
             tag="p">
             Our Founder
           </Text>
-          <div className="flex flex-col text-black gap-5 sm:max-w-[90%]">
+          <div className="flex flex-col text-black gap-5 max-w-full md:max-w-[90%]">
             <Text className="xl:text-xl sm:text-base">
               <strong>Thulasidharan LG</strong> is a seasoned fintech veteran
               that has been delivering enabling technology to financial

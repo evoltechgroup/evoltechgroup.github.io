@@ -24,25 +24,25 @@ export const ServicePanel: React.FC<ServicePanelProps> = ({ service }) => {
 
   useEffect(() => {
     setFlip(true);
-    const timeout = setTimeout(() => setFlip(false), 300);
+    const timeout = setTimeout(() => setFlip(false), 400);
     return () => clearTimeout(timeout);
   }, [imageSrc]);
 
   return (
-    <div className="w-full flex flex-col md:flex-row items-start gap-4 animate-fadein">
+    <div className="w-full flex flex-col-reverse md:flex-row items-start gap-4 animate-fadein">
       <div className="flex-1 flex flex-col items-start">
-        <div className="flex items-center mb-8">
+        <div className="flex items-center w-full md:w-auto justify-center md:justify-start mb-8">
           <div className="h-12 w-12 lg:h-24 lg:w-24 mr-3 lg:mr-8 bg-gradient-to-r from-[#5785DC] to-[#5F4793] rounded-2xl lg:rounded-3xl flex items-center justify-center">
             <img
               src={iconSrc}
               alt={`${title} Icon`}
-              className=" h-8 w-8 lg:h-16 lg:w-14 "
+              className="h-8 w-8 lg:h-16 lg:w-14"
             />
           </div>
-          <span className="text-3xl  lg:text-5xl font-bold ">{title}</span>
+          <span className="text-3xl lg:text-5xl font-bold">{title}</span>
         </div>
 
-        <p className="mb-4 text-base lg:text-xl font-medium lg:mb-10 px-2 lg:px-0 md:w-xl">
+        <p className="mb-4 text-base w-full lg:text-xl font-medium lg:mb-10 px-2 lg:px-0 md:w-xl">
           {blurb}
         </p>
 
@@ -69,11 +69,12 @@ export const ServicePanel: React.FC<ServicePanelProps> = ({ service }) => {
         </Link>
       </div>
 
-      <div className="flex-1 flex justify-center relative perspective">
+      <div className="flex-1 p-10 pt-0 md:pt-0 md:p-0 flex justify-center relative perspective w-full">
         <div
-          className={`transition-transform duration-700 transform-style-preserve-3d w-[330px] h-[520px] ${
-            flip ? "rotate-y-180" : ""
-          }`}>
+          className={`
+            transition-transform duration-700 transform-style-preserve-3d w-full h-80 md:w-[330px] md:h-[520px]
+          ${flip ? "rotate-y-180" : ""}
+          `}>
           <div className="absolute w-full h-full backface-hidden">
             <img
               src={imageSrc}

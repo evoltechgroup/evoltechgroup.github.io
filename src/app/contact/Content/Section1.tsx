@@ -6,7 +6,7 @@ import {
   rectangle191,
 } from "@/assets/effects";
 import { ContactBanner } from "@/assets/effects/Banner";
-import { followArrow, followArrowDown, mainFollowArrow } from "@/assets/svg";
+import { followArrowDown } from "@/assets/svg";
 import Text from "@/components/Text";
 
 const Section1 = () => {
@@ -18,7 +18,7 @@ const Section1 = () => {
           <img
             src={ContactBanner.src}
             alt="LeftGlobe"
-            className="absolute w-full bottom-0  z-8  mix-blend-color-dodge opacity-60"
+            className="absolute w-full bottom-0  z-8  mix-blend-color-dodge opacity-50"
           />
           <div className="absolute z-4 w-full h-full opacity-100">
             {rectangle191}

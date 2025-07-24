@@ -7,7 +7,7 @@ import { topRightRing } from "@/assets/effects";
 import { processCards } from "@/data/service-technology";
 const VisiontoVictory = () => {
   return (
-    <div className="bg-white pb-20 ">
+    <div className="bg-[#F8F8F8] pb-20 ">
       <div className="absolute right-0 top0">{topRightRing}</div>
       <BannerHeader
         chipText="Product Engineering"

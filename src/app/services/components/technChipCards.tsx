@@ -30,14 +30,13 @@ const TechCardWithChip: React.FC<TechCardWithChip> = ({
 
       <div
         className="p-1.5 w-fit px-3 flex rounded-full rounded-bl-none font-semibold text-black text-base"
-        style={{ backgroundColor: bgColor }}
-      >
+        style={{ backgroundColor: bgColor }}>
         {title}
       </div>
       {safeDescription.map((paragraph, idx) => (
         <p
           key={idx}
-          className="text-sm text-[#444444] font-normal max-w-[280px]"
+          className="text-sm text-[#444444] font-medium max-w-[280px]"
           dangerouslySetInnerHTML={{ __html: paragraph }}
         />
       ))}

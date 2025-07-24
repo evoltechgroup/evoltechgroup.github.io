@@ -12,26 +12,28 @@ const Section2 = () => {
   const router = useRouter();
   return (
     <section
-      className="text-black relative w-full"
+      className="text-black relative w-full h-full"
       style={{
         backgroundImage:
-          "linear-gradient(to bottom, rgba(217, 229, 251, 1) 0%, #ffff 50%)",
+          "linear-gradient(to bottom, rgba(217, 229, 251, 1) 0%, #ffff 80%)",
       }}>
       <div className="relative z-10 w-full p-5 items-center justify-center">
-        <div className="flex flex-col gap-4 items-center justify-center mt-10">
+        <div className="flex flex-col gap-4 items-center relative justify-center mt-10">
           <Button className="p-2 flex bg-white  rounded-full px-4 text-sm">
             About us
           </Button>
           <Text
-            className="font-semibold text-[56px] max-w-[50rem] ! text-center"
+            className="font-semibold text-2xl md:text-[56px] max-w-[50rem] mb-5 md:mb-0 !text-center"
             tag="p">
             Powering Growth with Smart Tech and Scalable Teams
           </Text>
-          <div className="text-[#FFBB00]">{followArrow}</div>
+          <div className="text-[#FFBB00] flex w-10 h-10 md:block md:w-fit -mt-10 md:h-full mb-10 md:mb-0">
+            {followArrow}
+          </div>
         </div>
-        <div className="flex flex-col xl:gap-20 sm:gap-20 gap-20">
-          <div className="w-full flex gap-10 justify-between h-[300px] px-40">
-            <div className=" h-full w-1/2">
+        <div className="flex flex-col xl:gap-20 gap-10 sm:gap-20">
+          <div className="w-full flex gap-10 justify-between h-[300px] md:px-40">
+            <div className=" h-full w-full md:w-1/2">
               <Button className="p-1.5 flex bg-[#D2D2FF] rounded-full text-xs rounder px-2">
                 Our Story
               </Button>
@@ -52,7 +54,7 @@ const Section2 = () => {
                 </Text>
               </div>
             </div>
-            <div className=" h-full flex pb-5 items-end justify-end w-1/3">
+            <div className=" h-full hidden md:flex pb-5 items-end justify-end w-1/3">
               <img
                 src={ThreeBars.src}
                 alt="Three bars icon"
@@ -62,22 +64,22 @@ const Section2 = () => {
               />
             </div>
           </div>
-          <div className="w-full flex gap-5  justify-between h-[300px] px-40">
-            <div className=" h-full w-[calc(33.333333%+3rem)] flex flex-col gap-5">
+          <div className="w-full flex md:flex-row flex-col gap-5  justify-between md:h-[300px] h-full md:px-40">
+            <div className="h-full w-full md:w-[calc(33.333333%+3rem)] flex flex-col gap-5">
               <Text
-                className="font-semibold sm:text-4xl xl:text-[56px]"
+                className="font-semibold text-4xl sm:text-4xl xl:text-[56px]"
                 tag="p">
                 Why EvolTech?
               </Text>
               <Text className="font-semibold sm:text-base">
                 Your partner for innovation, efficiency, and growth.
               </Text>
-              <div className="text-[#8DCAFF] justify-end items-end mt-4 w-full flex">
+              <div className="text-[#8DCAFF] hidden justify-end items-end mt-4 w-full md:flex">
                 {followArrowRight}
               </div>
             </div>
-            <div className=" h-full items-end justify-end w-fit p-4">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 justify-center">
+            <div className="h-full items-end justify-end w-fit p-4">
+              <div className="grid grid-cols-2 sm:grid-cols-2 gap-6 justify-center">
                 {whyEvoltechCard.map((card, idx) => {
                   return (
                     <CardWithChip

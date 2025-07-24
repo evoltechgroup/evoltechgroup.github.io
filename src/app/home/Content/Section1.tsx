@@ -33,10 +33,10 @@ const Section1 = () => {
         />
       </div>
       <div className="relative z-10 w-full h-full justify-center items-center p-5">
-        <div className="w-full h-full flex flex-col justify-center md:gap-10 xl:gap-15 items-center p-40 pb-20">
-          <div className="flex flex-col gap-5 items-center relative">
+        <div className="w-full h-full flex flex-col justify-center gap-4  md:gap-10 xl:gap-15 items-center md:p-40 md:pb-20">
+          <div className="flex flex-col md:gap-5 items-center relative">
             <Text
-              className="font-semibold md:text-4xl xl:text-6xl text-center"
+              className="font-semibold mb-2 md:mb-0 text-3xl md:text-4xl xl:text-6xl text-center"
               tag="p">
               Build
               <span className="w-2 h-2 rounded-full bg-yellow-400 inline-block" />{" "}
@@ -47,17 +47,16 @@ const Section1 = () => {
               Succeed
               <span className="w-2 h-2 rounded-full bg-yellow-400 inline-block" />
             </Text>
-            <Text className="md:text-sm xl:text-xl md:max-w-[32rem] xl:max-w-[38rem] !text-center text-[#C5E1FF]">
+            <Text className="text-sm md:text-sm xl:text-xl md:max-w-[32rem]  xl:max-w-[38rem] !text-center text-[#C5E1FF]">
               We bring visionary ideas to life with cutting-edge tech, strategic
-              consulting, and seamless back office solutions.
-              <br /> Our 50+ experts in full-stack, AI, and cloud computing
-              build innovative apps and deliver operational excellence to fuel
-              your growth and efficiency.
+              consulting, and seamless back office solutions. Our 50+ experts in
+              full-stack, AI, and cloud computing build innovative apps and
+              deliver operational excellence to fuel your growth and efficiency.
             </Text>
-            <div className="flex absolute  xl:w-full md:left-25 xl:left-20 md:-bottom-5 xl:bottom-4 md:w-16">
+            <div className="flex md:absolute mb-4 md:mb-0 w-10 h-10 md:w-16 xl:w-full md:left-25 xl:left-20 xl:bottom-13 ">
               {mainFollowArrow}
             </div>
-            <Button className="mt-5 md:text-sm xl:text-lg text-center font-medium bg-[#FFB700] text-[#0B0F2B] md:px-2 md:py-1 xl:px-7 xl:py-2 rounded-full  hover:bg-[#FFBB00] transition flex items-center gap-2 mx-auto shadow-[0_0_15px_#FFB700] hover:shadow-[0_0_25px_#FFD95E]">
+            <Button className="mt-5 text-sm px-2 py-2 md:text-sm xl:text-lg text-center font-medium bg-[#FFB700] text-[#0B0F2B] md:px-2 md:py-1 xl:px-7 md:mt-10 xl:py-2 rounded-full  hover:bg-[#FFBB00] transition flex items-center gap-2 mx-auto shadow-[0_0_15px_#FFB700] hover:shadow-[0_0_25px_#FFD95E]">
               <span>Discover more</span>
               <span>
                 <CircleChevronRight size={18} />
@@ -69,16 +68,14 @@ const Section1 = () => {
             <span className="h-2 rounded-full bg-[#86C7FF] w-5 inline-block" />
             <span className="w-2 h-2 rounded-full border border-[#79799C] inline-block" />
           </div>
-          <div className="flex flex-col sm:flex-row justify-center gap-6 ">
-            {infoCards.map((item, idx) => {
-              return (
-                <InfoCard
-                  title={item.title}
-                  description={item.description}
-                  key={idx}
-                />
-              );
-            })}
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6 w-full mx-auto p-4">
+            {infoCards.map((item, idx) => (
+              <InfoCard
+                key={idx}
+                title={item.title}
+                description={item.description}
+              />
+            ))}
           </div>
         </div>
       </div>

@@ -11,9 +11,9 @@ const Clients = () => {
           <Button className="bg-[#D6ECFF] p-2 flex w-fit rounded-full px-4 text-sm">
             The Allies
           </Button>
-          <Text className="whitespace-nowrap text-6xl font-semibold">
+          <Text className="whitespace-nowrap text-3xl md:text-4xl xl:text-6xl font-semibold">
             Our Trusted
-            <span className="inline-block align-middle w-5 ml-5 -mt-5 mr-8 h-5">
+            <span className="inline-block align-middle ml-2 mr-2 h-6 md:h-10">
               {partnerHeartIcon}
             </span>
             Clients

@@ -6,7 +6,7 @@ import LetsGrow from "./Contents/LetsGrow";
 
 const Consulting = () => {
   return (
-    <main className="bg-[#0B0F2B] text-white font-gilroy min-h-screen">
+    <main className="bg-[#0B0F2B] text-white font-gilroy h-full w-full overflow-hidden">
       <Section1 />
       <Section2 />
       <LetsGrow />

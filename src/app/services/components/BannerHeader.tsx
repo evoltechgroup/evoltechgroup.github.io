@@ -65,7 +65,7 @@ const BannerHeader: React.FC<BannerHeaderProps> = ({
   const renderSubHeaderWithArrow = () => {
     const subHeaderElement = (
       <div
-        className={`sub-header text-xl ${subHeaderTextSize} max-w-3xl font-normal lg:mt-6 ${subHeaderTextColor}`}>
+        className={`sub-header p-4 md:p-0 text-xl md:${subHeaderTextSize} max-w-3xl font-normal lg:mt-6 ${subHeaderTextColor}`}>
         {subHeaderText}
       </div>
     );
@@ -110,19 +110,19 @@ const BannerHeader: React.FC<BannerHeaderProps> = ({
     );
   };
   return (
-    <div className={`header-component flex justify-center ${className}`}>
+    <div className={`header-component flex justify-center  ${className}`}>
       <div
-        className={`flex flex-col items-center text-center ${maxWidth} gap-2`}>
+        className={`flex flex-col items-center text-center w-full md:${maxWidth} gap-2`}>
         <div
           className={`chip rounded-full max-w-content justify-center text-center px-4 py-2 ${chipTextColor}`}
           style={{ backgroundColor: chipBackgroundColor }}>
           {chipText}
         </div>
         <div
-          className={`header ${headerTextSize} font-bold ${headerTextColor}`}>
+          className={`header text-4xl md:${headerTextSize} font-bold ${headerTextColor}`}>
           {headerText}
         </div>
-        <div className="px-40">{renderSubHeaderWithArrow()}</div>
+        <div className="md:px-40">{renderSubHeaderWithArrow()}</div>
       </div>
     </div>
   );

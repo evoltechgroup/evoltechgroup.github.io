@@ -11,7 +11,7 @@ import Mastering from "./Contents/mastering";
 
 const Technology = () => {
   return (
-    <main>
+    <main className="h-full w-full overflow-hidden">
       <BgSection />
       <Section2 />
       <Section1 />

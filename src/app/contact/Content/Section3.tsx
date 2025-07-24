@@ -32,8 +32,8 @@ const Section3 = () => {
           arrowWidth={100}
           arrowHeight={120}
         />
-        <div className="w-full flex h-full justify-center gap-20 items-center pb-20">
-          <div className="w-full md:w-1/2 flex items-start justify-end md:-mt-10 pr-10">
+        <div className="w-full flex flex-col md:flex-row h-full justify-center gap-20 items-center pb-20">
+          <div className="w-full md:w-1/2 flex items-start justify-end md:-mt-10 pr-15">
             <TimeLine />
           </div>
           <div className="w-full md:w-1/2 flex items-center justify-start p-4">

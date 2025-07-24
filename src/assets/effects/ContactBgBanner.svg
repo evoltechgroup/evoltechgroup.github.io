@@ -75,17 +75,17 @@
 <use xlink:href="#image3_4197_20988" transform="scale(0.00287356 0.00289855)"/>
 </pattern>
 <radialGradient id="paint0_radial_4197_20988" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(686 761.886) scale(647.55 524.59)">
-<stop offset="0.47" stop-color="#72C7DF" stop-opacity="0"/>
-<stop offset="1" stop-color="#232F74"/>
+<stop offset="0.47" stopColor="#72C7DF" stop-opacity="0"/>
+<stop offset="1" stopColor="#232F74"/>
 </radialGradient>
 <radialGradient id="paint1_radial_4197_20988" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(696.041 364.51) rotate(-1.58474) scale(387.85 148.036)">
-<stop stop-color="#474A83"/>
-<stop offset="0.436" stop-color="#21236C"/>
-<stop offset="1" stop-color="#101243"/>
+<stop stopColor="#474A83"/>
+<stop offset="0.436" stopColor="#21236C"/>
+<stop offset="1" stopColor="#101243"/>
 </radialGradient>
 <radialGradient id="paint2_radial_4197_20988" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(680.291 469.531) rotate(90) scale(139.707 376.099)">
-<stop stop-color="white"/>
-<stop offset="1" stop-color="white" stop-opacity="0"/>
+<stop stopColor="white"/>
+<stop offset="1" stopColor="white" stop-opacity="0"/>
 </radialGradient>
 <clipPath id="clip0_4197_20988">
 <rect width="1352" height="719" fill="white" transform="translate(0 -99)"/>
