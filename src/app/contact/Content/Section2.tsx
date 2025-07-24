@@ -1,15 +1,7 @@
 import { Map } from "@/assets/effects/Banner";
 import Text from "@/components/Text";
 import { officeLocations } from "@/data/office-location";
-import {
-  Building2,
-  Globe,
-  Landmark,
-  MapPin,
-  Phone,
-  PhoneCall,
-} from "lucide-react";
-import React from "react";
+import { MapPin, PhoneCall } from "lucide-react";
 
 const Section2 = () => {
   return (
@@ -24,9 +16,11 @@ const Section2 = () => {
           Office Locations
         </Text>
       </div>
-      <div className="w-full mt-10 flex  justify-center gap-30 items-center">
+      <div className="w-full mt-10 flex flex-col md:flex-row justify-center md:gap-30 items-center pb-15">
         {officeLocations.map((item, idx) => (
-          <div key={idx} className=" max-w-sm p-6 rounded-lg space-y-4 mx-20">
+          <div
+            key={idx}
+            className=" max-w-sm p-6 rounded-lg space-y-4 md:mx-20">
             <div className="flex items-center gap-2 text-2xl font-bold">
               {item.country}
             </div>

@@ -21,10 +21,12 @@ const ImageTextBlock: React.FC<ImageTextBlockProps> = ({
   return (
     <div className="flex flex-col md:flex-row items-start md:items-center justify-center gap-6 w-full mx-auto px-4 py-4">
       <div
-        className="sticky top-28 w-full sm:w-fit md:w-fit p-0 pt-0 flex justify-end items-start"
-        style={{
-          zIndex: 10 + index,
-        }}>
+        className="w-full h-full md:w-fit p-0 pt-0 flex justify-start items-start"
+        style={
+          {
+            // zIndex: 10 + index,
+          }
+        }>
         <div
           className="rounded-3xl w-[400px] h-[280px] overflow-hidden"
           style={{

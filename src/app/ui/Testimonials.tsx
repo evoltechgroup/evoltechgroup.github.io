@@ -58,7 +58,7 @@ function Testimonials() {
           </Text>
           <Text className="whitespace-nowrap font-normal text-xl sm:text-4xl text-[#C6C7F3] text-center">
             The heart
-            <span className="inline-block align-middle ml-2 -mt-4 mr-2 h-5">
+            <span className="inline-block align-middle ml-2 mr-2 h-6 md:h-10">
               {smileEmoji}
             </span>
             of EvolTech’s success.
@@ -77,7 +77,7 @@ function Testimonials() {
               {rightExplamation}
             </div>
             <p
-              className={`text-[#222] text-center text-base whitespace-pre-line px-4 transition-opacity duration-300 ${
+              className={`text-[#222] text-center text-xs md:text-base whitespace-pre-line px-4 transition-opacity duration-300 ${
                 fade ? "opacity-100" : "opacity-0"
               }`}>
               {t.text}

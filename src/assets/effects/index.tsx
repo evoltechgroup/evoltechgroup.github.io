@@ -424,6 +424,54 @@ const rectangle191 = (
   </svg>
 );
 
+const rectangle210 = (
+  <svg
+    width="392"
+    height="434"
+    viewBox="0 0 392 434"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg">
+    <g filter="url(#filter0_f_4197_161)">
+      <path
+        d="M10.0001 44.0024L382 10.5V424L10.0001 46.5024V44.0024Z"
+        fill="url(#paint0_linear_4197_161)"
+      />
+    </g>
+    <defs>
+      <filter
+        id="filter0_f_4197_161"
+        x="0.00012207"
+        y="0.5"
+        width="392"
+        height="433.5"
+        filterUnits="userSpaceOnUse"
+        colorInterpolationFilters="sRGB">
+        <feFlood floodOpacity="0" result="BackgroundImageFix" />
+        <feBlend
+          mode="normal"
+          in="SourceGraphic"
+          in2="BackgroundImageFix"
+          result="shape"
+        />
+        <feGaussianBlur
+          stdDeviation="5"
+          result="effect1_foregroundBlur_4197_161"
+        />
+      </filter>
+      <linearGradient
+        id="paint0_linear_4197_161"
+        x1="10.0001"
+        y1="44.0024"
+        x2="377.5"
+        y2="221.502"
+        gradientUnits="userSpaceOnUse">
+        <stop stopColor="white" />
+        <stop offset="1" stop-opacity="0" />
+      </linearGradient>
+    </defs>
+  </svg>
+);
+
 const rectangle191Tech = (
   <svg
     viewBox="0 0 100% 100%"
@@ -1214,6 +1262,7 @@ export {
   rectangle189,
   rectangle190,
   rectangle191,
+  rectangle210,
   rectangle191Tech,
   radialGradient,
   radialGradient1,

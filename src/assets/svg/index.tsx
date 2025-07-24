@@ -26,39 +26,38 @@ const heartIcon = (
 
 const partnerHeartIcon = (
   <svg
-    width="40"
-    height="40"
     viewBox="0 0 40 40"
+    className="w-full h-full"
     fill="none"
     xmlns="http://www.w3.org/2000/svg">
     <rect width="40" height="40" rx="8" fill="url(#paint0_linear_4209_41539)" />
     <path
       d="M27.4998 20.5717L19.9998 27.9997L12.4998 20.5717C12.0051 20.0903 11.6155 19.5117 11.3554 18.8723C11.0953 18.2329 10.9704 17.5466 10.9886 16.8566C11.0067 16.1666 11.1676 15.4878 11.461 14.863C11.7544 14.2382 12.1739 13.6809 12.6933 13.2263C13.2127 12.7716 13.8205 12.4294 14.4786 12.2212C15.1367 12.013 15.8308 11.9433 16.5172 12.0165C17.2035 12.0897 17.8673 12.3042 18.4667 12.6466C19.0661 12.9889 19.5881 13.4517 19.9998 14.0057C20.4133 13.4557 20.9359 12.997 21.5349 12.6583C22.1339 12.3196 22.7963 12.1081 23.4807 12.0372C24.1652 11.9663 24.8569 12.0374 25.5126 12.2461C26.1683 12.4548 26.7738 12.7966 27.2914 13.2501C27.8089 13.7035 28.2272 14.259 28.5202 14.8816C28.8132 15.5042 28.9746 16.1806 28.9941 16.8684C29.0137 17.5562 28.8911 18.2407 28.6339 18.8789C28.3768 19.5172 27.9907 20.0955 27.4998 20.5777"
       stroke="white"
-      stroke-width="2"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     />
     <path
       d="M19.9998 14L16.7068 17.293C16.5194 17.4805 16.4141 17.7348 16.4141 18C16.4141 18.2652 16.5194 18.5195 16.7068 18.707L17.2498 19.25C17.9398 19.94 19.0598 19.94 19.7498 19.25L20.7498 18.25C21.3466 17.6533 22.1559 17.318 22.9998 17.318C23.8438 17.318 24.6531 17.6533 25.2498 18.25L27.4998 20.5"
       stroke="white"
-      stroke-width="2"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     />
     <path
       d="M20.5 23.5L22.5 25.5"
       stroke="white"
-      stroke-width="2"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     />
     <path
       d="M23 21L25 23"
       stroke="white"
-      stroke-width="2"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     />
     <defs>
       <linearGradient
@@ -68,8 +67,8 @@ const partnerHeartIcon = (
         x2="21.4506"
         y2="54.2791"
         gradientUnits="userSpaceOnUse">
-        <stop stop-color="#EF4747" />
-        <stop offset="1" stop-color="#E64C4E" />
+        <stop stopColor="#EF4747" />
+        <stop offset="1" stopColor="#E64C4E" />
       </linearGradient>
     </defs>
   </svg>
@@ -199,10 +198,9 @@ const blueRectangleGradient = (
 
 const smileEmoji = (
   <svg
-    width="40"
-    height="40"
     viewBox="0 0 40 40"
     fill="none"
+    className="w-full h-full"
     xmlns="http://www.w3.org/2000/svg">
     <rect width="40" height="40" rx="12" fill="#FFBB00" />
     <path
@@ -787,6 +785,37 @@ const rightExplamation = (
   </svg>
 );
 
+const hamburgerIcon = (
+  <svg
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg">
+    <path
+      d="M4 6H20"
+      stroke="#AAAAAA"
+      strokeWidth="1.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+    <path
+      d="M7 12H20"
+      stroke="#AAAAAA"
+      strokeWidth="1.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+    <path
+      d="M10 18H20"
+      stroke="#AAAAAA"
+      strokeWidth="1.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+  </svg>
+);
+
 export {
   heartIcon,
   partnerHeartIcon,
@@ -811,4 +840,5 @@ export {
   mailIcon,
   leftExclamation,
   rightExplamation,
+  hamburgerIcon,
 };

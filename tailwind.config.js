@@ -26,6 +26,7 @@ module.exports = {
         gilroy: ["var(--font-gilroy)", "sans-serif"],
         geist: ["var(--font-geist-sans)", "sans-serif"],
         mono: ["var(--font-geist-mono)", "monospace"],
+        merriweather: ["var(--font-merriweather)", ...fontFamily.serif],
       },
       boxShadow: {
         "custom-focus": "0 0 8px #CAE6FFE5",

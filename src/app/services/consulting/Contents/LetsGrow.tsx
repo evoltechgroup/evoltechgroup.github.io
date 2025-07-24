@@ -7,13 +7,13 @@ import { CircleChevronRight } from "lucide-react";
 const LetsGrow = () => {
   return (
     <div
-      className="w-full h-screen sm:h-full"
+      className="w-full py-10 md:py-0 md:h-full overflow-hidden"
       style={{
         backgroundImage:
           "linear-gradient(to left, rgba(217, 229, 251, 1) 0%, #ffff 100%)",
       }}>
       <div className="sm:p-44 p-10 flex items-center justify-center relative h-full">
-        <div className="absolute top-0 -left-10 z-1 w-full h-full">
+        <div className="absolute hidden md:block top-0 -left-10 z-1 w-full h-full">
           <div>{leftRing}</div>
         </div>
         <div className="absolute right-0 bottom-0 z-1">

@@ -9,7 +9,7 @@ import { cloudServicesCards } from "@/data/service-technology";
 
 const Mastering = () => {
   return (
-    <div className="bg-white pb-20 relative">
+    <div className="bg-[#F8F8F8] pb-20 relative">
       <div className="absolute top-0 -left-10 z-1 w-full h-full">
         <div>{leftRing}</div>
       </div>
@@ -22,12 +22,12 @@ const Mastering = () => {
         subHeaderText="Our cloud engineering services empower businesses to scale and innovate"
         subHeaderTextColor="text-black"
         headerTextSize="text-6xl"
-        className="py-20"
+        className="py-5 pt-15 md:py-20"
         arrowSrc={expertAarrow}
         arrowAlt="Expert Arrow"
         arrowPosition="left"
-        arrowWidth={100}
-        arrowHeight={120}
+        arrowWidth={60}
+        arrowHeight={10}
       />
       <div className="flex justify-center pb-10">
         <div className="flex flex-wrap gap-6 px-4 py-10 pb-12 max-w-6xl">

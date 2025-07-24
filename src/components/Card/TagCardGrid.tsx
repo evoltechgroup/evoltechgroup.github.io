@@ -27,7 +27,7 @@ const TagCardGridSection: React.FC<TagCardGridSectionProps> = ({
         {subtitle && <p className="text-lg text-[#333333]">{subtitle}</p>}
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 justify-center">
+      <div className="grid grid-cols-2 sm:grid-cols-2 gap-6 justify-center">
         {cards.map((card) => (
           <CardWithChip
             id={card.id}

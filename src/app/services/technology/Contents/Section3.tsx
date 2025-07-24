@@ -7,7 +7,7 @@ import { servicesCards } from "@/data/service-technology";
 
 const Section3 = () => {
   return (
-    <div className="bg-white pb-20 relative">
+    <div className="bg-white pb-20 relative overflow-hidden w-full h-full">
       <div className="absolute top-0 -left-10 z-1 w-full h-full">
         <div>{leftRing}</div>
       </div>
@@ -20,7 +20,7 @@ const Section3 = () => {
         subHeaderText="Our 50+ professionals drive innovation across technology and operations"
         subHeaderTextColor="text-black"
         headerTextSize="text-6xl"
-        className="pb-16 pt-20"
+        className="py-5 pt-15 md:py-0 md:pb-16 md:pt-20"
         arrowSrc={expertAarrow}
         arrowAlt="Expert Arrow"
         arrowPosition="left"

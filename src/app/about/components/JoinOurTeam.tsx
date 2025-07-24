@@ -1,4 +1,4 @@
-"use client";   
+"use client";
 import { CircleChevronRight } from "lucide-react";
 import Button from "@/components/Button";
 import {
@@ -14,7 +14,7 @@ const JoinOurTeam = () => {
   const router = useRouter();
   return (
     <section
-      className="relative flex flex-col items-center justify-center w-full h-screen mx-auto"
+      className="relative flex flex-col items-center justify-center w-full h-screen mx-auto overflow-hidden"
       style={{
         backgroundImage: "linear-gradient(to bottom, #FFFFFF 0%, #F1F8FF 50%)",
       }}>
@@ -23,19 +23,21 @@ const JoinOurTeam = () => {
           {testimonialBottom}
         </div>
       </div>
-      <div className="max-w-6xl max-h-5xl w-full h-full flex flex-col md:flex-row items-center ml-20 pt-20 justify-center">
-        <div className="max-w-[500] max-h-full border relative rounded-[48px] overflow-hidden border-white">
-          <img
-            src={JoinOurTeamImg.src}
-            alt={"TeamMetting"}
-            className={`w-full h-full rounded-[48px] relative -translate-y-[100px] `}
-            height={620}
-            width={500}
-          />
+      <div className="md:max-w-6xl w-full h-full flex flex-col md:flex-row items-center md:ml-20 pt-20 justify-center">
+        <div className="px-5 md:p-0  w-full">
+          <div className="w-full md:w-fit h-80 md:h-[620px] mx-auto rounded-[48px] overflow-hidden relative">
+            <img
+              src={JoinOurTeamImg.src}
+              alt="TeamMeeting"
+              className="w-full h-[28rem] md:h-full rounded-[48px] object-cover md:object-contain -translate-y-[50px] md:-translate-y-[100px]"
+              height={620}
+              width={500}
+            />
+          </div>
         </div>
-        <div className="flex-1">
+        <div className="flex-1 -mt-15 md:mt-0 p-8 pt-0 md:p-0">
           <div
-            className="bg-white overflow-hidden w-2xl left-[-15%] p-30 mb-20 rounded-4xl shadow-lg px-15 py-15 flex flex-col gap-4 relative"
+            className="bg-white overflow-hidden w-full md:w-2xl md:left-[-15%] p-10 md:p-30 mb-20 rounded-4xl shadow-lg md:px-15 md:py-15 flex flex-col gap-4 relative"
             style={{
               backgroundImage:
                 "linear-gradient(to left, rgba(217, 229, 251, 1) 0%, #ffff 100%)",

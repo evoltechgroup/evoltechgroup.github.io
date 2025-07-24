@@ -17,9 +17,9 @@ const MessageBox = ({
   className,
 }: MessageBoxProps) => {
   return (
-    <div className="relative overflow-visible">
+    <div className="relative p-4 font-merriweather italic">
       <div
-        className={`relative rounded-2xl p-8 max-w-xl mx-auto shadow-lg ${
+        className={`relative rounded-2xl p-4 md:p-8 max-w-xl mx-auto shadow-lg ${
           className || ""
         }`}
         style={{ backgroundColor }}>
@@ -29,7 +29,7 @@ const MessageBox = ({
           {polygonIcon}
         </div>
         <p
-          className="text-center text-lg relative z-20 leading-relaxed italic font-normal"
+          className="text-center text-lg relative z-20 leading-relaxed italic font-medium md:font-normal"
           style={{ color: textColor }}>
           {text}
         </p>
