@@ -110,7 +110,7 @@ const BannerHeader: React.FC<BannerHeaderProps> = ({
     );
   };
   return (
-    <div className={`header-component flex justify-center  ${className}`}>
+    <div className={`header-component flex justify-center ${className}`}>
       <div
         className={`flex flex-col items-center text-center w-full md:${maxWidth} gap-2`}>
         <div
