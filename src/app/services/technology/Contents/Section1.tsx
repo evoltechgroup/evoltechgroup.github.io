@@ -16,12 +16,14 @@ const Section1 = () => {
         subHeaderText="At EvolTech, we harness a robust tech stack to deliver scalable, secure, and innovative solutions."
         subHeaderTextColor="text-black"
         headerTextSize="text-6xl"
-        className="py-5 pt-15 md:py-20"
+        className=" pt-15 py-5 "
         arrowSrc={TechArrow}
         arrowAlt="Tech Arrow"
         arrowPosition="right"
-        arrowWidth={70}
+        arrowWidth={75}
         arrowHeight={35}
+        maxWidth=" max-w-4xl"
+       
       />
       <TechStackShowCase />
 

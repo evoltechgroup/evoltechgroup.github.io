@@ -1,4 +1,4 @@
-import { mainFollowArrow } from "@/assets/svg";
+import { followArrow } from "@/assets/svg";
 import Globe from "@/assets/effects/Aboutus/Globe.jpg";
 import Text from "@/components/Text";
 import { infoCards } from "@/data/about-us";
@@ -54,9 +54,9 @@ const Section1 = () => {
               consulting, and efficient back office solutions, powered by 50+
               specialists in full-stack, AI, and cloud computing.
             </Text>
-            <div className="flex items-center justify-start md:-mt-8 w-full text-[#FFBB00]">
-              {mainFollowArrow}
-            </div>
+             <div className=" hidden md:flex text-[#FFBB00] justify-start items-end ml-24 -mt-6  w-4/4">
+                      <span className="transform -rotate-[10deg] scale-x-[-1]">{followArrow}</span>
+                    </div>
           </div>
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6 w-full mx-auto p-4">
             {infoCards.map((item, idx) => (

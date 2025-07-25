@@ -28,9 +28,10 @@ const Mastering = () => {
         arrowPosition="left"
         arrowWidth={60}
         arrowHeight={10}
+      
       />
       <div className="flex justify-center pb-10">
-        <div className="flex flex-wrap gap-6 px-4 py-10 pb-12 max-w-6xl">
+        <div className="flex flex-wrap gap-6 px-4 py-1 pb-12 max-w-6xl">
           {cloudServicesCards.map((card) => (
             <div
               key={card.id}

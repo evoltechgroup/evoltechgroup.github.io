@@ -7,7 +7,7 @@ import { valuePropositionCards } from "@/data/service-consulting";
 
 const WhyEvoltech = () => {
   return (
-      <div className="sm:p-44 p-10 flex items-center justify-center relative h-full bg-white">
+      <div className=" md:p-20  lg:p-40 p-10 flex items-center justify-center relative h-full bg-white">
       {/* Left Ring Decoration */}
       <div className="absolute hidden md:block top-0 -left-10 z-0 w-full h-full">
         <div>{leftRing}</div>
@@ -40,14 +40,14 @@ const WhyEvoltech = () => {
               What It Means for You
             </Text>
           </div>
-         <div className="absolute  mt-44  left-96 rotate-[40deg]">
+         <div className="absolute mt-32 lg:mt-40 left-15  lg:left-96 rotate-[40deg]">
   <span className="text-[#FFBB00]">{followArrowRightV2}</span>
 </div>
 
-          {/* Cards Grid */}
+         
           <TagCardGridSection
             cards={valuePropositionCards}
-            gridCols="grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-20"
+            gridCols="grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-10 lg:gap-20"
           />
         </div>
       </div>

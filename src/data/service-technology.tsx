@@ -110,7 +110,7 @@ export const servicesCards = [
     description: [
       "Design scalable cloud infrastructures on AWS, Azure, and Google Cloud.",
     ],
-    bgColor: "#FAF3EB",
+    bgColor: "#F8ECF9",
   },
   {
     id: 5,
@@ -118,13 +118,13 @@ export const servicesCards = [
     description: [
       "Automate CI/CD pipelines with Docker, Kubernetes, and Jenkins.",
     ],
-    bgColor: "#F8ECF9",
+    bgColor: "#FAF3EB",
   },
   {
     id: 6,
     title: "UI/UX Designers",
     description: ["Craft intuitive interfaces using Figma and Adobe XD."],
-    bgColor: "#E4EFF8",
+    bgColor: "#FAEBEB",
   },
   {
     id: 7,
@@ -132,7 +132,7 @@ export const servicesCards = [
     description: [
       "Optimize processes with custom software for efficiency and cost savings.",
     ],
-    bgColor: "#EBE9F9",
+    bgColor: "#EDEDED",
   },
 ];
 
@@ -163,7 +163,7 @@ export const cloudServicesCards = [
     id: 4,
     title: "Cloud Migration",
     description: ["Seamlessly transition on-premises systems to the cloud."],
-    bgColor: "#FAF3EB",
+    bgColor: "#F8ECF9",
   },
   {
     id: 5,
@@ -171,7 +171,7 @@ export const cloudServicesCards = [
     description: [
       "Reduce costs with AWS Cost Explorer and Azure Cost Management.",
     ],
-    bgColor: "#F8ECF9",
+    bgColor: "#FAF3EB",
   },
 ];
 
@@ -213,7 +213,7 @@ export const processCards = [
       "Perform automated testing with Selenium and Jest",
       "Ensure quality through manual testing and user feedback.",
     ],
-    bgColor: "#FAF3EB",
+    bgColor: "#F8ECF9",
     icon: testIcon,
   },
   {
@@ -222,7 +222,7 @@ export const processCards = [
     description: [
       "Automate releases with CI/CD pipelines using Jenkins, GitHub Actions, or AWS CodePipeline.",
     ],
-    bgColor: "#F8ECF9",
+    bgColor: "#FAF3EB",
     icon: deployIcon,
   },
   {
@@ -232,7 +232,7 @@ export const processCards = [
       "Monitor performance with New Relic and Datadog",
       "Provide ongoing updates to adapt to evolving needs.",
     ],
-    bgColor: "#E4EFF8",
+    bgColor: "#FAEBEB",
     icon: maintainIcon,
   },
 ];
