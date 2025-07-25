@@ -21,7 +21,7 @@ const timelineData = [
 
 const TimeLine = () => {
   return (
-    <div className="w-80 h-96 bg-[#FFFFFF] -pt-10 rounded-[24px] shadow-2xl relative">
+    <div className="w-[303px] h-96 bg-[#FFFFFF] -pt-10 rounded-[24px] shadow-2xl relative">
       <div className="absolute w-full h-full z-1 overflow-hidden">
         <div className="absolute -left-20">{leftRing}</div>
         <div className="absolute right-0">{topRightSmallRing}</div>

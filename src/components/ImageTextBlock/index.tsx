@@ -62,7 +62,7 @@ const ImageTextBlock: React.FC<ImageTextBlockProps> = ({
           {description.map((paragraph, idx) => (
             <p
               key={idx}
-              className="text-gray-700 leading-relaxed max-w-[590px] font-normal text-base"
+              className="text-gray-700 leading-relaxed max-w-[590px] font-medium text-base"
               dangerouslySetInnerHTML={{ __html: paragraph }}
             />
           ))}

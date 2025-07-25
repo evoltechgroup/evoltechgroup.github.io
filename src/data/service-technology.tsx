@@ -236,3 +236,69 @@ export const processCards = [
     icon: maintainIcon,
   },
 ];
+
+export const LifeAtEvoltech = [
+  {
+    id: 1,
+    title: "Innovate Fearlessly",
+    description: ["Work on cutting-edge projects with global brands."],
+    bgColor: "#E4EFF8",
+  },
+  {
+    id: 2,
+    title: "Grow Your Way",
+    description: ["Tailored career paths with mentorship and learning opportunities."],
+    bgColor: "#EBE9F9",
+  },
+  {
+    id: 3,
+    title: "Vibrant Culture",
+    description: ["A collaborative, inclusive environment where ideas thrive."],
+    bgColor: "#FAF3EB",
+  },
+  {
+    id: 4,
+    title: "Make an Impact",
+    description: ["Your work will influence trends and drive results."],
+    bgColor: "#E9F6E8",
+  },
+];
+
+export const PerksandBenefits = [
+  {
+    id: 1,
+    title: "Health Care Insurance",
+    description: ["Comprehensive medical, dental, and vision coverage for you and your family."],
+    bgColor: "#E4EFF8",
+  },
+  {
+    id: 2,
+    title: "Remote Work Option",
+    description: ["Choose to work from home or office for work-life balance."],
+    bgColor: "#EBE9F9",
+  },
+  {
+    id: 3,
+    title: "Spot Bonus",
+    description: ["Immediate rewards for exceptional performance."],
+    bgColor: "#FAF3EB",
+  },
+  {
+    id: 4,
+    title: "Provident Fund",
+    description: ["Secure retirement planning for our India-based team."],
+    bgColor: "#E9F6E8",
+  },
+  {
+    id: 5,
+    title: "Yearly Team Outing",
+    description: ["Bond with colleagues through annual team-building events."],
+    bgColor: "#E4EFF8",
+  },
+  {
+    id: 6,
+    title: "Monthly & Quarterly Awards",
+    description: ["Regular recognition for outstanding contributions."],
+    bgColor: "#EBE9F9",
+  },
+];

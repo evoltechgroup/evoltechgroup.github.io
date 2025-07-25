@@ -11,14 +11,14 @@ import Text from "@/components/Text";
 
 const Section1 = () => {
   return (
-    <section className="relative w-full bg-[#ffff] py-10 flex flex-col items-center h-screen">
+    <section className="relative w-full bg-[#ffff] py-10 flex flex-col items-center">
       <div className="absolute inset-0 z-0 w-full h-full flex bg-[#2D2550] overflow-hidden pointer-events-none">
         <div className="absolute inset-0 z-0 w-full h-full flex bg-[#2D2550] overflow-hidden pointer-events-none">
           <div className="absolute z-7 w-full h-full">{eclipseEffect}</div>
           <img
             src={ContactBanner.src}
-            alt="LeftGlobe"
-            className="absolute w-full bottom-0  z-8  mix-blend-color-dodge opacity-50"
+            alt="ContactBanner"
+            className="md:absolute w-full md:-bottom-10  z-8 opacity-60 object-cover md:object-contain"
           />
           <div className="absolute z-4 w-full h-full opacity-100">
             {rectangle191}
@@ -35,12 +35,12 @@ const Section1 = () => {
         </div>
       </div>
       <div className="relative z-10 w-full h-full justify-center items-center p-5">
-        <div className="w-full h-full flex flex-col justify-center gap-15 items-center p-40 pb-20">
+        <div className="w-full h-full flex flex-col justify-center gap-15 items-center p-40 pb-30">
           <div className="flex flex-col gap-5 items-center justify-center mb-4">
             <Text className="font-semibold text-6xl text-center" tag="p">
               Contact us
             </Text>
-            <Text className="text-xl max-w-[40rem] text-center text-[#C5E1FF]">
+            <Text className="text-4xl max-w-[40rem] text-center text-[#FFBB00]">
               Our Global Footprint
             </Text>
             <div className="flex w-full items-center justify-center">

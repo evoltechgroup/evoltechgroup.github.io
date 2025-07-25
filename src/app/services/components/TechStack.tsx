@@ -20,7 +20,6 @@ const staggeredPadding = [
   "pb-34",
   "pb-24",
 ];
-
 const labelTexts = [
   ["Frontend"],
   ["Backend"],
@@ -36,10 +35,8 @@ const FADE_DURATION = 800;
 const SWAP_INTERVAL = 2500;
 
 const TechStackShowCase: React.FC = () => {
-  const visibleCount = 21; // Total: 4+4+3+3+3+4 = 21 slots
+  const visibleCount = 21; 
   const totalImages = TechIcons.length;
-
-  // Helper function to add proper sizing to SVG strings
   const getSizedSvg = (
     svgString: string,
     width: string = "100%",
@@ -64,8 +61,6 @@ const TechStackShowCase: React.FC = () => {
       isFading: false,
     }))
   );
-
-  // Preload images to prevent loading delays
   useEffect(() => {
     TechIcons.forEach((image: any) => {
       const img = new window.Image();
@@ -73,7 +68,6 @@ const TechStackShowCase: React.FC = () => {
     });
   }, []);
 
-  // Define the number of images per column: [4, 4, 3, 3, 3, 4]
   const columnSizes = [4, 4, 3, 3, 3, 4];
 
   const groupedSlots = [];
@@ -101,10 +95,7 @@ const TechStackShowCase: React.FC = () => {
 
       {groupedSlots.map((group, idx) => {
         const padding = staggeredPadding[idx % staggeredPadding.length];
-        const labelText = labelTexts[idx]; // Get label for current column
-
-        // Determine vertical alignment based on column index
-        // Odd columns (0, 2, 4) are higher, even columns (1, 3, 5) are lower
+        const labelText = labelTexts[idx];
         const isOddColumn = idx % 2 === 0;
         const verticalAlignment = isOddColumn
           ? "justify-start "

@@ -37,7 +37,6 @@ const Text = ({
   className = "",
   truncate = false,
   alignment = "left",
-  fontWeight = "normal",
   width = "",
   textColor = "",
   customColor = "",
@@ -52,7 +51,6 @@ const Text = ({
     {
       truncate,
       [`text-${alignment}`]: alignment,
-      [`font-${fontWeight}`]: fontWeight,
       [`text-${customColor}`]: customColor,
     },
     className
@@ -63,8 +61,7 @@ const Text = ({
       id={id}
       className={textClass}
       title={title}
-      style={{ width, color: textColor, ...style }}
-    >
+      style={{ width, color: textColor, ...style }}>
       {children}
     </Tag>
   );

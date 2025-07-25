@@ -12,7 +12,9 @@ const Section2 = () => {
       }}>
       <div className="w-full h-full items-center -mt-15 ">
         <img src={Map.src} alt="LeftGlobe" className="w-full h-full " />
-        <Text className="font-semibold text-6xl !text-center w-full" tag="p">
+        <Text
+          className="font-semibold text-6xl -mt-10 !text-center w-full"
+          tag="p">
           Office Locations
         </Text>
       </div>
@@ -21,11 +23,18 @@ const Section2 = () => {
           <div
             key={idx}
             className=" max-w-sm p-6 rounded-lg space-y-4 md:mx-20">
-            <div className="flex items-center gap-2 text-2xl font-bold">
-              {item.country}
-            </div>
-            <div className="flex items-center gap-2 font-semibold text-[#333333]">
-              <span>{item.tagline}</span>
+            <div className="flex flex-col">
+              <div className="flex gap-4 items-center">
+                <div className="w-12 h-8">
+                  <img src={item.icon.src} />
+                </div>
+                <div className="flex items-center gap-2 text-[32px] font-bold">
+                  {item.country}
+                </div>
+              </div>
+              <div className="flex items-center gap-2 font-semibold text-[#333333]">
+                <span dangerouslySetInnerHTML={{ __html: item.tagline }} />
+              </div>
             </div>
             <div className="flex items-start gap-2 text-gray-700">
               <span className="mt-1">

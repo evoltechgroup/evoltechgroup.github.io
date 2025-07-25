@@ -21,8 +21,7 @@ interface BannerHeaderProps {
   arrowSrc?: string | StaticImageData | React.ReactNode;
   arrowAlt?: string;
   arrowColor?: string;
- 
-  
+  arrowOverrideCx?: string;
 }
 
 const BannerHeader: React.FC<BannerHeaderProps> = ({
@@ -44,15 +43,16 @@ const BannerHeader: React.FC<BannerHeaderProps> = ({
   arrowSrc = ArrowDown,
   arrowAlt = "Arrow",
   arrowColor = "",
-  
-  
+  arrowOverrideCx = "",
 }) => {
   const ArrowComponent = () =>
     showArrow ? (
       <div
-        className={`arrow ${arrowColor && `text-[ ]`} ${
-          arrowWidth ? `w-[${arrowWidth}px]` : ""
-        } ${arrowHeight ? `h-[${arrowHeight}px]` : ""} ${arrowPosition}`}>
+        className={`arrow ${arrowOverrideCx} ${
+          arrowColor && `text-[${arrowColor}]`
+        } ${arrowWidth ? `w-[${arrowWidth}px]` : ""} ${
+          arrowHeight ? `h-[${arrowHeight}px]` : ""
+        } ${arrowPosition}`}>
         {typeof arrowSrc === "string" || (arrowSrc && "src" in arrowSrc) ? (
           <Image
             src={arrowSrc as string | StaticImageData}
@@ -94,8 +94,9 @@ const BannerHeader: React.FC<BannerHeaderProps> = ({
 
     if (arrowPosition === "left") {
       return (
-        <div className="flex gap-0 px-10">
-          <div className="pt-8 flex">
+        <div className="relative flex gap-0 px-10">
+          <div
+            className={` ${arrowOverrideCx ? arrowOverrideCx : "pt-8 flex"}`}>
             <ArrowComponent />
           </div>
           {subHeaderElement}
@@ -114,11 +115,11 @@ const BannerHeader: React.FC<BannerHeaderProps> = ({
     );
   };
   return (
-    <div className={`header-component flex justify-center  ${className}`}>
+    <div className={`header-component flex justify-center ${className}`}>
       <div
         className={`flex flex-col items-center text-center w-full md:${maxWidth} gap-2`}>
         <div
-          className={`chip rounded-full max-w-content justify-center text-center px-4 py-2 ${chipTextColor}`}
+          className={`chip rounded-full max-w-content justify-center font-medium text-center px-4 py-2 ${chipTextColor}`}
           style={{ backgroundColor: chipBackgroundColor }}>
           {chipText}
         </div>
