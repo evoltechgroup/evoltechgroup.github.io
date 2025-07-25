@@ -46,7 +46,7 @@ export const ServicePanel: React.FC<ServicePanelProps> = ({ service }) => {
           {blurb}
         </p>
 
-        <div className="grid  grid-cols-1 md:grid-cols-2 gap-6 lg:w-2xl px-4 lg:px-0 pl-2">
+        <div className="grid  grid-cols-1 md:grid-cols-2 gap-6 lg:w-xl">
           {bullets.map((b, i) => (
             <TechCardWithChip
               id={i}
@@ -83,7 +83,7 @@ export const ServicePanel: React.FC<ServicePanelProps> = ({ service }) => {
             />
             <div
               style={{ mixBlendMode: "plus-lighter" }}
-              className="absolute inset-0 rounded-[48px] bg-gradient-to-b from-[#190670] to-[#1B0A41] opacity-80 pointer-events-none"
+              className="absolute inset-0 rounded-[50px] bg-gradient-to-b from-[#190670] to-[#1B0A41] opacity-80 pointer-events-none"
             />
           </div>
         </div>

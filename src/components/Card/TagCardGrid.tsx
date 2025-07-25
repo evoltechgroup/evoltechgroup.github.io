@@ -7,18 +7,21 @@ interface TagCard {
   title: string;
   description: string;
   bgColor: string;
+ 
 }
 
 interface TagCardGridSectionProps {
   title?: string;
   subtitle?: string;
   cards: TagCard[];
+   gridCols?: string; 
 }
 
 const TagCardGridSection: React.FC<TagCardGridSectionProps> = ({
   title,
   subtitle,
   cards,
+   gridCols,
 }) => {
   return (
     <div className="space-y-6">
@@ -27,7 +30,7 @@ const TagCardGridSection: React.FC<TagCardGridSectionProps> = ({
         {subtitle && <p className="text-lg text-[#333333]">{subtitle}</p>}
       </div>
 
-      <div className="grid grid-cols-2 sm:grid-cols-2 gap-6 justify-center">
+      <div className={`grid gap-6 ${gridCols || "grid-cols-2 sm:grid-cols-2"}`}>
         {cards.map((card) => (
           <CardWithChip
             id={card.id}

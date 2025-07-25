@@ -14,7 +14,7 @@ export default function Footer() {
         </div>
 
         <div className="flex flex-col sm:flex-row items-center justify-center order-1 md:order-2 gap-4">
-          <nav className="flex flex-wrap justify-center gap-4 text-xs text-gray-200">
+          <nav className="flex flex-wrap justify-center gap-4 text-base text-white">
             <Link href="/about" className="hover:underline">
               Who We Are
             </Link>
@@ -34,7 +34,7 @@ export default function Footer() {
               Contact
             </Link>
           </nav>
-          <div className="flex gap-6 justify-center sm:-mt-1">
+          <div className="flex gap-6 justify-center text-[#AAAAAA] sm:-mt-1">
             <a
               href="https://linkedin.com/company/evoltech"
               className="hover:opacity-80"

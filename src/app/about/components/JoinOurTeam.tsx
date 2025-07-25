@@ -9,6 +9,7 @@ import {
 } from "@/assets/effects";
 import { JoinOurTeamImg } from "@/assets/images";
 import { useRouter } from "next/navigation";
+import { followArrowDownV2 } from "@/assets/svg";
 
 const JoinOurTeam = () => {
   const router = useRouter();
@@ -37,15 +38,22 @@ const JoinOurTeam = () => {
         </div>
         <div className="flex-1 -mt-15 md:mt-0 p-8 pt-0 md:p-0">
           <div
-            className="bg-white overflow-hidden w-full md:w-2xl md:left-[-15%] p-10 md:p-30 mb-20 rounded-4xl shadow-lg md:px-15 md:py-15 flex flex-col gap-4 relative"
+            className="bg-white overflow-hidden w-full md:w-2xl md:left-[-15%] p-10 md:p-30 mb-20 rounded-[64px] shadow-lg md:px-15 md:py-15 flex flex-col gap-4 relative"
             style={{
               backgroundImage:
                 "linear-gradient(to left, rgba(217, 229, 251, 1) 0%, #ffff 100%)",
             }}>
-            <div className="relative w-full h-full z-2">
+            <div className="relative w-full h-full z-2 ">
+              <div className="flex items-center gap-1 mb-1">
               <span className="left-8 top-6 text-xs font-semibold text-blue-500 bg-blue-100 rounded-full px-3 py-1">
                 Career
               </span>
+              <div className="hidden md:flex text-[#FFBB00] justify-start ">
+      <span className="transform   translate-y-[4px] block">
+        {followArrowDownV2}
+      </span>
+    </div>
+    </div>
               <h2 className="text-4xl font-bold text-[#0B0F2B] mb-2 mt-2">
                 Join Our Team
               </h2>

@@ -66,18 +66,18 @@ export default function Header() {
           />
         </Link>
 
-        <nav className="hidden md:flex flex-1 justify-center gap-5 text-sm font-medium text-white items-center">
+        <nav className="hidden md:flex flex-1 justify-center gap-5 text-lg font-medium text-[#C7E5FF] items-center">
           <div className="relative group">
             <span
               className={`cursor-pointer transition ${
                 pathname.startsWith("/services")
                   ? "text-[#FFBB00]"
-                  : "text-white"
+                  : "text-[#C7E5FF]"
               }`}>
               Services
             </span>
             <div
-              className={`absolute top-full left-1/2 -translate-x-1/2 mt-3
+              className={`absolute top-full left-1/2 -translate-x-1/2 mt-3 text-sm
                          ${
                            isScrolled ? "bg-[#282D45]" : "bg-[#282d4570]"
                          } text-[#BBBBBB] rounded-full shadow-lg p-1 py-1
