@@ -7,7 +7,7 @@ import {
   rectangle191Tech,
   rectangle210,
 } from "@/assets/effects";
-import { followArrowDown } from "@/assets/svg";
+import { followArrowDown, productPageArrow } from "@/assets/svg";
 import Text from "@/components/Text";
 import { StaticImageData } from "next/image";
 import { ReactNode } from "react";
@@ -16,9 +16,9 @@ interface BgBannerProps {
   id: string;
   foregroundImage: StaticImageData;
   foregroundImageAlt?: string;
-  consultingIcon: string;
+  consultingIcon?: string;
   title: string;
-  subtitle: string;
+  subtitle?: string;
   description: string;
   backgroundImages?: {
     main: StaticImageData;
@@ -44,9 +44,11 @@ const BgBanner: React.FC<BgBannerProps> = ({
           <img
             src={backgroundImages.main.src}
             alt="Background Main Image"
-            className={`w-full z-8 h-full absolute  ${
+            className={`w-full z-8 h-full absolute   ${
               id === "operations"
-                ? "opacity-50"
+                ? "opacity-40 top-20"
+                : id === "products"
+                ? "object-cover mix-blend-overlay opacity-25"
                 : "left-0 object-cover sm:object-contain"
             }  ${id === "tech" && "mix-blend-overlay opacity-50 left-20"}`}
           />
@@ -61,7 +63,7 @@ const BgBanner: React.FC<BgBannerProps> = ({
             key={`bg-extra-${i}`}
             src={typeof img === "string" ? img : img.src}
             alt={`Background Extra Image ${i + 1}`}
-            className="absolute w-full h-full object-cover opacity-50 mix-blend-overlay"
+            className="absolute w-full h-full top-20 object-cover opacity-10 mix-blend-overlay"
             style={{ zIndex: 5 - i }}
           />
         ))}
@@ -78,33 +80,52 @@ const BgBanner: React.FC<BgBannerProps> = ({
       </div>
 
       <div className="relative z-10 w-full h-full justify-center items-center p-5 pb-0">
-        <div className="w-full h-full flex justify-between gap-24 pt-20 sm:pt-44 sm:p-36 sm:pb-0">
-          <div className="w-full sm:w-1/2 flex flex-col gap-5 items-start justify-center sm:justify-end mb-4 pb-18">
-            <div className="h-12 w-12 lg:h-24 lg:w-24 mr-3 lg:mr-8 bg-gradient-to-r from-[#5785DC] to-[#5F4793] rounded-2xl lg:rounded-3xl flex items-center justify-center">
-              <img
-                src={consultingIcon}
-                alt={`${title} Icon`}
-                className="h-8 w-8 lg:h-16 lg:w-14"
-              />
+        <div className="w-full h-full flex flex-col md:flex-row md:justify-between gap-10 md:gap-24 pt-20 sm:pt-44 sm:p-30 sm:pb-0">
+          <div
+            className={`w-full sm:w-1/2  flex flex-col gap-5 md:gap-10 items-start justify-center ${
+              id === "products"
+                ? "max-w-lg md:justify-center"
+                : "md:justify-end"
+            } mt-20 md:mt-0 md:pb-5`}>
+            <div className="flex">
+              {consultingIcon && (
+                <div className="h-12 w-12 lg:h-28 lg:w-28 mr-3 lg:mr-8 bg-gradient-to-r from-[#5785DC] to-[#5F4793] rounded-2xl lg:rounded-3xl flex items-center justify-center">
+                  <img
+                    src={consultingIcon}
+                    alt={`${title} Icon`}
+                    className="h-8 w-8 lg:h-16 lg:w-16"
+                  />
+                </div>
+              )}
+              <div className="flex flex-col gap-2 md:gap-5">
+                <Text
+                  className="font-semibold text-xl sm:text-3xl lg:text-6xl text-center whitespace-nowrap text-[#fff]"
+                  tag="p">
+                  {title}
+                </Text>
+                {subtitle && (
+                  <Text className="text-xl sm:text-3xl font-medium max-w-xl text-center text-[#FFBB00]">
+                    {subtitle}
+                  </Text>
+                )}
+              </div>
             </div>
-            <Text
-              className="font-semibold text-xl sm:text-6xl text-center whitespace-nowrap text-[#fff]"
-              tag="p">
-              {title}
-            </Text>
-            <Text className="text-base sm:text-3xl max-w-[40rem] text-center text-[#FFBB00]">
-              {subtitle}
-            </Text>
-            <Text className="text-sm sm:text-xl max-w-[40rem] text-start text-[#C5E1FF]">
-              {description}
-            </Text>
-            <div className="text-[#FFBB00] flex justify-center w-full">
-              {followArrowDown}
-            </div>
+            <p
+              className="text-sm sm:text-xl max-w-full text-start text-[#C5E1FF]"
+              dangerouslySetInnerHTML={{ __html: description }}
+            />
+            {id === "products" ? (
+              <div className="text-[#FFBB00] flex justify-start w-10 md:w-[71px]">
+                {productPageArrow}
+              </div>
+            ) : (
+              <div className="text-[#FFBB00] flex justify-center w-10 md:w-[71px] mx-auto">
+                {followArrowDown}
+              </div>
+            )}
           </div>
-
-          <div className="w-1/2 h-full hidden sm:flex">
-            <div className="relative w-full h-full flex items-end pl-20">
+          <div className="w-full md:w-1/2 md:mt-0 h-full flex">
+            <div className="relative w-full h-full flex items-end md:pl-20">
               <div className="max-w-[430px] h-[620px] border relative rounded-[48px] rounded-bl-none rounded-br-none overflow-hidden border-white">
                 <img
                   src={foregroundImage.src}

@@ -11,10 +11,9 @@ const LetsGrow = () => {
       style={{
         backgroundImage:
           "linear-gradient(to left, rgba(217, 229, 251, 1) 0%, #ffff 100%)",
-      }}
-    >
+      }}>
       <div className="sm:p-44 p-10 flex items-center justify-center relative h-full">
-        <div className="absolute hidden md:block top-0 -left-10 z-1 w-full h-full">
+        <div className="absolute hidden md:block -top-10 -left-10 z-1 w-full h-full">
           <div>{leftRing}</div>
         </div>
         <div className="absolute right-0 bottom-0 z-1">
@@ -25,8 +24,7 @@ const LetsGrow = () => {
             <Text
               className="font-semibold text-3xl sm:text-[56px] max-w-[30rem] text-black text-center"
               alignment="center"
-              tag="p"
-            >
+              tag="p">
               Let’s Transform Business Together
             </Text>
             <div className="text-[#FFBB00] absolute bottom-0 -right-5">
@@ -37,8 +35,7 @@ const LetsGrow = () => {
             <Text
               className="font-normal sm:text-xl text-base text-[#212121] max-w-xl"
               alignment="center"
-              tag="p"
-            >
+              tag="p">
               Ready to take your business to the next level? <br />
               Contact us today to learn how our consulting services can
               <br /> help you achieve innovation, efficiency, and lasting
