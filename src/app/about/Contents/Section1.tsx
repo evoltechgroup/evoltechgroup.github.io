@@ -54,7 +54,7 @@ const Section1 = () => {
               consulting, and efficient back office solutions, powered by 50+
               specialists in full-stack, AI, and cloud computing.
             </Text>
-            <div className="flex items-center justify-center md:-mt-6 w-full ">
+            <div className="flex items-center justify-start md:-mt-8 w-full text-[#FFBB00]">
               {mainFollowArrow}
             </div>
           </div>

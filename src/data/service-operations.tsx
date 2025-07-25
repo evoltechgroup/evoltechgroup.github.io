@@ -6,10 +6,18 @@ import {
   OperationsCardImg5,
   OperationsCardImg6,
 } from "@/assets/images/operation";
-import TagCardGridSection from "@/components/Card/TagCardGrid";
+import {
+  CustomerSvg,
+  DedicatedSvg,
+  FinanceSvg,
+  HealthCareSvg,
+  OperationsSvg,
+  PayrollSvg,
+  StrategicSvg,
+} from "@/assets/svg/operations";
 import { StaticImageData } from "next/image";
+import { ReactNode } from "react";
 
-// data/consultingCards.ts
 export interface CardData {
   id: number;
   title: string;
@@ -19,78 +27,14 @@ export interface CardData {
   extraContent?: React.ReactNode;
 }
 
-const insightsCards = [
-  {
-    id: 1,
-    title: "Banking",
-    description:
-      "Digital banking, Consumer, Commercial and Residential lending.",
-    bgColor: "#E4EFF8",
-  },
-  {
-    id: 2,
-    title: "Mortgage",
-    description:
-      "Navigating lending and servicing complexities for compliance and efficiency.",
-    bgColor: "#EBE9F9",
-  },
-  {
-    id: 3,
-    title: "Retail",
-    description:
-      "Enhancing customer experiences and operational efficiency to drive loyalty.",
-    bgColor: "#E9F6E8",
-  },
-  {
-    id: 4,
-    title: "Insurance",
-    description:
-      "Innovating products and services to stay competitive in a dynamic market.",
-    bgColor: "#FAF3EB",
-  },
-  {
-    id: 5,
-    title: "FinTech",
-    description:
-      "Leading in Embedded finance, digital payments, and other financial technology trends.",
-    bgColor: "#F8ECF9",
-  },
-];
-
-const valuePropositionCards = [
-  {
-    id: 1,
-    title: "Proven Track Record",
-    description: "25+ years delivering results in financial services.",
-    bgColor: "#E4EFF8",
-  },
-  {
-    id: 2,
-    title: "Tailored Solutions",
-    description:
-      "Customized strategies that fit your business needs and goals.",
-    bgColor: "#EBE9F9",
-  },
-  {
-    id: 3,
-    title: "Fractional Leadership",
-    description: "Access to top talent without full-time commitment.",
-    bgColor: "#E9F6E8",
-  },
-  {
-    id: 4,
-    title: "Industry Insights",
-    description:
-      "Deep knowledge across multiple financial sectors for context-specific advice.",
-    bgColor: "#FAF3EB",
-  },
-  {
-    id: 5,
-    title: "Performance-Driven Partnerships",
-    description: "Our success is tied to yours, ensuring measurable outcomes.",
-    bgColor: "#F8ECF9",
-  },
-];
+export interface OperationsCardData {
+  iconSrc: StaticImageData;
+  title: string;
+  subtitle: string;
+  description: string[];
+  label: string;
+  extraDescription?: string;
+}
 
 export const operationsCards: CardData[] = [
   {
@@ -152,5 +96,80 @@ export const operationsCards: CardData[] = [
       "Efficiency is at the core of our back office operations. We leverage cutting-edge technologies, including automation tools and advanced analytics, to streamline processes and reduce errors.",
       "From robotic process automation (RPA) to workflow systems, we optimize your operations to enhance productivity and provide a competitive edge. Our commitment to continuous improvement means we’re always exploring new ways to innovate and drive your business success.",
     ],
+  },
+];
+
+export const operationsCardData: OperationsCardData[] = [
+  {
+    iconSrc: HealthCareSvg,
+    title: "Healthcare & Insurance verticals",
+    subtitle: "Smart Support for Healthcare & Insurance Workflows.",
+    description: [
+      "We deliver robust operational and administrative support across the healthcare and insurance chain—from detailed claims adjudication and audit tracking to data validation, invoice processing, and pharmacy communication across high-volume workflows.",
+      "Our quality control services enhance your manual and automated processes, catching errors early and slashing rework. With strong domain knowledge and system proficiency, we enable seamless coordination across payers, providers, and care teams.",
+    ],
+    label: "Let us manage the complexity, so you can focus on delivering care.",
+    extraDescription:
+      "Our teams are experienced in working within TPA ecosystems, navigating systems like Healthpac, VBA, CPM, QicLink, and WCA to ensure accurate, compliant, and efficient execution.",
+  },
+  {
+    iconSrc: StrategicSvg,
+    title: "Strategic Sales Support",
+    subtitle: "Your sales engine, fully equipped.",
+    description: [
+      "From proposal generation to real-time partner coordination, our Sales Support team empowers your frontlines with speed, accuracy, and insight.",
+      "We streamline pricing & cost structures, manage CRM workflows, and handle end-to-end bid collection—so your sales teams can focus on closing deals, not chasing details. Trusted by clients in healthcare, insurance, and beyond, our support functions as a natural extension of your go-to-market engine.",
+    ],
+    label: "Scale your sales efforts with our seamless support.",
+  },
+  {
+    iconSrc: CustomerSvg,
+    title: "Customer Experience",
+    subtitle: "Support That Reflects Your Brand.",
+    description: [
+      "Our customer experience services support seamless communication between clients, partners, and service providers. From managing inbound and outbound queries to issue resolution and documentation requests, we ensure consistent and accurate information exchange.",
+      "With experience across complex workflows and multi-channel platforms, our team acts as an extension of your front office, enhancing service quality and reducing TAT. We provide seamless, US-aligned support that reflects your brand at its best.",
+    ],
+    label: "Elevate customer experiences. Enhance loyalty.",
+  },
+  {
+    iconSrc: OperationsSvg,
+    title: "Operations & Administrative Support",
+    subtitle: "Ops that Rock.",
+    description: [
+      "At EvolTech, we believe that a robust back office is the backbone of any thriving business.",
+      "Our Back Office Operations service is designed to power your organization with seamless, efficient, and scalable solutions. From data management to administrative support, we handle the details so you can focus on driving growth and innovation. With a commitment to excellence, we deliver operations that truly rock.",
+    ],
+    label: "Power your core with operation support that rocks.",
+  },
+  {
+    iconSrc: PayrollSvg,
+    title: "HR & Payroll Support",
+    subtitle: "People-First HR Support, Built for Impact.",
+    description: [
+      "Our HR support services streamline employee lifecycle management from on-boarding and off-boarding to payroll coordination and compliance tracking.",
+      "With experience across platforms like ADP, Employee Navigator, and ClearCheck, our team supports seamless data handling, system updates, and regulatory adherence. From recruitment assistance to day-to-day operational support, we ensure your HR and payroll processes run smoothly behind the scenes.",
+    ],
+    label: "Streamlined HR and payroll for effortless employee management.",
+  },
+  {
+    iconSrc: FinanceSvg,
+    title: "Finance Support",
+    subtitle: "Finance Operations You Can Count On.",
+    description: [
+      "Our finance support services cover operational accounting—from invoicing and journal entries to bank reconciliations and reporting.",
+      "We manage corporate bank activity with precision and timeliness. With experience in budgeting, closures, and preparation of financial statements, we support both routine processes and strategic financial planning,  delivering reliable, scalable finance operations across functions.",
+    ],
+    label: "Finance that scales with you.",
+  },
+  {
+    iconSrc: DedicatedSvg,
+    title: "Dedicated Account Management",
+    subtitle: "A partnership, not just a service.",
+    description: [
+      "Your engagement will be supported by a dedicated account manager who acts as the single point of contact between your managers and our team. ",
+      "From on-boarding to daily coordination, we support in resource allocation planning, cross-functional workflows planning, and work closely across departments to swiftly resolve challenges and remove bottlenecks. Whether it’s daily operational support or long-term planning, we keep everything moving with proactive problem solving and accountability, so you can focus on outcomes not operations.",
+    ],
+    label: "Stay aligned, every step of the way with high touch Support",
   },
 ];

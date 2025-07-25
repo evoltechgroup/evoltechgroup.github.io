@@ -57,18 +57,18 @@ function Testimonials() {
             Testimonials
           </Text>
           <Text className="whitespace-nowrap font-normal text-xl sm:text-4xl text-[#C6C7F3] text-center">
-            The heart
+            Happy
             <span className="inline-block align-middle ml-2 mr-2 h-6 md:h-10">
               {smileEmoji}
             </span>
-            of EvolTech’s success.
+            customers about us
           </Text>
-          <div className="flex gap-2 justify-start items-start -ml-15 w-[70%]">
+          <div className="flex gap-2 justify-start items-start -ml-20 -mt-5 w-[70%]">
             <span className="text-[#FFBB00]">{followArrowRightV2}</span>
           </div>
         </div>
 
-        <div className="relative w-full flex justify-center">
+        <div className="relative w-full flex justify-center -mt-4">
           <div className="bg-white rounded-2xl shadow-lg px-8 py-8 max-w-2xl w-full min-h-[340px] flex flex-col justify-center items-center transition-all duration-500 relative">
             <div className="absolute left-4 top-4 w-6 h-6 opacity-40">
               {leftExclamation}
@@ -77,7 +77,7 @@ function Testimonials() {
               {rightExplamation}
             </div>
             <p
-              className={`text-[#222] text-center text-xs md:text-base whitespace-pre-line px-4 transition-opacity duration-300 ${
+              className={`text-[#222] text-center font-light text-xs md:text-base whitespace-pre-line px-4 transition-opacity duration-300 ${
                 fade ? "opacity-100" : "opacity-0"
               }`}>
               {t.text}
@@ -87,7 +87,7 @@ function Testimonials() {
 
         <div className="mt-6 text-center">
           <div className="font-bold text-[#C6C7F3] text-lg">{t.author}</div>
-          <span className="bg-yellow-400 text-[#0B0F2B] px-4 py-1 rounded-full font-semibold text-xs mt-2 inline-block">
+          <span className=" bg-[#FFEAA3] text-[#0B0F2B] px-4 py-1 rounded-full font-semibold  text-xs mt-2 inline-block">
             {t.company}
           </span>
         </div>

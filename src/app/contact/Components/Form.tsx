@@ -1,9 +1,10 @@
 "use client";
+import React, { useState } from "react";
 import { mailIcon } from "@/assets/svg";
 import Button from "@/components/Button";
 import { motion, AnimatePresence } from "framer-motion";
 import { CircleChevronRight } from "lucide-react";
-import React, { useState } from "react";
+import emailjs from "emailjs-com";
 
 const Form = () => {
   const [formData, setFormData] = useState({
@@ -22,13 +23,30 @@ const Form = () => {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Form Submitted:", formData);
-    setSubmitted(true);
+
+    try {
+      const response = await emailjs.send(
+        "your_service_id",
+        "your_template_id",
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          company: formData.company,
+          message: formData.message,
+        },
+        "your_public_key"
+      );
+
+      console.log("Email sent successfully:", response.status, response.text);
+      setSubmitted(true);
+    } catch (error) {
+      console.error("Email send error:", error);
+      alert("Something went wrong. Please try again.");
+    }
   };
 
-  // Flip animation variants
   const flipVariants = {
     initial: {
       rotateY: 180,
@@ -50,7 +68,6 @@ const Form = () => {
     },
   };
 
-  // Capitalize helper
   const capitalizeName = (name: string) =>
     name
       .split(" ")
@@ -116,7 +133,7 @@ const Form = () => {
             initial="initial"
             animate="animate"
             exit="exit"
-            className="bg-transparent  flex flex-col items-center -mt-10 justify-center p-6 pt-0 rounded-lg text-center space-y-2 backface-hidden">
+            className="bg-transparent flex flex-col items-center -mt-10 justify-center p-6 pt-0 rounded-lg text-center space-y-2 backface-hidden">
             <div>{mailIcon}</div>
             <h2 className="text-3xl font-bold text-black">
               Thank you, {capitalizeName(formData.name)}!

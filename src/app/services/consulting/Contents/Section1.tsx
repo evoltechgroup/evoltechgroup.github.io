@@ -8,7 +8,7 @@ const Section1 = () => {
     <BgBanner
       id="consultancy"
       consultingIcon={Consultingicon.src}
-      title="Consulting Services"
+      title="Consulting"
       subtitle="Your Industry, Our Blueprint"
       description="Our consulting services are designed to provide you with the strategic insights, leadership, and operational excellence needed to drive growth, innovation, and sustainable success."
       foregroundImage={ConsultingBanner}
