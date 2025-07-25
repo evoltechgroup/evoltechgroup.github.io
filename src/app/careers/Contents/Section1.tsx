@@ -1,5 +1,5 @@
 import { followArrowRightV3 } from "@/assets/svg";
-import bgbanner from "@/assets/images/careers/section1banner..jpg";
+import bgbanner from "@/assets/images/careers/section1banner.jpg";
 import Text from "@/components/Text";
 import {
   eclipseEffect,
