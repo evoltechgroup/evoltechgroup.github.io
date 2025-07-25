@@ -21,6 +21,8 @@ interface BannerHeaderProps {
   arrowSrc?: string | StaticImageData | React.ReactNode;
   arrowAlt?: string;
   arrowColor?: string;
+ 
+  
 }
 
 const BannerHeader: React.FC<BannerHeaderProps> = ({
@@ -42,6 +44,8 @@ const BannerHeader: React.FC<BannerHeaderProps> = ({
   arrowSrc = ArrowDown,
   arrowAlt = "Arrow",
   arrowColor = "",
+  
+  
 }) => {
   const ArrowComponent = () =>
     showArrow ? (
@@ -65,7 +69,7 @@ const BannerHeader: React.FC<BannerHeaderProps> = ({
   const renderSubHeaderWithArrow = () => {
     const subHeaderElement = (
       <div
-        className={`sub-header p-4 md:p-0 text-xl md:${subHeaderTextSize} max-w-3xl font-normal lg:mt-6 ${subHeaderTextColor}`}>
+        className={`sub-header p-4 md:p-0 text-xl md:${subHeaderTextSize} max-w-2xl font-normal lg:mt-6 ${subHeaderTextColor}`}>
         {subHeaderText}
       </div>
     );
@@ -101,9 +105,9 @@ const BannerHeader: React.FC<BannerHeaderProps> = ({
 
     // Default: right position
     return (
-      <div className="flex">
+      <div className="flex -mr-12">
         {subHeaderElement}
-        <div className="pt-4 flex">
+        <div className="pt-4  flex">
           <ArrowComponent />
         </div>
       </div>

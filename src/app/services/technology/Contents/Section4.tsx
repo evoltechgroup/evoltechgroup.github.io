@@ -6,7 +6,7 @@ import OurService from "../../components/ourServices";
 
 const Section4 = () => {
   return (
-    <div className="bg-white pb-20 overflow-hidden w-full h-full">
+    <div className="bg-[#F8F8F8] pb-20 overflow-hidden w-full h-full">
       <BannerHeader
         chipText="SOC2 Certification Readiness"
         chipBackgroundColor="#BCE0FF"
@@ -16,12 +16,13 @@ const Section4 = () => {
         subHeaderText="EvolTech helps clients achieve SOC2 compliance, a critical standard for secure data management in industries like Financial Services and Healthcare."
         subHeaderTextColor="text-black"
         headerTextSize="text-6xl"
-        className=" py-5 pt-15 md:py-20"
+        className=" py-5 pt-15 md:py-8"
         arrowSrc={secureAarrow}
         arrowAlt="Secure Arrow"
         arrowPosition="bottom"
         arrowWidth={60}
         arrowHeight={10}
+        
       />
       <div>
         <OurService />

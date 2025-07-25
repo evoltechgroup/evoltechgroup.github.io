@@ -86,7 +86,7 @@ const TechStackShowCase: React.FC = () => {
   }
 
   return (
-    <div className="flex relative justify-center pt-15">
+    <div className="flex relative justify-center -mt-5">
       {/* Starting vertical line */}
       <div className="flex relative">
         <div
@@ -107,15 +107,16 @@ const TechStackShowCase: React.FC = () => {
         // Odd columns (0, 2, 4) are higher, even columns (1, 3, 5) are lower
         const isOddColumn = idx % 2 === 0;
         const verticalAlignment = isOddColumn
-          ? "justify-start pt-20"
-          : "justify-center";
+          ? "justify-start "
+          : "justify-center pt-20";
 
         return (
           <div key={idx} className="flex items-stretch h-1/2">
             <div
-              className={`${padding} flex flex-col items-center ${verticalAlignment} w-full `}>
+              className={`${padding} flex flex-col items-center ${verticalAlignment} w-full `}
+            >
               {labelText && (
-                <div className="w-full mb-5 text-center shaddow-lg">
+                <div className="w-full mb-5 mt-20 text-center shaddow-lg">
                   <Label text={labelText[0]} />
                 </div>
               )}
@@ -131,7 +132,8 @@ const TechStackShowCase: React.FC = () => {
                 return (
                   <div
                     key={slotIndex}
-                    className="relative h-[100px] w-[172px]  overflow-hidden flex items-center justify-center">
+                    className="relative h-[100px] w-[172px]  overflow-hidden flex items-center justify-center"
+                  >
                     <div className="tech-icon h-10 w-full flex items-center justify-center">
                       <Image src={currentImage.image} alt={currentImage.name} />
                     </div>

@@ -27,11 +27,11 @@ const Section2 = () => {
             tag="p">
             Powering Growth with Smart Tech and Scalable Teams
           </Text>
-          <div className="text-[#FFBB00] flex w-10 h-10 md:block md:w-fit -mt-10 md:h-full mb-10 md:mb-0">
+          <div className="text-[#FFBB00] flex w-10 h-10 md:block md:w-fit -mt-5 md:h-full mb-10 md:mb-8">
             {followArrow}
           </div>
         </div>
-        <div className="flex flex-col xl:gap-20 gap-10 sm:gap-20">
+        <div className="flex flex-col xl:gap-25 gap-10 sm:gap-20">
           <div className="w-full flex gap-10 justify-between h-[300px] md:px-40">
             <div className=" h-full w-full md:w-1/2">
               <Button className="p-1.5 flex bg-[#D2D2FF] rounded-full text-xs rounder px-2">
@@ -64,7 +64,7 @@ const Section2 = () => {
               />
             </div>
           </div>
-          <div className="w-full flex md:flex-row flex-col gap-5  justify-between md:h-[300px] h-full md:px-40">
+          <div className="w-full flex md:flex-row flex-col gap-5  justify-between md:h-[300px] h-full md:px-40 mb-10">
             <div className="h-full w-full md:w-[calc(33.333333%+3rem)] flex flex-col gap-5">
               <Text
                 className="font-semibold text-4xl sm:text-4xl xl:text-[56px]"
@@ -79,7 +79,7 @@ const Section2 = () => {
               </div>
             </div>
             <div className="h-full items-end justify-end w-fit p-4">
-              <div className="grid grid-cols-2 sm:grid-cols-2 gap-6 justify-center">
+              <div className="grid grid-cols-2 sm:grid-cols-2 gap-10 justify-center">
                 {whyEvoltechCard.map((card, idx) => {
                   return (
                     <CardWithChip
