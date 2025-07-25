@@ -56,7 +56,7 @@ const insightsCards = [
   },
 ];
 
-const valuePropositionCards = [
+export const valuePropositionCards = [
   {
     id: 1,
     title: "Proven Track Record",
@@ -144,12 +144,12 @@ export const consultingCards: CardData[] = [
       `At EvolTech, we believe in aligning incentives with results. That’s why we’ve formed strategic alliances with partners who operate on a pay-for-performance basis.`,
       `This model ensures that every solution we implement is designed to deliver tangible, measurable outcomes for your business. By tying our success to yours, we guarantee that our consulting services are not just a cost but an investment in your growth.`,
     ],
-    extraContent: (
-      <TagCardGridSection
-        title="Why Choose EvolTech for Consulting?"
-        subtitle="What It Means for You"
-        cards={valuePropositionCards}
-      />
-    ),
+    // extraContent: (
+    //   <TagCardGridSection
+    //     title="Why Choose EvolTech for Consulting?"
+    //     subtitle="What It Means for You"
+    //     cards={valuePropositionCards}
+    //   />
+    // ),
   },
 ];

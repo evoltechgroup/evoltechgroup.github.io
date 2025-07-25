@@ -47,7 +47,7 @@ const BgBanner: React.FC<BgBannerProps> = ({
             className={`w-full z-8 h-full absolute  ${
               id === "operations"
                 ? "opacity-50"
-                : "left-50 object-cover sm:object-contain"
+                : "left-0 object-cover sm:object-contain"
             }  ${id === "tech" && "mix-blend-overlay opacity-50 left-20"}`}
           />
         )}
