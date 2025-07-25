@@ -19,7 +19,7 @@ export const sampleJobData: JobDescriptionData = {
     "Become the local champion and advocate of user experience design and process with the local stakeholders"
   ],
   qualifications: [
-    "A Bachelor's or Master's degree in Design, human computer interaction, interaction design or related .",
+    "A Bachelor's or Master's degree in Design, human computer interaction, interaction design or related field.",
     "5-8 years of experience as a UX designer and a compelling portfolio.",
     "Experience and fluency with design products such as Figma and Adobe Creative Suite.",
     "Experience in developing Wireframes, Process workflows & information architecture, Sitemapping & Mobile application Design (android systems)",
