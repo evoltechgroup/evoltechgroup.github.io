@@ -22,6 +22,7 @@ const Section3 = () => {
         headerTextSize="text-6xl"
         className="py-5 pt-15 md:py-0 md:pb-16 md:pt-20"
         arrowSrc={expertAarrow}
+        maxWidth="lg:max-xl"
         arrowAlt="Expert Arrow"
         arrowPosition="left"
         arrowWidth={70}

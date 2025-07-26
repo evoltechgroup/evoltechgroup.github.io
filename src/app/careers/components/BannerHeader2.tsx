@@ -33,7 +33,7 @@ const BannerHeader2: React.FC<BannerHeader2Props> = ({
   subHeaderText,
   maxWidth = "lg:max-w-4xl",
   headerTextSize = "text-6xl",
-  subHeaderTextSize = "text-2xl",
+  subHeaderTextSize = "text-xl",
   chipTextColor = "text-black",
   headerTextColor = "text-black",
   subHeaderTextColor = "text-black",
@@ -45,17 +45,16 @@ const BannerHeader2: React.FC<BannerHeader2Props> = ({
   arrowSrc = ArrowDown,
   arrowAlt = "Arrow",
   arrowColor = "",
-    subHeader2Text = "",
-    subHeader2TextSize = "text-2xl",
-    subHeader2TextColor = "text-black",
+  subHeader2Text = "",
+  subHeader2TextSize = "text-2xl",
+  subHeader2TextColor = "text-black",
 
 }) => {
   const ArrowComponent = () =>
     showArrow ? (
       <div
-        className={`arrow ${arrowColor && `text-[ ]`} ${
-          arrowWidth ? `w-[${arrowWidth}px]` : ""
-        } ${arrowHeight ? `h-[${arrowHeight}px]` : ""} ${arrowPosition}`}>
+        className={`arrow ${arrowColor && `text-[ ]`} ${arrowWidth ? `w-[${arrowWidth}px]` : ""
+          } ${arrowHeight ? `h-[${arrowHeight}px]` : ""} ${arrowPosition}`}>
         {typeof arrowSrc === "string" || (arrowSrc && "src" in arrowSrc) ? (
           <Image
             src={arrowSrc as string | StaticImageData}
@@ -71,10 +70,14 @@ const BannerHeader2: React.FC<BannerHeader2Props> = ({
 
   const renderSubHeaderWithArrow = () => {
     const subHeaderElement = (
-      <div
-        className={`text-center sub-header text-lg ${subHeaderTextSize} max-w-3xl font-normal lg:mt-6 ${subHeaderTextColor}`}>
-        {subHeaderText}
+      <div className="flex flex-col items-center gap-2">
+        <div
+          className={`text-center sub-header ${subHeader2TextSize} max-w-full lg:max-w-7xl font-normal lg:mt-6 ${subHeader2TextColor}`}>
+          {subHeader2Text}
+        </div>
+        <div className={`font-sm p-4 ${subHeaderTextColor}  ${subHeaderTextSize}`}>{subHeaderText}</div>
       </div>
+
     );
 
     if (arrowPosition === "top") {
@@ -126,14 +129,12 @@ const BannerHeader2: React.FC<BannerHeader2Props> = ({
           {chipText}
         </div>
         <div
-          className={`header ${headerTextSize} font-bold ${headerTextColor}`}>
+          className={`header ${headerTextSize} font-bold ${headerTextColor} flex justify-center items-center`}>
           {headerText}
         </div>
-       <div
-        className={`sub-header text-4xl text-center ${subHeader2TextSize} max-w-3xl font-normal lg:mt-6 ${subHeader2TextColor}`}>
-        {subHeader2Text}
-      </div>
-        <div className="px-40">{renderSubHeaderWithArrow()}</div>
+        <div className={`px-2 lg:px-40 flex justify-center items-center lg:ml-[-4rem]`}>
+          {renderSubHeaderWithArrow()}
+        </div>
       </div>
     </div>
   );
