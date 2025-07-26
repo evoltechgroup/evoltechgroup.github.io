@@ -78,16 +78,16 @@ export const valuePropositionCards = [
   },
   {
     id: 4,
+    title: "Performance-Driven Partnerships",
+    description: "Our success is tied to yours, ensuring measurable outcomes.",
+    bgColor: "#F8ECF9",
+  },
+  {
+    id: 4,
     title: "Industry Insights",
     description:
       "Deep knowledge across multiple financial sectors for context-specific advice.",
     bgColor: "#FAF3EB",
-  },
-  {
-    id: 5,
-    title: "Performance-Driven Partnerships",
-    description: "Our success is tied to yours, ensuring measurable outcomes.",
-    bgColor: "#F8ECF9",
   },
 ];
 

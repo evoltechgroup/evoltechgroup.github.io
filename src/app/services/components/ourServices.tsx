@@ -40,11 +40,11 @@ const OurService: React.FC = () => {
         {services.map((service, index) => (
           <div key={index} className="flex-1  max-w-content">
             <div className="flex border-l-4 border-l-[#4C96D7]  items-center">
-              <span className="text-sm font-medium text-gray-800 w-full pl-3 text-start">
+              <span className="text-base font-semibold text-gray-800 w-full pl-3 text-start">
                 {service.title}
               </span>
             </div>
-            <p className="text-[#444444] text-sm mt-3 font-normal leading-5">
+            <p className="text-[#444444] text-sm mt-3 font-medium leading-5">
               {service.description}
             </p>
           </div>

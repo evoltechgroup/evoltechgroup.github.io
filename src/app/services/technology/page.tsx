@@ -4,7 +4,7 @@ import Section4 from "./Contents/Section4";
 import Section3 from "./Contents/Section3";
 import BgSection from "./Contents/BgSection";
 import Section1 from "./Contents/Section1";
-import LetsGrow from "../consulting/Contents/LetsGrow";
+import LetsGrow from "@/app/services/components/LetsGrow";
 import Testimonials from "@/app/ui/Testimonials";
 import VisiontoVictory from "./Contents/visiontoVictory";
 import Mastering from "./Contents/mastering";
@@ -19,7 +19,14 @@ const Technology = () => {
       <VisiontoVictory />
       <Section4 />
       <Mastering />
-      <LetsGrow />
+      <LetsGrow
+  description={
+    <>
+    Ready to harness technology that wins? <br/>
+Contact us to explore how our solutions can drive your success. 
+    </>
+  }
+/>
       <Testimonials />
     </main>
   );

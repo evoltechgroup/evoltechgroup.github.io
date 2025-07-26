@@ -11,7 +11,7 @@ export const testimonials = [
   },
   {
     text: `We are incredibly grateful for our partnership with Evoltech. Their dedication, expertise, and consistent delivery have been instrumental to our success. Working with such a talented and reliable offshore team has made a meaningful impact on our operations and growth.`,
-    author: " Jake Hansen",
+    author: "  Operations Project Manager - Healthcare & Insurance company, North America",
     company: "SaaS Company",
   },
 ];

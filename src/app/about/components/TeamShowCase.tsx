@@ -22,7 +22,7 @@ const staggeredPadding = [
 
 const labelTexts = [
   ["55% women driving innovation and efficiency."],
-  ["Team owns their impact with pride.", "Diverse workforce leading the way."],
+  ["Diverse workforce leading the way.", "Team owns their impact with pride."],
   ["Team chooses workspaces—remote or in-office."],
   ["Flat structure: they’re the boss, no bureaucracy."],
 ];
