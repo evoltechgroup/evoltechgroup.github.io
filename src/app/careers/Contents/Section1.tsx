@@ -1,6 +1,12 @@
 import { followArrowRightV3 } from "@/assets/svg";
 import bgbanner from "@/assets/images/careers/section1banner.jpg";
 import Text from "@/components/Text";
+import priyanka from '@/assets/images/careers/team/priyanka.jpg'
+import aysha from '@/assets/images/careers/team/aysha.jpg'
+import abdul from '@/assets/images/careers/team/abdul.jpg'
+import anish from '@/assets/images/careers/team/anish.png'
+import naveen from '@/assets/images/careers/team/naveen.jpg'
+import jai from '@/assets/images/careers/team/Jai.jpg'
 import {
   eclipseEffect,
   rectangle188,
@@ -12,17 +18,17 @@ import ImageGrid from "../components/ImageGrid";
 
 const imageGrid = [
   [
-    { src: 'https://media.istockphoto.com/id/620952978/photo/female-student-studying-at-college-library.jpg?s=612x612&w=0&k=20&c=adgCR7el6C5l3mg_ermcj8-1G78HmVV5FbR4KzlbVP4=', alt: 'Kitten 1' },
-    { src: 'https://placekeanu.com/200/300', alt: 'Keanu 1' },
+    { src: priyanka.src, alt: 'Kitten 1' },
+    { src: aysha.src, alt: 'Keanu 1' },
   ],
   [
-    { src: 'https://placekeanu.com/684/350/', alt: 'Keanu 2' },
-    { src: 'https://placekeanu.com/250/350/y', alt: 'Keanu 3' },
-    { src: 'https://media.istockphoto.com/id/1144287280/photo/focused-african-student-looking-at-laptop-holding-book-doing-research.jpg?s=612x612&w=0&k=20&c=Ee2sGNsiZXbkCchKwZPX8Z9JDzcBscr4fGAjx5kDnUc=', alt: 'Kitten 2' },
+    { src: abdul.src, alt: 'Keanu 2' },
+    { src: jai.src, alt: 'Keanu 3' },
+    { src: aysha.src, alt: 'Kitten 2' },
   ],
   [
-    { src: 'https://placekeanu.com/684/350/y', alt: 'Keanu 4' },
-    { src: 'https://placebear.com/684/350', alt: 'Bear' },
+    { src: anish.src, alt: 'Keanu 4' },
+    { src: naveen.src, alt: 'Bear' },
   ],
 ];
 const Section1 = () => {
