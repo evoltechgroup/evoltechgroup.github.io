@@ -53,11 +53,11 @@ const Section1 = () => {
         </div>
         <div className="relative z-10 w-full h-full justify-start items-center p-5" >
           <div className="w-full h-full flex justify-center items-center">
-            <div className="flex flex-col gap-14 px-20 justify-end mb-4 w-1/2 h-full">
-              <Text className="font-semibold text-6xl text-left" tag="p">
+            <div className="flex flex-col gap-12 px-20 justify-end mb-4 w-1/2 h-full">
+              <Text className="font-semibold -mb-6 text-6xl text-left" tag="p">
                 Careers
               </Text>
-              <Text className="text-xl max-w-[30rem] !text-left text-[#C5E1FF]">
+              <Text className="text-xl max-w-[30rem] -mb-4 !text-left text-[#C5E1FF]">
                 At EvolTech, we’re pioneering technology and operations globally.
               </Text>
               <Text className="text-xl max-w-[30rem] !text-left text-[#C5E1FF] ">

@@ -16,7 +16,7 @@ const ServicesSection: React.FC = () => {
     <section className="relative w-full  bg-gradient-to-b from-[#eaf6ff] to-white text-[#0B0F2B] py-10 md:py-20 px-2 flex flex-col items-center">
       <div className="lg:max-w-5xl w-full mx-auto flex flex-col items-center">
         <div className="mb-2 text-sm font-medium text-center">
-          <span className="inline-block bg-[#B6D2FF] rounded-full px-3 py-1 text-[#000000] shadow">
+          <span className="inline-block bg-[#B6D2FF] rounded-full px-3 py-1 font-medium text-[#000000] shadow">
             Services &amp; Solutions
           </span>
         </div>

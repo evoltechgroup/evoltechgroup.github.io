@@ -21,8 +21,8 @@ const staggeredPadding = [
   "pb-24",
 ];
 const labelTexts = [
-  ["Frontend"],
-  ["Backend"],
+  ["Front-End"],
+  ["Back-End"],
   ["AI & Machine Learning"],
   ["Databases"],
   ["Cloud Platforms"],

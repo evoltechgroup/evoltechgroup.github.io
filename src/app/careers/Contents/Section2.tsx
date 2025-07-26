@@ -24,7 +24,7 @@ const Section2 = () => {
         <div className="absolute top-0 -left-10 z-1 ">{leftRing}</div>
       </div>
       <BannerHeader
-        chipText="Our Capabilities"
+        chipText="Life at EvolTech"
         chipBackgroundColor="#FFFFFF"
         chipTextColor="text-black"
         headerText="Why Work With Us?"
@@ -72,7 +72,7 @@ const Section2 = () => {
           </div>
         </div>
         <div className=" h-full items-end justify-end w-fit">
-          <div className="grid grid-cols-1 sm:grid-cols-2   -6 justify-center">
+          <div className="grid grid-cols-1 sm:grid-cols-2  justify-center">
             {PerksandBenefits.map((card) => {
               return (
                 <CheckList
@@ -89,7 +89,7 @@ const Section2 = () => {
             <Button
               onClick={() => router.push("/services/consulting")}
               className="w-fit gap-2 items-center justify-center sm:justify-start px-2 py-2 flex cursor-pointer  bg-[#FFBB00] rounded-full text-sm">
-              <span className="font-normal">View Open Positions</span>
+              <span className="font-medium">View Open Positions</span>
               <span>
                 <CircleChevronRight size={18} />
               </span>

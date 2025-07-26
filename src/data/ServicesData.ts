@@ -79,7 +79,7 @@ export const servicesData: ServiceItem[] = [
     tabLabel: "Technology",
     title: "Technology",
     blurb:
-      "We bring visionary ideas to life with cutting-edge tech. Our 50+ engineers in full-stack, AI, and cloud build apps that fuel growth and efficiency.",
+      " We bring visionary ideas to life with cutting-edge tech. Our 50+ engineers, experts in full-stack, AI, and cloud computing, create innovative apps to fuel growth and efficiency.",
     iconSrc: Technologyicon.src,
     imageSrc: TechnologyBanner.src,
     ctaLabel: "Discover more",
@@ -114,9 +114,9 @@ export const servicesData: ServiceItem[] = [
     ],
   },
   {
-    key: "backoffice",
-    tabLabel: "Back-Office",
-    title: "Back-Office",
+    key: "Operations",
+    tabLabel: "Operations",
+    title: "Operations",
     blurb:
       "Our Back Office Operations service is designed to power your organization with seamless, efficient, and scalable solutions. From data management to administrative support, we handle the details so you can focus on driving growth and innovation.",
     iconSrc: BackOfficeicon.src,

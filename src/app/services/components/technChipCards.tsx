@@ -38,7 +38,7 @@ const TechCardWithChip: React.FC<TechCardWithChip> = ({
       {safeDescription.map((paragraph, idx) => (
         <p
           key={idx}
-          className={`text-sm text-[#444444] font-normal max-w-[280px] ${paragraphPadding}`}
+          className={`text-sm text-[#444444] font-medium max-w-[280px] ${paragraphPadding}`}
           dangerouslySetInnerHTML={{ __html: paragraph }}
         />
       ))}
