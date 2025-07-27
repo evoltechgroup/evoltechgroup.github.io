@@ -3,7 +3,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import Logo from "@/assets/logo/logo.svg";
-import { X } from "lucide-react";
+import { ChevronDown, ChevronUp, X } from "lucide-react";
 import { hamburgerIcon } from "@/assets/svg";
 
 export default function Header() {
@@ -43,7 +43,6 @@ export default function Header() {
       document.body.classList.remove("overflow-hidden");
     }
 
-    // Clean up on unmount
     return () => {
       document.body.classList.remove("overflow-hidden");
     };
@@ -53,10 +52,10 @@ export default function Header() {
     <>
       <header
         className={`w-full fixed top-0 left-0 z-50 flex items-center justify-between px-6 py-4 md:px-10 md:py-6 transition-all duration-300
-        ${isScrolled ? "bg-[#121525] shadow-md" : "bg-transparent"} ${
-          mobileMenuOpen && "hidden"
-        }`}>
-        <Link href="/" className={`${mobileMenuOpen && "hidden"}`}>
+          ${isScrolled ? "bg-[#121525] shadow-md" : "bg-transparent"}
+          ${mobileMenuOpen ? "hidden" : ""}
+        `}>
+        <Link href="/" className={`${mobileMenuOpen ? "hidden" : ""}`}>
           <img
             src={Logo.src}
             alt="EvolTech Logo"
@@ -64,7 +63,7 @@ export default function Header() {
           />
         </Link>
 
-        <nav className="hidden md:flex flex-1 justify-center gap-5 text-lg font-medium text-[#C7E5FF] items-center">
+        <nav className="hidden lg:flex flex-1 justify-center gap-5 text-lg font-medium text-[#C7E5FF] items-center">
           <div className="relative group">
             <span
               className={`cursor-pointer transition ${
@@ -75,20 +74,19 @@ export default function Header() {
               Services
             </span>
             <div
-              className={`absolute top-full -left-5 mt-3 text-sm
-                         ${
-                           isScrolled ? "bg-[#282D45]" : "bg-[#282d4570]"
-                         } text-[#BBBBBB] rounded-full shadow-lg p-1 py-1
+              className={`absolute top-full -left-5 mt-3 text-sm ${
+                isScrolled ? "bg-[#282D45]" : "bg-[#282d4570]"
+              } text-[#BBBBBB] rounded-full shadow-lg p-1 py-1
                          opacity-0 invisible group-hover:opacity-100 group-hover:visible
                          transition-opacity duration-200 z-50 flex gap-2 whitespace-nowrap`}>
               <div
                 className={`absolute -top-2 left-10 w-0 h-0 
-                          border-l-8 border-r-8 border-b-8 
-                          border-l-transparent border-r-transparent ${
-                            isScrolled
-                              ? "border-b-[#282D45]"
-                              : "border-b-[#282d4570]"
-                          }`}
+                            border-l-8 border-r-8 border-b-8 
+                            border-l-transparent border-r-transparent ${
+                              isScrolled
+                                ? "border-b-[#282D45]"
+                                : "border-b-[#282d4570]"
+                            }`}
               />
               <Link
                 href="/services/consulting"
@@ -145,19 +143,19 @@ export default function Header() {
           </Link>
         </nav>
 
-        <div className="hidden md:block">
+        <div className="hidden lg:block">
           <Link
             href="/contact"
             className="bg-transparent border border-yellow-400 text-[#FFBB00] px-6 py-2 rounded-full font-semibold hover:bg-yellow-400 hover:text-[#0B0F2B] transition">
             Contact us
           </Link>
         </div>
+
         {!mobileMenuOpen && (
-          <div
-            className={`sm:hidden border border-[#445767] px-3 py-1 rounded flex `}>
+          <div className="lg:hidden border border-[#445767] px-3 py-1 rounded flex">
             <button
               onClick={toggleMobileMenu}
-              className={`md:hidden text-white flex items-center gap-2`}>
+              className="text-white flex items-center gap-2">
               <span className="text-sm font-normal">Menu</span>
               <span>{hamburgerIcon}</span>
             </button>
@@ -166,12 +164,13 @@ export default function Header() {
       </header>
 
       {mobileMenuOpen && (
-        <div className="fixed inset-0 bg-[#000000FA] z-40 flex flex-col items-center pt-20 justify-start gap-6 text-white text-xl font-semibold">
+        <div className="fixed inset-0 bg-[#000000FA] z-50 flex flex-col items-center pt-20 justify-start gap-6 text-white text-xl font-semibold lg:hidden">
           <button
             onClick={toggleMobileMenu}
-            className="absolute top-5 right-5 text-white text-3xl">
+            className="absolute top-5 right-5 text-white text-3xl border border-[#445767] rounded p-2">
             <X />
           </button>
+
           <div className="py-4">
             <Link href="/" onClick={toggleMobileMenu}>
               <img
@@ -181,13 +180,17 @@ export default function Header() {
               />
             </Link>
           </div>
+
           <div className="bg-[#222222] h-px w-full" />
+
           <div className="flex flex-col gap-10 items-center py-5 justify-center font-medium *:text-[#C7E5FF]">
             <button
               onClick={() => setServicesOpen(!servicesOpen)}
-              className="flex items-center gap-2">
+              className="flex items-center gap-2 ">
               Services
-              <span className="text-sm">{servicesOpen ? "▲" : "▼"}</span>
+              <span className="text-sm">
+                {servicesOpen ? <ChevronUp /> : <ChevronDown />}
+              </span>
             </button>
             {servicesOpen && (
               <div className="flex flex-col gap-4 items-center text-base font-normal">
@@ -218,7 +221,8 @@ export default function Header() {
               Contact us
             </Link>
           </div>
-          <div className="bg-[#222222] h-px w-full " />
+
+          <div className="bg-[#222222] h-px w-full" />
         </div>
       )}
     </>

@@ -25,26 +25,27 @@ const Form = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setSubmitted(true);
 
-    try {
-      const response = await emailjs.send(
-        "your_service_id",
-        "your_template_id",
-        {
-          from_name: formData.name,
-          from_email: formData.email,
-          company: formData.company,
-          message: formData.message,
-        },
-        "your_public_key"
-      );
+    // try {
+    //   const response = await emailjs.send(
+    //     "your_service_id",
+    //     "your_template_id",
+    //     {
+    //       from_name: formData.name,
+    //       from_email: formData.email,
+    //       company: formData.company,
+    //       message: formData.message,
+    //     },
+    //     "your_public_key"
+    //   );
 
-      console.log("Email sent successfully:", response.status, response.text);
-      setSubmitted(true);
-    } catch (error) {
-      console.error("Email send error:", error);
-      alert("Something went wrong. Please try again.");
-    }
+    //   console.log("Email sent successfully:", response.status, response.text);
+    //   setSubmitted(true);
+    // } catch (error) {
+    //   console.error("Email send error:", error);
+    //   alert("Something went wrong. Please try again.");
+    // }
   };
 
   const flipVariants = {

@@ -15,13 +15,15 @@ const TechCardWithChip: React.FC<TechCardWithChip> = ({
   description,
   bgColor,
   icon,
-  paragraphPadding
+  paragraphPadding,
 }) => {
   const safeDescription = Array.isArray(description)
     ? description
     : [description];
   return (
-    <div key={id} className="flex flex-col gap-4 max-w-[290px] w-full mx-auto">
+    <div
+      key={id}
+      className="flex flex-col gap-4 md:max-w-[290px] w-full mx-auto">
       {icon && (
         <div className="flex justify-start">
           <div className="w-12 h-12 flex items-center justify-center">
@@ -38,7 +40,7 @@ const TechCardWithChip: React.FC<TechCardWithChip> = ({
       {safeDescription.map((paragraph, idx) => (
         <p
           key={idx}
-          className={`text-sm text-[#444444] font-medium max-w-[280px] ${paragraphPadding}`}
+          className={`text-sm text-[#444444] font-medium md:max-w-[280px] ${paragraphPadding}`}
           dangerouslySetInnerHTML={{ __html: paragraph }}
         />
       ))}

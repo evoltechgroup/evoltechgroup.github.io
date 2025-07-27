@@ -14,11 +14,11 @@ const Founder = () => {
           {topRightRing}
         </div>
       </div>
-      <div className="relative z-10 w-full flex gap-10 flex-col md:flex-row justify-center items-center h-full p-10 md:p-15 md:px-44">
+      <div className="relative z-10 w-full flex gap-10 flex-col md:flex-row justify-center items-center h-full p-5 md:p-15 md:px-44">
         <div className="h-full flex flex-col w-full md:pb-5 gap-5 md:items-end items-center justify-start md:justify-end md:w-fit md:pl-10">
-          <div className="bg-[#F8F8F8] w-[407px] h-[452px] rounded-[10px] relative overflow-hidden">
+          <div className="bg-[#F8F8F8] md:w-[407px] md:h-[452px] rounded-[10px] relative overflow-hidden">
             <div
-              className="w-[100%] h-[358px] absolute bottom-0 rounded-xl z-1"
+              className="w-[100%] h-[300px] md:h-[358px] absolute bottom-0 rounded-xl z-1"
               style={{
                 backgroundImage:
                   "linear-gradient(to right, #D6ECFF 50%, #4C96D7 80%)",
@@ -48,7 +48,7 @@ const Founder = () => {
             </Link>
           </div>
         </div>
-        <div className="flex flex-col items-start justify-center">
+        <div className="flex flex-col items-start gap-3 md:gap-0 justify-center">
           <div className="flex relative">
             <Button className="p-1.5 flex w-fit text-black  bg-[#D6ECFF] rounded-full text-xs rounder px-2">
               Founder - CEO
@@ -56,7 +56,7 @@ const Founder = () => {
             <div className="absolute left-25 -top-5">{founderArrow}</div>
           </div>
           <Text
-            className="font-semibold text-[56px] text-black max-w-[50rem] text-center"
+            className="font-semibold text-3xl md:text-[56px] text-black max-w-[50rem] text-center"
             tag="p">
             Our Founder
           </Text>

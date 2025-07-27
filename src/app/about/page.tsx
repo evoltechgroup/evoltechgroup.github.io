@@ -8,7 +8,7 @@ import Clients from "./Contents/Clients";
 
 export default function About() {
   return (
-    <main className="bg-[#0B0F2B] text-white font-gilroy min-h-screen">
+    <main className="bg-[#0B0F2B] text-white font-gilroy min-h-screen overflow-hidden">
       <Section1 />
       <Section2 />
       <Founder />

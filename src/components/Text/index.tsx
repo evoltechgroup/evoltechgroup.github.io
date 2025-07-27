@@ -20,7 +20,6 @@ interface TextProps {
   children?: React.ReactNode;
   className?: string;
   truncate?: boolean;
-  alignment?: "left" | "center" | "right" | "justify";
   fontWeight?: "light" | "normal" | "medium" | "semibold" | "bold" | string;
   width?: string;
   textColor?: string;
@@ -36,7 +35,6 @@ const Text = ({
   children = "index",
   className = "",
   truncate = false,
-  alignment = "left",
   width = "",
   textColor = "",
   customColor = "",
@@ -50,7 +48,6 @@ const Text = ({
   const textClass = cx(
     {
       truncate,
-      [`text-${alignment}`]: alignment,
       [`text-${customColor}`]: customColor,
     },
     className

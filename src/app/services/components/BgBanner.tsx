@@ -10,7 +10,6 @@ import {
 import { followArrowDown, productPageArrow } from "@/assets/svg";
 import Text from "@/components/Text";
 import { StaticImageData } from "next/image";
-import { ReactNode } from "react";
 
 interface BgBannerProps {
   id: string;
@@ -22,6 +21,7 @@ interface BgBannerProps {
   description: string;
   backgroundImages?: {
     main: StaticImageData;
+    mobileTech?: StaticImageData;
     extras?: StaticImageData[] | string[];
   };
 }
@@ -41,20 +41,33 @@ const BgBanner: React.FC<BgBannerProps> = ({
       <div className="absolute inset-0 z-0 w-full h-full flex bg-[#2D2550] overflow-hidden pointer-events-none">
         <div className="absolute z-7 w-full h-full">{eclipseEffect}</div>
         {backgroundImages?.main && (
-          <img
-            src={backgroundImages.main.src}
-            alt="Background Main Image"
-            className={`w-full z-8 h-full absolute   ${
-              id === "operations"
-                ? "opacity-40 top-20"
-                : id === "products"
-                ? "object-cover mix-blend-overlay opacity-25"
-                : "left-0 object-cover sm:object-contain"
-            }  ${id === "tech" && "mix-blend-overlay opacity-50 left-20"}`}
-          />
+          <>
+            <img
+              src={backgroundImages.main.src}
+              alt="Background Main Image"
+              className={`w-full z-8 h-full absolute sm:block ${
+                id === "operations"
+                  ? "opacity-40 top-20"
+                  : id === "products"
+                  ? "object-cover mix-blend-overlay opacity-25"
+                  : "left-0 object-cover sm:object-contain"
+              } ${
+                id === "tech" &&
+                "hidden mix-blend-overlay opacity-50  md:left-20"
+              } object-left`}
+            />
+            {id === "tech" && backgroundImages.mobileTech && (
+              <img
+                src={backgroundImages.mobileTech.src}
+                alt="Tech Mobile Background"
+                className="w-full z-8 h-full absolute sm:hidden object-cover mix-blend-overlay opacity-50"
+              />
+            )}
+          </>
         )}
+
         {id === "tech" && (
-          <div className="absolute hidden sm:block left-[38%] top-[28%] mix-blend-color-dodge opacity-60">
+          <div className="absolute left-35 md:left-[38%] top-[28%] mix-blend-color-dodge opacity-60">
             {rectangle210}
           </div>
         )}
@@ -80,16 +93,16 @@ const BgBanner: React.FC<BgBannerProps> = ({
       </div>
 
       <div className="relative z-10 w-full h-full justify-center items-center p-5 pb-0">
-        <div className="w-full h-full flex flex-col md:flex-row md:justify-between gap-10 md:gap-24 pt-20 sm:pt-44 sm:p-30 sm:pb-0">
+        <div className="w-full h-full flex flex-col md:flex-row md:justify-between md:gap-24 pt-30 sm:pt-44 sm:p-30 sm:pb-0">
           <div
             className={`w-full sm:w-1/2  flex flex-col gap-5 md:gap-10 items-start justify-center ${
               id === "products"
                 ? "max-w-lg md:justify-center"
                 : "md:justify-end"
-            } mt-20 md:mt-0 md:pb-5`}>
-            <div className="flex">
+            } mt-10 md:mt-0 md:pb-5`}>
+            <div className="flex justify-center items-center">
               {consultingIcon && (
-                <div className="h-12 w-12 lg:h-28 lg:w-28 mr-3 lg:mr-8 bg-gradient-to-r from-[#5785DC] to-[#5F4793] rounded-2xl lg:rounded-3xl flex items-center justify-center">
+                <div className="h-14 w-14 lg:h-28 lg:w-28 mr-3 lg:mr-8 bg-gradient-to-r from-[#5785DC] to-[#5F4793] rounded-2xl lg:rounded-3xl flex items-center justify-center">
                   <img
                     src={consultingIcon}
                     alt={`${title} Icon`}
@@ -99,40 +112,41 @@ const BgBanner: React.FC<BgBannerProps> = ({
               )}
               <div className="flex flex-col gap-2 md:gap-5">
                 <Text
-                  className="font-semibold text-xl sm:text-3xl lg:text-6xl text-center whitespace-nowrap text-[#fff]"
+                  className="font-semibold text-3xl sm:text-3xl lg:text-6xl text-left whitespace-nowrap text-[#fff]"
                   tag="p">
                   {title}
                 </Text>
                 {subtitle && (
-                  <Text className="text-xl sm:text-3xl font-medium max-w-xl text-center text-[#FFBB00]">
+                  <Text className="text-xl sm:text-3xl font-medium max-w-xl text-left text-[#FFBB00]">
                     {subtitle}
                   </Text>
                 )}
               </div>
             </div>
             <p
-              className="text-sm sm:text-xl max-w-full text-start text-[#C5E1FF]"
+              className="text-base sm:text-xl max-w-full text-start text-[#C5E1FF]"
               dangerouslySetInnerHTML={{ __html: description }}
             />
             {id === "products" ? (
-              <div className="text-[#FFBB00] flex justify-start w-10 md:w-[71px]">
+              <div className="text-[#FFBB00] flex justify-start w-20 md:w-[71px]">
                 {productPageArrow}
               </div>
             ) : (
-              <div className="text-[#FFBB00] flex justify-center w-10 md:w-[71px] mx-auto">
+              <div className="text-[#FFBB00] flex justify-center w-15 md:w-[71px] mx-auto">
                 {followArrowDown}
               </div>
             )}
           </div>
-          <div className="w-full md:w-1/2 md:mt-0 h-full flex">
-            <div className="relative w-full h-full flex items-end md:pl-20">
-              <div className="max-w-[430px] h-[620px] border relative rounded-[48px] rounded-bl-none rounded-br-none overflow-hidden border-white">
+          <div className="w-full md:w-1/2 -mt-10 md:mt-0 h-full flex">
+            <div className="relative w-full h-full flex items-end md:pl-20 pb-15 md:pb-0">
+              <div className="w-full h-[264px] md:w-[430px] md:h-[620px] relative rounded-[48px] md:rounded-b-none overflow-hidden">
                 <img
                   src={foregroundImage.src}
                   alt={foregroundImageAlt}
-                  className={`w-full h-full rounded-[48px] rounded-bl-none rounded-br-none  ${
-                    id !== "tech" && "object-cover"
-                  }`}
+                  className={`
+                    absolute inset-0 rounded-[48px] md:rounded-b-none object-cover w-full h-full 
+                    ${id === "consultancy" ? "object-[center_20%]" : ""}
+                  `}
                   height={620}
                   width={430}
                 />

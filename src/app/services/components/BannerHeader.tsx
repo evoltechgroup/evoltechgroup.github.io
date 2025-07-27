@@ -50,8 +50,8 @@ const BannerHeader: React.FC<BannerHeaderProps> = ({
       <div
         className={`arrow ${arrowOverrideCx} ${
           arrowColor && `text-[${arrowColor}]`
-        } ${arrowWidth ? `w-[${arrowWidth}px]` : ""} ${
-          arrowHeight ? `h-[${arrowHeight}px]` : ""
+        } ${arrowWidth ? `w-10 md:w-[${arrowWidth}px]` : ""} ${
+          arrowHeight ? `h-10 md:h-[${arrowHeight}px]` : ""
         } ${arrowPosition}`}>
         {typeof arrowSrc === "string" || (arrowSrc && "src" in arrowSrc) ? (
           <Image

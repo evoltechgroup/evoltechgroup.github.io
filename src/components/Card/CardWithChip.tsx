@@ -16,7 +16,7 @@ const CardWithChip: React.FC<CardWithChipType> = ({
   return (
     <div
       key={id}
-      className="flex flex-col gap-4 max-w-[190px]  md:max-w-[290px] w-full mx-auto">
+      className="flex flex-col gap-4 max-w-full  md:max-w-[290px] w-full md:mx-auto">
       <div
         className="p-1.5 w-fit px-3 flex rounded-full rounded-bl-none font-semibold text-black text-base"
         style={{ backgroundColor: bgColor }}>
