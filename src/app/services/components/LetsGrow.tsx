@@ -14,18 +14,18 @@ const LetsGrow = ({ description }: LetsGrowProps) => {
   const router = useRouter();
   return (
     <div
-      className="w-full py-10 md:py-0 md:h-full overflow-hidden"
+      className="w-full md:py-0 md:h-full overflow-hidden"
       style={{
         backgroundImage:
           "linear-gradient(to left, rgba(217, 229, 251, 1) 0%, #ffff 100%)",
       }}>
-      <div className="sm:p-44 p-10 flex items-center justify-center relative h-full">
-        <div className="absolute hidden md:block -top-10 -left-10 z-1 w-full h-full">
+      <div className="py-20 sm:p-44 p-10 flex items-center justify-center relative h-full">
+        <div className="absolute -top-10 -left-10 z-1 w-full h-full">
           {leftRing}
         </div>
         <div className="absolute right-0 bottom-0 z-1">{bottomRing}</div>
         <div className="w-full flex items-center justify-center flex-col relative z-2">
-          <div className="flex flex-col gap-4 items-center w-fit justify-center relative p-10">
+          <div className="flex flex-col gap-4 items-center w-fit justify-center relative p-5 md:p-10">
             <Text
               className="font-semibold text-3xl sm:text-[56px] max-w-[30rem] text-black text-center"
               tag="p">

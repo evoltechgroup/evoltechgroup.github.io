@@ -13,27 +13,27 @@ const jobListings: JobListing[] = [
   {
     title: "DevOps",
     experience: "1-2 years experience",
-    location: "Chennai"
+    location: "Chennai",
   },
   {
     title: "UX designer",
-    experience: "3-5 years experience", 
-    location: "Chennai"
+    experience: "3-5 years experience",
+    location: "Chennai",
   },
   {
     title: "Front-end developer",
     experience: "4-5 years experience",
-    location: "Pune"
+    location: "Pune",
   },
   {
     title: "Business Analyst",
     experience: "2-3 years experience",
-    location: "Pune, Chennai"
-  }
+    location: "Pune, Chennai",
+  },
 ];
 
 const JobListings = () => {
-const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const handleApply = () => {
     alert("Application Submitted! Thank you for your interest.");
@@ -42,11 +42,10 @@ const [isModalOpen, setIsModalOpen] = useState(false);
   return (
     <div className="max-w-2xl mx-auto p-6">
       {jobListings.map((job, index) => (
-        <div 
+        <div
           key={index}
           onClick={() => setIsModalOpen(true)}
-          className="group flex items-center justify-between p-6 bg-background transition-all duration-300 hover:bg-[#E8F4FF] hover:shadow-lg hover:-translate-y-1 cursor-pointer hover:border-l-4 hover:border-l-blue-300"
-        >
+          className="group flex items-center justify-between p-6 bg-background transition-all duration-300 hover:bg-[#E8F4FF] hover:shadow-lg hover:-translate-y-1 cursor-pointer hover:border-l-4 hover:border-l-blue-300">
           <div className="flex-1">
             <h3 className="text-sm lg:text-2xl font-semibold text-foreground group-hover:text-primary transition-colors duration-300">
               {job.title}
@@ -55,7 +54,7 @@ const [isModalOpen, setIsModalOpen] = useState(false);
               {job.experience}
             </p>
           </div>
-          
+
           <div className="flex items-center gap-4">
             <span className="text-foreground font-medium group-hover:text-primary transition-colors duration-300">
               {job.location}
@@ -64,12 +63,12 @@ const [isModalOpen, setIsModalOpen] = useState(false);
           </div>
         </div>
       ))}
-       <JobDescriptionModal
-          isOpen={isModalOpen}
-          onClose={() => setIsModalOpen(false)}
-          onApply={handleApply}
-          jobData={sampleJobData}
-        />
+      <JobDescriptionModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        onApply={handleApply}
+        jobData={sampleJobData}
+      />
     </div>
   );
 };

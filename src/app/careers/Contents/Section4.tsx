@@ -1,17 +1,13 @@
-'use client'
-
+"use client";
 import BannerHeader from "@/app/services/components/BannerHeader";
 import expertAarrow from "@/assets/images/services/expert-arrow.svg";
-import { useRouter } from "next/navigation";
 import JobListings from "../components/JobListing";
 
-
 const Section4 = () => {
-    const router = useRouter();
   return (
-    <div className="bg-white">
+    <div className="bg-white" id="job-listing">
       <BannerHeader
-        chipText="Our Capabilities"
+        chipText="The Opportunity Hub"
         chipBackgroundColor="#FFDEB7"
         chipTextColor="text-black"
         headerText="Current Openings"
@@ -26,7 +22,7 @@ const Section4 = () => {
         arrowWidth={40}
         arrowHeight={120}
       />
-      <JobListings/>
+      <JobListings />
     </div>
   );
 };

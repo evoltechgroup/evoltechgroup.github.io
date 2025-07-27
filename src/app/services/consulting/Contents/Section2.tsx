@@ -10,7 +10,7 @@ const Section2 = () => {
         backgroundImage:
           "linear-gradient(to bottom, rgba(217, 229, 251, 1) 0%, #ffff 40%)",
       }}>
-      <div className="flex w-full p-5 pt-20 pb-28 sm:px-[5%] gap-10">
+      <div className="flex w-full p-5 pt-20 pb-10 md:pb-28 sm:px-[5%] gap-10">
         <div className="w-full flex flex-col gap-5 sm:gap-10 sm:pl-20 relative">
           {consultingCards.map((card, index) => (
             <ImageTextBlock

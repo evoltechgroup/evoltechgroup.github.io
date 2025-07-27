@@ -7,8 +7,13 @@ import { flowDownArrow } from "@/assets/svg";
 const Section3 = () => {
   return (
     <section
-      className="min-h-screen text-white" style={{ backgroundColor: '#2A2B68', backgroundImage: 'repeating-linear-gradient(120deg, transparent, transparent 3px, rgba(26, 27, 72, 0.6) 3px, rgba(26, 27, 72, 0.6) 4px)' }}>
-        <BannerHeader2
+      className="min-h-screen text-white"
+      style={{
+        backgroundColor: "#2A2B68",
+        backgroundImage:
+          "repeating-linear-gradient(120deg, transparent, transparent 3px, rgba(26, 27, 72, 0.6) 3px, rgba(26, 27, 72, 0.6) 4px)",
+      }}>
+      <BannerHeader2
         chipText="The Pulse"
         chipBackgroundColor="#FFFFFF"
         chipTextColor="text-black"
@@ -25,7 +30,7 @@ const Section3 = () => {
         arrowSrc={flowDownArrow}
         arrowAlt="Flow Down Arrow"
         arrowPosition="left"
-        arrowWidth={20}
+        arrowWidth={120}
         arrowHeight={120}
         maxWidth="lg:max-w-5xl"
       />

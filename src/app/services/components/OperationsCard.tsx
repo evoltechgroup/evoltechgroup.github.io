@@ -1,7 +1,7 @@
+import React from "react";
 import Label from "@/components/Label";
 import { StaticImageData } from "next/image";
-import React from "react";
-
+import HealthCare from "@/assets/logo/HealthCare.svg";
 interface OperationsCardProps {
   iconSrc: StaticImageData;
   title: string;
@@ -10,6 +10,7 @@ interface OperationsCardProps {
   label: string;
   extraDescription?: string;
   lastItem: boolean;
+  firstItem: boolean;
 }
 
 const OperationsCard: React.FC<OperationsCardProps> = ({
@@ -20,15 +21,18 @@ const OperationsCard: React.FC<OperationsCardProps> = ({
   label,
   extraDescription,
   lastItem = false,
+  firstItem = false,
 }) => {
   return (
-    <div className="flex flex-col md:flex-row p-6 gap-15 justify-center items-center w-full h-full">
+    <div className="flex flex-col md:flex-row p-6 gap-5 md:gap-15 justify-center items-center w-full h-full">
       <div className="flex md:w-1/4 mb-4 h-full md:mb-0 self-start">
         <div className="flex-shrink-0 mt-1 w-12 h-12 mr-3 lg:mr-8 bg-gradient-to-r from-[#5785DC] to-[#5F4793] rounded-2xl flex items-center justify-center">
           <img src={iconSrc.src} alt={`${title} Icon`} className="h-8 w-8" />
         </div>
         <div className="flex flex-col gap-4 md:text-start max-w-xs">
-          <h2 className="text-3xl font-semibold text-[#000000]">{title}</h2>
+          <h2 className="text-2xl md:text-3xl font-semibold text-[#000000]">
+            {title}
+          </h2>
           <p className="text-lg font-medium text-[#000000]">{subtitle}</p>
         </div>
       </div>
@@ -48,6 +52,14 @@ const OperationsCard: React.FC<OperationsCardProps> = ({
 
         {extraDescription && (
           <p className="text-base font-medium">{extraDescription}</p>
+        )}
+        {firstItem && (
+          <div className="flex flex-col gap-5 md:gap-10 justify-center items-center w-full ">
+            <h2 className="text-2xl md:text-3xl text-center lg:max-w-[450px] font-semibold text-[#000000]">
+              Our teams are experienced in working within TPA ecosystems
+            </h2>
+            <img src={HealthCare.src} alt="HealthCare" />
+          </div>
         )}
         {!lastItem && (
           <div

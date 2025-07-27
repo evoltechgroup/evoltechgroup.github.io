@@ -36,7 +36,7 @@ const Section1 = () => {
         />
       </div>
       <div className="relative z-10 w-full h-full justify-center items-center p-5">
-        <div className="w-full h-full flex flex-col justify-center gap-4  md:gap-10 xl:gap-15 items-center lg:p-40 md:pb-20">
+        <div className="w-full h-full flex flex-col justify-center gap-4  md:gap-10 xl:gap-15 items-center lg:p-40 lg:pt-60 md:pb-20">
           <div className="flex flex-col md:gap-5 items-center relative">
             <Text
               className="font-semibold mb-2 md:mb-0 text-3xl sm:text-5xl xl:text-6xl text-center"

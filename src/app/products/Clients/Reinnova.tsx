@@ -51,7 +51,7 @@ const Reinnova = () => {
           style={{ borderColor: "rgba(170, 170, 170, 1)" }}></div>
         <div className="relative flex flex-col md:flex-row w-full items-start justify-start gap-5 md:gap-20 mb-5">
           <div className="w-1/3 flex flex-col items-start h-full gap-4">
-            <Text className="md:whitespace-nowrap font-bold text-3xl sm:text-5xl text-black">
+            <Text className="whitespace-nowrap font-bold text-3xl sm:text-5xl text-black">
               Why Reinnova?
             </Text>
             <div className="hidden md:flex justify-end items-end w-full">

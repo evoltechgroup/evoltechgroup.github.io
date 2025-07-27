@@ -12,7 +12,7 @@ export const FiveoakHighlights = [
     title: "Customers Can Find You",
     description: [
       "<strong>Standout on your customer's favorite map's search<strong>",
-      "With Fiveoak, climb up the search ranks, boost your Googe ads, and keep your business details spot-on. <br/> Let's make sure customers find you easily!",
+      "With Fiveoak, climb up the search ranks, boost your Google ads, and keep your business details spot-on. <br/> Let's make sure customers find you easily!",
     ],
     bgColor: "#E4EFF8",
   },
@@ -21,7 +21,7 @@ export const FiveoakHighlights = [
     title: "Better Reputation",
     description: [
       "<strong>Make your reputation shine online!</strong>",
-      "Gather reviews, boost those star ratings, and let's showoff your awesome reputation everywhere-",
+      "Gather reviews, boost those star ratings, and let's show off your awesome reputation everywhere-",
     ],
     bgColor: "#EBE9F9",
   },
@@ -45,7 +45,7 @@ export const FiveoakHighlights = [
   },
   {
     id: 5,
-    title: "Cultivating Growth",
+    title: "Increase Revenue",
     description: [
       "<strong>Cultivating Growth Through Customer Experiences</strong>",
       "When you engage and connect, to really understand what it is about your business your customers love everything improves and growth follows.",

@@ -1,7 +1,6 @@
 import React from "react";
 import FiveoakIcon from "@/assets/logo/Fiveoak.svg";
 import LogoContainer from "../Components/LogoContainer";
-import { LifeAtEvoltech } from "@/data/service-technology";
 import TechCardWithChip from "@/app/services/components/technChipCards";
 import { FiveoakHighlights } from "@/data/product-data";
 import Text from "@/components/Text";
@@ -34,7 +33,7 @@ export const FiveoakPartners = [
 
 const Fiveoak = () => {
   return (
-    <div className="flex flex-col justify-center gap-20">
+    <div className="flex flex-col justify-center gap-10 md:gap-20">
       <div>
         <LogoContainer
           name={FiveoakHeader.name}
@@ -45,16 +44,16 @@ const Fiveoak = () => {
       </div>
       <div className="flex flex-col gap-10">
         <div className="relative flex flex-col w-full justify-center items-center gap-4 mb-5">
-          <Text className="whitespace-nowrap font-bold text-xl sm:text-5xl text-black text-center">
+          <Text className="whitespace-nowrap font-bold text-2xl sm:text-5xl text-black text-center">
             Why our business partners
           </Text>
-          <Text className="whitespace-nowrap font-bold text-xl sm:text-5xl text-black text-center">
+          <Text className="whitespace-nowrap font-bold text-2xl sm:text-5xl text-black text-center">
             <span className="inline-block align-middle ml-4 mr-2 h-6 md:h-10">
               {partnerHeartIcon}
             </span>
             love Fiveoak
           </Text>
-          <div className="absolute h-10 md:h-20 -left-[20%] top-20 w-full">
+          <div className="absolute h-10 md:h-20 -left-[20%] top-22 md:top-20 w-full">
             {fiveoakArrow}
           </div>
         </div>
@@ -77,7 +76,7 @@ const Fiveoak = () => {
 
         <div className="relative flex flex-col md:flex-row w-full items-start justify-start gap-5 md:gap-20 mb-5">
           <div className="w-1/3 flex flex-col items-start h-full gap-4">
-            <Text className="md:whitespace-nowrap font-bold text-3xl sm:text-5xl text-black">
+            <Text className="whitespace-nowrap font-bold text-3xl sm:text-5xl text-black">
               Why Fiveoak?
             </Text>
           </div>
@@ -91,7 +90,7 @@ const Fiveoak = () => {
             </Text>
           </div>
         </div>
-        <div className="flex flex-wrap md:-mt-3 justify-center items-center md:flex-row gap-8 md:gap-20">
+        <div className="flex flex-wrap md:-mt-3 justify-center items-center md:flex-row gap-5 md:gap-20">
           {FiveoakPartners.map((logo, idx) => {
             return (
               <div key={idx}>

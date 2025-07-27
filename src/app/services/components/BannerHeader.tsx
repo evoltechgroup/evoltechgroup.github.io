@@ -124,7 +124,7 @@ const BannerHeader: React.FC<BannerHeaderProps> = ({
           {chipText}
         </div>
         <div
-          className={`header text-4xl lg:text-6xl md:${headerTextSize} font-bold ${headerTextColor}`}>
+          className={`header text-3xl md:${headerTextSize} font-bold ${headerTextColor}`}>
           {headerText}
         </div>
         <div className="md:px-40">{renderSubHeaderWithArrow()}</div>

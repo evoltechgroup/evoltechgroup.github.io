@@ -18,7 +18,7 @@ const Section1 = () => {
           <img
             src={ContactBanner.src}
             alt="ContactBanner"
-            className="md:absolute w-full md:-bottom-10  z-8 opacity-60 object-cover md:object-contain"
+            className="md:absolute w-full md:-bottom-10  z-8 opacity-40 object-cover md:object-contain"
           />
           <div className="absolute z-4 w-full h-full opacity-100">
             {rectangle191}

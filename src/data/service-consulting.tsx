@@ -83,7 +83,7 @@ export const valuePropositionCards = [
     bgColor: "#F8ECF9",
   },
   {
-    id: 4,
+    id: 5,
     title: "Industry Insights",
     description:
       "Deep knowledge across multiple financial sectors for context-specific advice.",

@@ -14,12 +14,13 @@ import CheckList from "../components/CheckList";
 const Section2 = () => {
   const router = useRouter();
   return (
-    <section className="text-black relative w-full h-full py-20"
+    <section
+      className="text-black relative w-full h-full py-20"
       style={{
         backgroundImage:
           "linear-gradient(to bottom, rgba(217, 229, 251, 1) 0%, #fff 50%)",
       }}>
-      <div className="absolute w-full h-full">
+      <div className="absolute w-full h-full pointer-events-none">
         <div className="absolute top-0 -left-10 z-1 ">{leftRing}</div>
       </div>
       <BannerHeader
@@ -38,12 +39,10 @@ const Section2 = () => {
         arrowWidth={40}
         arrowHeight={120}
       />
-      <div className="flex justify-start lg:justify-center h-full" >
+      <div className="flex justify-start lg:justify-center h-full">
         <div className="flex flex-wrap gap-4 p-4 justify-start md:justify-center lg:justify-center pb-20 lg:max-w-7xl">
           {LifeAtEvoltech?.map((card) => (
-            <div
-              key={card.id}
-              className="pb-4">
+            <div key={card.id} className="pb-4">
               <TechCardWithChip
                 id={card.id}
                 title={card.title}
@@ -55,7 +54,7 @@ const Section2 = () => {
           ))}
         </div>
       </div>
-      <div className="w-full h-full flex flex-col lg:flex-row gap-5 justify-center items-center px-4 lg:px-40">
+      <div className="w-full h-full flex flex-col lg:flex-row gap-5 justify-center items-start px-4 lg:px-40">
         <div className=" h-full flex flex-col gap-2 justify-center items-center">
           <Text
             className="font-semibold text-4xl md:text-6xl lg:text-6xl xl:text-[56px]"
@@ -82,7 +81,13 @@ const Section2 = () => {
           </div>
           <div className="w-full h-full mt-8 flex items-start justify-start lg:justify-start md:justify-center ">
             <Button
-              onClick={() => router.push("/services/consulting")}
+              onClick={() => {
+                const el = document.getElementById("job-listing");
+                console.log({ el });
+                if (el) {
+                  el.scrollIntoView({ behavior: "smooth", block: "start" });
+                }
+              }}
               className="w-fit gap-2 items-center justify-center sm:justify-start px-4 py-2 flex cursor-pointer bg-[#FFBB00] rounded-full text-sm">
               <span className="font-medium">View Open Positions</span>
               <span>

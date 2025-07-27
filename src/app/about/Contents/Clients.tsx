@@ -21,7 +21,7 @@ const logos = [
 const Clients = () => {
   return (
     <div className="w-full h-full bg-[#F8F8F8] relative">
-      <div className="text-black w-full h-full justify-center flex items-center flex-col gap-15 p-5 md:p-36">
+      <div className="text-black w-full h-full justify-center flex items-center flex-col gap-15 p-5 py-15 md:py-0 md:p-36">
         <div className="flex flex-col gap-4  items-center justify-center">
           <Button className="bg-[#D6ECFF] p-2 flex w-fit rounded-full px-4 text-sm">
             The Allies

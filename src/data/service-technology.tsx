@@ -247,7 +247,9 @@ export const LifeAtEvoltech = [
   {
     id: 2,
     title: "Grow Your Way",
-    description: ["Tailored career paths with mentorship and learning opportunities."],
+    description: [
+      "Tailored career paths with mentorship and learning opportunities.",
+    ],
     bgColor: "#EBE9F9",
   },
   {
@@ -268,7 +270,9 @@ export const PerksandBenefits = [
   {
     id: 1,
     title: "Health Care Insurance",
-    description: ["Comprehensive medical, dental, and vision coverage for you and your family."],
+    description: [
+      "Comprehensive medical, dental, and vision coverage for you and your family.",
+    ],
     bgColor: "#E4EFF8",
   },
   {

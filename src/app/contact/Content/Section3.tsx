@@ -24,7 +24,7 @@ const Section3 = () => {
           subHeaderText="Contact us to explore how our solutions can drive your success."
           subHeaderTextColor="text-black"
           headerTextSize="text-6xl"
-          className="pt-20 pb-15"
+          className="pt-10 pb-10 md:pt-20 md:pb-15"
           arrowSrc={followArrow}
           arrowColor="#FFBB00"
           arrowAlt="Expert Arrow"
@@ -32,11 +32,11 @@ const Section3 = () => {
           arrowWidth={100}
           arrowHeight={120}
         />
-        <div className="w-full flex flex-col md:flex-row h-full justify-center gap-10 md:gap-20 items-center -mt-20 pb-20">
+        <div className="w-full flex flex-col md:flex-row h-full justify-center gap-10 md:gap-20 items-center -mt-20 md:mt-0 pb-20">
           <div className="w-full md:w-1/2 flex items-center md:items-start justify-center md:justify-end mt-10 md:-mt-10 md:pr-15">
             <TimeLine />
           </div>
-          <div className="w-full md:w-1/2 flex items-center justify-start p-4">
+          <div className="w-full md:w-1/2 h-full flex items-center justify-start p-4">
             <Form />
           </div>
         </div>

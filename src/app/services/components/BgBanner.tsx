@@ -47,7 +47,7 @@ const BgBanner: React.FC<BgBannerProps> = ({
               alt="Background Main Image"
               className={`w-full z-8 h-full absolute sm:block ${
                 id === "operations"
-                  ? "opacity-40 top-20"
+                  ? "opacity-40 object-cover top-20"
                   : id === "products"
                   ? "object-cover mix-blend-overlay opacity-25"
                   : "left-0 object-cover sm:object-contain"

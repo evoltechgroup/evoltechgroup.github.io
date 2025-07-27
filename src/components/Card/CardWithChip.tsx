@@ -22,7 +22,7 @@ const CardWithChip: React.FC<CardWithChipType> = ({
         style={{ backgroundColor: bgColor }}>
         {title}
       </div>
-      <p className="text-sm text-[#444444] font-medium max-w-[280px]">
+      <p className="text-sm text-[#444444] font-medium pl-1 md:pl-0 md:max-w-[280px]">
         {description}
       </p>
     </div>
