@@ -19,7 +19,8 @@ Contact us today to learn how our consulting services can<br/> help you achieve 
     </>
   }
 />
-      <Testimonials />
+      <Testimonials type="consulting" />
+
     </main>
   );
 };

@@ -1,4 +1,7 @@
 "use client";
+
+
+
 import {
   testimonialLeftSide,
   testimonialRightSide,
@@ -12,9 +15,23 @@ import {
 } from "@/assets/svg";
 import Text from "@/components/Text";
 import { useEffect, useRef, useState } from "react";
-import { testimonials } from "@/data/testimonials";
+import { testimonials as allTestimonials } from "@/data/testimonials";
 
-function Testimonials() {
+type Props = {
+  type: "home" | "about" | "consulting" | "technology" | "operations";
+};
+
+function Testimonials({ type }: Props) {
+  const testimonialList =
+    type === "home" || type === "about"
+      ? [
+          ...(allTestimonials.home || []),
+          ...(allTestimonials.consulting || []),
+          ...(allTestimonials.technology || []),
+          ...(allTestimonials.operations || []),
+        ]
+      : allTestimonials[type] || [];
+
   const [index, setIndex] = useState(0);
   const [fade, setFade] = useState(true);
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
@@ -22,25 +39,22 @@ function Testimonials() {
   const next = () => {
     setFade(false);
     setTimeout(() => {
-      setIndex((i) => (i + 1) % testimonials.length);
+      setIndex((i) => (i + 1) % testimonialList.length);
       setFade(true);
     }, 150);
   };
 
   useEffect(() => {
     timeoutRef.current = setTimeout(next, 5000);
-
     return () => {
-      if (timeoutRef.current) {
-        clearTimeout(timeoutRef.current);
-      }
+      if (timeoutRef.current) clearTimeout(timeoutRef.current);
     };
   }, [index]);
 
-  const t = testimonials[index];
+  const t = testimonialList[index];
 
   return (
-    <section className="relative w-full bg-[#2A2B68] py-10 flex flex-col items-center h-full  overflow-hidden">
+    <section className="relative w-full bg-[#2A2B68] py-10 flex flex-col items-center h-full overflow-hidden">
       <div className="absolute hidden sm:flex inset-0 z-0 pointer-events-none w-full h-full justify-between bg-blend-soft-light opacity-50">
         <div>{testimonialLeftSide}</div>
         <div>{testimonialRightSide}</div>
@@ -87,13 +101,13 @@ function Testimonials() {
 
         <div className="mt-6 text-center">
           <div className="font-bold text-[#C6C7F3] text-lg">{t.author}</div>
-          <span className=" bg-[#FFEAA3] text-[#0B0F2B] px-4 py-1 rounded-full font-semibold  text-xs mt-2 inline-block">
+          <span className="bg-[#FFEAA3] text-[#0B0F2B] px-4 py-1 rounded-full font-semibold text-xs mt-2 inline-block">
             {t.company}
           </span>
         </div>
 
         <div className="flex gap-2 justify-center mt-4">
-          {testimonials.map((_, i) => (
+          {testimonialList.map((_, i) => (
             <button
               key={i}
               onClick={(e) => {
