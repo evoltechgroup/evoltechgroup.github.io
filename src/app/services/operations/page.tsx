@@ -20,7 +20,8 @@ const Operations = () => {
           </>
         }
       />
-      <Testimonials />
+     <Testimonials type="operations" />
+
     </main>
   );
 };

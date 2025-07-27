@@ -9,7 +9,7 @@ const Section1 = () => {
   return (
     <div className="bg-[#F8F8F8] overflow-hidden w-full h-full pb-10">
       <BannerHeader
-        chipText="Our Services"
+        chipText="Our Tech Stack"
         chipBackgroundColor="#FFDEB7"
         chipTextColor="text-black"
         headerText="Powering Innovation"

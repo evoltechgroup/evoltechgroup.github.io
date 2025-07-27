@@ -1,6 +1,6 @@
 import Section2 from "./Contents/Section2";
 import Section3 from "./Contents/Section3";
-import TestimonialsSection from "../ui/Testimonials";
+import Testimonials from "../ui/Testimonials";
 import Section1 from "./Contents/Section1";
 import JoinOurTeam from "./components/JoinOurTeam";
 import Founder from "./Contents/Founder";
@@ -14,7 +14,8 @@ export default function About() {
       <Founder />
       <Section3 />
       <Clients />
-      <TestimonialsSection />
+      <Testimonials type="about" />
+
       <JoinOurTeam />
     </main>
   );

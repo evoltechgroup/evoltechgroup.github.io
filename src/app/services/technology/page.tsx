@@ -20,14 +20,15 @@ const Technology = () => {
       <Section4 />
       <Mastering />
       <LetsGrow
-        description={
-          <>
-            Ready to harness technology that wins? <br />
-            Contact us to explore how our solutions can drive your success.
-          </>
-        }
-      />
-      <Testimonials />
+  description={
+    <>
+    Ready to harness technology that wins? <br/>
+Contact us to explore how our solutions can drive your success. 
+    </>
+  }
+/>
+      <Testimonials type="technology" />
+
     </main>
   );
 };

@@ -12,15 +12,15 @@ const Consulting = () => {
       <Section2 />
       <WhyEvoltech />
       <LetsGrow
-        description={
-          <>
-            Ready to take your business to the next level? <br />
-            Contact us today to learn how our consulting services can
-            <br /> help you achieve innovation, efficiency, and lasting growth.
-          </>
-        }
-      />
-      <Testimonials />
+  description={
+    <>
+     Ready to take your business to the next level? <br/>
+Contact us today to learn how our consulting services can<br/> help you achieve innovation, efficiency, and lasting growth.
+    </>
+  }
+/>
+      <Testimonials type="consulting" />
+
     </main>
   );
 };
