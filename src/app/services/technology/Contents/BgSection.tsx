@@ -9,7 +9,7 @@ const BgSection = () => {
     <BgBanner
       id="tech"
       consultingIcon={Technologyicon.src}
-      title="Technology Services"
+      title="Technology"
       subtitle="Ideas that Win"
       description="We bring visionary ideas to life with cutting-edge tech. Our 50+ engineers, experts in full-stack, AI, and cloud computing, create innovative apps to fuel growth and efficiency."
       foregroundImage={TechnologyBanner}

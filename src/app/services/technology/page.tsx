@@ -27,7 +27,8 @@ Contact us to explore how our solutions can drive your success.
     </>
   }
 />
-      <Testimonials />
+      <Testimonials type="technology" />
+
     </main>
   );
 };
