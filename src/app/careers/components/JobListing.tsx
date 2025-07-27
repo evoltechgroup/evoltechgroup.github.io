@@ -48,10 +48,10 @@ const [isModalOpen, setIsModalOpen] = useState(false);
           className="group flex items-center justify-between p-6 bg-background transition-all duration-300 hover:bg-[#E8F4FF] hover:shadow-lg hover:-translate-y-1 cursor-pointer hover:border-l-4 hover:border-l-blue-300"
         >
           <div className="flex-1">
-            <h3 className="text-xl font-semibold text-foreground group-hover:text-primary transition-colors duration-300">
+            <h3 className="text-sm lg:text-2xl font-semibold text-foreground group-hover:text-primary transition-colors duration-300">
               {job.title}
             </h3>
-            <p className="text-muted-foreground mt-1">
+            <p className="text-muted-foreground mt-1 text-sm lg:text-xl">
               {job.experience}
             </p>
           </div>
