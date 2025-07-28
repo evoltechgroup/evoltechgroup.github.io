@@ -81,7 +81,7 @@ function Testimonials({ type }: Props) {
           </Text>
           <Text className="whitespace-nowrap font-normal text-xl sm:text-4xl text-[#C6C7F3] text-center">
             {"Happy"}
-            <span className="inline-block align-middle w-10 ml-2 mr-2 h-40">
+            <span className="inline-block align-middle w-10 ml-2 mr-2 h-10">
               {smileEmoji}
             </span>
             {"customers about us"}

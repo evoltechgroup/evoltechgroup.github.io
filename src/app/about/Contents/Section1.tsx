@@ -1,6 +1,5 @@
 import { followArrowv2 } from "@/assets/svg";
 import Globe from "@/assets/effects/Aboutus/Globe.jpg";
-import City from "@/assets/effects/Aboutus/City.svg";
 import Text from "@/components/Text";
 import { infoCards } from "@/data/about-us";
 import InfoCard from "@/components/Card/InfoCard";
@@ -27,11 +26,6 @@ const Section1 = () => {
           alt="RightGlobe"
           className="absolute md:w-[750px] md:h-[750px] w-full h-[400px] md:-right-[30%] -bottom-10 md:-top-20 z-6  mix-blend-color-dodge opacity-50"
         />
-        <img
-          src={City.src}
-          alt="City"
-          className="absolute w-full h-full object-[right_100%] object-none md:object-contain -bottom-10 z-6 opacity-30 md:opacity-50"
-        />
         <div className="absolute z-4 w-full h-full opacity-40">
           {rectangle191}
         </div>
@@ -47,24 +41,37 @@ const Section1 = () => {
       </div>
       <div className="relative z-10 w-full h-full justify-center items-center p-5">
         <div className="w-full h-full flex flex-col justify-center gap-0 md:gap-15 items-center md:p-40 md:pb-20">
-          <div className="flex flex-col gap-5 items-center mb-4">
+          <div className="flex flex-col gap-10 items-center mb-4">
             <Text
               className="font-semibold text-4xl md:text-4xl xl:text-6xl text-center"
               tag="p">
               Who we are
             </Text>
-            <Text className="text-sm md:text-sm xl:text-xl max-w-[40rem] !text-center text-[#C5E1FF]">
-              We turn visionary ideas into reality with advanced tech, expert
-              consulting, and efficient back office solutions, powered by
-              specialists in full-stack, AI, and cloud computing.
+            <Text className="text-base md:text-sm xl:text-xl max-w-3xl !text-center text-[#C5E1FF]">
+              At our core, we’re problem solvers and builders—turning visionary
+              ideas into impactful reality. With a focus on full-stack
+              development, AI solutions, and cloud computing, we combine
+              advanced technology with expert consulting to help businesses
+              evolve, scale, and succeed. Our back-office support systems are
+              built for efficiency and growth, ensuring clients can focus on
+              what matters most.
             </Text>
-            <div className="flex text-[#FFBB00] justify-start items-end md:ml-24 -mt-6  w-10 md:w-4/4">
+            <Text className="text-base md:text-sm xl:text-xl max-w-3xl !text-center text-[#C5E1FF]">
+              With over a decade of experience, our team brings deep industry
+              insight and technical excellence to every engagement. Our
+              leadership has over 25 years of expertise in Banking and Fintech,
+              Insurance, Retail guiding teams across our global offices in the
+              US and India. We take pride in our diverse, inclusive culture—55%
+              of our workforce are women—delivering around-the-clock innovation
+              and service for our clients worldwide.
+            </Text>
+            <div className="flex text-[#FFBB00] justify-center items-center md:ml-24 -mt-6  w-10 md:w-4/4">
               <span className="transform -rotate-[10deg] scale-x-[-1] h-20 md:h-30">
                 {followArrowv2}
               </span>
             </div>
           </div>
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6 w-full mx-auto p-4">
+          {/* <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6 w-full mx-auto p-4">
             {infoCards.map((item, idx) => (
               <InfoCard
                 key={idx}
@@ -72,7 +79,7 @@ const Section1 = () => {
                 description={item.description}
               />
             ))}
-          </div>
+          </div> */}
         </div>
       </div>
     </section>

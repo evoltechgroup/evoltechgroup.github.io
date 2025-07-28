@@ -25,7 +25,7 @@ const LogoContainer: React.FC<LogoContainerType> = ({
         <Text className="text-3xl md:text-5xl font-bold">
           {title}
           {name === "reinnova" && (
-            <span className="inline-block align-middle w-10 ml-2 mr-2 h-40">
+            <span className="inline-block align-middle w-10 ml-2 mr-2 h-10">
               {starAiIcon}
             </span>
           )}
