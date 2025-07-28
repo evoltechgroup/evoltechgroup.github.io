@@ -28,7 +28,7 @@ const Clients = () => {
           </Button>
           <Text className="md:whitespace-nowrap text-center text-3xl md:text-4xl xl:text-6xl font-semibold">
             {"Our Trusted"}
-            <span className="inline-block align-middle mx-2 h-6 md:h-10">
+            <span className="inline-block align-middle w-10 ml-2 mr-2 h-40">
               {partnerHeartIcon}
             </span>
             {"Industry Partners"}
