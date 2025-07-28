@@ -7,7 +7,7 @@ import { flowDownArrow } from "@/assets/svg";
 const Section3 = () => {
   return (
     <section
-      className="min-h-screen h-full md:h-screen text-white"
+      className="min-h-screen text-white"
       style={{
         backgroundColor: "#2A2B68",
         backgroundImage:
