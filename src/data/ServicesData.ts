@@ -1,8 +1,8 @@
 // src/mockdata/servicesData.ts
 import Consulting from "@/assets/images/consulting/Consultingbanner.png";
-import Consultingicon from "@/assets/icons/consulting-icon.svg";
-import Technologyicon from "@/assets/icons/technology-icon.svg";
-import BackOfficeicon from "@/assets/icons/backoffice-icon.svg";
+import Consultingicon from "@/assets/icons/Consulting-icon.svg";
+import Technologyicon from "@/assets/icons/Technology-icon.svg";
+import BackOfficeicon from "@/assets/icons/BackOffice-icon.svg";
 import BackOffice from "@/assets/images/BackOffice.png";
 import { TechnologyBanner } from "@/assets/images/technology";
 

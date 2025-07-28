@@ -3,7 +3,7 @@ import BgBanner from "../../components/BgBanner";
 import ServiceTechologySvg from "@/assets/effects/ServiceTechnology.svg";
 import ServiceTechologyMobileSvg from "@/assets/effects/ServiceTechnologyMobile.svg";
 import { TechnologyBanner } from "@/assets/images/technology";
-import Technologyicon from "@/assets/icons/technology-icon.svg";
+import Technologyicon from "@/assets/icons/Technology-icon.svg";
 
 const BgSection = () => {
   return (

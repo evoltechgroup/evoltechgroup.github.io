@@ -1,5 +1,5 @@
 import ServiceOperationsSvg from "@/assets/effects/ServiceOperations.svg";
-import BackOfficeicon from "@/assets/icons/backoffice-icon.svg";
+import BackOfficeicon from "@/assets/icons/BackOffice-icon.svg";
 import BgBanner from "../../components/BgBanner";
 import BackOffice from "@/assets/images/BackOffice.png";
 import { OperationsBgEffect } from "@/assets/images/operation";

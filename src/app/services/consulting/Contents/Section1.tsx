@@ -1,6 +1,6 @@
 import ServiceConsultingSvg from "@/assets/effects/ServiceConsulting.svg";
 import BgBanner from "../../components/BgBanner";
-import Consultingicon from "@/assets/icons/consulting-icon.svg";
+import Consultingicon from "@/assets/icons/Consulting-icon.svg";
 import { ConsultingBanner } from "@/assets/images/consulting";
 
 const Section1 = () => {
