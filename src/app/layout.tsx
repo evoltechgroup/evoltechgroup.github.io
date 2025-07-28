@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "EvolTech - Build. Scale. Succeed.",
+  title: "EvolTech",
   description:
     "We bring visionary ideas to life with cutting-edge tech, strategic consulting, and seamless back office solutions.",
 };
