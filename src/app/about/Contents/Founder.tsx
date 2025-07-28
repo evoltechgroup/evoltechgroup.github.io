@@ -59,7 +59,7 @@ const Founder = () => {
           <Text
             className="font-semibold text-3xl md:text-[56px] text-black max-w-[50rem] text-center"
             tag="p">
-            Our Founder
+            Our Leader
           </Text>
           <div className="flex flex-col text-black gap-5 max-w-xl">
             <Text className="text-base font-medium">

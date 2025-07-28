@@ -27,13 +27,12 @@ const Clients = () => {
             The Allies
           </Button>
           <Text className="md:whitespace-nowrap text-center text-3xl md:text-4xl xl:text-6xl font-semibold">
-            Our Trusted
-            <span className="inline-flex items-center mx-4 h-6 md:h-10 align-middle">
+            {"Our Trusted"}
+            <span className="inline-block align-middle mx-2 h-6 md:h-10">
               {partnerHeartIcon}
             </span>
-            Industry Partners
+            {"Industry Partners"}
           </Text>
-
           <Text className="font-semibold xl:text-xl">
             Powering success with global innovators
           </Text>

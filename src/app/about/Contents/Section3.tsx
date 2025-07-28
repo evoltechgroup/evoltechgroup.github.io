@@ -30,11 +30,11 @@ const Section3 = () => {
           </Button>
           <Text className="text-3xl lg:text-6xl font-semibold">Our Team</Text>
           <Text className="md:whitespace-nowrap font-medium md:font-normal text-xl md:text-4xl">
-            The heart
+            {"The heart"}
             <span className="inline-block align-middle w-10 ml-2 mr-2 h-40">
               {heartIcon}
             </span>
-            of EvolTech’s success.
+            {"of EvolTech’s success."}
           </Text>
           <div className="flex gap-2 justify-center -ml-15 w-[70%]">
             <span className="text-[#FFBB00]">{followArrowRightV2}</span>

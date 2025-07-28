@@ -45,13 +45,13 @@ const Fiveoak = () => {
       <div className="flex flex-col gap-10">
         <div className="relative flex flex-col w-full justify-center items-center gap-4 mb-5">
           <Text className="whitespace-nowrap font-bold text-2xl sm:text-5xl text-black text-center">
-            Why our business partners
+            {"Why our business partners"}
           </Text>
           <Text className="whitespace-nowrap font-bold text-2xl sm:text-5xl text-black text-center">
             <span className="inline-block align-middle ml-4 mr-2 h-6 md:h-10">
               {partnerHeartIcon}
             </span>
-            love Fiveoak
+            {"love Fiveoak"}
           </Text>
           <div className="absolute h-10 md:h-20 -left-[20%] top-22 md:top-20 w-full">
             {fiveoakArrow}
