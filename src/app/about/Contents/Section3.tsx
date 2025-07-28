@@ -25,7 +25,7 @@ const Section3 = () => {
       </div>
       <div className="relative z-10 p-5 flex flex-col justify-center items-stretch">
         <div className="mt-10 w-full flex flex-col gap-5 items-center justify-center">
-          <Button className="bg-[#D6ECFF] p-2 flex  rounded-full px-4 text-sm">
+          <Button className="bg-[#D6ECFF] p-2 flex  rounded-full px-4 font-medium text-sm">
             Meet our team
           </Button>
           <Text className="text-6xl font-semibold">Our Team</Text>

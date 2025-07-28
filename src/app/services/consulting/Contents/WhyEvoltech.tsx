@@ -19,19 +19,21 @@ const WhyEvoltech = () => {
           <div className="flex flex-col gap-6  mb-20">
             <Text
               className="font-semibold text-3xl text-center sm:text-[56px] max-w-[30rem] text-black"
-              tag="p">
+              tag="p"
+            >
               Why Evoltech?
             </Text>
             <Text
               className="font-normal sm:text-xl text-center text-base text-[#212121] max-w-xl"
-              tag="p">
+              tag="p"
+            >
               What It Means for You
             </Text>
           </div>
           <div className="absolute mt-32 lg:mt-35 left-15  lg:left-[35%] rotate-[40deg]">
             <span className="text-[#FFBB00]">{followArrowRightV2}</span>
           </div>
-          <div className="flex flex-col items-start justify-start w-full">
+          <div className="flex flex-col items-start justify-start md:justify-center md:items-center w-full">
             <TagCardGridSection
               cards={valuePropositionCards}
               gridCols="grid-cols-1 md:grid-cols-2 justify-items-start lg:grid-cols-3 gap-10 lg:gap-20"

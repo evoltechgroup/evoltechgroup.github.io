@@ -50,7 +50,7 @@ const Founder = () => {
         </div>
         <div className="flex flex-col items-start gap-3 md:gap-0 justify-center">
           <div className="flex relative">
-            <Button className="p-1.5 flex w-fit text-black  bg-[#D6ECFF] rounded-full text-xs rounder px-4 font-medium">
+            <Button className="p-1.5 flex w-fit text-black  bg-[#D6ECFF] rounded-full text-xm rounder px-4 font-medium">
               CEO
             </Button>
             <div className="absolute left-25 -top-5">{founderArrow}</div>

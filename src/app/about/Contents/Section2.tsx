@@ -19,7 +19,7 @@ const Section2 = () => {
       }}>
       <div className="relative z-10 w-full p-5 items-center justify-center">
         <div className="flex flex-col gap-4 items-center relative justify-center md:mt-10">
-          <Button className="p-2 flex bg-white rounded-full px-4 text-sm">
+          <Button className="p-2 flex bg-white rounded-full px-4 font-medium text-sm">
             About us
           </Button>
           <Text

@@ -11,6 +11,7 @@ import { JoinOurTeamImg } from "@/assets/images";
 import { useRouter } from "next/navigation";
 import { followArrowDownV2 } from "@/assets/svg";
 
+
 const JoinOurTeam = () => {
   const router = useRouter();
   return (
@@ -38,14 +39,14 @@ const JoinOurTeam = () => {
         </div>
         <div className="flex-1 -mt-15 lg:mt-0 p-8 pt-0 md:p-0">
           <div
-            className="bg-white overflow-hidden w-full md:w-2xl lg:left-[-15%] p-10 lg:p-30 mb-20 rounded-[64px] shadow-lg md:px-15 md:py-15 flex flex-col gap-4 relative"
+            className="bg-white overflow-hidden w-full md:w-xl  lg:left-[-25%] p-10 lg:p-12 mb-20 rounded-[64px] shadow-xl md:px-15 md:py-15 flex flex-col gap-4 relative"
             style={{
               backgroundImage:
                 "linear-gradient(to left, rgba(217, 229, 251, 1) 0%, #ffff 100%)",
             }}>
             <div className="relative w-full h-full z-2 ">
               <div className="flex items-center gap-1 mb-1">
-                <span className="left-8 top-6 text-xs font-semibold text-blue-500 bg-blue-100 rounded-full px-3 py-1">
+                <span className="left-8 top-6 text-sm font-medium text-[#000000] bg-[#BCE0FF] rounded-full px-3 py-1">
                   Career
                 </span>
                 <div className="hidden md:flex text-[#FFBB00] justify-start ">
@@ -67,8 +68,9 @@ const JoinOurTeam = () => {
                 support.
               </p>
               <div className="w-full mt-4 flex items-center justify-center sm:justify-start text-black">
+                
                 <Button
-                  onClick={() => router.push("/career")}
+                  onClick={() => router.push("/careers")}
                   className="w-fit gap-2 items-center cursor-pointer justify-center sm:justify-start pr-2 pl-6 py-2 flex  bg-[#FFBB00] rounded-full text-sm">
                   <span className="font-semibold text-center">Join</span>
                   <span>

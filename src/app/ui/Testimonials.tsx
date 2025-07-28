@@ -92,16 +92,7 @@ function Testimonials({ type }: Props) {
         </div>
 
         <div className="relative w-full flex justify-center -mt-4">
-          <div
-            className="bg-white rounded-2xl shadow-lg px-8 py-8 max-w-2xl w-full min-h-[340px] flex flex-col justify-center items-center transition-all duration-500 relative"
-            onTouchStart={(e) => (touchStartRef.current = e.touches[0].clientX)}
-            onTouchEnd={(e) => {
-              const deltaX =
-                e.changedTouches[0].clientX - (touchStartRef.current || 0);
-              const threshold = 50;
-              if (deltaX > threshold) prev();
-              else if (deltaX < -threshold) next();
-            }}>
+          <div className="bg-white rounded-2xl shadow-lg px-8 py-8 max-w-2xl w-full h-fit flex flex-col justify-center items-center transition-all duration-500 relative">
             <div className="absolute left-4 top-4 w-6 h-6 opacity-40">
               {leftExclamation}
             </div>

@@ -15,7 +15,7 @@ const Section3 = () => {
       }}>
       <BannerHeader2
         chipText="The Pulse"
-        chipBackgroundColor="#FFFFFF"
+        chipBackgroundColor="#C8E5FF"
         chipTextColor="text-black"
         headerText="Our Team in Action"
         headerTextColor="text-white"
@@ -30,8 +30,8 @@ const Section3 = () => {
         arrowSrc={flowDownArrow}
         arrowAlt="Flow Down Arrow"
         arrowPosition="left"
-        arrowWidth={120}
-        arrowHeight={120}
+        arrowWidth={100}
+        arrowHeight={10}
         maxWidth="lg:max-w-5xl"
       />
       <PolaroidShowCase />

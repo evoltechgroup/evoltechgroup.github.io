@@ -11,7 +11,7 @@ export default function Footer() {
           <img src={Logo.src} alt="EvolTech Logo" className="h-8 w-auto" />
           </Link>
           <span className="text-center sm:text-left text-[#AAAAAA]">
-            © 2025 EvolTech.
+           Copyright © 2025 EvolTech.
           </span>
         </div>
 
