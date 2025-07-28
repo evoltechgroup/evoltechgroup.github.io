@@ -30,39 +30,39 @@ technology: [
     author: "CTO, Global SaaS Provider",
     company: "SaaS Company",
   },
-  {
-    text: `EvolTech`,
-    author: " Lui ",
-    company: "Getredd",
-  },
+  // {
+  //   text: `I just wanted to SAY THANK YOU!!! Your team is AWESOME!!!`,
+  //   author: " Founder & CEO of a Small Business Consulting company",
+  //   company: "Getredd",
+  // },
 ],
 
 consulting: [
-  {
-    text: `Consulting`,
-    author: "  ",
-    company: " Company",
+ {
+    text: `I just wanted to SAY THANK YOU!!! Your team is AWESOME!!!`,
+    author: " Founder & CEO of a Small Business Consulting company",
+    company: "Getredd",
   },
-  {
-    text: `Consulting`,
-    author: "  ",
-    company: " Company",
-  },
-  {
-    text: `Consulting`,
-    author: "  ",
-    company: " Company",
-  },
+  // {
+  //   text: `Consulting`,
+  //   author: "  ",
+  //   company: " Company",
+  // },
+  // {
+  //   text: `Consulting`,
+  //   author: "  ",
+  //   company: " Company",
+  // },
 ],
 operations: [
   {
     text: `We are incredibly grateful for our partnership with Evoltech. Their dedication, expertise, and consistent delivery have been instrumental to our success. Working with such a talented and reliable offshore team has made a meaningful impact on our operations and growth.`,
     author: "  Operations Project Manager - Healthcare & Insurance company, North America.",
-    company: "Healthcare Company",
+    company: "Healthcare ",
   },
   {
     text: `Evoltech has been very efficient and nimble as we grow our relationship.  Keep up the good work!`,
-    author: "Director of a leading Healthcare & Insurance company in the Midwest",
+    author: "Director of Customer Support - Healthcare & Insurance company, North America",
     company: "Healthcare",
   },
   {

@@ -22,6 +22,7 @@ const TechCardWithChip: React.FC<TechCardWithChip> = ({
     : [description];
   return (
     <div key={id} className="flex flex-col gap-4 max-w-[290px] w-full mx-auto">
+      <div className=" flex flex-row gap-1 lg:flex-col">
       {icon && (
         <div className="flex justify-start">
           <div className="w-12 h-12 flex items-center justify-center">
@@ -35,10 +36,11 @@ const TechCardWithChip: React.FC<TechCardWithChip> = ({
         style={{ backgroundColor: bgColor }}>
         {title}
       </div>
+      </div>
       {safeDescription.map((paragraph, idx) => (
         <p
           key={idx}
-          className={`text-sm text-[#444444] font-medium max-w-[280px] ${paragraphPadding}`}
+          className={`text-sm text-[#444444] font-normal max-w-[280px] ${paragraphPadding}`}
           dangerouslySetInnerHTML={{ __html: paragraph }}
         />
       ))}
