@@ -24,7 +24,7 @@ const Section3 = () => {
         <div>{bottomRing}</div>
       </div>
       <div className="relative z-10 flex flex-col justify-center items-stretch">
-        <div className="mt-10 w-full flex flex-col gap-5 items-center justify-center">
+        <div className="mt-10 w-full flex flex-col gap-2 md:gap-5 items-center justify-center">
           <Button className="bg-[#D6ECFF] p-2 flex  rounded-full px-4 font-medium text-sm">
             Meet our team
           </Button>

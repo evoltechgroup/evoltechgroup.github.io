@@ -33,7 +33,7 @@ const Section2 = () => {
         </div>
         <div className="flex flex-col xl:gap-25 gap-10 sm:gap-20">
           <div className="w-full flex gap-10 justify-between md:h-[300px] md:px-40">
-            <div className=" flex gap-4 flex-col h-full w-full  md:w-1/2">
+            <div className=" flex gap-2 md:gap-4 flex-col h-full w-full  md:w-1/2">
               <Button className="p-1.5 flex bg-[#D2D2FF] rounded-full w-fit text-xs mb-4 md:mb-0  px-2">
                 Our Story
               </Button>

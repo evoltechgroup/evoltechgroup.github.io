@@ -8,7 +8,7 @@ export { default as Anesh } from "./Anesh.jpg";
 export { default as Anish } from "./Anish.jpg";
 export { default as Ankitha } from "./Ankitha.jpg";
 export { default as AshuMahesh } from "./AshuMahesh.jpg";
-export { default as Aysha } from "./Aysha.jpg";
+// export { default as Aysha } from "./Aysha.jpg";
 export { default as Bharthi } from "./Bharthi.jpg";
 export { default as David } from "./David.jpg";
 export { default as Fahad } from "./Fahad.jpg";
