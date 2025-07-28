@@ -42,7 +42,8 @@ const Founder = () => {
           <div className="flex gap-3 w-full items-center justify-start">
             <div className="w-5 h-5">{linkedInIcon}</div>
             <Link
-              href="/"
+              href="https://www.linkedin.com/in/thulasidharan-lg-603aa711"
+              target="_blank"
               className="xl:text-base sm:text-sm cursor-pointer text-[#007EBB]">
               View LinkedIn Profile
             </Link>

@@ -12,7 +12,6 @@ export default function HomePage() {
       <ServicesSection />
       <Clients />
       <Testimonials type="home" />
-
       <JoinOurTeam />
     </main>
   );

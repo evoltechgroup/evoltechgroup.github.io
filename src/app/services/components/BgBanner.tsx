@@ -67,19 +67,29 @@ const BgBanner: React.FC<BgBannerProps> = ({
         )}
 
         {id === "tech" && (
-          <div className="absolute left-35 md:left-[38%] top-[28%] mix-blend-color-dodge opacity-60">
+          <div className="absolute left-35 md:left-[35%] top-[28%] mix-blend-color-dodge opacity-60">
             {rectangle210}
           </div>
         )}
-        {backgroundImages?.extras?.map((img, i) => (
-          <img
-            key={`bg-extra-${i}`}
-            src={typeof img === "string" ? img : img.src}
-            alt={`Background Extra Image ${i + 1}`}
-            className="absolute w-full h-full top-20 object-cover opacity-10 mix-blend-overlay"
-            style={{ zIndex: 5 - i }}
-          />
-        ))}
+        {id === "products"
+          ? backgroundImages?.extras?.map((img, i) => (
+              <img
+                key={`bg-extra-${i}`}
+                src={typeof img === "string" ? img : img.src}
+                alt={`Background Extra Image ${i + 1}`}
+                className="absolute left-0"
+                style={{ zIndex: 5 - i }}
+              />
+            ))
+          : backgroundImages?.extras?.map((img, i) => (
+              <img
+                key={`bg-extra-${i}`}
+                src={typeof img === "string" ? img : img.src}
+                alt={`Background Extra Image ${i + 1}`}
+                className="absolute w-full h-full top-20 object-cover opacity-10 mix-blend-overlay"
+                style={{ zIndex: 5 - i }}
+              />
+            ))}
         <div className="absolute z-4 w-full h-full">
           {id === "tech" ? rectangle191Tech : rectangle191}
         </div>
@@ -99,8 +109,7 @@ const BgBanner: React.FC<BgBannerProps> = ({
               id === "products"
                 ? "max-w-lg md:justify-center"
                 : "md:justify-end"
-            } mt-10 md:mt-0 md:pb-5`}
-          >
+            } mt-10 md:mt-0 md:pb-5`}>
             <div className="flex justify-center items-center">
               {consultingIcon && (
                 <div className="h-14 w-14 lg:h-28 lg:w-28 mr-3 lg:mr-8 bg-gradient-to-r from-[#5785DC] to-[#5F4793] rounded-2xl lg:rounded-3xl flex items-center justify-center">
@@ -114,8 +123,7 @@ const BgBanner: React.FC<BgBannerProps> = ({
               <div className="flex flex-col gap-2 md:gap-5">
                 <Text
                   className="font-semibold text-3xl sm:text-3xl lg:text-6xl text-left whitespace-nowrap text-[#fff]"
-                  tag="p"
-                >
+                  tag="p">
                   {title}
                 </Text>
                 {subtitle && (

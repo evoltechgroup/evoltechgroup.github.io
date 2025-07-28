@@ -1,12 +1,7 @@
 import { followArrowRightV3 } from "@/assets/svg";
 import bgbanner from "@/assets/images/careers/section1banner.jpg";
 import Text from "@/components/Text";
-import priyanka from "@/assets/images/careers/team/priyanka.jpg";
 import aysha from "@/assets/images/careers/team/aysha.jpg";
-import abdul from "@/assets/images/careers/team/abdul.jpg";
-import anish from "@/assets/images/careers/team/anish.png";
-import naveen from "@/assets/images/careers/team/naveen.jpg";
-import jai from "@/assets/images/careers/team/Jai.jpg";
 import {
   eclipseEffect,
   rectangle188,
@@ -15,20 +10,28 @@ import {
   rectangle191,
 } from "@/assets/effects";
 import ImageGrid from "../components/ImageGrid";
+import {
+  Abdul,
+  Aishwarya,
+  Atul,
+  Jaipg,
+  Surrender,
+  Tom,
+} from "@/assets/images/Team/Formal";
 
 const imageGrid = [
   [
-    { src: priyanka.src, alt: "Kitten 1" },
-    { src: aysha.src, alt: "Keanu 1" },
+    { src: Surrender.src, alt: "Keanu 1" },
+    { src: aysha.src, alt: "Kitten 1" },
   ],
   [
-    { src: abdul.src, alt: "Keanu 2" },
-    { src: jai.src, alt: "Keanu 3" },
-    { src: aysha.src, alt: "Kitten 2" },
+    { src: Atul.src, alt: "Keanu 1" },
+    { src: Tom.src, alt: "Kitten 1" },
+    { src: Aishwarya.src, alt: "Kitten 2" },
   ],
   [
-    { src: anish.src, alt: "Keanu 4" },
-    { src: naveen.src, alt: "Bear" },
+    { src: Abdul.src, alt: "Keanu 4" },
+    { src: Jaipg.src, alt: "Bear" },
   ],
 ];
 
@@ -76,7 +79,7 @@ const Section1 = () => {
                 {followArrowRightV3}
               </div>
             </div>
-            <div className="flex justify-start items-start lg:w-1/2 h-full">
+            <div className="flex justify-center items-start md:justify-start md:items-start lg:w-1/2 h-full">
               <ImageGrid images={imageGrid} />
             </div>
           </div>

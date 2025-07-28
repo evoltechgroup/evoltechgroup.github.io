@@ -1,4 +1,4 @@
-import { StaticImageData } from 'next/image';
+import { StaticImageData } from "next/image";
 
 interface PolaroidFrameProps {
   src: StaticImageData | string;
@@ -7,28 +7,29 @@ interface PolaroidFrameProps {
   className?: string;
 }
 
-const PolaroidFrame = ({ src, alt, caption, className = "" }: PolaroidFrameProps) => {
+const PolaroidFrame = ({
+  src,
+  alt,
+  caption,
+  className = "",
+}: PolaroidFrameProps) => {
   // Convert StaticImageData to string if needed
-  const imageSrc = typeof src === 'string' ? src : src.src;
+  const imageSrc = typeof src === "string" ? src : src.src;
   return (
-    <div className={`bg-white p-4 pb-12 shadow-xl transition-transform duration-300 hover:scale-105 ${className}`}>
+    <div
+      className={`bg-white p-4 md:pb-12 shadow-xl transition-transform duration-300 hover:scale-105 ${className}`}>
       {/* Photo */}
       <div className="w-full aspect-[4/3] overflow-hidden bg-gray-100 relative">
-        <img
-          src={imageSrc}
-          alt={alt}
-          className="w-full h-full object-cover"
-        />
+        <img src={imageSrc} alt={alt} className="w-full h-full object-cover" />
       </div>
       {/* Caption */}
       <div className="mt-4">
         <p
-          className="text-[#1761A0] text-2xl font-medium text-center"
+          className="text-[#1761A0] text-base md:text-2xl font-medium text-center"
           style={{
             fontFamily: "'HanziPen TC', cursive",
             transform: "rotate(-1deg)",
-          }}
-        >
+          }}>
           {caption}
         </p>
       </div>
