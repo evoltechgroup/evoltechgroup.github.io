@@ -23,15 +23,15 @@ const Section3 = () => {
       <div className="absolute right-0 bottom-0 z-1">
         <div>{bottomRing}</div>
       </div>
-      <div className="relative z-10 p-5 flex flex-col justify-center items-stretch">
+      <div className="relative z-10 flex flex-col justify-center items-stretch">
         <div className="mt-10 w-full flex flex-col gap-5 items-center justify-center">
           <Button className="bg-[#D6ECFF] p-2 flex  rounded-full px-4 text-sm">
             Meet our team
           </Button>
-          <Text className="text-6xl font-semibold">Our Team</Text>
-          <Text className="whitespace-nowrap font-normal text-4xl">
+          <Text className="text-3xl lg:text-6xl font-semibold">Our Team</Text>
+          <Text className="md:whitespace-nowrap font-medium md:font-normal text-xl md:text-4xl">
             The heart
-            <span className="inline-block align-middle w-5 ml-2 mr-2 h-5">
+            <span className="inline-block align-middle w-5 ml-2 mr-2 h-6 md:h-10">
               {heartIcon}
             </span>
             of EvolTech’s success.

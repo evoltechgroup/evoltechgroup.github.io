@@ -36,9 +36,9 @@ const JoinOurTeam = () => {
             />
           </div>
         </div>
-        <div className="flex-1 -mt-15 lg:mt-0 p-8 pt-0 md:p-0">
+        <div className="flex-1 -mt-15 lg:mt-0 p-8  pt-0 md:p-0">
           <div
-            className="bg-white overflow-hidden w-full md:w-2xl lg:left-[-15%] p-10 lg:p-30 mb-20 rounded-[64px] shadow-lg md:px-15 md:py-15 flex flex-col gap-4 relative"
+            className="bg-white overflow-hidden w-full md:w-2xl lg:left-[-15%] p-10 mb-20 rounded-[64px] shadow-lg md:px-15 md:py-15 flex flex-col gap-4 relative"
             style={{
               backgroundImage:
                 "linear-gradient(to left, rgba(217, 229, 251, 1) 0%, #ffff 100%)",

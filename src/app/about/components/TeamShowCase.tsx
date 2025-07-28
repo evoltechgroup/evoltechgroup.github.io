@@ -1,13 +1,12 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import Label from "@/components/Label";
 import { TeamImages } from "@/data/team";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
-interface TeamMember {
-  image: { src: string };
-  name: string;
-}
+const SCROLL_SPEED = 50;
+const DUPLICATE_COUNT = 3;
 
 const staggeredPadding = [
   "pb-30",
@@ -20,158 +19,215 @@ const staggeredPadding = [
   "pb-24",
 ];
 
+const baseLabelOffsets = [[5], [15, -5], [8], [2]];
+const getLabelOffset = (index: number) =>
+  baseLabelOffsets[index % baseLabelOffsets.length];
+
 const labelTexts = [
   ["55% women driving innovation and efficiency."],
   ["Diverse workforce leading the way.", "Team owns their impact with pride."],
   ["Team chooses workspaces—remote or in-office."],
   ["Flat structure: they’re the boss, no bureaucracy."],
+  ["We don’t wait for change—we drive it."],
+  ["Every line of code, every decision—owned with pride."],
+  ["Accountability isn’t assigned, it’s embraced."],
+  ["We build with purpose, and it shows."],
+  ["Delivering excellence is not a task—it’s a mindset."],
+  ["No red tape, just real results."],
+  ["Everyone leads. Everyone delivers."],
+  ["Flat by design. Fast by nature."],
+  ["Hierarchy out, ownership in."],
+  ["Leadership is a role, not a rank."],
 ];
 
-const labelOffsets = [[5], [13, -5], [10], [2]];
-
-const FADE_DURATION = 800;
-const SWAP_INTERVAL = 2500;
-
 const TeamShowCase: React.FC = () => {
-  const visibleCount = 16;
+  const containerRef = useRef<HTMLDivElement>(null);
+  const contentRef = useRef<HTMLDivElement>(null);
+  const [scrollX, setScrollX] = useState(0);
+  const [isAutoScrolling, setIsAutoScrolling] = useState(true);
+
   const totalImages = TeamImages.length;
 
-  type Slot = {
-    current: number;
-    previous: number | null;
-    isFading: boolean;
+  const buildGroupedSlots = () => {
+    const result: { type: "label" | "spacer"; slotIndexes: number[] }[] = [];
+    let imageCounter = 0;
+    let labelIndex = 0;
+
+    while (labelIndex < labelTexts.length) {
+      for (let i = 0; i < 4 && labelIndex < labelTexts.length; i++) {
+        const image1 = imageCounter++ % totalImages;
+        const image2 = imageCounter++ % totalImages;
+        result.push({
+          type: "label",
+          slotIndexes: [image1, image2],
+        });
+        labelIndex++;
+      }
+
+      for (let s = 0; s < 3; s++) {
+        const image1 = imageCounter++ % totalImages;
+        const image2 = imageCounter++ % totalImages;
+        result.push({
+          type: "spacer",
+          slotIndexes: [image1, image2],
+        });
+      }
+    }
+
+    return result;
   };
 
-  const [slots, setSlots] = useState<Slot[]>(
-    Array.from({ length: visibleCount }, (_, i) => ({
-      current: i,
-      previous: null,
-      isFading: false,
-    }))
-  );
-
-  // Preload images to prevent loading delays
-  useEffect(() => {
-    TeamImages.forEach((image) => {
-      const img = new Image();
-      img.src = image.image.src;
-    });
-  }, []);
+  const groupedSlots = buildGroupedSlots();
 
   useEffect(() => {
-    if (totalImages <= visibleCount) return;
+    if (!isAutoScrolling || !contentRef.current) return;
 
-    const interval = setInterval(() => {
-      const slotIndex = Math.floor(Math.random() * visibleCount);
+    let animationFrameId: number;
+    let lastTime: number | null = null;
+    const originalContentWidth =
+      contentRef.current.scrollWidth / DUPLICATE_COUNT;
 
-      // Start transition by setting new image and fade state
-      setSlots((prev) => {
-        const taken = new Set(prev.map((s) => s.current));
-        let next = (prev[slotIndex].current + 1) % totalImages;
+    const step = (time: number) => {
+      if (lastTime !== null) {
+        const delta = time - lastTime;
+        let newScrollX = scrollX + (SCROLL_SPEED * delta) / 1000;
 
-        while (taken.has(next)) {
-          next = (next + 1) % totalImages;
+        if (newScrollX >= originalContentWidth) {
+          newScrollX -= originalContentWidth;
         }
 
-        const updated = [...prev];
-        updated[slotIndex] = {
-          current: next,
-          previous: prev[slotIndex].current,
-          isFading: true,
-        };
+        setScrollX(newScrollX);
+      }
+      lastTime = time;
+      animationFrameId = requestAnimationFrame(step);
+    };
 
-        return updated;
-      });
+    animationFrameId = requestAnimationFrame(step);
+    return () => cancelAnimationFrame(animationFrameId);
+  }, [isAutoScrolling, scrollX]);
 
-      // Reset fade and clear previous after FADE_DURATION
-      setTimeout(() => {
-        requestAnimationFrame(() => {
-          setSlots((prev) => {
-            const updated = [...prev];
-            updated[slotIndex] = {
-              current: updated[slotIndex].current,
-              previous: null,
-              isFading: false,
-            };
-            return updated;
-          });
-        });
-      }, FADE_DURATION + 50); // Small buffer to ensure transition completes
-    }, SWAP_INTERVAL);
+  useEffect(() => {
+    if (contentRef.current) {
+      contentRef.current.style.transform = `translateX(${-scrollX}px)`;
+    }
+  }, [scrollX]);
 
-    return () => clearInterval(interval);
-  }, [totalImages]);
+  const manualScroll = (offset: number) => {
+    setIsAutoScrolling(false);
+    if (!contentRef.current) return;
 
-  const groupedSlots = Array.from({ length: visibleCount / 2 }, (_, i) =>
-    slots.slice(i * 2, i * 2 + 2)
-  );
+    const originalContentWidth =
+      contentRef.current.scrollWidth / DUPLICATE_COUNT;
+    let newScrollX = scrollX + offset;
 
-  let labelIndex = 0;
+    if (newScrollX < 0) {
+      newScrollX += originalContentWidth;
+    } else if (newScrollX >= originalContentWidth) {
+      newScrollX -= originalContentWidth;
+    }
 
-  return (
-    <div className="flex relative justify-center top-20 pb-30">
-      {groupedSlots.map((group, idx) => {
-        const padding = staggeredPadding[idx % staggeredPadding.length]; // Assuming staggeredPadding is defined
-        const showLabel = idx !== 2 && labelTexts[labelIndex]; // Assuming labelTexts is defined
+    setScrollX(newScrollX);
+  };
 
-        return (
-          <div key={idx} className="flex items-stretch h-screen mt-15">
-            <div
-              className={`${padding} justify-end flex flex-col items-end pt-20`}>
-              {group.map((slot, i) => {
-                const currentImage = TeamImages[slot.current];
-                const previousImage =
-                  slot.previous !== null ? TeamImages[slot.previous] : null;
-                const slotIndex = idx * 2 + i;
+  const renderShowcaseContent = () => {
+    let labelIndexLocal = 0;
 
+    return (
+      <div className="flex select-none">
+        {groupedSlots.map((group, idx) => {
+          const padding = staggeredPadding[idx % staggeredPadding.length];
+          const isLabel = group.type === "label";
+          const labelTextsToShow = isLabel ? labelTexts[labelIndexLocal] : null;
+          const labelOffsets = getLabelOffset(labelIndexLocal);
+
+          const labelsToRender = labelTextsToShow
+            ? labelTextsToShow.map((text, i) => {
+                const offset = labelOffsets[i] ?? 10;
                 return (
                   <div
-                    key={slotIndex} // Stable key to prevent container unmount
-                    className="relative h-[215px] w-[172px] border-4 border-white bg-white overflow-hidden">
-                    {previousImage && slot.isFading && (
-                      <img
-                        src={previousImage.image.src}
-                        alt={previousImage.name}
-                        className="absolute inset-0 w-full h-full object-cover pointer-events-none transition-opacity duration-[800ms] ease-in-out z-0"
-                        style={{ opacity: slot.isFading ? 0 : 1 }}
-                      />
-                    )}
-                    <img
-                      src={currentImage.image.src}
-                      alt={currentImage.name}
-                      className="absolute inset-0 w-full h-full object-cover pointer-events-none transition-opacity duration-[800ms] ease-in-out z-10"
-                      style={{ opacity: slot.isFading ? 1 : 1 }}
-                    />
+                    key={i}
+                    className="absolute z-10 whitespace-nowrap top-0"
+                    style={{
+                      top: `${offset}%`,
+                      transform: "translateY(0%)",
+                    }}>
+                    <Label text={text} />
                   </div>
                 );
-              })}
-            </div>
+              })
+            : null;
 
-            {idx < groupedSlots.length - 1 && (
-              <div className="flex relative">
-                <div
-                  className="h-full"
-                  style={{
-                    width: "1px",
-                    background:
-                      "linear-gradient(to bottom, transparent, #4444445a, transparent)",
-                  }}
-                />
-                {showLabel &&
-                  labelTexts[labelIndex]?.map((text, i) => (
+          if (isLabel) labelIndexLocal++;
+
+          return (
+            <div
+              key={idx}
+              className="flex items-stretch h-screen mt-15 relative">
+              <div
+                className={`${padding} justify-end flex flex-col items-end pt-20`}>
+                {group.slotIndexes.map((slotIndex, i) => {
+                  const currentImage = TeamImages[slotIndex];
+                  return (
                     <div
-                      key={i}
-                      className="absolute z-10 whitespace-nowrap"
-                      style={{ top: `${labelOffsets[labelIndex]?.[i]}%` }}>
-                      <Label text={text} />
+                      key={idx * 2 + i}
+                      className="relative h-[215px] w-[172px] border-4 border-white bg-white overflow-hidden">
+                      <img
+                        src={currentImage.image.src}
+                        alt={currentImage.name}
+                        className="absolute inset-0 w-full h-full object-cover pointer-events-none"
+                      />
                     </div>
-                  ))}
-                {showLabel && <span className="hidden">{labelIndex++}</span>}
+                  );
+                })}
               </div>
-            )}
-          </div>
-        );
-      })}
+              {labelsToRender && (
+                <div className="flex relative">
+                  <div
+                    className="h-full"
+                    style={{
+                      width: "1px",
+                      background:
+                        "linear-gradient(to bottom, transparent, #4444445a, transparent)",
+                    }}
+                  />
+                  {labelsToRender}
+                </div>
+              )}
+            </div>
+          );
+        })}
+      </div>
+    );
+  };
+
+  return (
+    <div className="relative overflow-hidden" style={{ width: "100vw" }}>
+      <div
+        ref={containerRef}
+        className="flex"
+        style={{ width: "max-content", overflow: "hidden" }}>
+        <div className="absolute p-5 mt-20 flex z-3 justify-between mb-4 gap-4 w-full h-full items-center">
+          <button
+            className="w-10 h-10 flex bg-white shadow hover:text-white cursor-pointer text-black items-center justify-center rounded-full hover:bg-gray-800 transition"
+            onClick={() => manualScroll(-200)}>
+            <ChevronLeft />
+          </button>
+          <button
+            className="w-10 h-10 flex md:mr-5 bg-white shadow hover:text-white cursor-pointer text-black items-center justify-center rounded-full hover:bg-gray-800 transition"
+            onClick={() => manualScroll(200)}>
+            <ChevronRight />
+          </button>
+        </div>
+
+        <div
+          ref={contentRef}
+          className="flex relative z-1"
+          style={{ willChange: "transform" }}>
+          {Array.from({ length: DUPLICATE_COUNT }).map((_, idx) => (
+            <React.Fragment key={idx}>{renderShowcaseContent()}</React.Fragment>
+          ))}
+        </div>
+      </div>
     </div>
   );
 };

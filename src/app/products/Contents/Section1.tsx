@@ -1,11 +1,6 @@
 import BgBanner from "@/app/services/components/BgBanner";
-import { BackOffice } from "@/assets/images";
-import { OperationsBgEffect } from "@/assets/images/operation";
-import React from "react";
-import ServiceOperationsSvg from "@/assets/effects/ServiceOperations.svg";
-import BackOfficeicon from "@/assets/icons/backoffice-icon.svg";
 import { ProductBanner, ProductBgEffect } from "@/assets/images/Products";
-
+import ProducExtraBg from "@/assets/effects/ProductBgBanner.svg";
 const Section1 = () => {
   return (
     <BgBanner
@@ -16,6 +11,7 @@ const Section1 = () => {
       foregroundImageAlt="Consulting Banner"
       backgroundImages={{
         main: ProductBgEffect,
+        extras: [ProducExtraBg],
       }}
     />
   );

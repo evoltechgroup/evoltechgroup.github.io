@@ -71,15 +71,25 @@ const BgBanner: React.FC<BgBannerProps> = ({
             {rectangle210}
           </div>
         )}
-        {backgroundImages?.extras?.map((img, i) => (
-          <img
-            key={`bg-extra-${i}`}
-            src={typeof img === "string" ? img : img.src}
-            alt={`Background Extra Image ${i + 1}`}
-            className="absolute w-full h-full top-20 object-cover opacity-10 mix-blend-overlay"
-            style={{ zIndex: 5 - i }}
-          />
-        ))}
+        {id === "products"
+          ? backgroundImages?.extras?.map((img, i) => (
+              <img
+                key={`bg-extra-${i}`}
+                src={typeof img === "string" ? img : img.src}
+                alt={`Background Extra Image ${i + 1}`}
+                className="absolute left-0"
+                style={{ zIndex: 5 - i }}
+              />
+            ))
+          : backgroundImages?.extras?.map((img, i) => (
+              <img
+                key={`bg-extra-${i}`}
+                src={typeof img === "string" ? img : img.src}
+                alt={`Background Extra Image ${i + 1}`}
+                className="absolute w-full h-full top-20 object-cover opacity-10 mix-blend-overlay"
+                style={{ zIndex: 5 - i }}
+              />
+            ))}
         <div className="absolute z-4 w-full h-full">
           {id === "tech" ? rectangle191Tech : rectangle191}
         </div>
