@@ -122,7 +122,7 @@ export const servicesData: ServiceItem[] = [
     iconSrc: BackOfficeicon.src,
     imageSrc: BackOffice.src,
     ctaLabel: "Discover more",
-    ctaHref: "/services/backoffice",
+    ctaHref: "/services/operations",
     bullets: [
       {
         label: "Extended Workforce",

@@ -14,7 +14,7 @@ const LetsGrow = ({ description }: LetsGrowProps) => {
   const router = useRouter();
   return (
     <div
-      className="w-full md:py-0 md:h-full overflow-hidden"
+      className="w-full py-10 md:py-0 md:h-[38.5rem] overflow-hidden"
       style={{
         backgroundImage:
           "linear-gradient(to left, rgba(217, 229, 251, 1) 0%, #ffff 100%)",

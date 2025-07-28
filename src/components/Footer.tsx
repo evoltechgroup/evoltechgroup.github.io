@@ -1,15 +1,17 @@
-import { Linkedin, Mail } from "lucide-react";
+import { Linkedin, Instagram} from "lucide-react";
 import Link from "next/link";
 import Logo from "@/assets/logo/logo.svg";
 
 export default function Footer() {
   return (
-    <footer className="bg-[#181B2B] text-white py-6 px-6 w-full pb-15">
-      <div className="mx-auto max-w-screen-xl flex flex-col lg:flex-row items-center lg:justify-between gap-6">
-        <div className="flex flex-col sm:flex-row items-center gap-5 md:gap-10 text-gray-300 text-xs order-3 lg:order-1">
+    <footer className="bg-[#181B2B] text-white p-8 px-12 w-full pb-15">
+      <div className="mx-auto max-w-screen  flex flex-col md:flex-row items-center md:justify-between gap-6 ">
+        <div className="flex flex-col sm:flex-row items-center gap-5 md:gap-10 text-gray-300 text-xs order-3 md:order-1">
+          <Link href="/">
           <img src={Logo.src} alt="EvolTech Logo" className="h-8 w-auto" />
+          </Link>
           <span className="text-center sm:text-left text-[#AAAAAA]">
-            © 2025 EvolTech.
+           Copyright © 2025 EvolTech.
           </span>
         </div>
 
@@ -37,7 +39,7 @@ export default function Footer() {
 
           <div className="flex gap-6 justify-center text-[#AAAAAA] sm:-mt-1">
             <a
-              href="https://linkedin.com/company/evoltech"
+              href="https://www.linkedin.com/company/evoltechgroup/"
               className="hover:opacity-80"
               aria-label="Connect on LinkedIn"
               target="_blank"
@@ -45,10 +47,11 @@ export default function Footer() {
               <Linkedin size={15} />
             </a>
             <a
-              href="mailto:info@evoltech.com"
+              href="https://www.instagram.com/_evoltech_/"
               className="hover:opacity-80"
-              aria-label="Email us">
-              <Mail size={15} />
+              aria-label="Connect on Instagram"
+             target="_blank">
+              <Instagram size={15} />
             </a>
           </div>
         </div>
