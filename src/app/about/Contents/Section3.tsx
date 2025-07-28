@@ -31,7 +31,7 @@ const Section3 = () => {
           <Text className="text-6xl font-semibold">Our Team</Text>
           <Text className="whitespace-nowrap font-normal text-4xl">
             The heart
-            <span className="inline-block align-middle w-5 ml-2 mr-2 h-5">
+            <span className="inline-block align-middle w-10 ml-2 mr-2 h-40">
               {heartIcon}
             </span>
             of EvolTech’s success.

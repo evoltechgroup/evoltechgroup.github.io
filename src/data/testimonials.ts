@@ -41,7 +41,7 @@ consulting: [
  {
     text: `I just wanted to SAY THANK YOU!!! Your team is AWESOME!!!`,
     author: " Founder & CEO of a Small Business Consulting company",
-    company: "Getredd",
+    company: "Consulting Firm",
   },
   // {
   //   text: `Consulting`,
@@ -57,17 +57,17 @@ consulting: [
 operations: [
   {
     text: `We are incredibly grateful for our partnership with Evoltech. Their dedication, expertise, and consistent delivery have been instrumental to our success. Working with such a talented and reliable offshore team has made a meaningful impact on our operations and growth.`,
-    author: "  Operations Project Manager - Healthcare & Insurance company, North America.",
+    author: "  Operations Project Manager - Healthcare & Insurance  National TPA, North America.",
     company: "Healthcare ",
   },
   {
     text: `Evoltech has been very efficient and nimble as we grow our relationship.  Keep up the good work!`,
-    author: "Director of Customer Support - Healthcare & Insurance company, North America",
+    author: "Director of Customer Support - Healthcare & Insurance  National TPA, North America",
     company: "Healthcare",
   },
   {
     text: `Great team to work with and provide quality staffing solutions.`,
-    author: "Director of Claims - Healthcare & Insurance Company, North America",
+    author: "Director of Claims - Healthcare & Insurance  National TPA, North America",
     company: "Healthcare",
   },
 ],
