@@ -1,11 +1,11 @@
 export { default as ReactJS } from "./ReactJs.svg";
 export { default as NodeJS } from "./NodeJs.svg";
 export { default as Angular } from "./Angular.svg";
-export { default as Typescript } from "./Typescript.svg";
+export { default as Typescript } from "./typescript.svg";
 export { default as VueJS } from "./VueJs.svg";
 export { default as Python } from "./Python.svg";
 export { default as Django } from "./Django.svg";
-export { default as Java } from "./Java.svg";
+export { default as Java } from "./java.svg";
 export { default as TensorFlow } from "./TensorFlow.svg";
 export { default as PyTorch } from "./PyTorch.svg";
 export { default as ScikitLearn } from "./Scykirt.svg";
