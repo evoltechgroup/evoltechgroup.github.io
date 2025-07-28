@@ -25,13 +25,13 @@ const Section3 = () => {
       </div>
       <div className="relative z-10 flex flex-col justify-center items-stretch">
         <div className="mt-10 w-full flex flex-col gap-5 items-center justify-center">
-          <Button className="bg-[#D6ECFF] p-2 flex  rounded-full px-4 text-sm">
+          <Button className="bg-[#D6ECFF] p-2 flex  rounded-full px-4 font-medium text-sm">
             Meet our team
           </Button>
           <Text className="text-3xl lg:text-6xl font-semibold">Our Team</Text>
           <Text className="md:whitespace-nowrap font-medium md:font-normal text-xl md:text-4xl">
             The heart
-            <span className="inline-block align-middle w-5 ml-2 mr-2 h-6 md:h-10">
+            <span className="inline-block align-middle w-10 ml-2 mr-2 h-40">
               {heartIcon}
             </span>
             of EvolTech’s success.

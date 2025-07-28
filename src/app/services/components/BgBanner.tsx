@@ -103,13 +103,14 @@ const BgBanner: React.FC<BgBannerProps> = ({
       </div>
 
       <div className="relative z-10 w-full h-full justify-center items-center p-5 pb-0">
-        <div className="w-full h-full flex flex-col md:flex-row md:justify-between md:gap-24 pt-30 sm:pt-44 sm:p-30 sm:pb-0">
+        <div className="w-full h-full flex flex-col md:flex-row md:justify-between md:gap-24 pt-20 sm:pt-10 sm:p-30 sm:pb-0">
           <div
             className={`w-full sm:w-1/2  flex flex-col gap-5 md:gap-10 items-start justify-center ${
               id === "products"
                 ? "max-w-lg md:justify-center"
                 : "md:justify-end"
-            } mt-10 md:mt-0 md:pb-5`}>
+            } mt-10 md:mt-0 md:pb-5`}
+          >
             <div className="flex justify-center items-center">
               {consultingIcon && (
                 <div className="h-14 w-14 lg:h-28 lg:w-28 mr-3 lg:mr-8 bg-gradient-to-r from-[#5785DC] to-[#5F4793] rounded-2xl lg:rounded-3xl flex items-center justify-center">
@@ -123,7 +124,8 @@ const BgBanner: React.FC<BgBannerProps> = ({
               <div className="flex flex-col gap-2 md:gap-5">
                 <Text
                   className="font-semibold text-3xl sm:text-3xl lg:text-6xl text-left whitespace-nowrap text-[#fff]"
-                  tag="p">
+                  tag="p"
+                >
                   {title}
                 </Text>
                 {subtitle && (
@@ -142,7 +144,7 @@ const BgBanner: React.FC<BgBannerProps> = ({
                 {productPageArrow}
               </div>
             ) : (
-              <div className="text-[#FFBB00] flex justify-center w-15 md:w-[71px] mx-auto">
+              <div className="text-[#FFBB00] flex justify-center w-15 md:w-[71px] mx-auto pb-25 sm:pb-20">
                 {followArrowDown}
               </div>
             )}

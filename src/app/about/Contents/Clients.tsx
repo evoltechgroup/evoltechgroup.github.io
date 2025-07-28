@@ -21,9 +21,9 @@ const logos = [
 const Clients = () => {
   return (
     <div className="w-full h-full bg-[#F8F8F8] relative">
-      <div className="text-black w-full h-full justify-center flex items-center flex-col gap-15 p-5 py-15 md:p-20">
+      <div className="text-black w-full h-full justify-center flex items-center flex-col gap-15 p-5 py-15  lg:p-12">
         <div className="flex flex-col gap-4  items-center justify-center">
-          <Button className="bg-[#D6ECFF] p-2 flex w-fit rounded-full px-4 text-sm">
+          <Button className="bg-[#D6ECFF] p-2 flex w-fit rounded-full px-4 font-medium text-sm">
             The Allies
           </Button>
           <Text className="md:whitespace-nowrap text-center text-3xl md:text-4xl xl:text-6xl font-semibold">
@@ -38,7 +38,7 @@ const Clients = () => {
             Powering success with global innovators
           </Text>
         </div>
-        <div className="flex flex-wrap md:flex-row justify-center gap-5">
+        <div className="grid grid-cols-2 md:flex md:flex-row gap-5">
           {logos.map((logo, idx) => {
             return (
               <div key={idx}>

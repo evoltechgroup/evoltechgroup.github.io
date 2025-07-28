@@ -124,7 +124,7 @@ const BannerHeader2: React.FC<BannerHeader2Props> = ({
       <div
         className={`flex flex-col items-center text-center ${maxWidth} gap-2`}>
         <div
-          className={`chip rounded-full max-w-content justify-center text-center px-4 py-2 ${chipTextColor}`}
+          className={`chip rounded-full max-w-content justify-center font-medium text-center px-4 py-2 ${chipTextColor}`}
           style={{ backgroundColor: chipBackgroundColor }}>
           {chipText}
         </div>

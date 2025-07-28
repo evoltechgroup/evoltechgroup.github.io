@@ -1,6 +1,6 @@
 "use client";
 import ServicesSection from "../components/services/ServicesSection";
-
+import Clients from "./about/Contents/Clients";
 import JoinOurTeam from "./about/components/JoinOurTeam";
 import Testimonials from "./ui/Testimonials";
 import Section1 from "./home/Content/Section1";

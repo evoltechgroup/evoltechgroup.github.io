@@ -63,7 +63,7 @@ function Testimonials({ type }: Props) {
   const t = testimonialList[index];
 
   return (
-    <section className="relative w-full bg-[#2A2B68] py-10 flex flex-col items-center h-full overflow-hidden">
+    <section className="relative w-full h-screen bg-[#2A2B68] py-10 flex flex-col items-center  overflow-hidden">
       <div className="absolute hidden sm:flex inset-0 z-0 pointer-events-none w-full h-full justify-between bg-blend-soft-light opacity-50">
         <div>{testimonialLeftSide}</div>
         <div>{testimonialRightSide}</div>
@@ -92,16 +92,7 @@ function Testimonials({ type }: Props) {
         </div>
 
         <div className="relative w-full flex justify-center -mt-4">
-          <div
-            className="bg-white rounded-2xl shadow-lg px-8 py-8 max-w-2xl w-full min-h-[340px] flex flex-col justify-center items-center transition-all duration-500 relative"
-            onTouchStart={(e) => (touchStartRef.current = e.touches[0].clientX)}
-            onTouchEnd={(e) => {
-              const deltaX =
-                e.changedTouches[0].clientX - (touchStartRef.current || 0);
-              const threshold = 50;
-              if (deltaX > threshold) prev();
-              else if (deltaX < -threshold) next();
-            }}>
+          <div className="bg-white rounded-2xl shadow-lg px-8 py-8 max-w-2xl w-full h-fit flex flex-col justify-center items-center transition-all duration-500 relative">
             <div className="absolute left-4 top-4 w-6 h-6 opacity-40">
               {leftExclamation}
             </div>
@@ -120,7 +111,7 @@ function Testimonials({ type }: Props) {
         </div>
 
         <div className="mt-6 text-center">
-          <div className="font-bold text-[#C6C7F3] text-lg">{t.author}</div>
+          <div className="font-bold text-[#C6C7F3] text-lg max-w-lg">{t.author}</div>
           <span className="bg-[#FFEAA3] text-[#0B0F2B] px-4 py-1 rounded-full font-semibold text-xs mt-2 inline-block">
             {t.company}
           </span>

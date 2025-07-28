@@ -21,9 +21,8 @@ const TechCardWithChip: React.FC<TechCardWithChip> = ({
     ? description
     : [description];
   return (
-    <div
-      key={id}
-      className="flex flex-col gap-4 md:max-w-[290px] w-full mx-auto">
+    <div key={id} className="flex flex-col gap-4 max-w-[290px] w-full mx-auto">
+      <div className=" flex flex-row gap-1 lg:flex-col">
       {icon && (
         <div className="flex justify-start">
           <div className="w-12 h-12 flex items-center justify-center">
@@ -36,6 +35,7 @@ const TechCardWithChip: React.FC<TechCardWithChip> = ({
         className="p-1.5 w-fit px-3 flex rounded-full rounded-bl-none font-semibold text-black text-base"
         style={{ backgroundColor: bgColor }}>
         {title}
+      </div>
       </div>
       {safeDescription.map((paragraph, idx) => (
         <p
