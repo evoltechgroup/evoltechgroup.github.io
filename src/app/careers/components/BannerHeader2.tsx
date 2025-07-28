@@ -48,13 +48,13 @@ const BannerHeader2: React.FC<BannerHeader2Props> = ({
   subHeader2Text = "",
   subHeader2TextSize = "text-2xl",
   subHeader2TextColor = "text-black",
-
 }) => {
   const ArrowComponent = () =>
     showArrow ? (
       <div
-        className={`arrow ${arrowColor && `text-[ ]`} ${arrowWidth ? `w-[${arrowWidth}px]` : ""
-          } ${arrowHeight ? `h-[${arrowHeight}px]` : ""} ${arrowPosition}`}>
+        className={`arrow ${arrowColor && `text-[ ]`} ${
+          arrowWidth ? `w-[${arrowWidth}px]` : ""
+        } ${arrowHeight ? `h-[${arrowHeight}px]` : ""} ${arrowPosition}`}>
         {typeof arrowSrc === "string" || (arrowSrc && "src" in arrowSrc) ? (
           <Image
             src={arrowSrc as string | StaticImageData}
@@ -75,9 +75,11 @@ const BannerHeader2: React.FC<BannerHeader2Props> = ({
           className={`text-center sub-header ${subHeader2TextSize} max-w-full lg:max-w-7xl font-normal lg:mt-6 ${subHeader2TextColor}`}>
           {subHeader2Text}
         </div>
-        <div className={`font-sm p-4 ${subHeaderTextColor}  ${subHeaderTextSize}`}>{subHeaderText}</div>
+        <div
+          className={`font-sm md:p-4 ${subHeaderTextColor}  ${subHeaderTextSize}`}>
+          {subHeaderText}
+        </div>
       </div>
-
     );
 
     if (arrowPosition === "top") {
@@ -101,7 +103,7 @@ const BannerHeader2: React.FC<BannerHeader2Props> = ({
     if (arrowPosition === "left") {
       return (
         <div className="flex gap-0 px-10">
-          <div className="pt-8 flex">
+          <div className="pt-8 hidden md:flex">
             <ArrowComponent />
           </div>
           {subHeaderElement}
@@ -132,7 +134,8 @@ const BannerHeader2: React.FC<BannerHeader2Props> = ({
           className={`header ${headerTextSize} font-bold ${headerTextColor} flex justify-center items-center`}>
           {headerText}
         </div>
-        <div className={`px-2 lg:px-40 flex justify-center items-center lg:ml-[-4rem]`}>
+        <div
+          className={`px-2 lg:px-40 flex justify-center items-center lg:ml-[-4rem]`}>
           {renderSubHeaderWithArrow()}
         </div>
       </div>

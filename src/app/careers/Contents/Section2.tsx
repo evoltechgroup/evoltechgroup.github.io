@@ -39,7 +39,7 @@ const Section2 = () => {
         arrowWidth={40}
         arrowHeight={120}
       />
-      <div className="flex justify-start lg:justify-center h-full">
+      <div className="flex justify-start lg:justify-center lg:mt-2 h-full">
         <div className="flex flex-wrap gap-4 p-4 justify-start md:justify-center lg:justify-center pb-20 lg:max-w-7xl">
           {LifeAtEvoltech?.map((card) => (
             <div key={card.id} className="pb-4">

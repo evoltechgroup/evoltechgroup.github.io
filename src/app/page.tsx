@@ -4,7 +4,6 @@ import Clients from "./about/Contents/Clients";
 import JoinOurTeam from "./about/components/JoinOurTeam";
 import Testimonials from "./ui/Testimonials";
 import Section1 from "./home/Content/Section1";
-import Clients from "./about/Contents/Clients";
 
 export default function HomePage() {
   return (

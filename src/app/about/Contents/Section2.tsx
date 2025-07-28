@@ -92,7 +92,7 @@ const Section2 = () => {
                   );
                 })}
               </div>
-              <div className="w-full mt-7 md:mt-4 flex items-center md:justify-center justify-start">
+              <div className="w-full mt-7 md:mt-4 flex items-center md:justify-start justify-start">
                 <Button
                   onClick={() => router.push("/services/consulting")}
                   className="w-fit gap-2 items-center justify-center sm:justify-start pr-2 pl-6 py-2 flex cursor-pointer  bg-[#FFBB00] rounded-full text-sm">

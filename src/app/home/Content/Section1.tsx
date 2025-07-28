@@ -61,7 +61,7 @@ const Section1 = () => {
             </div>
             <Button
               onClick={() => router.push("/about")}
-              className="mt-5 text-sm px-2 py-2 md:text-sm xl:text-lg text-center font-medium bg-[#FFB700] text-[#0B0F2B] md:px-2 md:py-1 xl:px-7 md:mt-10 xl:py-2 rounded-full  hover:bg-[#FFBB00] transition flex items-center gap-2 mx-auto shadow-[0_0_15px_#FFB700] hover:shadow-[0_0_25px_#FFD95E]">
+              className="mt-5 text-sm px-2 py-2 md:text-sm xl:text-lg cursor-pointer text-center font-medium bg-[#FFB700] text-[#0B0F2B] md:px-2 md:py-1 xl:px-7 md:mt-10 xl:py-2 rounded-full  hover:bg-[#FFBB00] transition flex items-center gap-2 mx-auto shadow-[0_0_15px_#FFB700] hover:shadow-[0_0_25px_#FFD95E]">
               <span>Discover more</span>
               <span>
                 <CircleChevronRight size={18} />

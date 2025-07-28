@@ -3,6 +3,7 @@ import * as Team from "@/assets/images/Team/Formal";
 export const TeamImages = [
   { name: "Abdul", image: Team.Abdul },
   { name: "Aby", image: Team.Aby },
+  { name: "Atul", image: Team.Atul },
   { name: "Aishwarya", image: Team.Aishwarya },
   { name: "Akshay", image: Team.Akshay },
   { name: "Amit", image: Team.Amit },
