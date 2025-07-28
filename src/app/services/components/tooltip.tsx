@@ -1,3 +1,4 @@
+import { merriweather } from "@/app/fonts";
 import { polygonIcon } from "@/assets/svg";
 import React from "react";
 
@@ -17,7 +18,7 @@ const MessageBox = ({
   className,
 }: MessageBoxProps) => {
   return (
-    <div className="relative p-4 font-merriweather italic">
+    <div className={`relative p-4 font-merriweather ${merriweather.className}`}>
       <div
         className={`relative rounded-2xl p-4 md:p-8 max-w-xl mx-auto shadow-lg ${
           className || ""
@@ -29,7 +30,7 @@ const MessageBox = ({
           {polygonIcon}
         </div>
         <p
-          className="text-center text-lg relative z-20 leading-relaxed italic font-medium md:font-normal"
+          className="text-center text-lg relative z-20 leading-relaxed italic md:font-light"
           style={{ color: textColor }}>
           {text}
         </p>

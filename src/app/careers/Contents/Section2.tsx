@@ -4,7 +4,6 @@ import expertAarrow from "@/assets/images/services/expert-arrow.svg";
 import TechCardWithChip from "@/app/services/components/technChipCards";
 import { leftRing } from "@/assets/effects";
 import { LifeAtEvoltech, PerksandBenefits } from "@/data/service-technology";
-import { whyEvoltechCard } from "@/data/about-us";
 import { followArrowRight } from "@/assets/svg";
 import Text from "@/components/Text";
 import { CircleChevronRight } from "lucide-react";
@@ -15,12 +14,13 @@ import CheckList from "../components/CheckList";
 const Section2 = () => {
   const router = useRouter();
   return (
-    <section className="text-black relative w-full h-full py-20"
+    <section
+      className="text-black relative w-full h-full py-20"
       style={{
         backgroundImage:
           "linear-gradient(to bottom, rgba(217, 229, 251, 1) 0%, #fff 50%)",
       }}>
-      <div className="absolute w-full h-full">
+      <div className="absolute w-full h-full pointer-events-none">
         <div className="absolute top-0 -left-10 z-1 ">{leftRing}</div>
       </div>
       <BannerHeader
@@ -39,40 +39,34 @@ const Section2 = () => {
         arrowWidth={40}
         arrowHeight={120}
       />
-      <div className="flex justify-center h-full" >
-        <div className="flex flex-wrap gap-4 justify-center pb-20 max-w-7xl">
+      <div className="flex justify-start lg:justify-center h-full">
+        <div className="flex flex-wrap gap-4 p-4 justify-start md:justify-center lg:justify-center pb-20 lg:max-w-7xl">
           {LifeAtEvoltech?.map((card) => (
-            <div
-              key={card.id}
-              className="pb-4">
+            <div key={card.id} className="pb-4">
               <TechCardWithChip
                 id={card.id}
                 title={card.title}
                 description={card.description}
                 bgColor={card.bgColor}
-                paragraphPadding="pr-20"
+                paragraphPadding="pr-0 lg:pr-20"
               />
             </div>
           ))}
-
         </div>
       </div>
-      <div className="w-full h-full flex gap-5  justify-between px-40">
-        <div className=" h-full w-[calc(33.333333%+3rem)] flex flex-col gap-5">
+      <div className="w-full h-full flex flex-col lg:flex-row gap-5 justify-center items-start px-4 lg:px-40">
+        <div className=" h-full flex flex-col gap-2 justify-center items-center">
           <Text
-            className="font-semibold sm:text-4xl xl:text-[56px]"
+            className="font-semibold text-4xl md:text-6xl lg:text-6xl xl:text-[56px]"
             tag="p">
             Perks & Benefits
           </Text>
-          <Text className="font-semibold sm:text-base">
-            Your partner for innovation, efficiency, and growth.
-          </Text>
-          <div className="text-[#8DCAFF] justify-end items-end mt-4 w-full flex">
+          <div className="text-[#8DCAFF] justify-end items-end px-20 md:px-0 lg:px-10 w-full flex">
             {followArrowRight}
           </div>
         </div>
         <div className=" h-full items-end justify-end w-fit">
-          <div className="grid grid-cols-1 sm:grid-cols-2  justify-center">
+          <div className="grid grid-cols-1 sm:grid-cols-2 justify-center gap-12 lg:gap-4">
             {PerksandBenefits.map((card) => {
               return (
                 <CheckList
@@ -85,10 +79,16 @@ const Section2 = () => {
               );
             })}
           </div>
-          <div className="w-full h-full mt-4 flex items-center justify-center sm:justify-start">
+          <div className="w-full h-full mt-8 flex items-start justify-start lg:justify-start md:justify-center ">
             <Button
-              onClick={() => router.push("/services/consulting")}
-              className="w-fit gap-2 items-center justify-center sm:justify-start px-2 py-2 flex cursor-pointer  bg-[#FFBB00] rounded-full text-sm">
+              onClick={() => {
+                const el = document.getElementById("job-listing");
+                console.log({ el });
+                if (el) {
+                  el.scrollIntoView({ behavior: "smooth", block: "start" });
+                }
+              }}
+              className="w-fit gap-2 items-center justify-center sm:justify-start px-4 py-2 flex cursor-pointer bg-[#FFBB00] rounded-full text-sm">
               <span className="font-medium">View Open Positions</span>
               <span>
                 <CircleChevronRight size={18} />

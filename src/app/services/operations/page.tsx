@@ -11,13 +11,14 @@ const Operations = () => {
       <Section1 />
       <Section2 />
       <Section3 />
-      <LetsGrow 
-      description= {
-        <>
-        Transform your back office operations with EvolTech’s innovative and efficient solutions.
-         Let us handle the details so you can focus on what matters most—growing your business. 
-        </>
-      }
+      <LetsGrow
+        description={
+          <>
+            Transform your back office operations with EvolTech’s innovative and
+            efficient solutions. Let us handle the details so you can focus on
+            what matters most—growing your business. 
+          </>
+        }
       />
      <Testimonials type="operations" />
 

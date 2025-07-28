@@ -13,7 +13,7 @@ const Section2 = () => {
       <div className="w-full h-full items-center -mt-15 ">
         <img src={Map.src} alt="LeftGlobe" className="w-full h-full " />
         <Text
-          className="font-semibold text-6xl -mt-10 !text-center w-full"
+          className="font-semibold text-4xl lg:text-6xl -mt-10 !text-center w-full"
           tag="p">
           Office Locations
         </Text>

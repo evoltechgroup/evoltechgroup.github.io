@@ -29,9 +29,9 @@ const BannerHeader: React.FC<BannerHeaderProps> = ({
   chipBackgroundColor = "",
   headerText,
   subHeaderText,
-  maxWidth = "lg:max-w-4xl",
+  maxWidth = "lg:max-w-xl",
   headerTextSize = "text-6xl",
-  subHeaderTextSize = "text-2xl",
+  subHeaderTextSize = "text-xl",
   chipTextColor = "text-black",
   headerTextColor = "text-black",
   subHeaderTextColor = "text-black",
@@ -50,8 +50,8 @@ const BannerHeader: React.FC<BannerHeaderProps> = ({
       <div
         className={`arrow ${arrowOverrideCx} ${
           arrowColor && `text-[${arrowColor}]`
-        } ${arrowWidth ? `w-[${arrowWidth}px]` : ""} ${
-          arrowHeight ? `h-[${arrowHeight}px]` : ""
+        } ${arrowWidth ? `w-10 md:w-[${arrowWidth}px]` : ""} ${
+          arrowHeight ? `h-10 md:h-[${arrowHeight}px]` : ""
         } ${arrowPosition}`}>
         {typeof arrowSrc === "string" || (arrowSrc && "src" in arrowSrc) ? (
           <Image
@@ -69,7 +69,7 @@ const BannerHeader: React.FC<BannerHeaderProps> = ({
   const renderSubHeaderWithArrow = () => {
     const subHeaderElement = (
       <div
-        className={`sub-header p-4 md:p-0 text-xl md:${subHeaderTextSize} max-w-2xl font-normal lg:mt-6 ${subHeaderTextColor}`}>
+        className={`sub-header p-4 md:p-0 text-sm lg:text-xl md:${subHeaderTextSize} max-w-xl font-normal lg:mt-6 ${subHeaderTextColor}`}>
         {subHeaderText}
       </div>
     );
@@ -124,7 +124,7 @@ const BannerHeader: React.FC<BannerHeaderProps> = ({
           {chipText}
         </div>
         <div
-          className={`header text-4xl md:${headerTextSize} font-bold ${headerTextColor}`}>
+          className={`header text-3xl md:${headerTextSize} font-bold ${headerTextColor}`}>
           {headerText}
         </div>
         <div className="md:px-40">{renderSubHeaderWithArrow()}</div>

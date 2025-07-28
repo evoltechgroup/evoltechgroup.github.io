@@ -15,7 +15,7 @@ const JoinOurTeam = () => {
   const router = useRouter();
   return (
     <section
-      className="relative flex flex-col items-center justify-center w-full h-screen mx-auto overflow-hidden"
+      className="relative flex flex-col items-center justify-center w-full h-full mx-auto overflow-hidden"
       style={{
         backgroundImage: "linear-gradient(to bottom, #FFFFFF 0%, #F1F8FF 50%)",
       }}>
@@ -24,36 +24,36 @@ const JoinOurTeam = () => {
           {testimonialBottom}
         </div>
       </div>
-      <div className="md:max-w-6xl w-full h-full flex flex-col md:flex-row items-center md:ml-20 pt-20 justify-center">
-        <div className="px-5 md:p-0  w-full">
-          <div className="w-full md:w-fit h-80 md:h-[620px] mx-auto rounded-[48px] overflow-hidden relative">
+      <div className="lg:max-w-6xl w-full h-full flex flex-col lg:flex-row items-center lg:ml-20 pt-20 justify-center">
+        <div className="px-5 md:px-0 md:p-0  w-full">
+          <div className="w-full md:w-fit h-80 lg:h-[620px] mx-auto rounded-[48px] overflow-hidden relative">
             <img
               src={JoinOurTeamImg.src}
               alt="TeamMeeting"
-              className="w-full h-[28rem] md:h-full rounded-[48px] object-cover md:object-contain -translate-y-[50px] md:-translate-y-[100px]"
+              className="w-full h-[28rem] md:h-[30rem] lg:h-full rounded-[48px] object-cover md:object-contain -translate-y-[50px] md:-translate-y-[100px]"
               height={620}
               width={500}
             />
           </div>
         </div>
-        <div className="flex-1 -mt-15 md:mt-0 p-8 pt-0 md:p-0">
+        <div className="flex-1 -mt-15 lg:mt-0 p-8 pt-0 md:p-0">
           <div
-            className="bg-white overflow-hidden w-full md:w-2xl md:left-[-15%] p-10 md:p-30 mb-20 rounded-[64px] shadow-lg md:px-15 md:py-15 flex flex-col gap-4 relative"
+            className="bg-white overflow-hidden w-full md:w-2xl lg:left-[-15%] p-10 lg:p-30 mb-20 rounded-[64px] shadow-lg md:px-15 md:py-15 flex flex-col gap-4 relative"
             style={{
               backgroundImage:
                 "linear-gradient(to left, rgba(217, 229, 251, 1) 0%, #ffff 100%)",
             }}>
             <div className="relative w-full h-full z-2 ">
               <div className="flex items-center gap-1 mb-1">
-              <span className="left-8 top-6 text-xs font-semibold text-blue-500 bg-blue-100 rounded-full px-3 py-1">
-                Career
-              </span>
-              <div className="hidden md:flex text-[#FFBB00] justify-start ">
-      <span className="transform   translate-y-[4px] block">
-        {followArrowDownV2}
-      </span>
-    </div>
-    </div>
+                <span className="left-8 top-6 text-xs font-semibold text-blue-500 bg-blue-100 rounded-full px-3 py-1">
+                  Career
+                </span>
+                <div className="hidden md:flex text-[#FFBB00] justify-start ">
+                  <span className="transform   translate-y-[4px] block">
+                    {followArrowDownV2}
+                  </span>
+                </div>
+              </div>
               <h2 className="text-4xl font-bold text-[#0B0F2B] mb-2 mt-2">
                 Join Our Team
               </h2>

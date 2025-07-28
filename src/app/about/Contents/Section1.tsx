@@ -1,4 +1,4 @@
-import { followArrow } from "@/assets/svg";
+import { followArrow, followArrowv2, mainFollowArrow } from "@/assets/svg";
 import Globe from "@/assets/effects/Aboutus/Globe.jpg";
 import Text from "@/components/Text";
 import { infoCards } from "@/data/about-us";
@@ -25,7 +25,7 @@ const Section1 = () => {
           <img
             src={Globe.src}
             alt="RightGlobe"
-            className="absolute md:w-[950px] md:h-[950px] w-full h-[450px] md:-right-[35%] -bottom-10 md:-top-20 z-6  mix-blend-color-dodge opacity-50"
+            className="absolute md:w-[950px] md:h-[950px] w-full h-[400px] md:-right-[35%] -bottom-10 md:-top-20 z-6  mix-blend-color-dodge opacity-50"
           />
           <div className="absolute z-4 w-full h-full opacity-100">
             {rectangle191}
@@ -42,7 +42,7 @@ const Section1 = () => {
         </div>
       </div>
       <div className="relative z-10 w-full h-full justify-center items-center p-5">
-        <div className="w-full h-full flex flex-col justify-center gap-10 md:gap-15 items-center md:p-40 md:pb-20">
+        <div className="w-full h-full flex flex-col justify-center gap-0 md:gap-15 items-center md:p-40 md:pb-20">
           <div className="flex flex-col gap-5 items-center mb-4">
             <Text
               className="font-semibold text-4xl md:text-4xl xl:text-6xl text-center"
@@ -54,9 +54,11 @@ const Section1 = () => {
               consulting, and efficient back office solutions, powered by 50+
               specialists in full-stack, AI, and cloud computing.
             </Text>
-             <div className=" hidden md:flex text-[#FFBB00] justify-start items-end ml-24 -mt-6  w-4/4">
-                      <span className="transform -rotate-[10deg] scale-x-[-1]">{followArrow}</span>
-                    </div>
+            <div className="flex text-[#FFBB00] justify-start items-end md:ml-24 -mt-6  w-10 md:w-4/4">
+              <span className="transform -rotate-[10deg] scale-x-[-1] h-20 md:h-30">
+                {followArrowv2}
+              </span>
+            </div>
           </div>
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6 w-full mx-auto p-4">
             {infoCards.map((item, idx) => (

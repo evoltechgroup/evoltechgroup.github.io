@@ -21,7 +21,7 @@ const ServicesSection: React.FC = () => {
           </span>
         </div>
 
-        <Text className="text-3xl sm:text-4xl md:text-[4rem] !text-center text-black !font-bold mb-3 leading-tight">
+        <Text className="text-3xl md:text-5xl lg:text-[4rem] !text-center text-black !font-bold mb-3 leading-tight">
           <span>Unlock Growth with</span> <br />
           <span>Cutting-Edge Solutions</span>
         </Text>
