@@ -31,7 +31,7 @@ const Section3 = () => {
           <Text className="text-3xl lg:text-6xl font-semibold">Our Team</Text>
           <Text className="md:whitespace-nowrap font-medium md:font-normal text-xl md:text-4xl">
             {"The heart"}
-            <span className="inline-block align-middle w-10 ml-2 mr-2 h-40">
+            <span className="inline-block align-middle w-10 ml-2 mr-2 h-10">
               {heartIcon}
             </span>
             {"of EvolTech’s success."}

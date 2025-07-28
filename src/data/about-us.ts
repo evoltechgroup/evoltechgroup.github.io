@@ -28,8 +28,7 @@ export const whyEvoltechCard = [
   {
     id: 2,
     title: "Hybrid Operations",
-    description:
-      "Seamless, scalable teams extending your back-office capacity.",
+    description: "Seamless, scalable teams extending your operations capacity.",
     bgColor: "#EBE9F9",
   },
   {

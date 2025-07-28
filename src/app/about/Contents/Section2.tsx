@@ -40,7 +40,7 @@ const Section2 = () => {
               <div className="flex flex-col gap-5 sm:max-w-[90%]">
                 <Text className="font-semibold xl:text-xl">
                   EvolTech, founded in October 2015, specializes in technology
-                  development and hybrid captive back-office support.
+                  development and hybrid captive operations support.
                 </Text>
                 <Text className="xl:text-xl sm:text-base">
                   With offices in the US and India, we deliver scalable tech

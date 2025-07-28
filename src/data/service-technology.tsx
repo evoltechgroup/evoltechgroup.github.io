@@ -128,7 +128,7 @@ export const servicesCards = [
   },
   {
     id: 7,
-    title: "Back-Office Operations Specialists",
+    title: "Operations Specialists",
     description: [
       "Optimize processes with custom software for efficiency and cost savings.",
     ],

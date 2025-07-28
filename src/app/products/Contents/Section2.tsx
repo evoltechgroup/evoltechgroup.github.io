@@ -42,10 +42,13 @@ const Section2 = () => {
                 Patients and Rank Higher in Search Results
               </>
             }
+            text={"Book a Demo"}
+            url="https://fiveoak.com/"
           />
         ) : (
           <LetsGrow
             description={"Reach us to start powering your business today!"}
+            text={"Book a Demo"}
           />
         )}
       </div>

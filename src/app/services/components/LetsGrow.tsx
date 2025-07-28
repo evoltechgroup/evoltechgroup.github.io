@@ -8,9 +8,11 @@ import { useRouter } from "next/navigation";
 
 interface LetsGrowProps {
   description: string | React.ReactNode;
+  text?: string;
+  url?: string;
 }
 
-const LetsGrow = ({ description }: LetsGrowProps) => {
+const LetsGrow = ({ description, text, url }: LetsGrowProps) => {
   const router = useRouter();
   return (
     <div
@@ -43,9 +45,15 @@ const LetsGrow = ({ description }: LetsGrowProps) => {
             </Text>
             <div className="w-full text-black mt-4 flex items-center justify-center">
               <Button
-                onClick={() => router.push("/contact")}
+                onClick={() => {
+                  if (url) {
+                    window.open(url, "_blank");
+                  } else {
+                    router.push("/contact");
+                  }
+                }}
                 className="cursor-pointer pt-1.5 w-fit gap-2 items-center justify-center sm:justify-start pr-3 pb-1.5 pl-3 flex bg-[#FFBB00] rounded-full text-sm">
-                <span className="font-semibold">Contact us</span>
+                <span className="font-semibold">{text ?? "Contact us"}</span>
                 <span>
                   <CircleChevronRight size={18} />
                 </span>

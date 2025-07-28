@@ -109,7 +109,7 @@ export default function Header() {
               <Link
                 href="/services/operations"
                 className={`p-2 rounded-full transition ${
-                  pathname === "/services/back-office"
+                  pathname === "/services/operations"
                     ? "bg-white text-[#0B0F2B]"
                     : "hover:bg-white hover:text-[#0B0F2B]"
                 }`}>

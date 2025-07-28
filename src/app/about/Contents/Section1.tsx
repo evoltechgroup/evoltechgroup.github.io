@@ -47,23 +47,22 @@ const Section1 = () => {
               tag="p">
               Who we are
             </Text>
-            <Text className="text-base md:text-sm xl:text-xl max-w-3xl !text-center text-[#C5E1FF]">
-              At our core, we’re problem solvers and builders—turning visionary
+            <Text className="text-base md:text-sm xl:text-xl max-w-5xl !text-center text-[#C5E1FF]">
+              At our core, we’re problem solvers and builders turning visionary
               ideas into impactful reality. With a focus on full-stack
               development, AI solutions, and cloud computing, we combine
               advanced technology with expert consulting to help businesses
-              evolve, scale, and succeed. Our back-office support systems are
+              evolve, scale, and succeed. Our operations support systems are
               built for efficiency and growth, ensuring clients can focus on
               what matters most.
             </Text>
-            <Text className="text-base md:text-sm xl:text-xl max-w-3xl !text-center text-[#C5E1FF]">
-              With over a decade of experience, our team brings deep industry
-              insight and technical excellence to every engagement. Our
-              leadership has over 25 years of expertise in Banking and Fintech,
-              Insurance, Retail guiding teams across our global offices in the
-              US and India. We take pride in our diverse, inclusive culture—55%
-              of our workforce are women—delivering around-the-clock innovation
-              and service for our clients worldwide.
+            <Text className="text-base md:text-sm xl:text-xl max-w-4xl !text-center text-[#C5E1FF]">
+              Backed by over a decade of delivery excellence and leadership with
+              25+ years of experience across Banking, Fintech, Retail,
+              Insurance, and Healthcare, we operate globally from the US and
+              India. With a workforce that is 55% women, we’re proud to drive
+              around-the-clock innovation through diversity, agility, and deep
+              domain expertise.
             </Text>
             <div className="flex text-[#FFBB00] justify-center items-center md:ml-24 -mt-6  w-10 md:w-4/4">
               <span className="transform -rotate-[10deg] scale-x-[-1] h-20 md:h-30">
