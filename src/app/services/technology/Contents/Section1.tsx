@@ -3,10 +3,11 @@ import TechArrow from "@/assets/images/services/power-arrow.svg";
 import BannerHeader from "../../components/BannerHeader";
 import TechStackShowCase from "../../components/TechStack";
 import MessageBox from "../../components/tooltip";
+import TeckStackMobile from "../../components/TeckStackMobile";
 
 const Section1 = () => {
   return (
-    <div className="bg-[#F8F8F8] overflow-hidden w-full h-full md:pb-10">
+    <div className="bg-[#F8F8F8] overflow-hidden w-full h-full pb-10">
       <BannerHeader
         chipText="Our Tech Stack"
         chipBackgroundColor="#FFDEB7"
@@ -23,9 +24,13 @@ const Section1 = () => {
         arrowWidth={75}
         arrowHeight={35}
         maxWidth=" max-w-4xl"
-       
       />
-      <TechStackShowCase />
+      <div className="md:hidden">
+        <TeckStackMobile />
+      </div>
+      <div className="hidden md:block">
+        <TechStackShowCase />
+      </div>
 
       <MessageBox
         text="This diverse stack enables us to address complex challenges in Banking, FinTech, Retail, Insurance, and Healthcare."

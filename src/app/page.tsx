@@ -7,7 +7,7 @@ import Section1 from "./home/Content/Section1";
 
 export default function HomePage() {
   return (
-    <main className="bg-[#0B0F2B] text-white min-h-screen">
+    <main className="bg-[#0B0F2B] text-white min-h-screen overflow-hidden">
       <Section1 />
       <ServicesSection />
       <Testimonials type="home" />

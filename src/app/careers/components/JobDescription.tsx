@@ -55,7 +55,7 @@ export const JobDescriptionModal: React.FC<JobDescriptionModalProps> = ({
       />
       
       {/* Modal */}
-      <div className="relative bg-white rounded-lg shadow-xl max-w-7xl w-[70vw] max-h-[90vh] overflow-hidden">
+      <div className="relative bg-white rounded-lg shadow-xl max-w-7xl w-[90vw] max-h-[90vh] overflow-hidden">
         {/* Background decorative stripes */}
         <div className="absolute top-20 left-0 w-20 h-20 md:w-32 md:h-32 lg:w-80 lg:h-80 pointer-events-none z-0">
           <div className="w-full h-full">

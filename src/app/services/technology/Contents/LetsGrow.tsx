@@ -23,7 +23,6 @@ const LetsGrow = () => {
           <div className="flex flex-col gap-4 items-center w-fit justify-center relative p-10">
             <Text
               className="font-semibold text-3xl sm:text-[56px] max-w-[30rem] text-black text-center"
-              alignment="center"
               tag="p">
               Let’s Transform Business Together
             </Text>
@@ -33,11 +32,10 @@ const LetsGrow = () => {
           </div>
           <div className="mt-4 flex flex-col gap-10 items-center justify-center">
             <Text
-              className="font-normal sm:text-xl text-base text-[#212121] max-w-xl"
-              alignment="center"
+              className="font-normal sm:text-xl text-base text-center text-[#212121] max-w-xl"
               tag="p">
-              Ready to harness technology that wins? <br/>
-Contact us to explore how our solutions can drive your success. 
+              Ready to harness technology that wins? <br />
+              Contact us to explore how our solutions can drive your success.
             </Text>
             <div className="w-full text-black mt-4 flex items-center justify-center">
               <Button className="pt-1.5 w-fit gap-2 items-center justify-center sm:justify-start pr-3 pb-1.5 pl-3 flex  bg-[#FFBB00] rounded-full text-sm">

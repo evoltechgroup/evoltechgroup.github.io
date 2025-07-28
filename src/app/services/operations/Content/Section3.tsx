@@ -1,9 +1,8 @@
-import React from "react";
 import BannerHeader from "../../components/BannerHeader";
-import { operationPageArrow1 } from "@/assets/svg";
 import { operationsCardData } from "@/data/service-operations";
 import OperationsCard from "../../components/OperationsCard";
 import { leftRing, topRightRingv2 } from "@/assets/effects";
+import expertAarrow from "@/assets/images/services/expert-arrow.svg";
 
 const Section3 = () => {
   return (
@@ -18,23 +17,24 @@ const Section3 = () => {
           chipBackgroundColor="#FFDEB7"
           chipTextColor="text-black"
           headerText="Our Business Process Operational Excellence Support"
-          headerTextColor="text-black"
+          headerTextColor="text-black lg:max-w-[600px]"
           subHeaderText="Streamlining Your Success with Precision and Efficiency"
           subHeaderTextColor="text-black"
-          headerTextSize="text-[40px] max-w-2xl"
-          className="py-5 md:py-20"
-          arrowSrc={operationPageArrow1}
-          arrowAlt="Tech Arrow"
+          headerTextSize="lg:text-[40px] max-w-2xl"
+          className="py-5 pt-15 md:py-0 md:pb-16 md:pt-20"
+          arrowSrc={expertAarrow}
+          maxWidth="lg:max-xl"
+          arrowAlt="Expert Arrow"
           arrowPosition="left"
           arrowWidth={70}
-          arrowHeight={35}
-          arrowOverrideCx="flex mr-5"
+          arrowHeight={120}
         />
         <div className="w-full h-full flex flex-col gap-5 justify-center pb-15">
           {operationsCardData.map((card, index) => (
             <OperationsCard
               key={index}
               {...card}
+              firstItem={index === 0}
               lastItem={index === operationsCardData.length - 1}
             />
           ))}

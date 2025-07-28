@@ -1,7 +1,5 @@
 "use client";
 
-
-
 import {
   testimonialLeftSide,
   testimonialRightSide,
@@ -16,6 +14,7 @@ import {
 import Text from "@/components/Text";
 import { useEffect, useRef, useState } from "react";
 import { testimonials as allTestimonials } from "@/data/testimonials";
+import { merriweather } from "../fonts";
 
 type Props = {
   type: "home" | "about" | "consulting" | "technology" | "operations";
@@ -35,11 +34,21 @@ function Testimonials({ type }: Props) {
   const [index, setIndex] = useState(0);
   const [fade, setFade] = useState(true);
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const touchStartRef = useRef<number | null>(null);
 
   const next = () => {
     setFade(false);
     setTimeout(() => {
       setIndex((i) => (i + 1) % testimonialList.length);
+      setFade(true);
+    }, 150);
+  };
+  const prev = () => {
+    setFade(false);
+    setTimeout(() => {
+      setIndex(
+        (i) => (i - 1 + testimonialList.length) % testimonialList.length
+      );
       setFade(true);
     }, 150);
   };
@@ -83,7 +92,16 @@ function Testimonials({ type }: Props) {
         </div>
 
         <div className="relative w-full flex justify-center -mt-4">
-          <div className="bg-white rounded-2xl shadow-lg px-8 py-8 max-w-2xl w-full h-fit flex flex-col justify-center items-center transition-all duration-500 relative">
+          <div
+            className="bg-white rounded-2xl shadow-lg px-8 py-8 max-w-2xl w-full min-h-[340px] flex flex-col justify-center items-center transition-all duration-500 relative"
+            onTouchStart={(e) => (touchStartRef.current = e.touches[0].clientX)}
+            onTouchEnd={(e) => {
+              const deltaX =
+                e.changedTouches[0].clientX - (touchStartRef.current || 0);
+              const threshold = 50;
+              if (deltaX > threshold) prev();
+              else if (deltaX < -threshold) next();
+            }}>
             <div className="absolute left-4 top-4 w-6 h-6 opacity-40">
               {leftExclamation}
             </div>
@@ -91,7 +109,9 @@ function Testimonials({ type }: Props) {
               {rightExplamation}
             </div>
             <p
-              className={`text-[#222] text-center font-light text-xs md:text-base whitespace-pre-line px-4 transition-opacity duration-300 ${
+              className={`text-[#222] text-center font-light ${
+                merriweather.className
+              } text-xs md:text-base whitespace-pre-line px-4 transition-opacity duration-300 ${
                 fade ? "opacity-100" : "opacity-0"
               }`}>
               {t.text}

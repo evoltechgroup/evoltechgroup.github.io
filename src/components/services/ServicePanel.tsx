@@ -30,8 +30,8 @@ export const ServicePanel: React.FC<ServicePanelProps> = ({ service }) => {
 
   return (
     <div className="w-full flex flex-col-reverse md:flex-row items-start gap-4 animate-fadein">
-      <div className="flex-1 flex flex-col items-start">
-        <div className="flex items-center w-full md:w-auto justify-center md:justify-start mb-8">
+      <div className="lg:flex-1 flex flex-col items-start p-2 md:p-4 lg:p-0">
+        <div className="flex items-center w-full md:w-auto justify-center md:justify-start mb-8 ">
           <div className="h-12 w-12 lg:h-24 lg:w-24 mr-3 lg:mr-8 bg-gradient-to-r from-[#5785DC] to-[#5F4793] rounded-2xl lg:rounded-3xl flex items-center justify-center">
             <img
               src={iconSrc}
@@ -42,11 +42,11 @@ export const ServicePanel: React.FC<ServicePanelProps> = ({ service }) => {
           <span className="text-3xl lg:text-5xl font-bold">{title}</span>
         </div>
 
-        <p className="mb-4 text-base w-full lg:text-xl font-medium lg:mb-10 px-2 lg:px-0 md:w-xl">
+        <p className="mb-4 text-base w-full lg:text-xl font-medium lg:mb-10 px-2 lg:px-0 md:w-full lg:w-xl">
           {blurb}
         </p>
 
-        <div className="grid  grid-cols-1 md:grid-cols-2 gap-6 lg:w-xl">
+        <div className="grid  grid-cols-1 md:grid-cols-2 gap-6  lg:w-xl">
           {bullets.map((b, i) => (
             <TechCardWithChip
               id={i}

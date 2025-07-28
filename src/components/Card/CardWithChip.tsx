@@ -16,13 +16,13 @@ const CardWithChip: React.FC<CardWithChipType> = ({
   return (
     <div
       key={id}
-      className="flex flex-col gap-4 max-w-[190px]  md:max-w-[290px] w-full mx-auto">
+      className="flex flex-col gap-4 max-w-full  md:max-w-[290px] w-full md:mx-auto">
       <div
         className="p-1.5 w-fit px-3 flex rounded-full rounded-bl-none font-semibold text-black text-base"
         style={{ backgroundColor: bgColor }}>
         {title}
       </div>
-      <p className="text-sm text-[#444444] font-medium max-w-[280px]">
+      <p className="text-sm text-[#444444] font-medium pl-1 md:pl-0 md:max-w-[280px]">
         {description}
       </p>
     </div>
