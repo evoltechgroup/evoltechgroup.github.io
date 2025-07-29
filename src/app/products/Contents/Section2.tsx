@@ -37,9 +37,9 @@ const Section2 = () => {
           <LetsGrow
             description={
               <>
-                Sign up Fiveoak today! Boost Online Reviews Attract More
+                Sign up for Fiveoak today! Boost Online Reviews, Attract More 
                 <br />
-                Patients and Rank Higher in Search Results
+                Clients and Rank Higher in Search Results.
               </>
             }
             text={"Book a Demo"}

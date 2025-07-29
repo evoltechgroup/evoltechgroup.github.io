@@ -12,7 +12,7 @@ const BgSection = () => {
       consultingIcon={Technologyicon.src}
       title="Technology"
       subtitle="Ideas that Win"
-      description="We bring visionary ideas to life with cutting-edge tech. Our 50+ engineers, experts in full-stack, AI, and cloud computing, create innovative apps to fuel growth and efficiency."
+      description="We bring visionary ideas to life with cutting-edge tech. Our team of engineers, experts in full-stack, AI, and cloud computing, create innovative apps to fuel growth and efficiency."
       foregroundImage={TechnologyBanner}
       foregroundImageAlt="Technology Banner"
       backgroundImages={{

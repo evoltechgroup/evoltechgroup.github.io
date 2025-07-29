@@ -5,7 +5,7 @@ export const testimonials = {
   technology: [
     {
       text: `Working with Evoltech has been an absolute pleasure. From start to finish, their team has been incredibly easy to collaborate with and truly a partner throughout our technology build.\n\nThey provided valuable insights, tailored solutions, and consistent support, making the entire process smooth and efficient.\n\nTheir expertise and dedication to our success have exceeded expectations, and we look forward to continuing our partnership with them in the future. Highly recommend!`,
-      author: "President and Product Head of US Mortgage Tech",
+      author: "President and Product Head of US Mortgage Tech Company",
       company: "Fintech Company",
     },
     {
@@ -19,7 +19,7 @@ export const testimonials = {
       We vetted through a bunch of development companies and are thrilled that we chose to work alongside EvolTech.
       If you are looking for a hands-on approach and maximum involvement with a vested interest in your success, look no further.
       We are looking forward to continuing our relationship for years to come.`,
-      author: "Founder, CEO",
+      author: "Founder & CEO of a Leading Fintech Company",
       company: "FinTech",
     },
   ],
