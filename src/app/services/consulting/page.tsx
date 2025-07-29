@@ -14,8 +14,8 @@ const Consulting = () => {
       <LetsGrow
   description={
     <>
-     Ready to take your business to the next level? <br/>
-Contact us today to learn how our consulting services can<br/> help you achieve innovation, efficiency, and lasting growth.
+     Ready to take your business to the next level? 
+Contact us today to learn how our consulting services can help you achieve innovation, efficiency, and lasting growth.
     </>
   }
 />

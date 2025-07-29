@@ -109,7 +109,7 @@ const BgBanner: React.FC<BgBannerProps> = ({
               id === "products"
                 ? "max-w-lg md:justify-center"
                 : "md:justify-end"
-            } mt-10 md:mt-0 md:pb-5`}>
+            } mt-10 md:mt-30 md:pb-5`}>
             <div className="flex justify-center items-center">
               {consultingIcon && (
                 <div className="h-14 w-14 lg:h-28 lg:w-28 mr-3 lg:mr-8 bg-gradient-to-r from-[#5785DC] to-[#5F4793] rounded-2xl lg:rounded-3xl flex items-center justify-center">
@@ -147,7 +147,7 @@ const BgBanner: React.FC<BgBannerProps> = ({
               </div>
             )}
           </div>
-          <div className="w-full md:w-1/2 -mt-10 md:mt-0 h-full flex">
+          <div className="w-full md:w-1/2 -mt-10 md:mt-10 h-full flex">
             <div className="relative w-full h-full flex items-end md:pl-20 pb-15 md:pb-0">
               <div className="w-full h-[264px] md:w-[430px] md:h-[620px] relative rounded-[48px] md:rounded-b-none overflow-hidden">
                 <img

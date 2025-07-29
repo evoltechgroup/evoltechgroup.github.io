@@ -14,7 +14,7 @@ import {
   Abdul,
   Aishwarya,
   Atul,
-  Jaipg,
+  Priyanka,
   Surrender,
   Tom,
 } from "@/assets/images/Team/Formal";
@@ -31,7 +31,7 @@ const imageGrid = [
   ],
   [
     { src: Abdul.src, alt: "Keanu 4" },
-    { src: Jaipg.src, alt: "Bear" },
+    { src: Priyanka.src, alt: "Bear" },
   ],
 ];
 

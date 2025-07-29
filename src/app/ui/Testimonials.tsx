@@ -54,7 +54,7 @@ function Testimonials({ type }: Props) {
   };
 
   useEffect(() => {
-    timeoutRef.current = setTimeout(next, 5000);
+    timeoutRef.current = setTimeout(next, 8000);
     return () => {
       if (timeoutRef.current) clearTimeout(timeoutRef.current);
     };
@@ -91,7 +91,8 @@ function Testimonials({ type }: Props) {
           </div>
         </div>
 
-        <div className="relative w-full flex justify-center -mt-4">
+        <div className="relative w-full flex justify-center -mt-4"
+        >
           <div className="bg-white rounded-2xl shadow-lg px-8 py-8 max-w-2xl w-full h-fit flex flex-col justify-center items-center transition-all duration-500 relative">
             <div className="absolute left-4 top-4 w-6 h-6 opacity-40">
               {leftExclamation}

@@ -16,10 +16,23 @@ const LogoContainer: React.FC<LogoContainerType> = ({
   title,
   subTitle,
 }) => {
+   const logoLink = name === "fiveoak" ? "https://fiveoak.com/" : null;
+   
   return (
-    <div className="flex flex-col md:flex-row gap-10 w-full h-full items-center justify-center">
+ <div className="flex flex-col md:flex-row gap-10 w-full h-full items-center justify-center">
       <div className="w-full h-[120px] md:w-[380px] md:h-[193px] shadow-[0_4px_12px_rgba(0,0,0,0.1)] bg-white flex items-center justify-center rounded-3xl">
-        <img src={icon.src} alt="icon-" />
+        {logoLink ? (
+          <a
+            href={logoLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={`Visit ${name}`}
+          >
+            <img src={icon.src} alt={`${name} logo`} />
+          </a>
+        ) : (
+          <img src={icon.src} alt={`${name} logo`} />
+        )}
       </div>
       <div className="md:max-w-[630px] flex flex-col justify-between">
         <Text className="text-3xl md:text-5xl font-bold">
@@ -37,5 +50,6 @@ const LogoContainer: React.FC<LogoContainerType> = ({
     </div>
   );
 };
+
 
 export default LogoContainer;
