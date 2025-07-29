@@ -6,7 +6,7 @@ const Section1 = () => {
     <BgBanner
       id="products"
       title="Products"
-      description="At EvolTech, we deliver innovative solutions to supercharge your retail business.  <br /> <br /> Explore our cutting-edge our partner products designed to drive growth, streamline operations, and boost customer trust."
+      description="At EvolTech, we deliver innovative solutions to supercharge your retail business.  <br /> <br /> Explore our cutting-edge partnered products designed to drive growth, streamline operations, and boost customer trust."
       foregroundImage={ProductBanner}
       foregroundImageAlt="Consulting Banner"
       backgroundImages={{

@@ -65,7 +65,7 @@ export const ReinnovaHighlights = [
   },
   {
     id: 2,
-    title: "Flexible & Configuration",
+    title: "Flexibility & Configuration",
     description: [
       "Our flexible technology evolves with future needs through simple configuration, eliminating the need for redevelopment.",
     ],
