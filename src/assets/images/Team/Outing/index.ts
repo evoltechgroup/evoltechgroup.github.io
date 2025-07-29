@@ -1,0 +1,11 @@
+export { default as BowlingWithTheTeam } from "./BowlingWithTheTeam.jpg";
+export { default as DinnerWithTeam } from "./DinnerWithTeam.jpg";
+export { default as LunchwithTheTeam } from "./LunchwithTheTeam.jpg";
+export { default as TeamOutingChennai } from "./TeamOutingChennai.jpg";
+export { default as TheChennaiMeetup } from "./TheChennaiMeetup.jpg";
+export { default as TheChennaiTeam } from "./TheChennaiTeam.jpeg";
+export { default as TheCruise } from "./TheCruise.jpg";
+export { default as TheGOATrip } from "./TheGOATrip.jpg";
+export { default as TheOperationsTeam } from "./TheOperationsTeam.jpg";
+export { default as ThePuneTeam } from "./ThePuneTeam.jpg";
+export { default as TheTechTeam } from "./TheTechTeam.jpg";

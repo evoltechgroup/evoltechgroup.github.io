@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { mailIcon } from "@/assets/svg";
 import Button from "@/components/Button";
 import { motion, AnimatePresence } from "framer-motion";
-import { CircleChevronRight } from "lucide-react";
+import { CircleChevronRight, RotateCcw } from "lucide-react";
 import emailjs from "emailjs-com";
 
 const Form = () => {
@@ -27,25 +27,25 @@ const Form = () => {
     e.preventDefault();
     setSubmitted(true);
 
-    // try {
-    //   const response = await emailjs.send(
-    //     "your_service_id",
-    //     "your_template_id",
-    //     {
-    //       from_name: formData.name,
-    //       from_email: formData.email,
-    //       company: formData.company,
-    //       message: formData.message,
-    //     },
-    //     "your_public_key"
-    //   );
-
-    //   console.log("Email sent successfully:", response.status, response.text);
-    //   setSubmitted(true);
-    // } catch (error) {
-    //   console.error("Email send error:", error);
-    //   alert("Something went wrong. Please try again.");
-    // }
+    try {
+      const response = await emailjs.send(
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
+        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
+        {
+          name: formData.name,
+          email: formData.email,
+          company: formData.company || "Not specified",
+          message: formData.message,
+          time: new Date().toLocaleString(),
+        },
+        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!
+      );
+      setSubmitted(true);
+    } catch (error) {
+      console.error("Email send error:", error);
+      alert("Something went wrong. Please try again.");
+      setSubmitted(false); // allow retry
+    }
   };
 
   const flipVariants = {
@@ -143,6 +143,14 @@ const Form = () => {
               Your message sent successfully. <br />
               We’ll get back to you soon!
             </p>
+            <Button
+              onClick={() => setSubmitted(false)}
+              className="w-fit gap-2 items-center cursor-pointer justify-center sm:justify-start pr-2 pl-6 py-2 flex bg-[#FFBB00] rounded-full text-sm">
+              <span className="font-semibold text-center">Resubmit</span>
+              <span>
+                <CircleChevronRight size={18} />
+              </span>
+            </Button>
           </motion.div>
         )}
       </AnimatePresence>

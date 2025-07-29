@@ -79,7 +79,7 @@ export const servicesData: ServiceItem[] = [
     tabLabel: "Technology",
     title: "Technology",
     blurb:
-      " We bring visionary ideas to life with cutting-edge tech. Our 50+ engineers, experts in full-stack, AI, and cloud computing, create innovative apps to fuel growth and efficiency.",
+      " We bring visionary ideas to life with cutting-edge tech. Our engineers, experts in full-stack, AI, and cloud computing, create innovative apps to fuel growth and efficiency.",
     iconSrc: Technologyicon.src,
     imageSrc: TechnologyBanner.src,
     ctaLabel: "Discover more",

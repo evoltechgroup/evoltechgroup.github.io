@@ -109,8 +109,6 @@ export const operationsCardData: OperationsCardData[] = [
       "Our quality control services enhance your manual and automated processes, catching errors early and slashing rework. With strong domain knowledge and system proficiency, we enable seamless coordination across payers, providers, and care teams.",
     ],
     label: "Let us manage the complexity, so you can focus on delivering care.",
-    extraDescription:
-      "Our teams are experienced in working within TPA ecosystems, navigating systems like Healthpac, VBA, CPM, QicLink, and WCA to ensure accurate, compliant, and efficient execution.",
   },
   {
     iconSrc: StrategicSvg,

@@ -49,7 +49,7 @@ const LetsGrow = ({ description, text, url }: LetsGrowProps) => {
                   if (url) {
                     window.open(url, "_blank");
                   } else {
-                    router.push("/contact");
+                    router.push("/contact#contact-form-section");
                   }
                 }}
                 className="cursor-pointer pt-1.5 w-fit gap-2 items-center justify-center sm:justify-start pr-3 pb-1.5 pl-3 flex bg-[#FFBB00] rounded-full text-sm">
