@@ -18,7 +18,7 @@ const Section3 = () => {
           chipTextColor="text-black"
           headerText="Meet the Experts"
           headerTextColor="text-black"
-          subHeaderText="Our 50+ professionals drive innovation across technology and operations"
+          subHeaderText="Our team of professionals drive innovation across technology and operations"
           subHeaderTextColor="text-black"
           headerTextSize="text-6xl"
           className="py-5 pt-15 md:py-0 md:pb-16 md:pt-20"

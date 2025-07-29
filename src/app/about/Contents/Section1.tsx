@@ -53,7 +53,7 @@ const Section1 = () => {
               development, AI solutions, and cloud computing, we combine
               advanced technology with expert consulting to help businesses
               evolve, scale, and succeed. Our operations support systems are
-              built for efficiency and growth, ensuring clients can focus on
+              built for efficiency and growth, ensuring that clients can focus on
               what matters most.
             </Text>
             <Text className="text-base md:text-sm xl:text-xl max-w-4xl !text-center text-[#C5E1FF]">
