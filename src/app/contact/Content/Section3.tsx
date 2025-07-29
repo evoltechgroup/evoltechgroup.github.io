@@ -7,6 +7,7 @@ import TimeLine from "../Components/TimeLine";
 const Section3 = () => {
   return (
     <section
+      id="contact-form-section"
       className="text-black relative w-full h-full"
       style={{
         backgroundImage: "linear-gradient(to right, #EBF6FF 0%, #ffff 100%)",

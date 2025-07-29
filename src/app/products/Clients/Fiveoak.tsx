@@ -1,5 +1,4 @@
 import React from "react";
-import FiveoakIcon from "@/assets/logo/Fiveoak.svg";
 import LogoContainer from "../Components/LogoContainer";
 import TechCardWithChip from "@/app/services/components/technChipCards";
 import { FiveoakHighlights } from "@/data/product-data";
@@ -13,10 +12,11 @@ import {
   FiveoakPartner5,
   FiveoakPartner6,
 } from "@/assets/logo/Fiveoak-Content";
+import { FiveOakIcon } from "@/assets/logo/Partners";
 
 export const FiveoakHeader = {
   name: "fiveoak",
-  icon: FiveoakIcon,
+  icon: FiveOakIcon,
   title: "Where Your Success Takes Root.",
   subTitle:
     "Like the roots of an oak tree, fiveoak nurtures the foundation of your success by harnessing the power of customer connection.",
@@ -74,7 +74,7 @@ const Fiveoak = () => {
           className="w-full h-[2px] border-t-2 border-dotted"
           style={{ borderColor: "#AAAAAA" }}></div>
 
-        <div className="relative flex flex-col md:flex-row w-full items-start justify-start gap-5 md:gap-20 mb-5">
+        <div className="relative flex flex-col md:flex-row w-full items-start justify-start gap-5 md:gap-20 md:mt-5 mb-5">
           <div className="w-1/3 flex flex-col items-start h-full gap-4">
             <Text className="whitespace-nowrap font-bold text-3xl sm:text-5xl text-black">
               Why Fiveoak?

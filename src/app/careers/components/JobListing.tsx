@@ -40,7 +40,7 @@ const JobListings = () => {
     setIsModalOpen(false);
   };
   return (
-    <div className="max-w-2xl mx-auto p-6">
+    <div className="max-w-2xl mx-auto p-6 md:pb-10">
       {jobListings.map((job, index) => (
         <div
           key={index}

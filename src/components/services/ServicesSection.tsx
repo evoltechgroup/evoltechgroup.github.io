@@ -28,7 +28,7 @@ const ServicesSection: React.FC = () => {
 
         <p className="text-center max-w-2xl mb-0 font-medium text-base md:text-2xl">
           Expert consulting for growth, advanced tech solutions by full-stack,
-          AI, and cloud computing, and efficient back office support to
+          AI, and cloud computing, and efficient operations support to
           streamline your business.
         </p>
 

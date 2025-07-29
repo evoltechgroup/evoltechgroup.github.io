@@ -1,15 +1,16 @@
 export const infoCards = [
   {
     title: "Experience",
-    description: "10+ years delivering innovative tech solutions.",
+    description: "10+ years delivering innovative Technology & Operations.",
   },
   {
     title: "Team",
-    description: "55% women powering our global workforce.",
+    description: "55% women powering our global workforce through diversity.",
   },
   {
     title: "Leadership",
-    description: "25+ years in Banking & Fintech expertise.",
+    description:
+      "25+ years in Banking, Fintech, Retail & Healthcare expertise.",
   },
   {
     title: "Global Reach",

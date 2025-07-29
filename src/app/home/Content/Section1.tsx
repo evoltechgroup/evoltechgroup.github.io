@@ -50,11 +50,12 @@ const Section1 = () => {
               Succeed
               <span className="w-2 h-2 rounded-full bg-yellow-400 inline-block" />
             </Text>
-            <Text className="text-sm md:text-sm xl:text-xl md:max-w-[32rem]  xl:max-w-[38rem] !text-center text-[#C5E1FF]">
+            <Text className="text-sm md:text-sm xl:text-xl md:max-w-[32rem]  xl:max-w-[40rem] !text-center text-[#C5E1FF]">
               We bring visionary ideas to life with cutting-edge tech, strategic
-              consulting, and seamless back office solutions. Our 50+ experts in
-              full-stack, AI, and cloud computing build innovative apps and
-              deliver operational excellence to fuel your growth and efficiency.
+              consulting, and seamless back office solutions. Our engineers,
+              experts in full-stack, AI, and cloud computing build innovative
+              apps and deliver operational excellence to fuel your growth and
+              efficiency.
             </Text>
             <div className="flex md:absolute mb-4 md:mb-0 w-10 h-10 md:w-16 xl:w-full md:left-25 md:bottom-11 xl:left-20 xl:bottom-13 text-[#8DCAFF]">
               {mainFollowArrow}

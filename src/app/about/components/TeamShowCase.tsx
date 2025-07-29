@@ -2,8 +2,8 @@
 
 import React, { useRef, useState, useEffect } from "react";
 import Label from "@/components/Label";
-import { TeamImages } from "@/data/team";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { TeamImages } from "@/data/team";
 
 const SCROLL_SPEED = 50;
 const DUPLICATE_COUNT = 3;

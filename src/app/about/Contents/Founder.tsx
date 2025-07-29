@@ -1,5 +1,5 @@
 import { bottomRing, topRightRing } from "@/assets/effects";
-import { Thulasi } from "@/assets/images/Team/Formal";
+import { Thulasi } from "@/assets/images/Team/Members";
 import { founderArrow, linkedInIcon } from "@/assets/svg";
 import Button from "@/components/Button";
 import Text from "@/components/Text";
