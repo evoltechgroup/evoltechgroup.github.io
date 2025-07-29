@@ -1,7 +1,6 @@
 import { followArrowRightV3 } from "@/assets/svg";
 import bgbanner from "@/assets/images/careers/section1banner.jpg";
 import Text from "@/components/Text";
-import aysha from "@/assets/images/careers/team/aysha.jpg";
 import {
   eclipseEffect,
   rectangle188,
@@ -11,26 +10,28 @@ import {
 } from "@/assets/effects";
 import ImageGrid from "../components/ImageGrid";
 import {
-  Abdul,
+  Abhisek,
   Aishwarya,
+  Ankitha,
   Atul,
+  Harini,
+  Kanika,
   Priyanka,
-  Surrender,
-  Tom,
-} from "@/assets/images/Team/Formal";
+  Shaan,
+} from "@/assets/images/Team/Members";
 
 const imageGrid = [
   [
-    { src: Surrender.src, alt: "Keanu 1" },
-    { src: aysha.src, alt: "Kitten 1" },
+    { src: Ankitha.src, alt: "Keanu 1" },
+    { src: Shaan.src, alt: "Kitten 1" },
   ],
   [
-    { src: Atul.src, alt: "Keanu 1" },
-    { src: Tom.src, alt: "Kitten 1" },
-    { src: Aishwarya.src, alt: "Kitten 2" },
+    { src: Aishwarya.src, alt: "Keanu 1" },
+    { src: Atul.src, alt: "Kitten 1" },
+    { src: Harini.src, alt: "Kitten 2" },
   ],
   [
-    { src: Abdul.src, alt: "Keanu 4" },
+    { src: Abhisek.src, alt: "Keanu 4" },
     { src: Priyanka.src, alt: "Bear" },
   ],
 ];
