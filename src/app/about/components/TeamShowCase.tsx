@@ -9,14 +9,14 @@ const SCROLL_SPEED = 50;
 const DUPLICATE_COUNT = 3;
 
 const staggeredPadding = [
-  "lg:pb-40 xl:pb-30",
-  "lg:pb-48 xl:pb-48",
-  "lg:pb-25 xl:pb-25",
-  "lg:pb-40 xl:pb-40",
-  "lg:pb-26 xl:pb-26",
-  "lg:pb-44 xl:pb-44",
-  "lg:pb-34 xl:pb-34",
-  "lg:pb-24 xl:pb-24",
+  "pb-30",
+  "pb-48",
+  "pb-25",
+  "pb-40",
+  "pb-26",
+  "pb-44",
+  "pb-34",
+  "pb-24",
 ];
 
 const baseLabelOffsets = [[5], [15, -5], [8], [2]];

@@ -53,22 +53,22 @@ const Section1 = () => {
               tag="p">
               Who we are
             </Text>
-            <Text className="text-base md:text-sm xl:text-xl max-w-3xl !text-center text-[#C5E1FF]">
-              At our core, we’re problem solvers and builders turning visionary
-              ideas into impactful reality. With a focus on full-stack
-              development, AI solutions, and cloud computing, we combine
-              advanced technology with expert consulting to help businesses
-              evolve, scale, and succeed. Our operations support systems are
-              built for efficiency and growth, ensuring that clients can focus
-              on what matters most.
+            <Text className="text-base md:text-sm xl:text-xl max-w-xl xl:max-w-3xl !text-center text-[#C5E1FF]">
+              We transform visionary ideas into reality with cutting-edge
+              full-stack development, AI, and cloud solutions. Our streamlined
+              operations support fuels business growth, letting you focus on
+              what matters. With a decade of excellence and 25+ years of
+              leadership in Banking, Fintech, Retail, Insurance, and Healthcare,
+              our diverse global team—55% women-powers innovation from the US
+              and India with unmatched expertise.
             </Text>
             <div className="flex text-[#FFBB00] justify-center items-center md:-mt-6  w-10 md:w-4/4">
-              <span className="transform -rotate-[10deg] scale-x-[-1] h-20 md:h-30">
+              <span className="transform -rotate-[10deg] scale-x-[-1] h-20 lg:20 xl:h-30">
                 {followArrowv2}
               </span>
             </div>
           </div>
-          <div className="w-fit grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6 mx-auto p-4">
+          <div className="w-fit grid grid-cols-2 lg:grid-cols-4 gap-4 lg:-mt-10 xl:mt-0 lg:gap-6 mx-auto p-4">
             {infoCardsAbout.map((item, idx) => (
               <InfoCardAbout
                 key={idx}

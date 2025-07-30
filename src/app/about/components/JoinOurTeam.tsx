@@ -11,7 +11,6 @@ import { JoinOurTeamImg } from "@/assets/images";
 import { useRouter } from "next/navigation";
 import { followArrowDownV2 } from "@/assets/svg";
 
-
 const JoinOurTeam = () => {
   const router = useRouter();
   return (
@@ -31,9 +30,13 @@ const JoinOurTeam = () => {
             <img
               src={JoinOurTeamImg.src}
               alt="TeamMeeting"
-              className="w-full h-[28rem] md:h-[30rem] lg:h-full rounded-[48px] object-cover md:object-contain -translate-y-[50px] md:-translate-y-[100px]"
+              className="w-full h-[28rem] :h-[30rem] lg:h-full rounded-[48px] object-cover md:object-contain -translate-y-[50px] md:-translate-y-[100px]"
               height={620}
               width={500}
+              style={{
+                willChange: "transform",
+                WebkitMaskImage: "-webkit-radial-gradient(white, black)",
+              }}
             />
           </div>
         </div>
@@ -68,7 +71,6 @@ const JoinOurTeam = () => {
                 support.
               </p>
               <div className="w-full mt-4 flex items-center justify-center sm:justify-start text-black">
-                
                 <Button
                   onClick={() => router.push("/careers")}
                   className="w-fit gap-2 items-center cursor-pointer justify-center sm:justify-start pr-2 pl-6 py-2 flex  bg-[#FFBB00] rounded-full text-sm">

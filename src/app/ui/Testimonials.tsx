@@ -63,7 +63,7 @@ function Testimonials({ type }: Props) {
   const t = testimonialList[index];
 
   return (
-    <section className="relative w-full h-screen bg-[#2A2B68] py-10 flex flex-col items-center  overflow-hidden">
+    <section className="relative w-full h-full bg-[#2A2B68] py-10 flex flex-col items-center  overflow-hidden">
       <div className="absolute hidden sm:flex inset-0 z-0 pointer-events-none w-full h-full justify-between bg-blend-soft-light opacity-50">
         <div>{testimonialLeftSide}</div>
         <div>{testimonialRightSide}</div>
@@ -75,11 +75,11 @@ function Testimonials({ type }: Props) {
       <div className="max-w-3xl w-full mx-auto flex flex-col items-center z-1 p-10">
         <div className="w-full sm:w-2/3 flex flex-col gap-5 items-center justify-center mb-4">
           <Text
-            className="font-semibold text-3xl text-white sm:text-[56px] text-center"
+            className="font-semibold text-3xl text-white lg:text-5xl xl:text-[56px] text-center"
             tag="p">
             Testimonials
           </Text>
-          <Text className="whitespace-nowrap font-normal text-xl sm:text-4xl text-[#C6C7F3] text-center">
+          <Text className="whitespace-nowrap font-normal text-xl lg:text-3xl xl:text-4xl text-[#C6C7F3] text-center">
             {"Happy"}
             <span className="inline-block align-middle w-10 ml-2 mr-2 h-10">
               {smileEmoji}
@@ -91,9 +91,17 @@ function Testimonials({ type }: Props) {
           </div>
         </div>
 
-        <div className="relative w-full flex justify-center -mt-4"
-        >
-          <div className="bg-white rounded-2xl shadow-lg px-8 py-8 max-w-2xl w-full h-fit flex flex-col justify-center items-center transition-all duration-500 relative">
+        <div className="relative w-full flex justify-center mt-4">
+          <div
+            className="bg-white rounded-2xl shadow-lg px-8 py-8 max-w-2xl w-full h-fit flex flex-col justify-center items-center transition-all duration-500 relative"
+            onTouchStart={(e) => (touchStartRef.current = e.touches[0].clientX)}
+            onTouchEnd={(e) => {
+              const deltaX =
+                e.changedTouches[0].clientX - (touchStartRef.current || 0);
+              const threshold = 50;
+              if (deltaX > threshold) prev();
+              else if (deltaX < -threshold) next();
+            }}>
             <div className="absolute left-4 top-4 w-6 h-6 opacity-40">
               {leftExclamation}
             </div>
