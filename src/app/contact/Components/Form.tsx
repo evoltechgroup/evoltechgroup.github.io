@@ -76,7 +76,7 @@ const Form = () => {
       .join(" ");
 
   return (
-    <div className="w-full max-w-md p-6 perspective">
+    <div  className="w-full max-w-md p-6 perspective">
       <AnimatePresence mode="wait">
         {!submitted ? (
           <motion.form

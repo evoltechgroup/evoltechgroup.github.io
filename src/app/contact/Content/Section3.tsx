@@ -7,7 +7,7 @@ import TimeLine from "../Components/TimeLine";
 const Section3 = () => {
   return (
     <section
-      id="contact-form-section"
+    id="contact-form"
       className="text-black relative w-full h-full"
       style={{
         backgroundImage: "linear-gradient(to right, #EBF6FF 0%, #ffff 100%)",
@@ -37,7 +37,7 @@ const Section3 = () => {
           <div className="w-full md:w-1/2 flex items-center md:items-start justify-center md:justify-end mt-10 md:-mt-10 md:pr-15">
             <TimeLine />
           </div>
-          <div className="w-full md:w-1/2 h-full flex items-center justify-start p-4">
+          <div  className="w-full md:w-1/2 h-full flex items-center justify-start p-4">
             <Form />
           </div>
         </div>

@@ -33,13 +33,13 @@ const LetsGrow = ({ description, text, url }: LetsGrowProps) => {
               tag="p">
               Let’s Transform Business Together
             </Text>
-            <div className="text-[#FFBB00] absolute bottom-0 -right-5">
+            <div className="text-[#FFBB00] absolute  -right-2 bottom-0 lg:-right-5">
               {followArrowDownV3}
             </div>
           </div>
           <div className="mt-4 flex flex-col gap-10 items-center justify-center">
             <Text
-              className="font-normal sm:text-xl text-base text-center text-[#212121] max-w-xl"
+              className="font-normal sm:text-xl text-base text-center text-[#212121] max-w-sm  lg:max-w-xl"
               tag="p">
               {description}
             </Text>
@@ -49,7 +49,7 @@ const LetsGrow = ({ description, text, url }: LetsGrowProps) => {
                   if (url) {
                     window.open(url, "_blank");
                   } else {
-                    router.push("/contact#contact-form-section");
+                    router.push("/contact#contact-form");
                   }
                 }}
                 className="cursor-pointer pt-1.5 w-fit gap-2 items-center justify-center sm:justify-start pr-3 pb-1.5 pl-3 flex bg-[#FFBB00] rounded-full text-sm">

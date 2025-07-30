@@ -27,7 +27,7 @@ const PolaroidShowCase: React.FC = () => {
     let imageIndex = 0;
     
     // Create enough columns for seamless infinite scroll (repeat pattern 4 times)
-    for (let repeat = 0; repeat < 4; repeat++) {
+    for (let repeat = 0; repeat < 6; repeat++) {
       columnLayouts.forEach((layout, columnIndex) => {
         const group = Array.from({ length: layout.count }, (_, cardIndex) => {
           const slot = {

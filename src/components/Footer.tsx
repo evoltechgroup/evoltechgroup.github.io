@@ -1,4 +1,4 @@
-import { Linkedin, Instagram } from "lucide-react";
+import { Linkedin, Mails } from "lucide-react";
 import Link from "next/link";
 import Logo from "@/assets/logo/logo.svg";
 
@@ -47,11 +47,11 @@ export default function Footer() {
               <Linkedin size={15} />
             </a>
             <a
-              href="https://www.instagram.com/_evoltech_/"
+              href="mailto:info@evoltechgroup.com"
               className="hover:opacity-80"
-              aria-label="Connect on Instagram"
-              target="_blank">
-              <Instagram size={15} />
+              aria-label="Send Mail"
+             >
+              <Mails size={15} />
             </a>
           </div>
         </div>

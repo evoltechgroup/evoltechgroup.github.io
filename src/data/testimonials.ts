@@ -34,18 +34,18 @@ export const testimonials = {
     {
       text: `We are incredibly grateful for our partnership with Evoltech. Their dedication, expertise, and consistent delivery have been instrumental to our success. Working with such a talented and reliable offshore team has made a meaningful impact on our operations and growth.`,
       author:
-        "Operations Project Manager - Healthcare & Insurance  National TPA",
+        "Operations Project Manager - Healthcare & Insurance  National TPA.",
       company: "Healthcare ",
     },
     {
       text: `Evoltech has been very efficient and nimble as we grow our relationship. Keep up the good work!`,
       author:
-        "Director of Customer Support - Healthcare & Insurance  National TPA",
+        "Director of Customer Support - Healthcare & Insurance  National TPA.",
       company: "Healthcare",
     },
     {
       text: `Great team to work with and provide quality staffing solutions.`,
-      author: "Director of Claims - Healthcare & Insurance  National TPA",
+      author: "Director of Claims - Healthcare & Insurance  National TPA.",
       company: "Healthcare",
     },
   ],

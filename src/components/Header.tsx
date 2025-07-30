@@ -52,7 +52,7 @@ export default function Header() {
     <>
       <header
         className={`w-full fixed top-0 left-0 z-50 flex items-center justify-between px-6 py-4 md:px-10 md:py-6 transition-all duration-300
-          ${isScrolled ? "bg-[#121525] shadow-md" : "bg-transparent"}
+          ${isScrolled ? "bg-[#121525] shadow-md" : "bg-[#121525]"}
           ${mobileMenuOpen ? "hidden" : ""}
         `}>
         <Link href="/" className={`${mobileMenuOpen ? "hidden" : ""}`}>
@@ -74,9 +74,7 @@ export default function Header() {
               Services
             </span>
             <div
-              className={`absolute top-full -left-5 mt-3 text-sm ${
-                isScrolled ? "bg-[#282D45]" : "bg-[#282d4570]"
-              } text-[#BBBBBB] rounded-full shadow-lg p-1 py-1
+              className={`absolute top-full -left-5 mt-3 text-sm bg-[#282D45] text-[#BBBBBB] rounded-full shadow-lg p-1 py-1
                          opacity-0 invisible group-hover:opacity-100 group-hover:visible
                          transition-opacity duration-200 z-50 flex gap-2 whitespace-nowrap`}>
               <div
