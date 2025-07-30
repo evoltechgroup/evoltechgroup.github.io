@@ -50,8 +50,8 @@ const BannerHeader: React.FC<BannerHeaderProps> = ({
       <div
         className={`arrow ${arrowOverrideCx} ${
           arrowColor && `text-[${arrowColor}]`
-        } ${arrowWidth ? `w-10 md:w-[${arrowWidth}px]` : ""} ${
-          arrowHeight ? `h-10 md:h-[${arrowHeight}px]` : ""
+        } ${arrowWidth ? `w-10 xl:w-[${arrowWidth}px]` : ""} ${
+          arrowHeight ? `h-10 xl:h-[${arrowHeight}px]` : ""
         } ${arrowPosition}`}>
         {typeof arrowSrc === "string" || (arrowSrc && "src" in arrowSrc) ? (
           <Image
@@ -69,7 +69,7 @@ const BannerHeader: React.FC<BannerHeaderProps> = ({
   const renderSubHeaderWithArrow = () => {
     const subHeaderElement = (
       <div
-        className={`sub-header p-4 md:p-0 text-sm lg:text-xl md:${subHeaderTextSize} max-w-xl font-normal lg:mt-6 ${subHeaderTextColor}`}>
+        className={`sub-header p-4 md:p-0 text-sm lg:text-base xl::${subHeaderTextSize} max-w-xl font-normal lg:mt-6 ${subHeaderTextColor}`}>
         {subHeaderText}
       </div>
     );
@@ -119,12 +119,12 @@ const BannerHeader: React.FC<BannerHeaderProps> = ({
       <div
         className={`flex flex-col items-center text-center w-full md:${maxWidth} gap-2`}>
         <div
-          className={`chip rounded-full max-w-content justify-center font-medium text-center px-4 py-2 ${chipTextColor}`}
+          className={`chip rounded-full max-w-content justify-center font-medium text-center text-sm px-3 py-1 xl:px-4 lg:px-2 lg:py-1 xl:py-2  ${chipTextColor}`}
           style={{ backgroundColor: chipBackgroundColor }}>
           {chipText}
         </div>
         <div
-          className={`header text-3xl md:${headerTextSize} font-bold ${headerTextColor}`}>
+          className={`header text-3xl lg:text-4xl xl:${headerTextSize} font-bold ${headerTextColor}`}>
           {headerText}
         </div>
         <div className="md:px-40">{renderSubHeaderWithArrow()}</div>

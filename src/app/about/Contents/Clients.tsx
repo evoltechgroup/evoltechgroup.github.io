@@ -46,15 +46,13 @@ const Clients = () => {
           </Text>
         </div>
         <div className="relative w-full overflow-hidden">
-          <div className="flex whitespace-nowrap items-center justify-center animate-scroll">
+          <div className="w-max flex animate-scroll">
             {[...logos, ...logos].map((logo, idx) => (
-              <div key={idx} className={`flex-shrink-0 px-2 `}>
+              <div key={idx} className="flex-shrink-0 px-4">
                 <img
                   src={logo.icon.src}
                   alt={`Logo ${logo.id}`}
-                  className={`h-12 ${
-                    logo.id === 6 ? "md:pr-10 md:w-32" : "w-48"
-                  } object-contain`}
+                  className="h-12 w-32 object-contain"
                 />
               </div>
             ))}
@@ -62,7 +60,6 @@ const Clients = () => {
         </div>
       </div>
 
-      {/* Tailwind CSS custom animation */}
       <style jsx>{`
         @keyframes scroll {
           0% {
@@ -72,8 +69,18 @@ const Clients = () => {
             transform: translateX(-50%);
           }
         }
+
         .animate-scroll {
-          animation: scroll 30s linear infinite;
+          animation-name: scroll;
+          animation-timing-function: linear;
+          animation-iteration-count: infinite;
+          animation-duration: 30s;
+        }
+
+        @media (max-width: 768px) {
+          .animate-scroll {
+            animation-duration: 20s;
+          }
         }
       `}</style>
     </div>

@@ -69,11 +69,6 @@ const Section1 = () => {
               </span>
             </Button>
           </div>
-          {/* <div className="flex gap-2 justify-center">
-            <span className="w-2 h-2 rounded-full border border-[#79799C] inline-block" />
-            <span className="h-2 rounded-full bg-[#86C7FF] w-5 inline-block" />
-            <span className="w-2 h-2 rounded-full border border-[#79799C] inline-block" />
-          </div> */}
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6 w-full md:justify-items-center mx-auto p-4">
             {infoCards.map((item, idx) => (
               <InfoCard

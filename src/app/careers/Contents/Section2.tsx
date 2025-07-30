@@ -48,7 +48,7 @@ const Section2 = () => {
                 title={card.title}
                 description={card.description}
                 bgColor={card.bgColor}
-                paragraphPadding="pr-0 lg:pr-20"
+                paragraphPadding="pr-0 lg:pr-10 xl:pr-20"
               />
             </div>
           ))}
@@ -57,7 +57,7 @@ const Section2 = () => {
       <div className="w-full h-full flex flex-col lg:flex-row gap-5 justify-center items-start px-4 lg:px-40">
         <div className=" h-full flex flex-col gap-2 justify-center items-center">
           <Text
-            className="font-semibold text-4xl md:text-6xl lg:text-6xl xl:text-[56px]"
+            className="font-semibold text-4xl lg:text-4xl xl:text-6xl xl:text-[56px]"
             tag="p">
             Perks & Benefits
           </Text>

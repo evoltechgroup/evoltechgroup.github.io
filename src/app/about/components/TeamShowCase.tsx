@@ -9,14 +9,14 @@ const SCROLL_SPEED = 50;
 const DUPLICATE_COUNT = 3;
 
 const staggeredPadding = [
-  "pb-30",
-  "pb-48",
-  "pb-25",
-  "pb-40",
-  "pb-26",
-  "pb-44",
-  "pb-34",
-  "pb-24",
+  "lg:pb-40 xl:pb-30",
+  "lg:pb-48 xl:pb-48",
+  "lg:pb-25 xl:pb-25",
+  "lg:pb-40 xl:pb-40",
+  "lg:pb-26 xl:pb-26",
+  "lg:pb-44 xl:pb-44",
+  "lg:pb-34 xl:pb-34",
+  "lg:pb-24 xl:pb-24",
 ];
 
 const baseLabelOffsets = [[5], [15, -5], [8], [2]];
@@ -25,7 +25,8 @@ const getLabelOffset = (index: number) =>
 
 const labelTexts = [
   ["55% women driving innovation and efficiency."],
-  ["Diverse workforce leading the way.", "Team owns their impact with pride."],
+  ["Diverse workforce leading the way."],
+  ["Team owns their impact with pride."],
   ["Team chooses workspaces—remote or in-office."],
   ["Flat structure: they’re the boss, no bureaucracy."],
   ["We don’t wait for change—we drive it."],
@@ -64,7 +65,7 @@ const TeamShowCase: React.FC = () => {
         labelIndex++;
       }
 
-      for (let s = 0; s < 3; s++) {
+      for (let s = 0; s < 1; s++) {
         const image1 = imageCounter++ % totalImages;
         const image2 = imageCounter++ % totalImages;
         result.push({
@@ -133,7 +134,7 @@ const TeamShowCase: React.FC = () => {
     let labelIndexLocal = 0;
 
     return (
-      <div className="flex select-none">
+      <div className="flex select-none pointer-events-none">
         {groupedSlots.map((group, idx) => {
           const padding = staggeredPadding[idx % staggeredPadding.length];
           const isLabel = group.type === "label";
@@ -162,9 +163,8 @@ const TeamShowCase: React.FC = () => {
           return (
             <div
               key={idx}
-              className="flex items-stretch h-screen mt-15 relative">
-              <div
-                className={`${padding} justify-end flex flex-col items-end pt-20`}>
+              className="flex items-stretch h-screen mt-10 relative">
+              <div className={`${padding} justify-end flex flex-col items-end`}>
                 {group.slotIndexes.map((slotIndex, i) => {
                   const currentImage = TeamImages[slotIndex];
                   return (
@@ -174,7 +174,7 @@ const TeamShowCase: React.FC = () => {
                       <img
                         src={currentImage.image.src}
                         alt={currentImage.name}
-                        className="absolute inset-0 w-full h-full object-cover pointer-events-none"
+                        className="absolute inset-0 w-full h-full grayscale-50 object-cover pointer-events-none"
                       />
                     </div>
                   );

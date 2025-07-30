@@ -242,7 +242,7 @@ export const LifeAtEvoltech = [
     id: 1,
     title: "Innovate Fearlessly",
     description: ["Work on cutting-edge projects with global brands."],
-    bgColor: "#E4EFF8",
+    bgColor: "#E9F6E8",
   },
   {
     id: 2,
@@ -262,7 +262,7 @@ export const LifeAtEvoltech = [
     id: 4,
     title: "Make an Impact",
     description: ["Your work will influence trends and drive results."],
-    bgColor: "#E9F6E8",
+    bgColor: "#E4EFF8",
   },
 ];
 

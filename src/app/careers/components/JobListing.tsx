@@ -4,6 +4,7 @@ import { useState } from "react";
 import { sampleJobData } from "@/data/JobData";
 
 interface JobListing {
+  id: string;
   title: string;
   experience: string;
   location: string;
@@ -11,21 +12,25 @@ interface JobListing {
 
 const jobListings: JobListing[] = [
   {
+    id: "devops",
     title: "DevOps",
     experience: "1-2 years experience",
     location: "Chennai",
   },
   {
+    id: "ux-designer",
     title: "UX designer",
     experience: "3-5 years experience",
     location: "Chennai",
   },
   {
+    id: "frontend",
     title: "Front-end developer",
     experience: "4-5 years experience",
     location: "Pune",
   },
   {
+    id: "business-analyst",
     title: "Business Analyst",
     experience: "2-3 years experience",
     location: "Pune, Chennai",

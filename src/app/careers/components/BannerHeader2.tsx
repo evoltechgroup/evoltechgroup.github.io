@@ -53,8 +53,10 @@ const BannerHeader2: React.FC<BannerHeader2Props> = ({
     showArrow ? (
       <div
         className={`arrow ${arrowColor && `text-[ ]`} ${
-          arrowWidth ? `w-[${arrowWidth}px]` : ""
-        } ${arrowHeight ? `h-[${arrowHeight}px]` : ""} ${arrowPosition}`}>
+          arrowWidth ? `lg:w-20 xl:w-[${arrowWidth}px]` : ""
+        } ${
+          arrowHeight ? `lg:h-20 xl:h-[${arrowHeight}px]` : ""
+        } ${arrowPosition}`}>
         {typeof arrowSrc === "string" || (arrowSrc && "src" in arrowSrc) ? (
           <Image
             src={arrowSrc as string | StaticImageData}
@@ -126,12 +128,12 @@ const BannerHeader2: React.FC<BannerHeader2Props> = ({
       <div
         className={`flex flex-col items-center text-center ${maxWidth} gap-2`}>
         <div
-          className={`chip rounded-full max-w-content justify-center font-medium text-center px-4 py-2 ${chipTextColor}`}
+          className={`chip rounded-full max-w-content justify-center font-medium text-sm text-center px-3 py-1 xl:px-4 lg:px-2 lg:py-1 xl:py-2 ${chipTextColor}`}
           style={{ backgroundColor: chipBackgroundColor }}>
           {chipText}
         </div>
         <div
-          className={`header ${headerTextSize} font-bold ${headerTextColor} flex justify-center items-center`}>
+          className={`header ${headerTextSize} font-bold lg:text-4xl xl:${headerTextColor} flex justify-center items-center`}>
           {headerText}
         </div>
         <div

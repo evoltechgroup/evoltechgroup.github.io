@@ -77,7 +77,7 @@ const BgBanner: React.FC<BgBannerProps> = ({
                 key={`bg-extra-${i}`}
                 src={typeof img === "string" ? img : img.src}
                 alt={`Background Extra Image ${i + 1}`}
-                className="absolute left-0"
+                className="absolute left-0 -bottom-10"
                 style={{ zIndex: 5 - i }}
               />
             ))
@@ -112,29 +112,29 @@ const BgBanner: React.FC<BgBannerProps> = ({
             } mt-10 md:mt-30 md:pb-5`}>
             <div className="flex justify-center items-center">
               {consultingIcon && (
-                <div className="h-14 w-14 lg:h-28 lg:w-28 mr-3 lg:mr-8 bg-gradient-to-r from-[#5785DC] to-[#5F4793] rounded-2xl lg:rounded-3xl flex items-center justify-center">
+                <div className="h-14 w-14 lg:h-20 lg:w-20 xl:h-28 xl:w-28 mr-3 lg:mr-8 bg-gradient-to-r from-[#5785DC] to-[#5F4793] rounded-2xl lg:rounded-3xl flex items-center justify-center">
                   <img
                     src={consultingIcon}
                     alt={`${title} Icon`}
-                    className="h-8 w-8 lg:h-16 lg:w-16"
+                    className="h-8 w-8 lg:h-12 lg:w-12 xl:h-16 xl:w-16"
                   />
                 </div>
               )}
               <div className="flex flex-col gap-2 md:gap-5">
                 <Text
-                  className="font-semibold text-3xl sm:text-3xl lg:text-6xl text-left whitespace-nowrap text-[#fff]"
+                  className="font-semibold text-3xl sm:text-3xl lg:text-4xl xl:text-6xl text-left whitespace-nowrap text-[#fff]"
                   tag="p">
                   {title}
                 </Text>
                 {subtitle && (
-                  <Text className="text-xl sm:text-3xl font-medium max-w-xl text-left text-[#FFBB00]">
+                  <Text className="text-xl lg:text-2xl xl:text-3xl font-medium max-w-xl text-left text-[#FFBB00]">
                     {subtitle}
                   </Text>
                 )}
               </div>
             </div>
             <p
-              className="text-base sm:text-xl max-w-full text-start text-[#C5E1FF]"
+              className="text-base xl:text-xl max-w-full text-start text-[#C5E1FF]"
               dangerouslySetInnerHTML={{ __html: description }}
             />
             {id === "products" ? (
@@ -142,14 +142,14 @@ const BgBanner: React.FC<BgBannerProps> = ({
                 {productPageArrow}
               </div>
             ) : (
-              <div className="text-[#FFBB00] flex justify-center w-15 md:w-[71px] mx-auto pb-25 sm:pb-20">
+              <div className="text-[#FFBB00] flex justify-center w-15 lg:w-15 xl:w-[71px] mx-auto sm:pb-10">
                 {followArrowDown}
               </div>
             )}
           </div>
           <div className="w-full md:w-1/2 -mt-10 md:mt-10 h-full flex">
             <div className="relative w-full h-full flex items-end md:pl-20 pb-15 md:pb-0">
-              <div className="w-full h-[264px] md:w-[430px] md:h-[620px] relative rounded-[48px] md:rounded-b-none overflow-hidden">
+              <div className="w-full h-[264px] lg:w-[330px] lg:h-[480px] xl:w-[430px] xl:h-[620px] relative rounded-[48px] md:rounded-b-none overflow-hidden">
                 <img
                   src={foregroundImage.src}
                   alt={foregroundImageAlt}
@@ -157,8 +157,6 @@ const BgBanner: React.FC<BgBannerProps> = ({
                     absolute inset-0 rounded-[48px] md:rounded-b-none object-cover w-full h-full 
                     ${id === "consultancy" ? "object-[center_20%]" : ""}
                   `}
-                  height={620}
-                  width={430}
                 />
                 <div
                   style={{ mixBlendMode: "plus-lighter" }}

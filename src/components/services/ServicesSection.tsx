@@ -21,18 +21,18 @@ const ServicesSection: React.FC = () => {
           </span>
         </div>
 
-        <Text className="text-3xl md:text-5xl lg:text-[4rem] !text-center text-black !font-bold mb-3 leading-tight">
+        <Text className="text-3xl md:text-5xl lg:text-4xl xl:text-6xl !text-center text-black !font-bold mb-3 leading-tight">
           <span>Unlock Growth with</span> <br />
           <span>Cutting-Edge Solutions</span>
         </Text>
 
-        <p className="text-center max-w-2xl mb-0 font-medium text-base md:text-2xl">
+        <p className="text-center lg:max-w-xl xl:max-w-2xl mb-0 font-medium text-base lg:text-lg xl:text-2xl">
           Expert consulting for growth, advanced tech solutions by full-stack,
           AI, and cloud computing, and efficient operations support to
           streamline your business.
         </p>
 
-        <div className=" hidden md:flex text-[#FFBB00] justify-start items-end -ml-6 -mt-2  w-1/2">
+        <div className="hidden md:flex text-[#FFBB00] justify-start items-end -ml-6 -mt-2  w-1/2">
           <span className="transform scale-x-[-1]">{followArrow}</span>
         </div>
 

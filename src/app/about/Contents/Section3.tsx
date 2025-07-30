@@ -13,7 +13,7 @@ import { bottomRing, leftRing } from "@/assets/effects";
 
 const Section3 = () => {
   return (
-    <section className="bg-white text-black w-full relative overflow-hidden">
+    <section className="bg-white text-black w-full h-full relative overflow-hidden">
       <div className="absolute inset-0 z-0 w-full h-full">
         {blueRectangleGradient}
       </div>

@@ -52,7 +52,7 @@ export default function Header() {
     <>
       <header
         className={`w-full fixed top-0 left-0 z-50 flex items-center justify-between px-6 py-4 md:px-10 md:py-6 transition-all duration-300
-          ${isScrolled ? "bg-[#121525] shadow-md" : "bg-[#121525]"}
+          ${isScrolled ? "bg-[#181B2B] shadow-md" : "bg-transparent"}
           ${mobileMenuOpen ? "hidden" : ""}
         `}>
         <Link href="/" className={`${mobileMenuOpen ? "hidden" : ""}`}>
@@ -63,7 +63,7 @@ export default function Header() {
           />
         </Link>
 
-        <nav className="hidden lg:flex flex-1 justify-center gap-5 text-lg font-medium text-[#C7E5FF] items-center">
+        <nav className="hidden lg:flex flex-1 justify-center gap-5 lg:text-sm xl:text-lg font-medium text-[#C7E5FF] items-center">
           <div className="relative group">
             <span
               className={`cursor-pointer transition ${
@@ -74,7 +74,7 @@ export default function Header() {
               Services
             </span>
             <div
-              className={`absolute top-full -left-5 mt-3 text-sm bg-[#282D45] text-[#BBBBBB] rounded-full shadow-lg p-1 py-1
+              className={`absolute top-full -left-5 mt-3 lg:text-xs xl:text-sm bg-[#282D45] text-[#BBBBBB] rounded-full shadow-lg p-1 py-1
                          opacity-0 invisible group-hover:opacity-100 group-hover:visible
                          transition-opacity duration-200 z-50 flex gap-2 whitespace-nowrap`}>
               <div
@@ -121,6 +121,11 @@ export default function Header() {
             className={`hover:text-[#FFBB00] transition ${
               pathname === "/products" ? "text-[#FFBB00]" : ""
             }`}>
+            Products
+          </Link>
+          <Link
+            href="/products"
+            className={`lg:text-red-500 xl:text-green-400`}>
             Products
           </Link>
           <span className="text-[#63A4DD]">/</span>

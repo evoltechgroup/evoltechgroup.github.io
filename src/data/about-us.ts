@@ -17,6 +17,24 @@ export const infoCards = [
     description: "US & India offices supporting 24/7 operations.",
   },
 ];
+export const infoCardsAbout = [
+  {
+    title: "55",
+    description: `Employees <br/>& Growing`,
+  },
+  {
+    title: "7",
+    description: "Partner Products Powering Success",
+  },
+  {
+    title: "27",
+    description: "Trusted Partners in Industry",
+  },
+  {
+    title: "10+",
+    description: "Reliable Technology Execution",
+  },
+];
 
 export const whyEvoltechCard = [
   {

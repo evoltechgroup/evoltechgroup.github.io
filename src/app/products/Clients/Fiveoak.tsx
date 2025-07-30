@@ -48,7 +48,7 @@ const Fiveoak = () => {
             {"Why our business partners"}
           </Text>
           <Text className="whitespace-nowrap font-bold text-2xl sm:text-5xl text-black text-center">
-            <span className="inline-block align-middle ml-4 mr-2 h-6 md:h-10">
+            <span className="inline-block w-10 h-10 mx-2 align-middle">
               {partnerHeartIcon}
             </span>
             {"love Fiveoak"}
