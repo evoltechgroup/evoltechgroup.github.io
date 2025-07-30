@@ -123,11 +123,6 @@ export default function Header() {
             }`}>
             Products
           </Link>
-          <Link
-            href="/products"
-            className={`lg:text-red-500 xl:text-green-400`}>
-            Products
-          </Link>
           <span className="text-[#63A4DD]">/</span>
           <Link
             href="/careers"
