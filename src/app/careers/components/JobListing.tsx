@@ -1,7 +1,9 @@
+"use client";
 import { ArrowRight } from "lucide-react";
 import { JobDescriptionModal } from "./JobDescription";
 import { useState } from "react";
-import { sampleJobData } from "@/data/JobData";
+import { jobDescriptions } from "@/data/JobData";
+import { JobDescriptionData } from "./JobDescription";
 
 interface JobListing {
   id: string;
@@ -39,17 +41,27 @@ const jobListings: JobListing[] = [
 
 const JobListings = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedJob, setSelectedJob] = useState<JobDescriptionData | null>(null);
+
+  const handleJobClick = (id: string) => {
+    const found = jobDescriptions.find((job) => job.id === id);
+    if (found) {
+      setSelectedJob(found.data);
+      setIsModalOpen(true);
+    }
+  };
 
   const handleApply = () => {
-    alert("Application Submitted! Thank you for your interest.");
+    alert("Please Send in your resume to Hr@evoltechgroup.com");
     setIsModalOpen(false);
   };
+
   return (
     <div className="max-w-2xl mx-auto p-6 md:pb-10">
       {jobListings.map((job, index) => (
         <div
           key={index}
-          onClick={() => setIsModalOpen(true)}
+          onClick={() => handleJobClick(job.id)}
           className="group flex items-center justify-between p-6 bg-background transition-all duration-300 hover:bg-[#E8F4FF] hover:shadow-lg hover:-translate-y-1 cursor-pointer hover:border-l-4 hover:border-l-blue-300">
           <div className="flex-1">
             <h3 className="text-sm lg:text-2xl font-semibold text-foreground group-hover:text-primary transition-colors duration-300">
@@ -68,12 +80,15 @@ const JobListings = () => {
           </div>
         </div>
       ))}
-      <JobDescriptionModal
-        isOpen={isModalOpen}
-        onClose={() => setIsModalOpen(false)}
-        onApply={handleApply}
-        jobData={sampleJobData}
-      />
+
+      {selectedJob && (
+        <JobDescriptionModal
+          isOpen={isModalOpen}
+          onClose={() => setIsModalOpen(false)}
+          onApply={handleApply}
+          jobData={selectedJob}
+        />
+      )}
     </div>
   );
 };
