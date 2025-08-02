@@ -85,7 +85,7 @@ export const JobDescriptionModal: React.FC<JobDescriptionModalProps> = ({
               onClick={onClose}
               className="ml-4 p-1  cursor-pointer"
             >
-              <X className="h-8 w-8 hover:text-red-400 text-red-200" />
+              <X className="h-8 w-8 hover:text-red-400 text-[#AAAAAA]" />
             </button>
           </div>
         </div>
@@ -108,23 +108,30 @@ export const JobDescriptionModal: React.FC<JobDescriptionModalProps> = ({
             </section>
 
             {/* Key Responsibilities */}
-            <section>
-              <h2 className="text-lg font-semibold text-gray-900 mb-4">
-                Key Responsibilities
-              </h2>
-              <div className="space-y-3">
-                {jobData.responsibilities.map((responsibility, index) => (
-                  <div key={index} className="flex items-start gap-3">
-                    <div className="flex-shrink-0 w-5 h-5 rounded-full flex items-center justify-center mt-0.5">
-                     {CheckCircle}
-                    </div>
-                    <p className="text-gray-600 leading-relaxed flex-1">
-                      {responsibility}
-                    </p>
-                  </div>
-                ))}
-              </div>
-            </section>
+          <section>
+  <h2 className="text-lg font-semibold text-gray-900 mb-4">
+    Key Responsibilities
+  </h2>
+  <div className="space-y-3">
+    {jobData.responsibilities.map((responsibility, index) => {
+      const [title, ...rest] = responsibility.split(":");
+      const detail = rest.join(":").trim();
+
+      return (
+        <div key={index} className="flex items-start gap-3">
+          <div className="flex-shrink-0 w-5 h-5 rounded-full flex items-center justify-center mt-0.5">
+            {CheckCircle}
+          </div>
+          <p className="text-gray-600 leading-relaxed flex-1">
+            <span className="font-bold text-gray-500">{title}:</span>{" "}
+            {detail}
+          </p>
+        </div>
+      );
+    })}
+  </div>
+</section>
+
 
             {/* Qualifications */}
             <section>

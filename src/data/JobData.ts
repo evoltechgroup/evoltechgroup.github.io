@@ -1,33 +1,140 @@
-import { JobDescriptionData } from "@/app/careers/components/JobDescription"; 
+import { JobDescriptionData } from "@/app/careers/components/JobDescription";
 
-export const sampleJobData: JobDescriptionData = {
-  title: "UX designer",
-  experience: "3-5 years experience",
-  location: "Chennai",
-  description: [
-    "As a Lead UI/UX Designer at Trimble, you will be working on a global team with other junior and senior designers. You will be leading design activities to craft UI/UX for web and mobile software solutions that support users in the transportation industry - translating high-level requirements into engaging user experiences.",
-    "As the voice and advocate for our customers, you will be using a set of design standards to align the UX/UI of these applications, and will work to improve the usability of the entire workflow. You will review and analyze research findings, create user workflows, tasks and goals, and create solutions that transform the way our customers work."
-  ],
-  responsibilities: [
-    "Work with UX Lead, Product Owners and other stakeholders to identify UX objectives, including UX project planning and design execution",
-    "Utilize an existing design system to align the look and feel of the contributing solutions",
-    "Enhance existing design system",
-    "Design workflows that optimize the usability of the entire workflow;",
-    "Create high fidelity designs and design assets",
-    "Support implementation of high-fidelity design by development teams",
-    "Mentor more junior level UX/UI designers.",
-    "Become the local champion and advocate of user experience design and process with the local stakeholders"
-  ],
-  qualifications: [
-    "A Bachelor's or Master's degree in Design, human computer interaction, interaction design or related field.",
-    "5-8 years of experience as a UX designer and a compelling portfolio.",
-    "Experience and fluency with design products such as Figma and Adobe Creative Suite.",
-    "Experience in developing Wireframes, Process workflows & information architecture, Sitemapping & Mobile application Design (android systems)",
-    "Experience with UX inside an Agile environment",
-    "Experience in using Figjam or Mira boards.",
-    "Attention and love for beautiful detail",
-    "An eagerness to learn about all things UX/UI",
-    "Capacity to learn by doing, and willingness to accept direction Team spirit.",
-    "Willingness to contribute your own creativity and originality."
-  ]
-};
+export const jobDescriptions: { id: string; data: JobDescriptionData }[] = [
+  {
+    id: "ux-designer",
+    data: {
+      title: "UX designer",
+      experience: "3-5 years experience",
+      location: "Chennai",
+      description: [
+        "As a Lead UI/UX Designer at Trimble, you will be working on a global team with other junior and senior designers. You will be leading design activities to craft UI/UX for web and mobile software solutions that support users in the transportation industry - translating high-level requirements into engaging user experiences.",
+        "As the voice and advocate for our customers, you will be using a set of design standards to align the UX/UI of these applications, and will work to improve the usability of the entire workflow. You will review and analyze research findings, create user workflows, tasks and goals, and create solutions that transform the way our customers work.",
+      ],
+      responsibilities: [
+        "Work with UX Lead, Product Owners and other stakeholders to identify UX objectives, including UX project planning and design execution",
+        "Utilize an existing design system to align the look and feel of the contributing solutions",
+        "Enhance existing design system",
+        "Design workflows that optimize the usability of the entire workflow;",
+        "Create high fidelity designs and design assets",
+        "Support implementation of high-fidelity design by development teams",
+        "Mentor more junior level UX/UI designers.",
+        "Become the local champion and advocate of user experience design and process with the local stakeholders",
+      ],
+      qualifications: [
+        "A Bachelor's or Master's degree in Design, human computer interaction, interaction design or related field.",
+        "5-8 years of experience as a UX designer and a compelling portfolio.",
+        "Experience and fluency with design products such as Figma and Adobe Creative Suite.",
+        "Experience in developing Wireframes, Process workflows & information architecture, Sitemapping & Mobile application Design (android systems)",
+        "Experience with UX inside an Agile environment",
+        "Experience in using Figjam or Mira boards.",
+        "Attention and love for beautiful detail",
+        "An eagerness to learn about all things UX/UI",
+        "Capacity to learn by doing, and willingness to accept direction Team spirit.",
+        "Willingness to contribute your own creativity and originality.",
+      ],
+    },
+  },
+  {
+    id: "business-analyst",
+    data: {
+      title: "Business Analyst",
+      experience: "3+ years experience",
+      location: "Pune, Chennai",
+      description: [
+        "We are seeking a detail-oriented and analytical Business Analyst with expertise in the US Real Estate industries. The ideal candidate will be responsible for analyzing business needs, bridging communication between stakeholders, and ensuring that our house bidding app is optimized for market needs. You will collaborate closely with project managers, developers, and key business stakeholders to provide strategic insights and ensure successful implementation of solutions.",
+      ],
+      responsibilities: [
+        "Business Analysis: Gather, analyze, and document business requirements related to US Real estate processes, real estate market trends, and customer needs for the house bidding app.",
+        "Stakeholder Collaboration: Act as a liaison between business stakeholders (real estate agents, lenders, homebuyers) and the technical development team to ensure alignment on project goals and functionality.",
+        "Process Optimization: Identify gaps and inefficiencies in current real estate bidding processes and suggest improvements that can be implemented through the app.",
+        "Market Research: Stay up to date on US Real estate regulations, real estate trends, and consumer behavior to inform product enhancements and business strategies.",
+        "Data Analysis: Analyze user data and bidding trends to provide actionable insights for product improvements and business decisions.",
+        "Documentation: Develop comprehensive user stories, process flows, and business requirement documents (BRDs) to guide the development and design teams.",
+        "Compliance & Risk Management: Ensure the app complies with all relevant US Real estate laws and regulations and assess risks related to real estate bidding practices.",
+        "Product Testing & Validation: Participate in testing the app features to ensure that they meet the functional and regulatory requirements, providing feedback for improvements.",
+      ],
+      qualifications: [
+        "Bachelor’s degree in Business Administration, Finance, Real Estate, or related field.",
+        "3+ years of experience as a Business Analyst, with specific expertise in the US real estate sectors.",
+        "Proven experience in projects related to real estate tech, house bidding platforms, or similar fintech applications.",
+        "Strong understanding of the US Real estate process, including loan origination, underwriting, and closing procedures.",
+        "Familiarity with real estate bidding, homebuying processes, and market trends in the US.",
+        "Excellent communication and interpersonal skills for working with cross-functional teams and stakeholders.",
+        "Proficiency in data analysis tools (Excel, SQL, etc.) and experience with Agile methodologies.",
+        "Ability to manage multiple projects and deadlines in a fast-paced environment.",
+      ],
+    },
+  },
+  {
+    id: "devops",
+    data: {
+      title: "DevOps Architect",
+      experience: "2–3 years experience",
+      location: "Chennai",
+      description: [
+        "We are looking for a DevOps Architect with 2–3 years of hands-on experience in building and managing CI/CD pipelines, cloud infrastructure, and deployment automation. The ideal candidate is someone who combines technical depth with a strategic mindset, capable of driving DevOps best practices, optimizing infrastructure, and ensuring scalability, reliability, and security across environments.",
+      ],
+      responsibilities: [
+        "Design and implement robust, scalable, and secure CI/CD pipelines using tools like Jenkins, GitHub Actions, or GitLab CI/CD.",
+        "Build and manage Infrastructure as Code (IaC) using tools such as Terraform or CloudFormation.",
+        "Architect and maintain cloud-native infrastructure, preferably on AWS, Azure, or GCP.",
+        "Automate deployment processes, environment provisioning, and system configuration.",
+        "Monitor system performance and implement solutions to ensure high availability, performance, and fault tolerance.",
+        "Collaborate closely with development, QA, and security teams to streamline releases and ensure secure deployment practices.",
+        "Evaluate new DevOps tools and techniques to improve efficiency and reliability.",
+        "Manage containerized workloads using Docker and Kubernetes.",
+        "Implement effective log management, monitoring, and alerting using tools such as Prometheus, Grafana, ELK Stack, or Cloud-native monitoring tools.",
+        "	Enforce DevSecOps principles, ensuring secure build and deployment processes.",
+        "Document infrastructure designs, workflows, and operational procedures.",
+      ],
+      qualifications: [
+        "Bachelor’s degree in Computer Science, Information Technology, or related field.",
+        "Strong understanding of CI/CD concepts and pipeline creation",
+        "Experience with cloud platforms (AWS preferred) including EC2, S3, IAM, VPC, RDS, and Lambda.",
+        "Hands-on experience with Terraform, Ansible, or similar IaC tools.",
+        "Proficiency with Docker and orchestration platforms like Kubernetes or ECS.",
+        "Proficiency with Docker and orchestration platforms like Kubernetes or ECS.",
+        "Familiarity with Linux/Unix administration and shell scripting.",
+        "Understanding of networking fundamentals, load balancers, and firewall configurations.",
+        "Knowledge of security best practices in DevOps pipelines",
+        "Exposure to monitoring and logging tools such as Prometheus, Grafana, ELK, CloudWatch, etc.",
+      ],
+    },
+  },
+  {
+    id: "frontend",
+    data: {
+      title: "React Developer",
+      experience: "3+ Years",
+      location: "Remote",
+      description: [
+        "Bachelor’s degree in Computer Science or Engineering with a minimum of 60% aggregate throughout academics.",
+      ],
+      responsibilities: [
+        "Design and develop functional, user-friendly, and visually appealing web interfaces using React and Tailwind.",
+        "Collaborate with UX/UI designers, product managers, and backend developers to deliver high-quality features.",
+        "Write clean, maintainable, and testable code adhering to best practices.",
+        "Debug and resolve front-end issues, ensuring cross-browser compatibility and performance optimization.",
+        "Contribute to code reviews and provide constructive feedback to team members.",
+        "Participate in sprint planning, estimations, and daily stand-ups.",
+        "Continuously improve the front-end development process and architecture.",
+      ],
+      qualifications: [
+        "Minimum 3 years of experience in front-end development with React.js, building scalable and performant web applications.",
+        "	Proficient in JavaScript (ES6+) and TypeScript, with strong knowledge of DOM manipulation and core JavaScript concepts.",
+        "	Solid experience with Redux and React Hooks for state management and component lifecycle handling.",
+        "	Hands-on experience with Tailwind CSS for responsive UI design and component styling.",
+        "	Strong understanding of Jest and other testing frameworks for unit and integration testing.",
+        "	Familiarity with React architecture, micro frontends, and code-splitting techniques.",
+        "	Comfortable working with HTML5, CSS3, and modern front-end tooling (Webpack, Babel, NPM/Yarn).",
+        "	Experience integrating with RESTful APIs and handling asynchronous requests using tools like Axios or Fetch.",
+        "Knowledge of authentication and authorization protocols such as SSO, SAML, OAuth2, and JWT.",
+        "Familiarity with cloud platforms (preferably AWS) and understanding of core services like networking, compute, and storage.",
+        "Strong understanding of Object-Oriented Programming, Data Structures, and Algorithms.",
+        "Working knowledge of RDBMS (e.g., PostgreSQL, MySQL) and writing optimized SQL queries with caching strategies.",
+        "Proficient in Git version control, including branching strategies and pull request workflows.",
+      ],
+    },
+  },
+];
