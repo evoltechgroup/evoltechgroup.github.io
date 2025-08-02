@@ -52,7 +52,7 @@ const Section1 = () => {
             </Text>
             <Text className="text-sm md:text-sm xl:text-xl md:max-w-[32rem]  xl:max-w-[40rem] !text-center text-[#C5E1FF]">
               We bring visionary ideas to life with cutting-edge tech, strategic
-              consulting, and seamless back office solutions. Our engineers,
+              consulting, and seamless operations solutions. Our engineers,
               experts in full-stack, AI, and cloud computing build innovative
               apps and deliver operational excellence to fuel your growth and
               efficiency.
