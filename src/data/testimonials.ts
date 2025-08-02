@@ -40,7 +40,7 @@ export const testimonials = {
     {
       text: `Evoltech has been very efficient and nimble as we grow our relationship. Keep up the good work!`,
       author:
-        "Director of Customer Support - Healthcare & Insurance  National TPA.",
+        "Director of Customer Service - Healthcare & Insurance  National TPA.",
       company: "Healthcare",
     },
     {

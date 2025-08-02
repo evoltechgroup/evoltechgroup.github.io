@@ -109,7 +109,7 @@ export const jobDescriptions: { id: string; data: JobDescriptionData }[] = [
       experience: "3+ Years",
       location: "Remote",
       description: [
-        "Bachelor’s degree in Computer Science or Engineering with a minimum of 60% aggregate throughout academics.",
+        "We are looking for a Frontend Developer with 2+ years of experience in building responsive web applications using React, TypeScript, Redux, Tailwind, and Jest. You’ll work closely with designers and backend teams to deliver clean, high-performance user interfaces. A strong grasp of modern JavaScript and UI best practices is essential.",
       ],
       responsibilities: [
         "Design and develop functional, user-friendly, and visually appealing web interfaces using React and Tailwind.",
