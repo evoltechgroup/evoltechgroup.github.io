@@ -39,7 +39,7 @@ export const FiveoakHighlights = [
     title: "Review Automation",
     description: [
       "<strong>We automate your reviews so you can focus on your business.</strong>",
-      "With Fiveoak, climb up the search ranks, boost your Google ads, and keep your business details spot-on. Let's make sure customers find you easily!",
+      "With Fiveoak, you can schedule, send, and manage review requests effort-lessly, no manual follow-ups needed. Our smart workflows help you collect consistent, authentic reviews that build trust and improve your online visibility, on autopilot.",
     ],
     bgColor: "#F8ECF9",
   },

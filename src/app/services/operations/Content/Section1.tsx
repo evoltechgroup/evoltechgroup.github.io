@@ -11,7 +11,7 @@ const Section1 = () => {
       consultingIcon={BackOfficeicon.src}
       title="Operations"
       subtitle="Ops that Rock"
-      description="At EvolTech, our Back Office Operations streamline your business with efficient, scalable solutions. From data management to admin support, we handle the details, so you can focus on growth and innovation."
+      description="At EvolTech, our operations SMEs streamline your business with efficient, scalable solutions. From data management to admin support, we handle the details, so you can focus on growth and innovation."
       foregroundImage={BackOffice}
       foregroundImageAlt="Consulting Banner"
       backgroundImages={{

@@ -6,7 +6,7 @@ export { default as Amit } from "./Amit.jpg";
 export { default as Anesh } from "./Anesh.jpg";
 export { default as Anish } from "./Anish.jpg";
 export { default as Ankitha } from "./Ankitha.jpg";
-export { default as Apoorna } from "./Apoorva.jpg";
+export { default as Apoorva } from "./Apoorva.jpg";
 export { default as Archana } from "./Archana.jpg";
 export { default as AshuMahesh } from "./AshuMahesh.jpg";
 export { default as Atul } from "./Atul.jpeg";

@@ -12,7 +12,7 @@ import { partnerHeartIcon } from "@/assets/svg";
 import Button from "@/components/Button";
 import Text from "@/components/Text";
 import React from "react";
-import { Aws, Azure } from "@/assets/icons/TECHSTACK";
+import { AtClevel, Aws, Azure, oneLaw, Verita } from "@/assets/icons/TECHSTACK";
 
 const logos = [
   { id: 1, icon: Yoloh },
@@ -24,6 +24,9 @@ const logos = [
   { id: 7, icon: ReinnovaIcon },
   { id: 8, icon: Aws },
   { id: 9, icon: Azure },
+  { id: 10, icon: oneLaw },
+  { id: 11, icon: AtClevel },
+  { id: 12, icon: Verita },
 ];
 
 const Clients = () => {
@@ -48,11 +51,20 @@ const Clients = () => {
         <div className="relative w-full overflow-hidden">
           <div className="w-max flex animate-scroll">
             {[...logos, ...logos].map((logo, idx) => (
-              <div key={idx} className="flex-shrink-0 px-4">
+              <div
+                key={idx}
+                className={`flex-shrink-0 px-4 ${
+                  logo.icon === Verita
+                    ? "bg-gray-800 p-1 rounded-md inline-flex items-center justify-center"
+                    : ""
+                }`}
+              >
                 <img
                   src={logo.icon.src}
                   alt={`Logo ${logo.id}`}
-                  className="h-12 w-32 object-contain"
+                  className={`h-12  object-contain ${
+                    logo.icon === Verita ? "w-auto" : "w-32"
+                  }`}
                 />
               </div>
             ))}

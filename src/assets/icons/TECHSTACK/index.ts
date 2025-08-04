@@ -19,3 +19,6 @@ export { default as Kubernetes } from "./kubernetes.svg";
 export { default as Jenkins } from "./jenkins.svg";
 export { default as Github } from "./github.svg";
 export { default as Docker } from "./docker.svg";
+export { default as oneLaw } from "./oneLaw.svg";
+export { default as AtClevel } from "./AtClevel.svg";
+export { default as Verita } from "./Verita.svg";
