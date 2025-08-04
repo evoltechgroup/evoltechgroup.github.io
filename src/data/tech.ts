@@ -20,6 +20,9 @@ import {
   TensorFlow,
   Typescript,
   VueJS,
+  AtClevel,
+  Verita,
+  oneLaw,
 } from "@/assets/icons/TECHSTACK";
 
 export const TechIcons = [
@@ -44,4 +47,8 @@ export const TechIcons = [
   { name: "docker", image: Docker },
   { name: "jenkins", image: Jenkins },
   { name: "github", image: Github },
+  { name: "onelaw", image: oneLaw },
+  { name: "atClevel", image: AtClevel },
+  { name: "verita", image: Verita },
+
 ];

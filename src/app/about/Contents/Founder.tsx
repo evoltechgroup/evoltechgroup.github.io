@@ -44,7 +44,7 @@ const Founder = () => {
             <Link
               href="https://www.linkedin.com/in/thulasidharan-lg-603aa711"
               target="_blank"
-              className="xl:text-base sm:text-sm cursor-pointer text-[#007EBB]">
+              className="xl:text-base sm:text-sm cursor-pointer text-[#007EBB] font-semibold">
               View LinkedIn Profile
             </Link>
           </div>
