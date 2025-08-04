@@ -15,7 +15,7 @@ const Section4 = () => {
         subHeaderText="Ready to make your mark? Explore our open roles and find the perfect fit to unleash your creativity and expertise."
         subHeaderTextColor="text-black"
         headerTextSize="text-6xl"
-        className="pb-2 pt-20"
+        className="pb-10 pt-20"
         arrowSrc={expertAarrow}
         arrowAlt="Expert Arrow"
         arrowPosition="bottom"

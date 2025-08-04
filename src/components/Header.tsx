@@ -97,7 +97,7 @@ export default function Header() {
               </Link>
               <Link
                 href="/services/technology"
-                className={`p-2 rounded-full transition ${
+                className={`p-2 px-3.5 rounded-full transition ${
                   pathname === "/services/technology"
                     ? "bg-white text-[#0B0F2B]"
                     : "hover:bg-white hover:text-[#0B0F2B]"
@@ -106,7 +106,7 @@ export default function Header() {
               </Link>
               <Link
                 href="/services/operations"
-                className={`p-2 rounded-full transition ${
+                className={`p-2 px-3.5 rounded-full transition ${
                   pathname === "/services/operations"
                     ? "bg-white text-[#0B0F2B]"
                     : "hover:bg-white hover:text-[#0B0F2B]"

@@ -28,15 +28,15 @@ const ImageGrid: React.FC<ImageGridProps> = ({ images }) => {
     };
 
     return (
-        <div aria-hidden="true" className="pointer-events-none relative">
-            <div className="absolute top-2 md:top-5 lg:top-20 flex items-center justify-center z-0">
-                <div className="scale-50 sm:scale-100 lg:scale-100">
+        <div aria-hidden="true" className="pointer-events-none relative overflow-visible">
+            <div className="hidden lg:flex absolute inset-0 w-full h-full z-0 overflow-visible items-center justify-center">
+                <div className="lg:w-full lg:h-full flex items-center justify-center scale-80 lg:scale-120 lg:mt-60">
                     {LogoBg}
-                  </div>
+                </div>
             </div>
             <div className="relative z-10">
                 <div className="flex items-center gap-x-2">
-                    {images.map((column, columnIndex) => (
+                    {images?.map((column, columnIndex) => (
                         <div
                             key={columnIndex}
                             className="grid flex-shrink-0 grid-cols-1 gap-y-2 z-20"
@@ -46,7 +46,7 @@ const ImageGrid: React.FC<ImageGridProps> = ({ images }) => {
                                     <div
                                         key={imageIndex}
                                         className={`${getImageSizeClasses(columnIndex)} overflow-hidden rounded-2xl sm:rounded-3xl lg:rounded-4xl ${columnIndex === 0 && imageIndex === 0
-                                            ? 'sm:opacity-0 lg:opacity-100'
+                                            ? 'sm:opacity-0 md:opacity-100'
                                             : ''
                                             }`}>
                                         <img

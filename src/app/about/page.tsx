@@ -15,7 +15,6 @@ export default function About() {
       <Section3 />
       <Clients />
       <Testimonials type="about" />
-
       <JoinOurTeam />
     </main>
   );

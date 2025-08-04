@@ -16,27 +16,22 @@ import {
   Atul,
   Aysha,
   Harini,
-  Harshitha,
-  Kanika,
   Priyanka,
-  Shaan,
-  Shapna,
-  Tom,
 } from "@/assets/images/Team/Members";
 
 const imageGrid = [
   [
-    { src: Ankitha.src, alt: "Keanu 1" },
-    { src: Aysha.src, alt: "Kitten 1" },
+    { src: Ankitha.src, alt: "ankita" },
+    { src: Aysha.src, alt: "ayesha" },
   ],
   [
-    { src: Aishwarya.src, alt: "Keanu 1" },
-    { src: Atul.src, alt: "Kitten 1" },
-    { src: Harini.src, alt: "Kitten 2" },
+    { src: Aishwarya.src, alt: "aishwarya" },
+    { src: Atul.src, alt: "atul" },
+    { src: Harini.src, alt: "harini" },
   ],
   [
-    { src: Abhisek.src, alt: "Keanu 4" },
-    { src: Priyanka.src, alt: "Bear" },
+    { src: Abhisek.src, alt: "abhisek" },
+    { src: Priyanka.src, alt: "priyanka" },
   ],
 ];
 
@@ -65,7 +60,7 @@ const Section1 = () => {
           </div>
         </div>
         <div className="absolute z-10 w-full h-full flex justify-start items-center p-10 md:p-20">
-          <div className="w-full h-full flex flex-col lg:flex-row md:flex-col items-center">
+          <div className="w-full h-full flex flex-col lg:flex-row md:flex-col items-center justify-center">
             <div className="flex flex-col gap-4 px-0 lg:px-20 justify-center mb-4 w-full lg:w-1/2 h-full items-center lg:items-start sm:mt-10">
               <Text
                 className="font-semibold text-4xl lg:text-5xl xl:text-6xl w-full text-left"
@@ -84,7 +79,7 @@ const Section1 = () => {
                 {followArrowRightV3}
               </div>
             </div>
-            <div className="flex justify-center items-start xl:justify-start xl:items-start lg:w-1/2 h-full select-none">
+            <div className="flex lg:w-1/2 h-full select-none">
               <ImageGrid images={imageGrid} />
             </div>
           </div>

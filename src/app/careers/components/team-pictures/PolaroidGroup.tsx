@@ -13,8 +13,23 @@ const PolaroidShowCase: React.FC = () => {
     { count: 1, cardSize: "w-[180px] sm:w-[250px] lg:w-[320px]", spacing: "mb-2 sm:mb-3 lg:mb-5" },
   ];
 
-  // Create multiple copies for infinite scroll
-  const createInfiniteColumns = () => {
+  // Create enough columns to fill and overflow the viewport, then duplicate for seamless infinite scroll
+  const getNumColumnsToFill = () => {
+    // Estimate based on average card width (responsive, so use lg size for safety)
+    const avgCardWidth = 340; // px, rough average
+    const minColumns = Math.ceil(window?.innerWidth ? window.innerWidth / avgCardWidth : 5) + 2;
+    return Math.max(minColumns, columnLayouts.length * 2); // at least 2x pattern
+  };
+
+  const [numColumns, setNumColumns] = React.useState(10);
+  React.useEffect(() => {
+    const updateColumns = () => setNumColumns(getNumColumnsToFill());
+    updateColumns();
+    window.addEventListener('resize', updateColumns);
+    return () => window.removeEventListener('resize', updateColumns);
+  }, []);
+
+  const createVisibleColumns = () => {
     const columns: Array<{
       group: Array<{
         current: number;
@@ -25,26 +40,23 @@ const PolaroidShowCase: React.FC = () => {
       columnIndex: number;
     }> = [];
     let imageIndex = 0;
-    
-    // Create enough columns for seamless infinite scroll (repeat pattern 4 times)
-    for (let repeat = 0; repeat < 6; repeat++) {
-      columnLayouts.forEach((layout, columnIndex) => {
-        const group = Array.from({ length: layout.count }, (_, cardIndex) => {
-          const slot = {
-            current: imageIndex % TeamImages.length,
-            previous: null,
-            isFading: false,
-          };
-          imageIndex++;
-          return slot;
-        });
-        columns.push({ group, layout, columnIndex });
+    for (let i = 0; i < numColumns; i++) {
+      const layout = columnLayouts[i % columnLayouts.length];
+      const group = Array.from({ length: layout.count }, (_, cardIndex) => {
+        const slot = {
+          current: imageIndex % TeamImages.length,
+          previous: null,
+          isFading: false,
+        };
+        imageIndex++;
+        return slot;
       });
+      columns.push({ group, layout, columnIndex: i % columnLayouts.length });
     }
     return columns;
   };
 
-  const infiniteColumns = createInfiniteColumns();
+  const visibleColumns = createVisibleColumns();
 
   const getVerticalLayoutProps = (columnIndex: number) => {
     switch (columnIndex % 4) {
@@ -89,11 +101,13 @@ const PolaroidShowCase: React.FC = () => {
               transform: translateX(0%);
             }
             100% {
-              transform: translateX(-25%);
+              transform: translateX(-50%);
             }
           }
           .scroll-animation {
             animation: scroll-horizontal 60s linear infinite;
+            will-change: transform;
+            animation-timing-function: linear;
           }
           .scroll-animation.paused {
             animation-play-state: paused;
@@ -103,73 +117,79 @@ const PolaroidShowCase: React.FC = () => {
           }
           @media (max-width: 640px) {
             .scroll-animation {
-              animation-duration: 10s;
+              animation-duration: 30s;
             }
           }
           @media (min-width: 1024px) {
             .scroll-animation {
-              animation-duration: 10s;
+              animation-duration: 30s;
             }
           }
         `
       }} />
-      
-      <div 
+
+      <div
         className={`scroll-animation flex items-start cursor-pointer ${isPaused ? 'paused' : 'playing'}`}
         onClick={toggleAnimation}
+        style={{ width: 'max-content', minWidth: '200%' }}
       >
-        {/* Initial grid line */}
-        <div className="flex relative items-stretch h-full">
-          <div
-            className="h-[300px] sm:h-[500px] lg:h-screen"
-            style={{
-              width: "0.5px",
-              background:
-                "linear-gradient(to bottom, transparent, rgba(255, 255, 255, 0.2), transparent)",
-              transform: "translateX(1px)",
-            }}
-          />
-        </div>
-        
-        {infiniteColumns.map((column, index) => {
-          const { group, layout } = column;
-          const { verticalOffset, justifyContent } = getVerticalLayoutProps(column.columnIndex);
-          
-          return (
-            <div key={index} className="flex items-stretch gap-2 h-full">
-              <div className={`flex  flex-col items-center ${justifyContent} ${verticalOffset} min-h-[300px] sm:min-h-[400px] lg:min-h-[600px]`}>
-                {group.map((slot, cardIndex) => {
-                  const currentImage = TeamImages[slot.current];
-                  return (
-                    <div
-                      key={`${index}-${cardIndex}`}
-                      className={layout.spacing}>
-                      <PolaroidFrame
-                        src={currentImage.image}
-                        alt={currentImage.name}
-                        caption={currentImage.name}
-                        className={`${layout.cardSize} h-auto`}
-                      />
-                    </div>
-                  );
-                })}
-              </div>
-              
-              {/* Grid line after each column */}
-              <div className="flex relative items-stretch h-full">
-                <div
-                  className="h-[300px] sm:h-[500px] lg:h-screen"
-                  style={{
-                    width: "0.5px",
-                    background:
-                      "linear-gradient(to bottom, transparent, rgba(255, 255, 255, 0.2), transparent)",
-                    transform: "translateX(-1px)",
-                  }}
-                />
-              </div>
+        {/* Duplicate content for seamless infinite scroll */}
+        {[0, 1].map((dup) => (
+          <React.Fragment key={dup}>
+            {/* Initial grid line */}
+            <div className="flex relative items-stretch h-full">
+              <div
+                className="h-[300px] sm:h-[500px] lg:h-screen"
+                style={{
+                  width: "0.5px",
+                  background:
+                    "linear-gradient(to bottom, transparent, rgba(255, 255, 255, 0.2), transparent)",
+                  transform: "translateX(1px)",
+                }}
+              />
             </div>
-          );
-        })}
+
+            {visibleColumns.map((column, index) => {
+              const { group, layout } = column;
+              const { verticalOffset, justifyContent } = getVerticalLayoutProps(column.columnIndex);
+
+              return (
+                <div key={index + dup * visibleColumns.length} className="flex items-stretch gap-2">
+                  <div className={`flex  flex-col items-center ${justifyContent} ${verticalOffset} min-h-[300px] sm:min-h-[400px] lg:min-h-[600px]`}>
+                    {group.map((slot, cardIndex) => {
+                      const currentImage = TeamImages[slot.current];
+                      return (
+                        <div
+                          key={`${index}-${cardIndex}`}
+                          className={layout.spacing}>
+                          <PolaroidFrame
+                            src={currentImage.image}
+                            alt={currentImage.name}
+                            caption={currentImage.name}
+                            className={`${layout.cardSize} h-auto`}
+                          />
+                        </div>
+                      );
+                    })}
+                  </div>
+
+                  {/* Grid line after each column */}
+                  <div className="flex relative items-stretch h-full">
+                    <div
+                      className="h-[300px] sm:h-[500px] lg:h-screen"
+                      style={{
+                        width: "0.5px",
+                        background:
+                          "linear-gradient(to bottom, transparent, rgba(255, 255, 255, 0.2), transparent)",
+                        transform: "translateX(-1px)",
+                      }}
+                    />
+                  </div>
+                </div>
+              );
+            })}
+          </React.Fragment>
+        ))}
       </div>
     </div>
   );
