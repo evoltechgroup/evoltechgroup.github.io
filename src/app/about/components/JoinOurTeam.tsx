@@ -30,12 +30,12 @@ const JoinOurTeam = () => {
             <img
               src={JoinOurTeamImg.src}
               alt="TeamMeeting"
-              className="w-full h-[28rem] :h-[30rem] lg:h-full rounded-[48px] object-cover md:object-contain -translate-y-[50px] md:-translate-y-[100px]"
+              className="w-full h-[28rem] lg:h-full rounded-[48px] object-cover md:object-contain -translate-y-[50px] md:-translate-y-[100px]"
               height={620}
               width={500}
               style={{
                 willChange: "transform",
-                WebkitMaskImage: "-webkit-radial-gradient(white, black)",
+                borderRadius: "48px",
               }}
             />
           </div>

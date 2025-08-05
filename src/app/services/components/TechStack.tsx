@@ -78,7 +78,7 @@ const TechStackShowCase: React.FC = () => {
       {/* Starting vertical line */}
       <div className="flex relative">
         <div
-          className="h-full"
+          className="h-full"  
           style={{
             width: "1px",
             background:

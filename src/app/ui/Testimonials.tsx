@@ -1,10 +1,4 @@
 "use client";
-
-import {
-  testimonialLeftSide,
-  testimonialRightSide,
-  testimonialBottom,
-} from "@/assets/effects";
 import {
   followArrowRightV2,
   leftExclamation,
@@ -63,14 +57,12 @@ function Testimonials({ type }: Props) {
   const t = testimonialList[index];
 
   return (
-    <section className="relative w-full h-full bg-[#2A2B68] py-10 flex flex-col items-center  overflow-hidden">
-      <div className="absolute hidden sm:flex inset-0 z-0 pointer-events-none w-full h-full justify-between bg-blend-soft-light opacity-50">
-        <div>{testimonialLeftSide}</div>
-        <div>{testimonialRightSide}</div>
-        <div className="w-fit h-fit absolute right-0 bottom-0 opacity-15">
-          {testimonialBottom}
-        </div>
-      </div>
+    <section className="relative w-full h-full bg-[#2A2B68] py-10 flex flex-col items-center  overflow-hidden" style={{
+        backgroundColor: "#2A2B68",
+        backgroundImage:
+          "repeating-linear-gradient(120deg, transparent, transparent 3px, rgba(26, 27, 72, 0.6) 3px, rgba(26, 27, 72, 0.6) 4px)",
+      }}>
+     
 
       <div className="max-w-3xl w-full mx-auto flex flex-col items-center z-1 p-10">
         <div className="w-full sm:w-2/3 flex flex-col gap-5 items-center justify-center mb-4">
@@ -142,8 +134,8 @@ function Testimonials({ type }: Props) {
                   }, 150);
                 }
               }}
-              className={`h-2 rounded-full transition-all duration-300 ${
-                i === index ? "bg-[#86C7FF] w-5" : "border border-[#79799C] w-2"
+              className={`h-3 rounded-full transition-all duration-300 ${
+                i === index ? "bg-[#86C7FF] w-6" : "border border-[#79799C] w-3"
               } inline-block cursor-pointer`}
               aria-label={`Go to testimonial ${i + 1}`}
             />

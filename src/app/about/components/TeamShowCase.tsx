@@ -114,7 +114,7 @@ const TeamShowCase: React.FC = () => {
   }, [scrollX]);
 
   const manualScroll = (offset: number) => {
-    setIsAutoScrolling(false);
+    // setIsAutoScrolling(false);
     if (!contentRef.current) return;
 
     const originalContentWidth =

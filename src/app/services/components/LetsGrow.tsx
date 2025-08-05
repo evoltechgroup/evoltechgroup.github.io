@@ -52,7 +52,7 @@ const LetsGrow = ({ description, text, url }: LetsGrowProps) => {
                     router.push("/contact#contact-form");
                   }
                 }}
-                className="cursor-pointer pt-1.5 w-fit gap-2 items-center justify-center sm:justify-start pr-3 pb-1.5 pl-3 flex bg-[#FFBB00] rounded-full text-sm">
+                className="cursor-pointer pt-1.5 w-fit gap-2 items-center justify-center sm:justify-start pr-2 pb-1.5 pl-4 flex bg-[#FFBB00] rounded-full text-sm">
                 <span className="font-semibold">{text ?? "Contact us"}</span>
                 <span>
                   <CircleChevronRight size={18} />
