@@ -1,31 +1,30 @@
-
-import { LogoBg } from '@/assets/svg';
-import React from 'react';
+import { LogoBg } from "@/assets/svg";
+import React from "react";
 
 type ImageData = {
-    src: string;
-    alt?: string;
+  src: string;
+  alt?: string;
 };
 
 type ImageGridProps = {
-    images: ImageData[][];
+  images: ImageData[][];
 };
 
 const ImageGrid: React.FC<ImageGridProps> = ({ images }) => {
-    const getImageSizeClasses = (columnIndex: number) => {
-        switch (columnIndex) {
-            case 0:
-                return 'h-14 w-14 sm:h-20 sm:w-20 lg:h-24 lg:w-24';
-            case 1:
-                return 'h-18 w-18 sm:h-24 sm:w-24 lg:h-32 lg:w-32';
-            case 2:
-                return 'h-22 w-22 sm:h-28 sm:w-28 lg:h-38 lg:w-38';
-            case 3:
-                return 'h-20 w-20 sm:h-26 sm:w-26 lg:h-34 lg:w-34';
-            default:
-                return 'h-18 w-18 sm:h-24 sm:w-24 lg:h-30 lg:w-30';
-        }
-    };
+  const getImageSizeClasses = (columnIndex: number) => {
+    switch (columnIndex) {
+      case 0:
+        return "h-14 w-14 sm:h-20 sm:w-20 lg:h-24 lg:w-24";
+      case 1:
+        return "h-18 w-18 sm:h-24 sm:w-24 lg:h-32 lg:w-32";
+      case 2:
+        return "h-22 w-22 sm:h-28 sm:w-28 lg:h-38 lg:w-38";
+      case 3:
+        return "h-20 w-20 sm:h-26 sm:w-26 lg:h-34 lg:w-34";
+      default:
+        return "h-18 w-18 sm:h-24 sm:w-24 lg:h-30 lg:w-30";
+    }
+  };
 
     return (
         <div aria-hidden="true" className="pointer-events-none relative overflow-visible">

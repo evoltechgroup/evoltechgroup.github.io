@@ -23,7 +23,7 @@ const TechCardWithChip: React.FC<TechCardWithChip> = ({
   return (
     <div
       key={id}
-      className="flex flex-col gap-4 max-w-[290px]  lg:max-w-[240px] xl:max-w-[290px] w-full mx-auto">
+      className="flex flex-col gap-4 max-w-[290px] lg:max-w-full xl:max-w-[231px] w-full">
       <div className=" flex flex-row gap-1 lg:flex-col">
         {icon && (
           <div className="flex justify-start">

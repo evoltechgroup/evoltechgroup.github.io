@@ -32,9 +32,9 @@ const ImageTextBlock: React.FC<ImageTextBlockProps> = ({
         delay: index * 0.1,
         ease: [0.25, 0.46, 0.45, 0.94],
       }}>
-      <div className="flex flex-col md:flex-row items-start md:items-center justify-center gap-10 lg:gap-16 w-full mx-auto px-4 py-4">
+      <div className="grid grid-cols-4 sm:grid-cols-8 lg:grid-cols-12 grid-rows-1 gap-4 max-w-7xl mx-auto px-4 lg:px-0">
         <motion.div
-          className="w-full h-full md:w-fit p-0 pt-0 flex justify-start items-start"
+          className="col-span-4 lg:col-start-2"
           initial={{ opacity: 0, x: -50, scale: 0.9 }}
           whileInView={{ opacity: 1, x: 0, scale: 1 }}
           viewport={{ once: true, margin: "-50px" }}
@@ -43,18 +43,12 @@ const ImageTextBlock: React.FC<ImageTextBlockProps> = ({
             delay: index * 0.1 + 0.2,
             ease: [0.25, 0.46, 0.45, 0.94],
           }}>
-          <div
-            className="rounded-3xl w-[400px] h-[280px] overflow-hidden"
-            style={{
-              boxShadow:
-                "rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px",
-              borderRadius: "48px",
-            }}>
+          <div className="rounded-3xl w-full h-full overflow-hidden">
             <div className="relative">
               <motion.img
                 src={imageSrc}
                 alt={altText}
-                className="w-[400px] h-[280px] object-cover"
+                className="w-full lg:w-[420px] h-[240px] lg:h-[275px] object-cover"
                 style={{
                   borderRadius: "48px",
                 }}
@@ -68,7 +62,11 @@ const ImageTextBlock: React.FC<ImageTextBlockProps> = ({
                 }}
               />
               <motion.div
-                style={{ mixBlendMode: "plus-lighter" }}
+                style={{
+                  mixBlendMode: "plus-lighter",
+                  boxShadow:
+                    "rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px",
+                }}
                 className="absolute inset-0 bg-gradient-to-b from-[#190670] to-[#1B0A41] opacity-100 pointer-events-none rounded-[48px]"
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
@@ -83,7 +81,7 @@ const ImageTextBlock: React.FC<ImageTextBlockProps> = ({
         </motion.div>
 
         <motion.div
-          className="w-full flex flex-col h-full md:w-1/2 space-y-4 items-start"
+          className="col-span-4 md:col-span-7 md:col-start-6 mt-6 md:mt-0 md:pl-10 flex flex-col space-y-4 items-start"
           initial={{ opacity: 0, x: 50 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true, margin: "-50px" }}

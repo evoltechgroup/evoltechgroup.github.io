@@ -1,4 +1,4 @@
-import BannerHeader from "../../components/BannerHeader";
+ import BannerHeader from "../../components/BannerHeader";
 import MessageBox from "../../components/tooltip";
 import TechCardWithChip from "../../components/technChipCards";
 import { downStrechArrow } from "@/assets/svg";

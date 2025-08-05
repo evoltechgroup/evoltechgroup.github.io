@@ -48,7 +48,7 @@ const BannerHeader: React.FC<BannerHeaderProps> = ({
   const ArrowComponent = () =>
     showArrow ? (
       <div
-        className={`arrow ${arrowOverrideCx} ${
+        className={`arrow hidden md:block  ${arrowOverrideCx} ${
           arrowColor && `text-[${arrowColor}]`
         } ${arrowWidth ? `w-10 xl:w-[${arrowWidth}px]` : ""} ${
           arrowHeight ? `h-10 xl:h-[${arrowHeight}px]` : ""
@@ -69,7 +69,7 @@ const BannerHeader: React.FC<BannerHeaderProps> = ({
   const renderSubHeaderWithArrow = () => {
     const subHeaderElement = (
       <div
-        className={`sub-header p-4 md:p-0 text-sm lg:text-base xl::${subHeaderTextSize} max-w-xl font-normal lg:mt-6 ${subHeaderTextColor}`}>
+        className={`sub-header p-4 md:p-0 text-sm lg:text-base xl:${subHeaderTextSize} w-full lg:max-w-xl font-normal lg:mt-6 ${subHeaderTextColor}`}>
         {subHeaderText}
       </div>
     );
@@ -106,7 +106,7 @@ const BannerHeader: React.FC<BannerHeaderProps> = ({
 
     // Default: right position
     return (
-      <div className="flex -mr-12">
+      <div className="flex lg:-mr-12">
         {subHeaderElement}
         <div className="pt-4  flex">
           <ArrowComponent />

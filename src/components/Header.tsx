@@ -51,114 +51,116 @@ export default function Header() {
   return (
     <>
       <header
-        className={`w-full fixed top-0 left-0 z-50 flex items-center justify-between px-6 py-4 md:px-10 md:py-6 transition-all duration-300
+        className={`w-full fixed top-0 left-0 z-50 transition-all duration-300
           ${isScrolled ? "bg-[#181B2B] shadow-md" : "bg-transparent"}
           ${mobileMenuOpen ? "hidden" : ""}
         `}>
-        <Link href="/" className={`${mobileMenuOpen ? "hidden" : ""}`}>
-          <img
-            src={Logo.src}
-            alt="EvolTech Logo"
-            className="h-8 w-auto cursor-pointer"
-          />
-        </Link>
+        <div className="grid grid-cols-4 sm:grid-cols-8 lg:grid-cols-12 grid-rows-1 gap-5 max-w-7xl mx-auto sm:px-10 py-4 md:py-6 px-4 lg:px-0">
+          <div className="w-full h-full flex col-span-4 sm:col-span-8 col-start-1 lg:col-span-12 lg:col-start-1 justify-between">
+            <Link href="/" className={`${mobileMenuOpen ? "hidden" : ""}`}>
+              <img
+                src={Logo.src}
+                alt="EvolTech Logo"
+                className="h-8 w-auto cursor-pointer"
+              />
+            </Link>
 
-        <nav className="hidden lg:flex flex-1 justify-center gap-5 lg:text-sm xl:text-lg font-medium text-[#C7E5FF] items-center">
-          <div className="relative group">
-            <span
-              className={`cursor-pointer transition ${
-                pathname.startsWith("/services")
-                  ? "text-[#FFBB00]"
-                  : "text-[#C7E5FF]"
-              }`}>
-              Services
-            </span>
-            <div
-              className={`absolute top-full -left-5 mt-3 lg:text-xs xl:text-sm bg-[#282D45] text-[#BBBBBB] rounded-full shadow-lg p-1 py-1
+            <nav className="hidden lg:flex flex-1 justify-center gap-5 sm:text-xs lg:text-sm xl:text-lg font-medium text-[#C7E5FF] items-center">
+              <div className="relative group">
+                <span
+                  className={`cursor-pointer transition ${
+                    pathname.startsWith("/services")
+                      ? "text-[#FFBB00]"
+                      : "text-[#C7E5FF]"
+                  }`}>
+                  Services
+                </span>
+                <div
+                  className={`absolute top-full -left-5 mt-3 lg:text-xs xl:text-sm bg-[#282D45] text-[#BBBBBB] rounded-full shadow-lg p-1 py-1
                          opacity-0 invisible group-hover:opacity-100 group-hover:visible
                          transition-opacity duration-200 z-50 flex gap-2 whitespace-nowrap`}>
-              <div
-                className={`absolute -top-2 left-10 w-0 h-0 
+                  <div
+                    className={`absolute -top-2 left-10 w-0 h-0 
                             border-l-8 border-r-8 border-b-8 
                             border-l-transparent border-r-transparent ${
                               isScrolled
                                 ? "border-b-[#282D45]"
                                 : "border-b-[#282d4570]"
                             }`}
-              />
+                  />
+                  <Link
+                    href="/services/consulting"
+                    className={`p-2 px-3.5 rounded-full transition ${
+                      pathname === "/services/consulting"
+                        ? "bg-white text-[#0B0F2B]"
+                        : "hover:bg-white hover:text-[#0B0F2B]"
+                    }`}>
+                    Consulting
+                  </Link>
+                  <Link
+                    href="/services/technology"
+                    className={`p-2 rounded-full transition ${
+                      pathname === "/services/technology"
+                        ? "bg-white text-[#0B0F2B]"
+                        : "hover:bg-white hover:text-[#0B0F2B]"
+                    }`}>
+                    Technology
+                  </Link>
+                  <Link
+                    href="/services/operations"
+                    className={`p-2 rounded-full transition ${
+                      pathname === "/services/operations"
+                        ? "bg-white text-[#0B0F2B]"
+                        : "hover:bg-white hover:text-[#0B0F2B]"
+                    }`}>
+                    Operations
+                  </Link>
+                </div>
+              </div>
+              <span className="text-[#63A4DD]">/</span>
               <Link
-                href="/services/consulting"
-                className={`p-2 px-3.5 rounded-full transition ${
-                  pathname === "/services/consulting"
-                    ? "bg-white text-[#0B0F2B]"
-                    : "hover:bg-white hover:text-[#0B0F2B]"
+                href="/products"
+                className={`hover:text-[#FFBB00] transition ${
+                  pathname === "/products" ? "text-[#FFBB00]" : ""
                 }`}>
-                Consulting
+                Products
               </Link>
+              <span className="text-[#63A4DD]">/</span>
               <Link
-                href="/services/technology"
-                className={`p-2 px-3.5 rounded-full transition ${
-                  pathname === "/services/technology"
-                    ? "bg-white text-[#0B0F2B]"
-                    : "hover:bg-white hover:text-[#0B0F2B]"
+                href="/careers"
+                className={`hover:text-[#FFBB00] transition ${
+                  pathname === "/careers" ? "text-[#FFBB00]" : ""
                 }`}>
-                Technology
+                Careers
               </Link>
+              <span className="text-[#63A4DD]">/</span>
               <Link
-                href="/services/operations"
-                className={`p-2 px-3.5 rounded-full transition ${
-                  pathname === "/services/operations"
-                    ? "bg-white text-[#0B0F2B]"
-                    : "hover:bg-white hover:text-[#0B0F2B]"
+                href="/about"
+                className={`hover:text-[#FFBB00] transition ${
+                  pathname === "/about" ? "text-[#FFBB00]" : ""
                 }`}>
-                Operations
+                Who we are
+              </Link>
+            </nav>
+            <div className="hidden lg:block">
+              <Link
+                href="/contact"
+                className="bg-transparent border border-yellow-400 text-[#FFBB00] px-6 py-2 rounded-full font-semibold hover:bg-yellow-400 hover:text-[#0B0F2B] transition">
+                Contact us
               </Link>
             </div>
+            {!mobileMenuOpen && (
+              <div className="lg:hidden border border-[#445767] px-3 py-1 rounded flex">
+                <button
+                  onClick={toggleMobileMenu}
+                  className="text-white flex items-center gap-2">
+                  <span className="text-sm font-normal">Menu</span>
+                  <span>{hamburgerIcon}</span>
+                </button>
+              </div>
+            )}
           </div>
-          <span className="text-[#63A4DD]">/</span>
-          <Link
-            href="/products"
-            className={`hover:text-[#FFBB00] transition ${
-              pathname === "/products" ? "text-[#FFBB00]" : ""
-            }`}>
-            Products
-          </Link>
-          <span className="text-[#63A4DD]">/</span>
-          <Link
-            href="/careers"
-            className={`hover:text-[#FFBB00] transition ${
-              pathname === "/careers" ? "text-[#FFBB00]" : ""
-            }`}>
-            Careers
-          </Link>
-          <span className="text-[#63A4DD]">/</span>
-          <Link
-            href="/about"
-            className={`hover:text-[#FFBB00] transition ${
-              pathname === "/about" ? "text-[#FFBB00]" : ""
-            }`}>
-            Who we are
-          </Link>
-        </nav>
-
-        <div className="hidden lg:block">
-          <Link
-            href="/contact"
-            className="bg-transparent border border-yellow-400 text-[#FFBB00] px-6 py-2 rounded-full font-semibold hover:bg-yellow-400 hover:text-[#0B0F2B] transition">
-            Contact us
-          </Link>
         </div>
-
-        {!mobileMenuOpen && (
-          <div className="lg:hidden border border-[#445767] px-3 py-1 rounded flex">
-            <button
-              onClick={toggleMobileMenu}
-              className="text-white flex items-center gap-2">
-              <span className="text-sm font-normal">Menu</span>
-              <span>{hamburgerIcon}</span>
-            </button>
-          </div>
-        )}
       </header>
 
       {mobileMenuOpen && (

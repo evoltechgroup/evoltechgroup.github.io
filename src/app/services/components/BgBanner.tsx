@@ -37,7 +37,7 @@ const BgBanner: React.FC<BgBannerProps> = ({
   backgroundImages,
 }) => {
   return (
-    <section className="relative w-full bg-[#ffff] flex flex-col items-center h-screen overflow-hidden">
+    <section className="relative w-full bg-[#ffff]  h-screen overflow-hidden ">
       <div className="absolute inset-0 z-0 w-full h-full flex bg-[#2D2550] overflow-hidden pointer-events-none">
         <div className="absolute z-7 w-full h-full">{eclipseEffect}</div>
         {backgroundImages?.main && (
@@ -102,12 +102,12 @@ const BgBanner: React.FC<BgBannerProps> = ({
         </div>
       </div>
 
-      <div className="relative z-10 w-full h-full justify-center items-center p-5 pb-0">
-        <div className="w-full h-full flex flex-col md:flex-row md:justify-between md:gap-24 pt-20 sm:pt-10 sm:p-30 sm:pb-0">
+      <div className="relative z-10 w-full h-full grid grid-cols-4 sm:grid-cols-8 lg:grid-cols-12 grid-rows-1 gap-5 max-w-7xl mx-auto px-4 lg:px-0">
+        <div className="w-full h-full flex flex-col md:flex-row col-span-4 lg:col-span-10 col-start-1 justify-end pb-15 md:pb-0 gap-10 md:gap-0 lg:col-start-2">
           <div
             className={`w-full sm:w-1/2  flex flex-col gap-5 md:gap-10 items-start justify-center ${
               id === "products"
-                ? "max-w-lg md:justify-center"
+                ? "max-w-lg md:justify-end lg:pb-20"
                 : "md:justify-end"
             } mt-10 md:mt-30 md:pb-5`}>
             <div className="flex justify-center items-center">
@@ -147,8 +147,8 @@ const BgBanner: React.FC<BgBannerProps> = ({
               </div>
             )}
           </div>
-          <div className="w-full md:w-1/2 -mt-10 md:mt-10 h-full flex">
-            <div className="relative w-full h-full flex items-end md:pl-20 pb-15 md:pb-0">
+          <div className="w-full md:w-1/2 h-fit md:h-full flex justify-end">
+            <div className="relative w-full h-full flex items-end justify-end md:pb-0">
               <div className="w-full h-[264px] lg:w-[330px] lg:h-[480px] xl:w-[430px] xl:h-[620px] relative rounded-[48px] md:rounded-b-none overflow-hidden">
                 <img
                   src={foregroundImage.src}

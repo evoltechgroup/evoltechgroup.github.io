@@ -31,7 +31,7 @@ const logos = [
 
 const Clients = () => {
   return (
-    <div className="w-full bg-[#F8F8F8] py-16 overflow-hidden">
+    <div className="w-full bg-[#F8F8F8] py-16 lg:py-24 overflow-hidden">
       <div className="text-black w-full flex flex-col items-center gap-10 md:gap-15  px-5">
         <div className="flex flex-col gap-4 items-center text-center">
           <Button className="bg-[#D6ECFF] p-2 rounded-full px-4 font-medium text-sm">

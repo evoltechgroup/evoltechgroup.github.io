@@ -16,7 +16,7 @@ import { useRouter } from "next/navigation";
 const Section1 = () => {
   const router = useRouter();
   return (
-    <section className="relative h-screen flex flex-col justify-center items-center text-center overflow-hidden">
+    <section className="relative h-screen sm:h-[80vh] lg:h-screen flex flex-col justify-center items-center text-center overflow-hidden">
       <div className="absolute inset-0 z-0 w-full h-full flex bg-[#2D2550] overflow-hidden pointer-events-none">
         <div className="absolute z-4 w-full h-full">{rectangle191}</div>
         <div className="absolute z-3 w-full h-full">{rectangle190}</div>
@@ -35,8 +35,8 @@ const Section1 = () => {
           playsInline
         />
       </div>
-      <div className="relative z-10 w-full h-full justify-center items-center p-5">
-        <div className="w-full h-full flex flex-col justify-center gap-4  md:gap-10 xl:gap-15 items-center lg:p-40 lg:pt-60 md:pb-20">
+      <div className="relative z-10 w-full h-full grid grid-cols-4 sm:grid-cols-8 lg:grid-cols-12 grid-rows-1 gap-5 max-w-7xl mx-auto px-4 lg:px-0">
+        <div className="w-full h-full flex flex-col justify-center gap-4 col-span-4 sm:col-span-6 lg:col-span-10 col-start-1 sm:col-start-2 lg:col-start-2  md:gap-10 xl:gap-15 items-center">
           <div className="flex flex-col md:gap-5 items-center relative">
             <Text
               className="font-semibold mb-2 md:mb-0 text-3xl sm:text-5xl xl:text-6xl text-center"
@@ -69,7 +69,7 @@ const Section1 = () => {
               </span>
             </Button>
           </div>
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6 w-full md:justify-items-center mx-auto p-4">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6 w-full md:justify-items-center mx-auto">
             {infoCards.map((item, idx) => (
               <InfoCard
                 key={idx}
