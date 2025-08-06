@@ -7,7 +7,7 @@ export interface CardProps {
 
 const InfoCard: React.FC<CardProps> = ({ title, description }) => {
   return (
-    <div className="rounded-3xl lg:rounded-2xl xl:rounded-3xl border  border-[#41526c] px-4 py-4 h-[7rem] xl:h-[10rem] md:flex md:flex-col md:full xl:w-[15rem] text-left w-full md:justify-start relative">
+    <div className="rounded-3xl lg:rounded-2xl xl:rounded-3xl border  border-[#41526c] px-4 py-4 h-[7rem] lg:h-[8rem] xl:h-[10rem] md:flex md:flex-col md:full lg:w-[12rem] xl:w-[15rem] text-left w-full md:justify-start relative">
       <div className="w-1 bg-[#8DCAFF] h-6 absolute -left-0.5 top-5" />
       <div className="font-semibold text-base md:text-2xl lg:text-lg xl:text-2xl text-white mb-1">
         {title}

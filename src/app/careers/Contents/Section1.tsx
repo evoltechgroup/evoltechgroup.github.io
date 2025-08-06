@@ -60,7 +60,7 @@ const Section1 = () => {
           </div>
         </div>
         <div className="grid grid-cols-4 sm:grid-cols-8 lg:grid-cols-12 grid-rows-1 gap-5 max-w-7xl mx-auto px-4 lg:px-0 h-full">
-          <div className="col-span-4 sm:col-span-6 lg:col-span-10 col-start-1 sm:col-start-2 z-10 w-full h-full flex justify-start items-center">
+          <div className="col-span-4 sm:col-span-6 lg:col-span-10 lg:col-start-2 col-start-1 sm:col-start-2 z-10 w-full h-full flex justify-start items-center">
             <div className="w-full h-full flex flex-col lg:flex-row md:flex-col items-center justify-between">
               <div className="flex flex-col gap-4 justify-end md:justify-center lg:mt-10 w-full h-full items-center lg:items-start">
                 <Text

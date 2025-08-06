@@ -52,7 +52,7 @@ export default function Header() {
     <>
       <header
         className={`w-full fixed top-0 left-0 z-50 transition-all duration-300
-          ${isScrolled ? "bg-[#181B2B] shadow-md" : "bg-transparent"}
+          ${isScrolled ? "bg-[#181B2B] shadow-md" : "md:bg-transparent"}
           ${mobileMenuOpen ? "hidden" : ""}
         `}>
         <div className="grid grid-cols-4 sm:grid-cols-8 lg:grid-cols-12 grid-rows-1 gap-5 max-w-7xl mx-auto sm:px-10 py-4 md:py-6 px-4 lg:px-0">
@@ -142,7 +142,7 @@ export default function Header() {
                 Who we are
               </Link>
             </nav>
-            <div className="hidden lg:block">
+            <div className="hidden lg:flex">
               <Link
                 href="/contact"
                 className="bg-transparent border border-yellow-400 text-[#FFBB00] px-6 py-2 rounded-full font-semibold hover:bg-yellow-400 hover:text-[#0B0F2B] transition">

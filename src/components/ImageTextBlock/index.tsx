@@ -32,7 +32,7 @@ const ImageTextBlock: React.FC<ImageTextBlockProps> = ({
         delay: index * 0.1,
         ease: [0.25, 0.46, 0.45, 0.94],
       }}>
-      <div className="grid grid-cols-4 sm:grid-cols-8 lg:grid-cols-12 grid-rows-1 gap-4 max-w-7xl mx-auto px-4 lg:px-0">
+      <div className="grid grid-cols-4 sm:grid-cols-8 lg:grid-cols-12 xl:grid-cols-12 grid-rows-1 gap-4 max-w-7xl mx-auto px-4 lg:px-0">
         <motion.div
           className="col-span-4 lg:col-start-2"
           initial={{ opacity: 0, x: -50, scale: 0.9 }}
@@ -81,7 +81,7 @@ const ImageTextBlock: React.FC<ImageTextBlockProps> = ({
         </motion.div>
 
         <motion.div
-          className="col-span-4 md:col-span-7 md:col-start-6 mt-6 md:mt-0 md:pl-10 flex flex-col space-y-4 items-start"
+          className="col-span-4 lg:col-span-6 md:col-span-7 md:col-start-6 mt-6 md:mt-0 md:pl-10 flex flex-col space-y-4 items-start"
           initial={{ opacity: 0, x: 50 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true, margin: "-50px" }}

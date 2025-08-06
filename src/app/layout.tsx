@@ -35,6 +35,7 @@ export default function RootLayout({
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased font-gilroy`}>
+        <div id="modal-root" />
         <Header />
         {children}
         <Footer />

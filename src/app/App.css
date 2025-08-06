@@ -8,6 +8,14 @@ body {
   font-family: "Gilroy", sans-serif;
 }
 
+@keyframes scrollMarquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-33.3333%); /* scroll by one full copy of content */
+  }
+}
 @keyframes crossfade-in {
   from {
     opacity: 0;

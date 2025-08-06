@@ -85,7 +85,6 @@ const Section2 = () => {
                 <Button
                   onClick={() => {
                     const el = document.getElementById("job-listing");
-                    console.log({ el });
                     if (el) {
                       el.scrollIntoView({
                         behavior: "smooth",

@@ -41,7 +41,7 @@ const JoinOurTeam = () => {
               />
             </div>
           </div>
-          <div className="flex-1 -mt-15 sm:mt-0 p-8  pt-0 md:p-0 ">
+          <div className="flex-1 -mt-15 sm:mt-0">
             <div
               className="bg-white overflow-hidden w-full sm:w-lg lg:w-xl sm:left-[-10%] lg:left-[-20%] p-10 sm:p-5 lg:p-12 lg:mb-20 rounded-[64px] shadow-xl md:px-15 md:py-15 flex flex-col gap-4 relative"
               style={{

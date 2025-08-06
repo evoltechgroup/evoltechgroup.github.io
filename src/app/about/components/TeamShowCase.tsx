@@ -152,8 +152,6 @@ const TeamShowCase: React.FC = () => {
 
     setScrollX(newScrollX);
   };
-  console.log("Total images:", totalImages);
-  console.log("Grouped slots:", groupedSlots.length);
   const renderShowcaseContent = () => {
     let labelIndexLocal = 0;
 

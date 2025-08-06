@@ -4,7 +4,7 @@ import Logo from "@/assets/logo/logo.svg";
 
 export default function Footer() {
   return (
-    <footer className="bg-[#181B2B] text-white w-full px-4">
+    <footer className="bg-[#181B2B] text-white w-full px-4 md:pb-10">
       <div className="grid grid-cols-4 sm:grid-cols-8 lg:grid-cols-12 grid-rows-1 gap-5 max-w-7xl mx-auto">
         <div className="mx-auto col-span-4 sm:col-span-8 lg:col-span-12 col-start-1 w-full py-10 md:py-6 flex flex-col md:flex-row items-center md:justify-between gap-6 ">
           <div className="flex flex-col sm:flex-row items-center gap-5 md:gap-10 text-gray-300 text-xs order-3 md:order-1">
