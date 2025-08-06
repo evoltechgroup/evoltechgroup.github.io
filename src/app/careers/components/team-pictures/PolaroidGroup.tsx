@@ -154,7 +154,7 @@ const PolaroidShowCase: React.FC = () => {
               const { verticalOffset, justifyContent } = getVerticalLayoutProps(column.columnIndex);
 
               return (
-                <div key={index + dup * visibleColumns.length} className="flex items-stretch gap-2">
+                <div key={index + dup * visibleColumns.length} className="flex items-stretch gap-3">
                   <div className={`flex  flex-col items-center ${justifyContent} ${verticalOffset} min-h-[300px] sm:min-h-[400px] lg:min-h-[600px]`}>
                     {group.map((slot, cardIndex) => {
                       const currentImage = TeamImages[slot.current];
