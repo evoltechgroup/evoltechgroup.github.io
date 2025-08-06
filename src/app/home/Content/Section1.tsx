@@ -12,7 +12,7 @@ import Text from "@/components/Text";
 import { infoCards } from "@/data/about-us";
 import { CircleChevronRight } from "lucide-react";
 import { useRouter } from "next/navigation";
-import BgVideo from "../../../../public/video/BgVideo.mp4";
+
 
 const Section1 = () => {
   const router = useRouter();
@@ -29,7 +29,7 @@ const Section1 = () => {
         </div>
         <video
           className="absolute inset-0 w-full h-full object-cover opacity-100 filter contrast-105 saturate-125 sharp-video"
-          src={BgVideo}
+          src="/assets/BgVideo.mp4"
           autoPlay
           loop
           muted
