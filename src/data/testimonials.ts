@@ -10,7 +10,7 @@ export const testimonials = {
     },
     {
       text: `Working with Evoltech was an exceptional experience. They built our product with incredible speed and precision, delivering an error-free solution that exceeded our expectations. Their expertise, commitment to quality, and seamless execution made them a truly reliable technology partner. I highly recommend Evoltech for anyone looking to develop a modern and robust tech stack!`,
-      author: "COO of a Leading Mortgage Fintech Company",
+      author: "COO - Leading Mortgage Fintech Company",
       company: "SaaS Company",
     },
     {
@@ -19,7 +19,7 @@ export const testimonials = {
       We vetted through a bunch of development companies and are thrilled that we chose to work alongside EvolTech.
       If you are looking for a hands-on approach and maximum involvement with a vested interest in your success, look no further.
       We are looking forward to continuing our relationship for years to come.`,
-      author: "Founder & CEO of a Leading Fintech Company",
+      author: "Founder & CEO - Leading Fintech Company",
       company: "FinTech",
     },
   ],

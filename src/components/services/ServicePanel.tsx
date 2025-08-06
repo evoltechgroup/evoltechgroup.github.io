@@ -30,7 +30,7 @@ export const ServicePanel: React.FC<ServicePanelProps> = ({ service }) => {
 
   return (
     <div className="w-full flex flex-col-reverse md:flex-row items-start gap-4 animate-fadein">
-      <div className="lg:flex-1 flex flex-col items-start p-2 md:p-4 lg:p-0">
+      <div className="lg:flex-1 flex flex-col items-start md:p-4 lg:p-0">
         <div className="flex items-center w-full md:w-auto justify-center md:justify-start mb-8 ">
           <div className="h-12 w-12 lg:h-24 lg:w-24 mr-3 lg:mr-8 bg-gradient-to-r from-[#5785DC] to-[#5F4793] rounded-2xl lg:rounded-3xl flex items-center justify-center">
             <img

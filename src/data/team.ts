@@ -21,7 +21,7 @@ export const TeamImages = [
   { name: "Gowri", image: Team.Gowri },
   { name: "Harini", image: Team.Harini },
   { name: "Harshitha", image: Team.Harshitha },
-  { name: "Jaj", image: Team.Jai },
+  { name: "Jai", image: Team.Jai },
   { name: "Kanak", image: Team.Kanika },
   { name: "Naveen", image: Team.Naveen },
   { name: "PreetiMohan", image: Team.PreetiMohan },
@@ -44,4 +44,5 @@ export const TeamImages = [
   { name: "Kashifa", image: Team.Kashifa },
   { name: "Safiyah", image: Team.Safiyah },
   { name: "Shamim", image: Team.Shamim },
+  { name: "David", image: Team.David },
 ];

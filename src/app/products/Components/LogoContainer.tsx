@@ -25,7 +25,7 @@ const LogoContainer: React.FC<LogoContainerType> = ({
     <div className="flex flex-col md:flex-row gap-10 w-full h-full items-center justify-center">
       <div
         className={`w-full h-[120px] md:w-[380px] ${
-          name === "fiveoak" && "md:p-20"
+          name === "fiveoak" && "px-20"
         } md:h-[193px] shadow-[0_4px_12px_rgba(0,0,0,0.1)] bg-white flex items-center justify-center rounded-3xl`}>
         <img
           src={icon.src}
