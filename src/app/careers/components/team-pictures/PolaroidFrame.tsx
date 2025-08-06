@@ -17,7 +17,7 @@ const PolaroidFrame = ({
   const imageSrc = typeof src === "string" ? src : src.src;
   return (
     <div
-      className={`bg-white p-4 md:pb-12 shadow-xl transition-transform duration-300 hover:scale-105 ${className}`}>
+      className={`bg-white p-4 md:pb-6 shadow-xl transition-transform duration-300 hover:scale-105 ${className}`}>
       {/* Photo */}
       <div className="w-full aspect-[4/3] overflow-hidden bg-gray-100 relative">
         <img src={imageSrc} alt={alt} className="w-full h-full object-cover" style={{ pointerEvents: "none" }} />
