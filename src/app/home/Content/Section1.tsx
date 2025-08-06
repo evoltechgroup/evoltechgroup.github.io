@@ -13,6 +13,7 @@ import { infoCards } from "@/data/about-us";
 import { CircleChevronRight } from "lucide-react";
 import { useRouter } from "next/navigation";
 
+
 const Section1 = () => {
   const router = useRouter();
   return (
@@ -28,7 +29,7 @@ const Section1 = () => {
         </div>
         <video
           className="absolute inset-0 w-full h-full object-cover opacity-100 filter contrast-105 saturate-125 sharp-video"
-          src="/assets/video/BgVideo.mp4"
+          src="/assets/BgVideo.mp4"
           autoPlay
           loop
           muted
@@ -40,7 +41,8 @@ const Section1 = () => {
           <div className="flex flex-col md:gap-5 items-center relative">
             <Text
               className="font-semibold mb-2 md:mb-0 text-3xl sm:text-5xl xl:text-6xl text-center"
-              tag="p">
+              tag="p"
+            >
               Build
               <span className="w-2 h-2 rounded-full bg-yellow-400 inline-block" />{" "}
               <span className="">
@@ -62,7 +64,8 @@ const Section1 = () => {
             </div>
             <Button
               onClick={() => router.push("/about")}
-              className="mt-5 text-sm px-2 py-2 md:text-sm xl:text-lg cursor-pointer text-center font-medium bg-[#FFB700] text-[#0B0F2B] md:px-2 md:py-1 xl:px-7 md:mt-10 xl:py-2 rounded-full  hover:bg-[#FFBB00] transition flex items-center gap-2 mx-auto shadow-[0_0_15px_#FFB700] hover:shadow-[0_0_25px_#FFD95E]">
+              className="mt-5 text-sm px-2 py-2 md:text-sm xl:text-lg cursor-pointer text-center font-medium bg-[#FFB700] text-[#0B0F2B] md:px-2 md:py-1 xl:px-7 md:mt-10 xl:py-2 rounded-full  hover:bg-[#FFBB00] transition flex items-center gap-2 mx-auto shadow-[0_0_15px_#FFB700] hover:shadow-[0_0_25px_#FFD95E]"
+            >
               <span>Discover more</span>
               <span>
                 <CircleChevronRight size={18} />
