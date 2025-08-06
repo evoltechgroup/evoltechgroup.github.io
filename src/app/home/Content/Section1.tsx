@@ -12,7 +12,7 @@ import Text from "@/components/Text";
 import { infoCards } from "@/data/about-us";
 import { CircleChevronRight } from "lucide-react";
 import { useRouter } from "next/navigation";
-import BgVideo from "../../../assets/video/BgVideo.mp4";
+import BgVideo from "../../../../public/video/BgVideo.mp4";
 
 const Section1 = () => {
   const router = useRouter();
