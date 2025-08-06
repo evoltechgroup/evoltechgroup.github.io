@@ -6,14 +6,16 @@ import {
   TheChennaiMeetup,
   TheChennaiTeam,
   TheCruise,
-  // TheGOATrip,
+  TheGOATrip,
   TheOperationsTeam,
   ThePuneTeam,
   TheTechTeam,
+  TheMovieTime,
 } from "../../Team/Outing";
 
 export const TeamImages = [
-  // { name: "The GOA Trip", image: TheGOATrip },
+  { name: "The GOA Trip", image: TheGOATrip },
+  { name: "Movie Time", image: TheMovieTime},
   { name: "The Cruise", image: TheCruise },
   { name: "The Pune Team", image: ThePuneTeam },
   { name: "The Tech Team", image: TheTechTeam },
