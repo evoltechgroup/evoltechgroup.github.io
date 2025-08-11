@@ -37,7 +37,7 @@ const imageGrid = [
 
 const Section1 = () => {
   return (
-    <section className="relative w-full bg-[#ffff] flex flex-col items-start h-screen lg:h-[90h] xl:h-[80vh]">
+    <section className="relative w-full bg-[#ffff] flex flex-col items-start h-screen  lg:h-[90h] xl:h-[80vh]">
       <div className="w-full h-full">
         <div className="absolute inset-0 z-0 w-full h-full bg-[#2D2550] overflow-hidden pointer-events-none">
           <div className="absolute z-7 w-full h-full">{eclipseEffect}</div>

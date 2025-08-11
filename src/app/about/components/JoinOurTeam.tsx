@@ -15,7 +15,7 @@ const JoinOurTeam = () => {
   const router = useRouter();
   return (
     <section
-      className="relative w-full h-full mx-auto overflow-hidden"
+      className="relative w-full h-full mx-auto overflow-hidden "
       style={{
         backgroundImage: "linear-gradient(to bottom, #FFFFFF 0%, #F1F8FF 50%)",
       }}>
@@ -26,8 +26,8 @@ const JoinOurTeam = () => {
       </div>
       <div className="grid grid-cols-4 sm:grid-cols-8 lg:grid-cols-12 grid-rows-1 gap-4 lg:max-w-7xl mx-auto px-4 sm:px-10 lg:px-0">
         <div className="col-span-4 sm:col-span-8 lg:col-span-10 sm:col-start-1 lg:col-start-2 w-full h-full flex flex-col sm:flex-row items-center py-20 justify-center">
-          <div className="px-5 md:px-0 md:p-0 w-full">
-            <div className="w-full md:w-fit h-80 lg:h-[620px] mx-auto rounded-[48px] overflow-hidden relative">
+          <div className="px-5 md:px-0 md:p-0 md:pt-8 w-full">
+            <div className="w-full md:w-fit h-80 lg:h-[600px] mx-auto rounded-[48px] overflow-hidden pt-8 relative">
               <img
                 src={JoinOurTeamImg.src}
                 alt="TeamMeeting"
@@ -43,7 +43,7 @@ const JoinOurTeam = () => {
           </div>
           <div className="flex-1 -mt-15 sm:mt-0">
             <div
-              className="bg-white overflow-hidden w-full sm:w-lg lg:w-xl sm:left-[-10%] lg:left-[-20%] p-10 sm:p-5 lg:p-12 lg:mb-20 rounded-[64px] shadow-xl md:px-15 md:py-15 flex flex-col gap-4 relative"
+              className="bg-white overflow-hidden w-full sm:w-lg lg:w-xl sm:left-[-10%] lg:left-[-16%] p-10 sm:p-5 lg:p-12z lg:mb-10 rounded-[64px] shadow-xl md:px-15 md:py-15 flex flex-col gap-4 relative"
               style={{
                 backgroundImage:
                   "linear-gradient(to left, rgba(217, 229, 251, 1) 0%, #ffff 100%)",
