@@ -149,7 +149,7 @@ const BgBanner: React.FC<BgBannerProps> = ({
           </div>
           <div className="w-full md:w-1/2 h-fit md:h-full flex justify-end">
             <div className="relative w-full h-full flex items-end justify-end md:pb-0">
-              <div className="w-full h-[264px] lg:w-[330px] lg:h-[480px] xl:w-[430px] xl:h-[620px] relative rounded-[48px] md:rounded-b-none overflow-hidden">
+              <div className="w-full h-[264px] lg:w-[65%] lg:h-[75%] xl:w-[430px] xl:h-[620px] relative rounded-[48px] md:rounded-b-none overflow-hidden">
                 <img
                   src={foregroundImage.src}
                   alt={foregroundImageAlt}

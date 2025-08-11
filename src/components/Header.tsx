@@ -55,8 +55,8 @@ export default function Header() {
           ${isScrolled ? "bg-[#181B2B] shadow-md" : "md:bg-transparent"}
           ${mobileMenuOpen ? "hidden" : ""}
         `}>
-        <div className="grid grid-cols-4 sm:grid-cols-8 lg:grid-cols-12 grid-rows-1 gap-5 max-w-7xl mx-auto sm:px-10 py-4 md:py-6 px-4 lg:px-0">
-          <div className="w-full h-full flex col-span-4 sm:col-span-8 col-start-1 lg:col-span-12 lg:col-start-1 justify-between">
+        <div className="grid grid-cols-4 sm:grid-cols-8 lg:grid-cols-10 xl:grid-cols-12 grid-rows-1 gap-5 max-w-7xl mx-auto sm:px-10 py-4 xl:py-6 px-4 lg:px-0">
+          <div className="w-full h-full flex col-span-4 sm:col-span-8 col-start-1 lg:col-span-8 xl:col-span-12 lg:col-start-2 xl:col-start-1 justify-between">
             <Link href="/" className={`${mobileMenuOpen ? "hidden" : ""}`}>
               <img
                 src={Logo.src}

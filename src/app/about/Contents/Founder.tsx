@@ -8,7 +8,9 @@ import React from "react";
 
 const Founder = () => {
   return (
-    <div className="w-full h-full bg-[#F8F8F8] relative">
+    <section
+      className="w-full h-full bg-[#F8F8F8] relative"
+      id="founder-section">
       <div className="absolute w-full h-full overflow-hidden z-1">
         <div className="absolute -right-10 bottom-0 md:top-0">
           {topRightRing}
@@ -96,7 +98,7 @@ const Founder = () => {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 
