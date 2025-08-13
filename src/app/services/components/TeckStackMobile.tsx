@@ -13,7 +13,9 @@ import {
   Kubernetes,
   MongoDB,
   Mysql,
+  NextJs,
   NodeJS,
+  OpenAI,
   postgress,
   Python,
   PyTorch,
@@ -40,6 +42,7 @@ const tectStackDataMobile = [
       { name: "angular", image: Angular },
       { name: "typescript", image: Typescript },
       { name: "vue", image: VueJS },
+      { name: "NextJs", image: NextJs },
     ],
   },
   {
@@ -59,6 +62,7 @@ const tectStackDataMobile = [
       { name: "tensorflow", image: TensorFlow },
       { name: "pytorch", image: PyTorch },
       { name: "scikitlearn", image: ScikitLearn },
+      { name: "OpenAI", image: OpenAI },
     ],
   },
   {

@@ -30,7 +30,7 @@ const labelTexts = [
 ];
 
 const TechStackShowCase: React.FC = () => {
-  const visibleCount = 21;
+  const visibleCount = 26;
   const getSizedSvg = (
     svgString: string,
     width: string = "100%",
@@ -62,7 +62,7 @@ const TechStackShowCase: React.FC = () => {
     });
   }, []);
 
-  const columnSizes = [4, 4, 3, 3, 3, 4];
+  const columnSizes = [5, 4, 4, 3, 3, 4];
 
   const groupedSlots = [];
   let currentIndex = 0;
@@ -78,7 +78,7 @@ const TechStackShowCase: React.FC = () => {
       {/* Starting vertical line */}
       <div className="flex relative">
         <div
-          className="h-full"  
+          className="h-full"
           style={{
             width: "1px",
             background:
