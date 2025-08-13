@@ -17,8 +17,8 @@ const Section2 = () => {
         backgroundImage:
           "linear-gradient(to bottom, rgba(217, 229, 251, 1) 0%, #ffff 80%)",
       }}>
-      <div className="relative z-10 w-full p-5 items-center justify-center">
-        <div className="flex flex-col gap-4 items-center relative justify-center md:mt-10">
+      <div className="relative z-10 w-full p-5 grid grid-cols-4 sm:grid-cols-8 lg:grid-cols-12 grid-rows-1 gap-5 max-w-7xl mx-auto px-4 lg:px-0 items-center justify-center">
+        <div className="col-span-4 sm:col-span-6 lg:col-span-10 col-start-1 sm:col-start-2 lg:col-start-2 flex flex-col gap-4 items-center relative justify-center md:mt-10">
           <Button className="p-2 flex bg-white rounded-full px-4 font-medium text-sm">
             About us
           </Button>
@@ -31,9 +31,9 @@ const Section2 = () => {
             {followArrow}
           </div>
         </div>
-        <div className="flex flex-col xl:gap-25 gap-10 sm:gap-20">
-          <div className="w-full flex gap-10 justify-between md:h-[300px] md:px-40">
-            <div className=" flex gap-2 md:gap-4 flex-col h-full w-full  md:w-1/2">
+        <div className="col-span-4 sm:col-span-6 lg:col-span-10 col-start-1 sm:col-start-2 lg:col-start-2 flex flex-col xl:gap-25 gap-10 sm:gap-20">
+          <div className="w-full flex gap-10 justify-between md:h-[300px]">
+            <div className=" flex gap-2 md:gap-4 flex-col h-full w-full md:w-1/2">
               <Button className="p-1.5 flex bg-[#D2D2FF] rounded-full w-fit text-xs mb-4 md:mb-0  px-2">
                 Our Story
               </Button>
@@ -42,11 +42,11 @@ const Section2 = () => {
                   EvolTech, founded in October 2015, specializes in technology
                   development and hybrid captive operations support.
                 </Text>
-                <Text className="xl:text-xl sm:text-base">
+                <Text className="xl:text-lg sm:text-base">
                   With offices in the US and India, we deliver scalable tech
                   solutions and seamless operational teams.
                 </Text>
-                <Text className="xl:text-xl sm:text-base">
+                <Text className="xl:text-lg sm:text-base">
                   Led by a strong leadership team with expertise in Banking and
                   Financial Services, Fintech, Retail, and Insurance, our
                   consultancy drives your business forward with industry-leading
@@ -64,21 +64,21 @@ const Section2 = () => {
               />
             </div>
           </div>
-          <div className="w-full flex md:flex-row flex-col gap-5 justify-between md:h-[300px] h-full md:px-40 mb-10">
+          <div className="col-span-4 sm:col-span-6 lg:col-span-10 col-start-1 sm:col-start-2 w-full flex md:flex-row flex-col gap-5 justify-between md:h-[300px] h-full mb-10">
             <div className="h-full w-full md:w-[calc(33.333333%+3rem)] flex flex-col gap-5">
               <Text
                 className="font-semibold text-4xl sm:text-4xl xl:text-[56px]"
                 tag="p">
                 Why EvolTech?
               </Text>
-              <Text className="font-semibold sm:text-base">
+              <Text className="font-semibold sm:text-xl">
                 Your partner for innovation, efficiency, and growth.
               </Text>
               <div className="text-[#8DCAFF] hidden justify-end items-end mt-4 w-full md:flex">
                 {followArrowRight}
               </div>
             </div>
-            <div className="h-full items-end justify-end w-full md:w-fit md:p-4">
+            <div className="h-full items-end justify-end w-full md:w-fit">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-10 justify-center">
                 {whyEvoltechCard.map((card, idx) => {
                   return (

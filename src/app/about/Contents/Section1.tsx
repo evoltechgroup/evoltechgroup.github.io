@@ -45,28 +45,23 @@ const Section1 = () => {
           {rectangle188}
         </div>
       </div>
-      <div className="relative z-10 w-full h-full justify-center items-center p-5">
-        <div className="w-full h-full flex flex-col justify-center gap-0 md:gap-15 items-center md:p-40 md:pb-20">
+      <div className="relative z-10 w-full h-full grid grid-cols-4 sm:grid-cols-8 lg:grid-cols-12 grid-rows-1 gap-5 max-w-7xl mx-auto px-4 lg:px-0 lg:pt-20">
+        <div className="w-full h-full col-span-4 sm:col-span-6 lg:col-span-10 col-start-1 sm:col-start-2 lg:col-start-2 flex flex-col justify-center gap-10 md:gap-15 items-center">
           <div className="flex flex-col gap-2 mt-10 md:mt-0 md:gap-10 items-center mb-4">
             <Text
               className="font-semibold text-4xl md:text-4xl xl:text-6xl text-center"
               tag="p">
               Who we are
             </Text>
-            <Text className="text-base md:text-sm xl:text-xl max-w-xl xl:max-w-3xl !text-center text-[#C5E1FF]">
+            <Text className="text-base md:text-sm xl:text-xl xl:max-w-4xl text-center text-[#C5E1FF]">
               We transform visionary ideas into reality with cutting-edge
               full-stack development, AI, and cloud solutions. Our streamlined
               operations support fuels business growth, letting you focus on
               what matters. With a decade of excellence and 25+ years of
               leadership in Banking, Fintech, Retail, Insurance, and Healthcare,
-              our diverse global team—55% women-powers innovation from the US
+              our diverse global team—55% women—powers innovation from the US
               and India with unmatched expertise.
             </Text>
-            <div className="flex text-[#FFBB00] justify-center items-center md:-mt-6  w-10 md:w-4/4">
-              <span className="transform -rotate-[10deg] scale-x-[-1] h-20 lg:20 xl:h-30">
-                {followArrowv2}
-              </span>
-            </div>
           </div>
           <div className="w-fit grid grid-cols-2 lg:grid-cols-4 gap-4 lg:-mt-10 xl:mt-0 lg:gap-6 mx-auto p-4">
             {infoCardsAbout.map((item, idx) => (

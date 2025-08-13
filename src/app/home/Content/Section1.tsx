@@ -13,11 +13,10 @@ import { infoCards } from "@/data/about-us";
 import { CircleChevronRight } from "lucide-react";
 import { useRouter } from "next/navigation";
 
-
 const Section1 = () => {
   const router = useRouter();
   return (
-    <section className="relative h-screen flex flex-col justify-center items-center text-center overflow-hidden">
+    <section className="relative h-screen sm:h-[80vh] lg:h-screen flex flex-col justify-center items-center text-center overflow-hidden">
       <div className="absolute inset-0 z-0 w-full h-full flex bg-[#2D2550] overflow-hidden pointer-events-none">
         <div className="absolute z-4 w-full h-full">{rectangle191}</div>
         <div className="absolute z-3 w-full h-full">{rectangle190}</div>
@@ -36,13 +35,12 @@ const Section1 = () => {
           playsInline
         />
       </div>
-      <div className="relative z-10 w-full h-full justify-center items-center p-5">
-        <div className="w-full h-full flex flex-col justify-center gap-4  md:gap-10 xl:gap-15 items-center lg:p-40 lg:pt-60 md:pb-20">
+      <div className="relative z-10 w-full h-full grid grid-cols-4 sm:grid-cols-8 lg:grid-cols-12 grid-rows-1 gap-5 max-w-7xl mx-auto px-4 lg:px-0">
+        <div className="w-full h-full flex flex-col justify-center gap-4 col-span-4 sm:col-span-6 lg:col-span-8 xl:col-span-10 col-start-1  sm:col-start-2 lg:col-start-3 xl:col-start-2  md:gap-10 xl:gap-15 items-center">
           <div className="flex flex-col md:gap-5 items-center relative">
             <Text
               className="font-semibold mb-2 md:mb-0 text-3xl sm:text-5xl xl:text-6xl text-center"
-              tag="p"
-            >
+              tag="p">
               Build
               <span className="w-2 h-2 rounded-full bg-yellow-400 inline-block" />{" "}
               <span className="">
@@ -64,15 +62,14 @@ const Section1 = () => {
             </div>
             <Button
               onClick={() => router.push("/about")}
-              className="mt-5 text-sm px-2 py-2 md:text-sm xl:text-lg cursor-pointer text-center font-medium bg-[#FFB700] text-[#0B0F2B] md:px-2 md:py-1 xl:px-7 md:mt-10 xl:py-2 rounded-full  hover:bg-[#FFBB00] transition flex items-center gap-2 mx-auto shadow-[0_0_15px_#FFB700] hover:shadow-[0_0_25px_#FFD95E]"
-            >
+              className="mt-5 text-sm px-2 py-2 md:text-sm xl:text-lg cursor-pointer text-center font-medium bg-[#FFB700] text-[#0B0F2B] md:px-2 md:py-1 xl:px-7 md:mt-10 xl:py-2 rounded-full  hover:bg-[#FFBB00] transition flex items-center gap-2 mx-auto shadow-[0_0_15px_#FFB700] hover:shadow-[0_0_25px_#FFD95E]">
               <span>Discover more</span>
               <span>
                 <CircleChevronRight size={18} />
               </span>
             </Button>
           </div>
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6 w-full md:justify-items-center mx-auto p-4">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6 w-full md:justify-items-center mx-auto">
             {infoCards.map((item, idx) => (
               <InfoCard
                 key={idx}

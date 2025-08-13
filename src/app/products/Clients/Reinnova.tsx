@@ -15,8 +15,8 @@ const ReinnovaHeader = {
 
 const Reinnova = () => {
   return (
-    <div className="flex flex-col justify-center gap-20">
-      <div>
+    <div className="grid grid-cols-4 sm:grid-cols-8 lg:grid-cols-12 grid-rows-1 gap-5 max-w-7xl mx-auto px-4 lg:px-0 ">
+      <div className="col-span-4 col-start-1 lg:col-span-10 lg:col-start-2 flex flex-col justify-center gap-20">
         <LogoContainer
           name={ReinnovaHeader.name}
           icon={ReinnovaHeader.icon}
@@ -24,21 +24,32 @@ const Reinnova = () => {
           subTitle={ReinnovaHeader.subTitle}
         />
       </div>
-      <div className="flex flex-col gap-5 md:gap-10">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 justify-items-center max-w-7xl  md:pl-15 mx-auto">
-          {ReinnovaHighlights?.map((card, index) => (
-            <div
-              key={card.id}
-              className={`pb-4 pr-20 ${index === 3 ? "lg:col-start-2" : ""}`}>
-              <TechCardWithChip
-                id={card.id}
-                title={card.title}
-                description={card.description}
-                bgColor={card.bgColor}
-                paragraphPadding="!text-base font-medium !md:max-w-[305px]"
-              />
-            </div>
-          ))}
+      <div className="col-span-4 col-start-1 lg:col-span-10 lg:col-start-2 flex flex-col gap-5 md:gap-10 lg:mt-20">
+        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 max-w-7xl">
+          {ReinnovaHighlights?.map((card, index) => {
+            let justifyClass = "justify-self-start lg:justify-self-start";
+            if (index % 3 === 1) {
+              justifyClass = "justify-self-start lg:justify-self-center";
+            } else if (index % 3 === 2) {
+              justifyClass = "justify-self-start lg:justify-self-end";
+            }
+
+            return (
+              <div
+                key={card.id}
+                className={`pb-4  ${justifyClass} ${
+                  index === 3 ? "lg:col-start-2 lg:mx-auto" : ""
+                }`}>
+                <TechCardWithChip
+                  id={card.id}
+                  title={card.title}
+                  description={card.description}
+                  bgColor={card.bgColor}
+                  paragraphPadding="!text-base font-medium max-w-full pl-1"
+                />
+              </div>
+            );
+          })}
         </div>
         <div
           className="w-full h-[2px] border-t-2 border-dotted"

@@ -33,8 +33,8 @@ export const FiveoakPartners = [
 
 const Fiveoak = () => {
   return (
-    <div className="flex flex-col justify-center gap-10 md:gap-20">
-      <div>
+    <div className="grid grid-cols-4 sm:grid-cols-8 lg:grid-cols-12 grid-rows-1 gap-5 max-w-7xl mx-auto px-4 lg:px-0 ">
+      <div className="col-span-4 col-start-1 lg:col-span-10 lg:col-start-2 flex flex-col justify-center gap-10 md:gap-20">
         <LogoContainer
           name={FiveoakHeader.name}
           icon={FiveoakHeader.icon}
@@ -42,7 +42,7 @@ const Fiveoak = () => {
           subTitle={FiveoakHeader.subTitle}
         />
       </div>
-      <div className="flex flex-col gap-10">
+      <div className="col-span-4 col-start-1 lg:col-span-10 lg:col-start-2 flex flex-col gap-10 lg:mt-20">
         <div className="relative flex flex-col w-full justify-center items-center gap-4 mb-5">
           <Text className="whitespace-nowrap font-bold text-2xl sm:text-5xl text-black text-center">
             {"Why our business partners"}
@@ -57,24 +57,31 @@ const Fiveoak = () => {
             {fiveoakArrow}
           </div>
         </div>
-        <div className="grid grid-cols-1 gap-5 md:gap-0 sm:grid-cols-2 lg:grid-cols-3 justify-items-start md:justify-items-center max-w-7xl md:pl-15 md:mx-auto">
-          {FiveoakHighlights?.map((card) => (
-            <div key={card.id} className="pb-4 md:pr-20">
-              <TechCardWithChip
-                id={card.id}
-                title={card.title}
-                description={card.description}
-                bgColor={card.bgColor}
-                paragraphPadding="!text-base font-medium max-w-full pl-1 !md:max-w-[305px]"
-              />
-            </div>
-          ))}
+        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 max-w-7xl">
+          {FiveoakHighlights?.map((card, index) => {
+            let justifyClass = "justify-self-start lg:justify-self-start";
+            if (index % 3 === 1) {
+              justifyClass = "justify-self-start lg:justify-self-center";
+            } else if (index % 3 === 2) {
+              justifyClass = "justify-self-start lg:justify-self-end";
+            }
+            return (
+              <div key={card.id} className={`pb-4  ${justifyClass}`}>
+                <TechCardWithChip
+                  id={card.id}
+                  title={card.title}
+                  description={card.description}
+                  bgColor={card.bgColor}
+                  paragraphPadding="!text-base font-medium max-w-full pl-1"
+                />
+              </div>
+            );
+          })}
         </div>
         <div
           className="w-full h-[2px] border-t-2 border-dotted"
           style={{ borderColor: "#AAAAAA" }}></div>
-
-        <div className="relative flex flex-col md:flex-row w-full items-start justify-start gap-5 md:gap-20 md:mt-5 mb-5">
+        <div className="col-span-4 col-start-1 lg:col-span-10 lg:col-start-2 relative flex flex-col md:flex-row w-full items-start justify-start gap-5 md:gap-20 md:mt-5 mb-5">
           <div className="w-1/3 flex flex-col items-start h-full gap-4">
             <Text className="whitespace-nowrap font-bold text-3xl sm:text-5xl text-black">
               Why Fiveoak?

@@ -2,8 +2,8 @@
 import {
   FairBid,
   FiveOakIcon,
+  Gapi,
   Getredd,
-  Payless,
   PointC,
   ReinnovaIcon,
   Yoloh,
@@ -11,14 +11,13 @@ import {
 import { partnerHeartIcon } from "@/assets/svg";
 import Button from "@/components/Button";
 import Text from "@/components/Text";
-import React from "react";
 import { AtClevel, Aws, Azure, oneLaw, Verita } from "@/assets/icons/TECHSTACK";
 
 const logos = [
   { id: 1, icon: Yoloh },
   { id: 2, icon: PointC },
   { id: 3, icon: Getredd },
-  { id: 4, icon: Payless },
+  { id: 4, icon: Gapi },
   { id: 5, icon: FairBid },
   { id: 6, icon: FiveOakIcon },
   { id: 7, icon: ReinnovaIcon },
@@ -31,7 +30,7 @@ const logos = [
 
 const Clients = () => {
   return (
-    <div className="w-full bg-[#F8F8F8] py-16 overflow-hidden">
+    <div className="w-full bg-[#F8F8F8] py-16 lg:py-24 overflow-hidden">
       <div className="text-black w-full flex flex-col items-center gap-10 md:gap-15  px-5">
         <div className="flex flex-col gap-4 items-center text-center">
           <Button className="bg-[#D6ECFF] p-2 rounded-full px-4 font-medium text-sm">
@@ -57,8 +56,7 @@ const Clients = () => {
                   logo.icon === Verita
                     ? "bg-gray-800 p-1 rounded-md inline-flex items-center justify-center"
                     : ""
-                }`}
-              >
+                }`}>
                 <img
                   src={logo.icon.src}
                   alt={`Logo ${logo.id}`}

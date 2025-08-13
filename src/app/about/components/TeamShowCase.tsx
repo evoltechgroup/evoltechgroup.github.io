@@ -39,6 +39,8 @@ const labelTexts = [
   ["Flat by design. Fast by nature."],
   ["Hierarchy out, ownership in."],
   ["Leadership is a role, not a rank."],
+  ["Different minds, united mission."],
+  ["Innovation thrives where voices differ."],
 ];
 
 const TeamShowCase: React.FC = () => {
@@ -54,6 +56,7 @@ const TeamShowCase: React.FC = () => {
     let imageCounter = 0;
     let labelIndex = 0;
 
+    // Step 1: Main grouping loop
     while (labelIndex < labelTexts.length) {
       for (let i = 0; i < 4 && labelIndex < labelTexts.length; i++) {
         const image1 = imageCounter++ % totalImages;
@@ -65,14 +68,35 @@ const TeamShowCase: React.FC = () => {
         labelIndex++;
       }
 
-      for (let s = 0; s < 1; s++) {
-        const image1 = imageCounter++ % totalImages;
-        const image2 = imageCounter++ % totalImages;
-        result.push({
-          type: "spacer",
-          slotIndexes: [image1, image2],
-        });
+      // Spacer group
+      const spacerImage1 = imageCounter++ % totalImages;
+      const spacerImage2 = imageCounter++ % totalImages;
+      result.push({
+        type: "spacer",
+        slotIndexes: [spacerImage1, spacerImage2],
+      });
+    }
+
+    // Step 2: Add remaining images (not yet used)
+    const usedIndexes = result.flatMap((g) => g.slotIndexes);
+    const allIndexes = Array.from({ length: totalImages }, (_, i) => i);
+    const unusedIndexes = allIndexes.filter((i) => !usedIndexes.includes(i));
+
+    let extraImages = [...unusedIndexes];
+
+    // Fill the last pair if odd by wrapping from the start (no duplication)
+    if (extraImages.length % 2 !== 0) {
+      const firstAvailable = allIndexes.find((i) => !extraImages.includes(i));
+      if (firstAvailable !== undefined) {
+        extraImages.push(firstAvailable);
       }
+    }
+
+    for (let i = 0; i < extraImages.length; i += 2) {
+      result.push({
+        type: "spacer",
+        slotIndexes: [extraImages[i], extraImages[i + 1]],
+      });
     }
 
     return result;
@@ -114,7 +138,6 @@ const TeamShowCase: React.FC = () => {
   }, [scrollX]);
 
   const manualScroll = (offset: number) => {
-    // setIsAutoScrolling(false);
     if (!contentRef.current) return;
 
     const originalContentWidth =
@@ -129,7 +152,6 @@ const TeamShowCase: React.FC = () => {
 
     setScrollX(newScrollX);
   };
-
   const renderShowcaseContent = () => {
     let labelIndexLocal = 0;
 
@@ -180,18 +202,16 @@ const TeamShowCase: React.FC = () => {
                   );
                 })}
               </div>
+              <div
+                className="h-full"
+                style={{
+                  width: "1px",
+                  background:
+                    "linear-gradient(to bottom, transparent, #4444445a, transparent)",
+                }}
+              />
               {labelsToRender && (
-                <div className="flex relative">
-                  <div
-                    className="h-full"
-                    style={{
-                      width: "1px",
-                      background:
-                        "linear-gradient(to bottom, transparent, #4444445a, transparent)",
-                    }}
-                  />
-                  {labelsToRender}
-                </div>
+                <div className="flex relative">{labelsToRender}</div>
               )}
             </div>
           );
