@@ -23,6 +23,8 @@ import {
   AtClevel,
   Verita,
   oneLaw,
+  NextJs,
+  OpenAI,
 } from "@/assets/icons/TECHSTACK";
 
 export const TechIcons = [
@@ -30,6 +32,7 @@ export const TechIcons = [
   { name: "angular", image: Angular },
   { name: "typescript", image: Typescript },
   { name: "vue", image: VueJS },
+  { name: "NextJs", image: NextJs },
   { name: "python", image: Python },
   { name: "django", image: Django },
   { name: "nodejs", image: NodeJS },
@@ -37,6 +40,7 @@ export const TechIcons = [
   { name: "tensorflow", image: TensorFlow },
   { name: "pytorch", image: PyTorch },
   { name: "scikitlearn", image: ScikitLearn },
+  { name: "OpenAI", image: OpenAI },
   { name: "postgres", image: postgress },
   { name: "mongodb", image: MongoDB },
   { name: "mysql", image: Mysql },
@@ -50,5 +54,4 @@ export const TechIcons = [
   { name: "onelaw", image: oneLaw },
   { name: "atClevel", image: AtClevel },
   { name: "verita", image: Verita },
-
 ];

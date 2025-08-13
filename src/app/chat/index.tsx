@@ -22,7 +22,7 @@ const ChatBot = () => {
         popupMsg: "Hi there, have a question? Text us here.",
         avatar:
           "https://chatwidget.fiveoak.com/public/images/profile-image-1.png",
-        primaryColor: "#1D1D1D",
+        primaryColor: "#1761A0",
       });
     };
 
