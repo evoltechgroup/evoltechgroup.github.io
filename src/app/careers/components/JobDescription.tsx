@@ -163,11 +163,13 @@ export const JobDescriptionModal: React.FC<JobDescriptionModalProps> = ({
         {/* Footer */}
         <div className="relative z-10 border-t bg-gray-50 px-6 py-4">
           <div className="flex flex-col sm:flex-row gap-3">
-            <button
-              onClick={onApply}
-              className="bg-gray-700 hover:bg-gray-900 text-white font-medium px-8 py-2 rounded-lg cursor-pointer">
+            <a
+  href="mailto:Hr@evoltechgroup.com"
+              className="bg-gray-700 hover:bg-gray-900 text-white font-medium px-8 py-2 rounded-lg cursor-pointer"
+              role="button"
+              >
               Apply now
-            </button>
+          </a>
             <button
               onClick={onClose}
               className="border border-gray-300 hover:bg-gray-200 text-gray-700 px-8 py-2 rounded-lg cursor-pointer">
