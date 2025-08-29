@@ -17,7 +17,7 @@ export default function Footer() {
           </div>
 
           <div className="flex flex-col sm:flex-row items-center justify-center order-1 lg:order-2 gap-4">
-            <nav className="flex flex-nowrap justify-center gap-2 sm:gap-4 text-base text-white">
+            <nav className="flex flex-nowrap justify-center gap-2 sm:gap-4 text-sm lg:text-base text-white">
               <Link href="/about" className="hover:underline">
                 Who We Are
               </Link>

@@ -7,7 +7,7 @@ import { valuePropositionCards } from "@/data/service-consulting";
 
 const WhyEvoltech = () => {
   return (
-    <div className="relative h-full ">
+    <div className="relative h-full bg-[#F8F8F8]">
       <div className="absolute top-0 -left-10 z-0 w-full h-full">
         <div>{leftRing}</div>
       </div>
