@@ -11,13 +11,13 @@ export default function Footer() {
             <Link href="/">
               <img src={Logo.src} alt="EvolTech Logo" className="h-8 w-auto" />
             </Link>
-            <span className="text-center sm:text-left text-[#AAAAAA]">
+            <span className="text-center text-xs lg:text-base font-normal sm:text-left text-[#AAAAAA]">
               Copyright © 2025 EvolTech.
             </span>
           </div>
 
           <div className="flex flex-col sm:flex-row items-center justify-center order-1 lg:order-2 gap-4">
-            <nav className="flex flex-nowrap justify-center gap-2 sm:gap-4 text-base text-white">
+            <nav className="flex flex-nowrap justify-center gap-2 sm:gap-4 text-sm lg:text-base text-white">
               <Link href="/about" className="hover:underline">
                 Who We Are
               </Link>
@@ -25,6 +25,10 @@ export default function Footer() {
 
               <Link href="/services/consulting" className="hover:underline">
                 Services
+              </Link>
+              <span className="text-gray-500 inline">/</span>
+               <Link href="/products" className="hover:underline">
+                Products
               </Link>
               <span className="text-gray-500 inline">/</span>
 

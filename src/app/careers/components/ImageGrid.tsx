@@ -55,7 +55,7 @@ const ImageGrid: React.FC<ImageGridProps> = ({ images }) => {
                     <img
                       src={image.src}
                       alt={image.alt || ""}
-                      className="h-full w-full object-cover object-center grayscale brightness-100 contrast-90"
+                      className="h-full w-full object-cover object-[center_25%] grayscale brightness-100 contrast-90"
                     />
                     <div className="absolute top-12 sm:top-16 lg:top-21 left-[-0.5rem] sm:left-[-0.75rem] lg:left-[-1rem] w-16 h-16 sm:w-20 sm:h-20 lg:w-28 lg:h-28 border-l-3 sm:border-l-4 lg:border-l-6 border-t-3 sm:border-t-4 lg:border-t-6 border-[#8DCAFF] rounded-[1.5rem] sm:rounded-[2rem] lg:rounded-[2.5rem] z-10"></div>
 

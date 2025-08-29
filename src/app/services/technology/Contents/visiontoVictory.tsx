@@ -23,7 +23,7 @@ const VisiontoVictory = () => {
           subHeaderText="We follow a structured methodology to deliver high-quality products"
           subHeaderTextColor="text-black"
           headerTextSize="text-6xl"
-          className="pt-15"
+          className="pt-20"
           arrowSrc={downStrechArrow}
           arrowAlt="Expert Arrow"
           arrowPosition="bottom"
