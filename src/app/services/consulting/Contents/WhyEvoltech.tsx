@@ -14,7 +14,7 @@ const WhyEvoltech = () => {
       <div className="grid grid-cols-12 grid-rows-1 gap-4 max-w-7xl mx-auto">
         <div className="relative col-span-10 col-start-2 z-10 w-full flex items-center justify-center py-20">
           <div className="w-full flex flex-col items-center ">
-            <Button className="p-1.5 bg-[#BCE0FF] text-black rounded-full text-xs px-4 mb-2">
+            <Button className="p-1.5 bg-[#BCE0FF] text-black rounded-full text-sm font-medium px-4 mb-2">
               Our Capabilities
             </Button>
             <div className="flex flex-col gap-6  mb-20">

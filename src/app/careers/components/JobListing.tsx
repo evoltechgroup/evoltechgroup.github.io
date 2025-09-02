@@ -52,7 +52,7 @@ const JobListings = () => {
   };
 
   const handleApply = () => {
-    alert("Please Send in your resume to Hr@evoltechgroup.com");
+   
     setIsModalOpen(false);
   };
 

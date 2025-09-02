@@ -16,7 +16,7 @@ const Section4 = () => {
         subHeaderText="EvolTech helps clients achieve SOC2 compliance, a critical standard for secure data management in industries like Financial Services and Healthcare."
         subHeaderTextColor="text-black"
         headerTextSize="text-6xl"
-        className=" py-5 pt-15 md:py-8"
+        className=" py-5 md:pt-20 md:py-8"
         arrowSrc={secureAarrow}
         arrowAlt="Secure Arrow"
         arrowPosition="bottom"

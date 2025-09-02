@@ -30,11 +30,11 @@ const Section2 = () => {
             chipBackgroundColor="#FFFFFF"
             chipTextColor="text-black"
             headerText="Why Work With Us?"
-            headerTextColor="text-black pt-5"
+            headerTextColor="text-black "
             subHeaderText="Rewards, recognition, well-being & work life balance"
             subHeaderTextColor="text-black"
             headerTextSize="text-6xl"
-            className="pb-2"
+            className="pb-2 pt-16"
             arrowSrc={expertAarrow}
             arrowAlt="Expert Arrow"
             arrowPosition="bottom"
