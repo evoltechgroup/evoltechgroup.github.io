@@ -4,7 +4,8 @@ import Testimonials from "@/app/ui/Testimonials";
 import Section1 from "./Contents/Section1";
 import LetsGrow from "@/app/services/components/LetsGrow";
 import WhyEvoltech from "./Contents/WhyEvoltech";
-
+// import EventCard from "@/app/events/events";
+// import Innov from "@/assets/images/Events/Innov.png";
 const Consulting = () => {
   return (
     <main className="bg-white text-white font-gilroy h-full w-full overflow-hidden  ">

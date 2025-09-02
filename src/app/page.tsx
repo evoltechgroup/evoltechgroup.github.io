@@ -4,11 +4,13 @@ import Clients from "./about/Contents/Clients";
 import JoinOurTeam from "./about/components/JoinOurTeam";
 import Testimonials from "./ui/Testimonials";
 import Section1 from "./home/Content/Section1";
+import EventSection from "./events/eventSection";
 
 export default function HomePage() {
   return (
     <main className="bg-[#0B0F2B] text-white min-h-screen overflow-hidden">
       <Section1 />
+      <EventSection />
       <ServicesSection />
       <Clients />
       <Testimonials type="home" />

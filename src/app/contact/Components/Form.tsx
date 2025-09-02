@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { mailIcon } from "@/assets/svg";
 import Button from "@/components/Button";
 import { motion, AnimatePresence } from "framer-motion";
@@ -14,7 +14,17 @@ const Form = () => {
     message: "",
   });
 
+  const [formSource, setFormSource] = useState("EvolTech");
   const [submitted, setSubmitted] = useState(false);
+
+
+   useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const source = params.get("source");
+    if (source) {
+      setFormSource(source);
+    }
+  }, []);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -37,6 +47,7 @@ const Form = () => {
           company: formData.company || "Not specified",
           message: formData.message,
           time: new Date().toLocaleString(),
+          source: formSource,
         },
         process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!
       );
@@ -87,6 +98,10 @@ const Form = () => {
             animate="animate"
             exit="exit"
             className="space-y-4 backface-hidden">
+              <h2 className="text-lg font-semibold text-blue-700">
+              Message from {formSource}
+            </h2>
+
             {["name", "email", "company", "message"].map((field) => (
               <div key={field} className="flex flex-col">
                 <label
