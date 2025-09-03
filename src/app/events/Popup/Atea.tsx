@@ -3,6 +3,7 @@ import Atea from "@/assets/images/Events/atea/Atea.png";
 import AteaBg from "@/assets/images/Events/atea/Atea-Bg.png";
 import { ChevronRightCircle } from "lucide-react";
 import Logo from "@/assets/logo/evoltech-black-logo.svg";
+import Link from "next/link";
 
 interface GrowAtlPopupProps {
   onClose: () => void; // 👈 Add this so parent can control closing
@@ -34,11 +35,11 @@ const GrowAtlPopup = ({ onClose }: GrowAtlPopupProps) => {
         {/* Overlay content */}
         <div className="relative z-10 lg:-top-10 space-y-2">
           <img src={Atea.src} alt="ATEA" className="h-24 mx-auto" />
-          <div className="flex items-center justify-center gap-2">
+          <div className="flex items-center justify-center gap-2 mb-4">
             <img src={Logo.src} alt="Evoltech" className="h-6" />
             <h2 className="text-xl sm:text-2xl text-black font-bold">at GrowATL 2025</h2>
           </div>
-          <p className="text-sm sm:text-base font-semibold text-[#054D88]">
+          <p className="text-lg sm:text-xl font-semibold text-[#054D88]">
             2025 September 06, 10:00AM - 02:00PM <br />
             Sankranti Restaurant, John Creek, Georgia
           </p>
@@ -47,35 +48,35 @@ const GrowAtlPopup = ({ onClose }: GrowAtlPopupProps) => {
 
       {/* Event Intro */}
       <div className="p-6 text-center space-y-4">
-        <h2 className="text-xl sm:text-2xl font-bold text-gray-900">
+        <h2 className="text-xl sm:text-2xl font-semibold text-gray-900">
           Join us for GrowATL 2025,
         </h2>
-        <p className="text-gray-700 text-base leading-relaxed">
+        <p className="text-[#000000] font-medium text-lg leading-relaxed">
           the flagship entrepreneurship and innovation summit <br />
           by ATEA Atlanta Chapter.
         </p>
 
         <div className="mt-4 space-y-2">
-          <p className="text-base font-medium text-gray-800">Under the theme</p>
-          <p className="text-lg font-semibold text-[#F47937]">
-            "ATL Ecosystem for Innovations, Insights and Impact",
+          <p className="text-lg font-medium text-[#000000]">Under the theme</p>
+          <p className="text-2xl font-semibold text-[#F47937]">
+            "ATL Ecosystem for Innovations, Insights and Impact"<span className="text-black">,</span>
           </p>
         </div>
 
-        <p className="text-gray-700 text-base leading-relaxed">
+        <p className="text-[#000000] text-lg leading-relaxed font-medium">
           this event sets the stage for Basics, <br />
           bold conversations, startup momentum, <br />
           and a roadmap to the ATEA Atlanta Vision 2030.
         </p>
 
         {/* CTA Button */}
-        <a
+        <Link
           href="/contact?source=ATEA 2025"
-          className="  inline-flex items-center justify-center gap-2 bg-[#F47937] text-white text-base sm:text-lg font-semibold px-6 py-2 rounded-full hover:bg-[#f86521] transition"
+          className="  inline-flex items-center justify-center gap-2 bg-[#F47937] text-white text-base sm:text-lg font-medium px-6 py-2 rounded-full hover:bg-[#f86521] transition"
         >
           More Details
-          <ChevronRightCircle size={20} strokeWidth={1.5} color="#FFDAC6" />
-        </a>
+          <ChevronRightCircle size={20} strokeWidth={2} color="#FFDAC6" />
+        </Link>
       </div>
 
       {/* Panelists Section */}
@@ -93,8 +94,8 @@ const GrowAtlPopup = ({ onClose }: GrowAtlPopupProps) => {
         className="w-24 h-24 rounded-2xl object-cover mb-2"
       />
       <p className="font-semibold text-sm text-black">{panelist.name}</p>
-      <p className="text-xs font-medium text-[#666666]">{panelist.title}</p>
-      <p className="text-xs font-medium text-[#666666]">{panelist.company}</p>
+      <p className="text-sm font-medium text-[#666666]">{panelist.title}</p>
+      <p className="text-sm font-medium text-[#666666]">{panelist.company}</p>
     </div>
   ))}
 </div>

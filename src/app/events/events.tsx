@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Button from "@/components/Button";
 import { ChevronRightCircle } from "lucide-react";
+import { label } from "framer-motion/client";
 
 interface EventCardProps {
   logo?: string;
@@ -15,6 +16,7 @@ interface EventCardProps {
   autoOpen?: boolean;
   onToggle?: (open: boolean) => void;
   onOpen: () => void;
+  label?: string;
 }
 
 const EventCard: React.FC<EventCardProps> = ({
@@ -28,6 +30,7 @@ const EventCard: React.FC<EventCardProps> = ({
   autoOpen = false,
   onToggle,
   onOpen,
+  label,
 }) => {
   const [open, setOpen] = useState(false);
 
@@ -50,45 +53,53 @@ const EventCard: React.FC<EventCardProps> = ({
   return (
     <>
       {/* Main Event Card */}
-      <div className="flex flex-col md:flex-row items-center justify-between min-h-[300px] h-[350px] lg:h-[300px] p-6 md:p-10 gap-6 shadow-md bg-gradient-to-r from-[#F7E6DD] to-[#FFFFFF] ">
+      <div className="flex flex-col md:flex-col lg:flex-row items-center justify-center min-h-[300px] h-[350px] lg:h-[300px] p-6 md:p-10 gap-6 shadow-md bg-gradient-to-r from-[#F7E6DD] to-[#FFFFFF] ">
         {/* Logo + Info */}
-        <div className="flex flex-col md:flex-row items-center md:items-start md:justify-center gap-6 w-full">
-          {logo && (
-            <div className="flex-shrink-0">
-              <img
-                src={logo}
-                alt="event logo"
-                className="h-20 sm:h-24 md:h-28 object-contain"
-              />
-            </div>
-          )}
-          <div className="text-center md:text-left">
-            <Button className="bg-[#FFE0CF] text-black p-2 px-4 rounded-full font-medium text-xs sm:text-sm md:text-base">
-              The Innovation Spotlight
-            </Button>
-            <h2 className="text-xl sm:text-2xl md:text-[32px] font-bold text-[#000000] mt-2">
-              {title}
-            </h2>
-            <p className="text-[#F47937] text-lg sm:text-xl md:text-2xl font-semibold">
-              {date}
-              {time && `, ${time}`}
-            </p>
-            {location && (
-              <p className="text-[#212121] text-base sm:text-lg md:text-2xl font-semibold">
-                {location}
-              </p>
-            )}
-          </div>
-          <div className="lg:mt-12 lg:ml-30">
-            <button
-              onClick={onOpen}
-              className="flex rounded-full  gap-2 px-4 sm:px-6 py-2 bg-orange-500 hover:bg-orange-600 text-white font-medium text-sm sm:text-base"
-            >
-              {buttonText}
-            <ChevronRightCircle size={24} color="#FFDAC6" strokeWidth={1.5} />
-          </button>
-          </div>
-        </div>
+        <div className="flex flex-col md:flex-row items-center md:items-center  gap-6">
+  {/* Logo */}
+  {logo && (
+    <div className="flex justify-center ">
+      <img
+        src={logo}
+        alt="event logo"
+        className="h-16 sm:h-20 md:h-32 object-contain"
+      />
+    </div>
+  )}
+
+  {/* Info */}
+  <div className="text-center md:text-left flex-1">
+    {label && (
+      <span className="inline-block bg-[#FFE0CF] text-black px-4 py-1 rounded-full text-xs sm:text-sm font-medium mb-2">
+        {label}
+      </span>
+    )}
+    <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-black">
+      {title}
+    </h2>
+    <p className="text-[#F47937] text-base sm:text-lg md:text-2xl font-semibold">
+      {date}
+      {time && `, ${time}`}
+    </p>
+    {location && (
+      <p className="text-gray-800 text-sm sm:text-base md:text-2xl font-semibold">
+        {location}
+      </p>
+    )}
+  </div>
+
+  {/* Button */}
+  <div className="flex justify-center md:justify-end w-full md:w-auto lg:pl-16">
+    <button
+      onClick={onOpen}
+      className="flex items-center gap-2 px-5 py-2 bg-orange-500 hover:bg-orange-600 text-white rounded-full font-medium text-sm sm:text-base"
+    >
+      {buttonText}
+      <ChevronRightCircle size={22} strokeWidth={1.5} />
+    </button>
+  </div>
+</div>
+
       </div>
 
       {/* Modal */}

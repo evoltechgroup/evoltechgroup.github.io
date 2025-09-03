@@ -1,5 +1,6 @@
 "use client";
 import { useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
 interface ModalProps {
   open: boolean;
@@ -19,22 +20,39 @@ const Modal = ({ open, onClose, children }: ModalProps) => {
     };
   }, [open]);
 
-  if (!open) return null;
-
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60">
-      <div className="relative w-full max-w-3xl  rounded-2xl   max-h-[90vh]">
-        {/* <button
-          onClick={onClose}
-          className="absolute top-6 right-12 z-10 font-bold text-[#F47937] bg-[#FFFFFF] rounded-2xl px-3 py-2 hover:text-[#ef6b24] cursor-pointer"
+    <AnimatePresence>
+      {open && (
+        <motion.div
+          className="fixed inset-0 z-50 flex items-center justify-center  bg-black/90"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
         >
-          ✕
-        </button> */}
-        <div className="p-6">{children}</div>
-      </div>
-    </div>
+          {/* Overlay */}
+          <motion.div
+            className="absolute inset-0 "
+            onClick={onClose}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 0.5 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+          />
+
+          {/* Modal Content */}
+          <motion.div
+            className="relative w-full max-w-3xl rounded-2xl max-h-[90vh] "
+            initial={{ y: -300, opacity: 0, scale: 0.95 }}
+            animate={{ y: 0, opacity: 1, scale: 1 }}
+            exit={{ y: -300, opacity: 0, scale: 0.95 }}
+            transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+          >
+            <div className="p-6">{children}</div>
+          </motion.div>
+        </motion.div>
+      )}
+    </AnimatePresence>
   );
 };
 
 export default Modal;
- 

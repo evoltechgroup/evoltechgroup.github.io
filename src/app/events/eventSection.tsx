@@ -27,7 +27,7 @@ const EventSection = () => {
       time: "10am - 2:00pm",
       location: "Johns Creek, Georgia",
       buttonText: "Discover more",
-      details: "GrowATL brings leaders together..."
+      label: " Innovations, Insights and Impact",
     },
     {
       id: 2,
@@ -35,7 +35,7 @@ const EventSection = () => {
       title: "Join EvolTech at SIIA 2025",
       date: "October 12-14 | PHX",
       buttonText: "Discover more",
-      details: "EvolTech will showcase innovations..."
+      label: "The Innovation Spotlight",
     }
   ];
 
