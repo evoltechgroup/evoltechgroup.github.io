@@ -53,7 +53,7 @@ const EventSection = () => {
     <div className="relative w-full mx-auto">
       <Swiper
         modules={[Navigation, Autoplay]}
-        spaceBetween={30}
+        spaceBetween={0}
         slidesPerView={1}
         navigation
         autoplay={{ delay: 5000, disableOnInteraction: false }}
@@ -68,9 +68,10 @@ const EventSection = () => {
       </Swiper>
 
       <Modal open={!!activeEvent} onClose={handleClose}>
-        {activeEvent?.id === 1 && <GrowAtlPopup />} {/* no event prop */}
-        {activeEvent?.id === 2 && <SiiaPopup event={activeEvent} />}
-      </Modal>
+  {activeEvent?.id === 1 && <GrowAtlPopup onClose={handleClose} />}
+  {activeEvent?.id === 2 && <SiiaPopup event={activeEvent} onClose={handleClose} />}
+</Modal>
+
     </div>
   );
 };

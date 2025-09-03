@@ -184,3 +184,9 @@ body {
 .container-grid {
   @apply grid grid-cols-4 sm:grid-cols-8 lg:grid-cols-12 gap-x-6 max-w-[1280px] mx-auto px-4;
 }
+
+
+.swiper-button-prev,
+.swiper-button-next {
+  color: #F47937 !important;
+}

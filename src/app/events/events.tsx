@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Button from "@/components/Button";
+import { ChevronRightCircle } from "lucide-react";
 
 interface EventCardProps {
   logo?: string;
@@ -49,9 +50,9 @@ const EventCard: React.FC<EventCardProps> = ({
   return (
     <>
       {/* Main Event Card */}
-      <div className="flex flex-col md:flex-row items-center justify-between min-h-[300px] md:h-[300px] p-6 md:p-10 gap-6 shadow-md bg-gradient-to-r from-[#F7E6DD] to-[#FFFFFF] ">
+      <div className="flex flex-col md:flex-row items-center justify-between min-h-[300px] h-[350px] lg:h-[300px] p-6 md:p-10 gap-6 shadow-md bg-gradient-to-r from-[#F7E6DD] to-[#FFFFFF] ">
         {/* Logo + Info */}
-        <div className="flex flex-col md:flex-row items-center md:items-start gap-6 w-full">
+        <div className="flex flex-col md:flex-row items-center md:items-start md:justify-center gap-6 w-full">
           {logo && (
             <div className="flex-shrink-0">
               <img
@@ -78,16 +79,15 @@ const EventCard: React.FC<EventCardProps> = ({
               </p>
             )}
           </div>
-        </div>
-
-        {/* Button */}
-        <div className="mt-4 md:mt-0">
-          <button
-           onClick={onOpen}
-            className="rounded-full px-4 sm:px-6 py-2 bg-orange-500 hover:bg-orange-600 text-white font-medium text-sm sm:text-base"
-          >
-            {buttonText}
+          <div className="lg:mt-12 lg:ml-30">
+            <button
+              onClick={onOpen}
+              className="flex rounded-full  gap-2 px-4 sm:px-6 py-2 bg-orange-500 hover:bg-orange-600 text-white font-medium text-sm sm:text-base"
+            >
+              {buttonText}
+            <ChevronRightCircle size={24} color="#FFDAC6" strokeWidth={1.5} />
           </button>
+          </div>
         </div>
       </div>
 

@@ -23,13 +23,13 @@ const Modal = ({ open, onClose, children }: ModalProps) => {
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60">
-      <div className="relative w-full max-w-3xl bg-white rounded-2xl shadow-lg overflow-y-auto max-h-[90vh]">
-        <button
+      <div className="relative w-full max-w-3xl  rounded-2xl   max-h-[90vh]">
+        {/* <button
           onClick={onClose}
-          className="absolute top-4 right-4 z-10 bg-gray-200 rounded-full p-2 hover:bg-gray-300"
+          className="absolute top-6 right-12 z-10 font-bold text-[#F47937] bg-[#FFFFFF] rounded-2xl px-3 py-2 hover:text-[#ef6b24] cursor-pointer"
         >
           ✕
-        </button>
+        </button> */}
         <div className="p-6">{children}</div>
       </div>
     </div>
@@ -37,3 +37,4 @@ const Modal = ({ open, onClose, children }: ModalProps) => {
 };
 
 export default Modal;
+ 

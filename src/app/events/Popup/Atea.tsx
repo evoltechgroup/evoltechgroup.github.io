@@ -1,48 +1,106 @@
 import { growAtlPanelists } from "@/data/eventData";
 import Atea from "@/assets/images/Events/atea/Atea.png";
 import AteaBg from "@/assets/images/Events/atea/Atea-Bg.png";
-const GrowAtlPopup = () => {
+import { ChevronRightCircle } from "lucide-react";
+import Logo from "@/assets/logo/evoltech-black-logo.svg";
+
+interface GrowAtlPopupProps {
+  onClose: () => void; // 👈 Add this so parent can control closing
+}
+
+const GrowAtlPopup = ({ onClose }: GrowAtlPopupProps) => {
   const panelists = growAtlPanelists;
-
   return (
-    <div className="space-y-6 bg-white p-6 rounded-lg shadow-lg max-w-md mx-auto">
-      <img src={Atea.src} alt="GrowATL Event" className="h-16 mx-auto" />
+    <div className="bg-[#FFFFFF] max-w-2xl mx-auto rounded-lg shadow-lg overflow-hidden max-h-screen overflow-y-auto">
 
-      <div className="flex justify-center">
-        <img src={AteaBg.src} alt="GrowATL Logo" className="h-10" />
-      </div>
 
-      <h2 className="text-2xl font-bold text-center">GrowATL: The Future of Tech in Atlanta</h2>
-      <p className="text-center text-gray-600">September 15, 2025 • 6:00 PM – 9:00 PM</p>
-      <p className="text-center text-gray-500">Tech Square, Atlanta, GA</p>
-      <p className="text-lg text-gray-700 leading-relaxed">
-        Join industry leaders and innovators for an evening of insights, networking, and collaboration. Explore how Atlanta is shaping the future of technology and entrepreneurship.
-      </p>
+      
+      {/* Banner Section */}
+      <div className="relative h-48 sm:h-80 w-full flex flex-col justify-center items-center text-center text-white">
+        <button
+        onClick={onClose}
+        className="absolute top-0 right-0 z-20 font-bold text-[#F47937] bg-white rounded-full px-3 py-1 hover:text-[#ef6b24] shadow-md curser"
+      >
+        ✕
+      </button>
+        {/* Background */}
+        <div
+    className="absolute inset-0 bg-cover bg-center filter grayscale"
+    style={{ backgroundImage: `url(${AteaBg.src})`, backgroundSize: "140%", backgroundPosition: "25% 20%", }}
+  />
 
-      <div>
-        <h3 className="text-xl font-semibold mb-3">The Panelists</h3>
-        <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
-          {panelists.map((panelist, index) => (
-            <div key={index} className="text-center">
-              <img
-                src={panelist.image}
-                alt={panelist.name}
-                className="w-20 h-20 rounded-full mx-auto mb-2"
-              />
-              <p className="font-medium">{panelist.name}</p>
-              <p className="text-sm text-gray-500">{panelist.title}</p>
-            </div>
-          ))}
+        <div className="absolute inset-0 bg-black/10" />
+
+        {/* Overlay content */}
+        <div className="relative z-10 lg:-top-10 space-y-2">
+          <img src={Atea.src} alt="ATEA" className="h-24 mx-auto" />
+          <div className="flex items-center justify-center gap-2">
+            <img src={Logo.src} alt="Evoltech" className="h-6" />
+            <h2 className="text-xl sm:text-2xl text-black font-bold">at GrowATL 2025</h2>
+          </div>
+          <p className="text-sm sm:text-base font-semibold text-[#054D88]">
+            2025 September 06, 10:00AM - 02:00PM <br />
+            Sankranti Restaurant, John Creek, Georgia
+          </p>
         </div>
       </div>
 
-      <div className="text-center">
+      {/* Event Intro */}
+      <div className="p-6 text-center space-y-4">
+        <h2 className="text-xl sm:text-2xl font-bold text-gray-900">
+          Join us for GrowATL 2025,
+        </h2>
+        <p className="text-gray-700 text-base leading-relaxed">
+          the flagship entrepreneurship and innovation summit <br />
+          by ATEA Atlanta Chapter.
+        </p>
+
+        <div className="mt-4 space-y-2">
+          <p className="text-base font-medium text-gray-800">Under the theme</p>
+          <p className="text-lg font-semibold text-[#F47937]">
+            "ATL Ecosystem for Innovations, Insights and Impact",
+          </p>
+        </div>
+
+        <p className="text-gray-700 text-base leading-relaxed">
+          this event sets the stage for Basics, <br />
+          bold conversations, startup momentum, <br />
+          and a roadmap to the ATEA Atlanta Vision 2030.
+        </p>
+
+        {/* CTA Button */}
         <a
-          href="/contact?source=ATEA"
-          className="inline-block bg-blue-600 text-white px-4 py-2 rounded-full hover:bg-blue-700"
+          href="/contact?source=ATEA 2025"
+          className="  inline-flex items-center justify-center gap-2 bg-[#F47937] text-white text-base sm:text-lg font-semibold px-6 py-2 rounded-full hover:bg-[#f86521] transition"
         >
           More Details
+          <ChevronRightCircle size={20} strokeWidth={1.5} color="#FFDAC6" />
         </a>
+      </div>
+
+      {/* Panelists Section */}
+      <div className="px-10 pb-16">
+        <div className="flex items-center gap-2 mb-4">
+        <h3 className="text-lg sm:text-2xl text-black font-semibold ">The Panelists</h3>
+<div className="flex-1 h-px bg-[#DDDDDD]"></div>
+</div>
+    <div className="flex flex-wrap justify-center gap-8">
+  {panelists.map((panelist, index) => (
+    <div key={index} className="text-start w-36">
+      <img
+        src={panelist.image}
+        alt={panelist.name}
+        className="w-24 h-24 rounded-2xl object-cover mb-2"
+      />
+      <p className="font-semibold text-sm text-black">{panelist.name}</p>
+      <p className="text-xs font-medium text-[#666666]">{panelist.title}</p>
+      <p className="text-xs font-medium text-[#666666]">{panelist.company}</p>
+    </div>
+  ))}
+</div>
+
+
+
       </div>
     </div>
   );

@@ -17,8 +17,7 @@ const Form = () => {
   const [formSource, setFormSource] = useState("EvolTech");
   const [submitted, setSubmitted] = useState(false);
 
-
-   useEffect(() => {
+  useEffect(() => {
     const params = new URLSearchParams(window.location.search);
     const source = params.get("source");
     if (source) {
@@ -55,7 +54,7 @@ const Form = () => {
     } catch (error) {
       console.error("Email send error:", error);
       alert("Something went wrong. Please try again.");
-      setSubmitted(false); // allow retry
+      setSubmitted(false);
     }
   };
 
@@ -87,7 +86,7 @@ const Form = () => {
       .join(" ");
 
   return (
-    <div  className="w-full max-w-md p-6 perspective">
+    <div className="w-full max-w-md p-6 perspective">
       <AnimatePresence mode="wait">
         {!submitted ? (
           <motion.form
@@ -97,16 +96,16 @@ const Form = () => {
             initial="initial"
             animate="animate"
             exit="exit"
-            className="space-y-4 backface-hidden">
-              <h2 className="text-lg font-semibold text-blue-700">
-              Message from {formSource}
-            </h2>
+            className="space-y-4 backface-hidden"
+          >
+        
 
             {["name", "email", "company", "message"].map((field) => (
               <div key={field} className="flex flex-col">
                 <label
                   htmlFor={field}
-                  className="mb-1 font-medium text-gray-700 capitalize">
+                  className="mb-1 font-medium text-gray-700 capitalize"
+                >
                   {field}
                 </label>
                 {field === "message" ? (
@@ -149,7 +148,8 @@ const Form = () => {
             initial="initial"
             animate="animate"
             exit="exit"
-            className="bg-transparent flex flex-col items-center -mt-10 justify-center p-6 pt-0 rounded-lg text-center space-y-2 backface-hidden">
+            className="bg-transparent flex flex-col items-center -mt-10 justify-center p-6 pt-0 rounded-lg text-center space-y-2 backface-hidden"
+          >
             <div>{mailIcon}</div>
             <h2 className="text-3xl font-bold text-black">
               Thank you, {capitalizeName(formData.name)}!
@@ -160,7 +160,8 @@ const Form = () => {
             </p>
             <Button
               onClick={() => setSubmitted(false)}
-              className="w-fit gap-2 items-center cursor-pointer justify-center sm:justify-start pr-2 pl-6 py-2 flex bg-[#FFBB00] rounded-full text-sm">
+              className="w-fit gap-2 items-center cursor-pointer justify-center sm:justify-start pr-2 pl-6 py-2 flex bg-[#FFBB00] rounded-full text-sm"
+            >
               <span className="font-semibold text-center">Resubmit</span>
               <span>
                 <CircleChevronRight size={18} />
