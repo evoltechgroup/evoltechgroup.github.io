@@ -5,6 +5,7 @@ import Button from "@/components/Button";
 import { motion, AnimatePresence } from "framer-motion";
 import { CircleChevronRight, RotateCcw } from "lucide-react";
 import emailjs from "emailjs-com";
+import { source } from "framer-motion/client";
 
 const Form = () => {
   const [formData, setFormData] = useState({
@@ -12,6 +13,7 @@ const Form = () => {
     email: "",
     company: "",
     message: "",
+    source: "",
   });
 
   const [formSource, setFormSource] = useState("EvolTech");
@@ -24,6 +26,8 @@ const Form = () => {
       setFormSource(source);
     }
   }, []);
+
+  console.log({ source });
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -98,8 +102,6 @@ const Form = () => {
             exit="exit"
             className="space-y-4 backface-hidden"
           >
-        
-
             {["name", "email", "company", "message"].map((field) => (
               <div key={field} className="flex flex-col">
                 <label

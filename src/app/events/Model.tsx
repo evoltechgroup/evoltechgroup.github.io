@@ -11,7 +11,7 @@ interface ModalProps {
 const Modal = ({ open, onClose, children }: ModalProps) => {
   useEffect(() => {
     if (open) {
-      document.body.style.overflow = "hidden"; // lock scroll
+      document.body.style.overflow = "hidden"; 
     } else {
       document.body.style.overflow = "auto";
     }
@@ -29,7 +29,7 @@ const Modal = ({ open, onClose, children }: ModalProps) => {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
         >
-          {/* Overlay */}
+          
           <motion.div
             className="absolute inset-0 "
             onClick={onClose}
@@ -39,7 +39,7 @@ const Modal = ({ open, onClose, children }: ModalProps) => {
             transition={{ duration: 0.3 }}
           />
 
-          {/* Modal Content */}
+         
           <motion.div
             className="relative w-full max-w-3xl rounded-2xl max-h-[90vh] "
             initial={{ y: -300, opacity: 0, scale: 0.95 }}

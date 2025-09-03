@@ -6,7 +6,7 @@ import Logo from "@/assets/logo/evoltech-black-logo.svg";
 import Link from "next/link";
 
 interface GrowAtlPopupProps {
-  onClose: () => void; // 👈 Add this so parent can control closing
+  onClose: () => void; 
 }
 
 const GrowAtlPopup = ({ onClose }: GrowAtlPopupProps) => {
@@ -16,15 +16,16 @@ const GrowAtlPopup = ({ onClose }: GrowAtlPopupProps) => {
 
 
       
-      {/* Banner Section */}
+     
       <div className="relative h-48 sm:h-80 w-full flex flex-col justify-center items-center text-center text-white">
+        
         <button
-        onClick={onClose}
-        className="absolute top-0 right-0 z-20 font-bold text-[#F47937] bg-white rounded-full px-3 py-1 hover:text-[#ef6b24] shadow-md curser"
-      >
-        ✕
-      </button>
-        {/* Background */}
+    onClick={onClose}
+    className="absolute top-0 right-0 z-50 font-bold text-[#F47937] bg-white rounded-full px-3 py-1 hover:text-[#ef6b24] shadow-md"
+  >
+    ✕
+  </button>
+     
         <div
     className="absolute inset-0 bg-cover bg-center filter grayscale"
     style={{ backgroundImage: `url(${AteaBg.src})`, backgroundSize: "140%", backgroundPosition: "25% 20%", }}
@@ -32,7 +33,7 @@ const GrowAtlPopup = ({ onClose }: GrowAtlPopupProps) => {
 
         <div className="absolute inset-0 bg-black/10" />
 
-        {/* Overlay content */}
+      
         <div className="relative z-10 lg:-top-10 space-y-2">
           <img src={Atea.src} alt="ATEA" className="h-24 mx-auto" />
           <div className="flex items-center justify-center gap-2 mb-4">
@@ -46,7 +47,7 @@ const GrowAtlPopup = ({ onClose }: GrowAtlPopupProps) => {
         </div>
       </div>
 
-      {/* Event Intro */}
+     
       <div className="p-6 text-center space-y-4">
         <h2 className="text-xl sm:text-2xl font-semibold text-gray-900">
           Join us for GrowATL 2025,
@@ -69,9 +70,9 @@ const GrowAtlPopup = ({ onClose }: GrowAtlPopupProps) => {
           and a roadmap to the ATEA Atlanta Vision 2030.
         </p>
 
-        {/* CTA Button */}
+        
         <Link
-          href="/contact?source=ATEA 2025"
+          href="/contact?source=ATEA2025#contact-form"
           className="  inline-flex items-center justify-center gap-2 bg-[#F47937] text-white text-base sm:text-lg font-medium px-6 py-2 rounded-full hover:bg-[#f86521] transition"
         >
           More Details
@@ -79,7 +80,7 @@ const GrowAtlPopup = ({ onClose }: GrowAtlPopupProps) => {
         </Link>
       </div>
 
-      {/* Panelists Section */}
+      
       <div className="px-10 pb-16">
         <div className="flex items-center gap-2 mb-4">
         <h3 className="text-lg sm:text-2xl text-black font-semibold ">The Panelists</h3>

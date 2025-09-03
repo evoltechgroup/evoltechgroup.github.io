@@ -41,12 +41,12 @@ const EventSection = () => {
 
   const handleOpen = (event: any) => {
     setActiveEvent(event);
-    swiperRef.current?.autoplay?.stop(); // stop slide
+    swiperRef.current?.autoplay?.stop(); 
   };
 
   const handleClose = () => {
     setActiveEvent(null);
-    swiperRef.current?.autoplay?.start(); // resume slide
+    swiperRef.current?.autoplay?.start(); 
   };
 
   return (

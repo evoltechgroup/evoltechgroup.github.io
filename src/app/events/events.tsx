@@ -52,11 +52,11 @@ const EventCard: React.FC<EventCardProps> = ({
 
   return (
     <>
-      {/* Main Event Card */}
+
       <div className="flex flex-col md:flex-col lg:flex-row items-center justify-center min-h-[300px] h-[350px] lg:h-[300px] p-6 md:p-10 gap-6 shadow-md bg-gradient-to-r from-[#F7E6DD] to-[#FFFFFF] ">
-        {/* Logo + Info */}
-        <div className="flex flex-col md:flex-row items-center md:items-center  gap-6">
-  {/* Logo */}
+       
+        <div className="flex flex-col md:flex-row items-center md:items-center  gap-6 ">
+
   {logo && (
     <div className="flex justify-center ">
       <img
@@ -67,7 +67,7 @@ const EventCard: React.FC<EventCardProps> = ({
     </div>
   )}
 
-  {/* Info */}
+
   <div className="text-center md:text-left flex-1">
     {label && (
       <span className="inline-block bg-[#FFE0CF] text-black px-4 py-1 rounded-full text-xs sm:text-sm font-medium mb-2">
@@ -88,7 +88,7 @@ const EventCard: React.FC<EventCardProps> = ({
     )}
   </div>
 
-  {/* Button */}
+  
   <div className="flex justify-center md:justify-end w-full md:w-auto lg:pl-16">
     <button
       onClick={onOpen}
@@ -102,7 +102,7 @@ const EventCard: React.FC<EventCardProps> = ({
 
       </div>
 
-      {/* Modal */}
+ 
       <AnimatePresence>
         {open && (
           <motion.div
@@ -111,13 +111,13 @@ const EventCard: React.FC<EventCardProps> = ({
             exit={{ opacity: 0 }}
             className="fixed inset-0 flex items-center justify-center z-50"
           >
-            {/* Overlay */}
+           
             <div
               className="absolute inset-0 bg-black/50"
               onClick={() => setOpen(false)}
             />
 
-            {/* Modal Content */}
+           
             <motion.div
               initial={{ y: -100, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
@@ -125,7 +125,7 @@ const EventCard: React.FC<EventCardProps> = ({
               transition={{ duration: 0.4, ease: "easeOut" }}
               className="relative bg-white rounded-2xl shadow-xl w-[90%] max-w-lg max-h-[80vh] overflow-y-auto p-6 z-10"
             >
-              {/* Close button */}
+            
               <button
                 onClick={() => setOpen(false)}
                 className="absolute top-2 right-2 text-gray-500 hover:text-gray-700 text-xl"
@@ -133,7 +133,7 @@ const EventCard: React.FC<EventCardProps> = ({
                 ✕
               </button>
 
-              {/* Event Info */}
+              
               <div className="flex items-center gap-4 mb-4">
                 {logo && <img src={logo} alt="event logo" className="h-12 sm:h-16" />}
                 <h3 className="text-lg sm:text-xl md:text-2xl font-semibold">{title}</h3>
