@@ -26,7 +26,7 @@ const Section3 = () => {
             subHeaderText="Contact us to explore how our solutions can drive your success."
             subHeaderTextColor="text-black"
             headerTextSize="text-6xl"
-            className="pt-10 pb-10 md:pt-20 md:pb-15"
+            className="pt-10 pb-10 md:pt-20 md:pb-10"
             arrowSrc={followArrow}
             arrowColor="#FFBB00"
             arrowAlt="Expert Arrow"

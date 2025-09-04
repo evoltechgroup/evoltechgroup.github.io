@@ -1,4 +1,6 @@
-import React from "react";
+"use client";
+
+import React,{useState, useEffect} from "react";
 import Section2 from "./Contents/Section2";
 import Section4 from "./Contents/Section4";
 import Section3 from "./Contents/Section3";
@@ -8,8 +10,21 @@ import LetsGrow from "@/app/services/components/LetsGrow";
 import Testimonials from "@/app/ui/Testimonials";
 import VisiontoVictory from "./Contents/visiontoVictory";
 import Mastering from "./Contents/mastering";
+import Modal from "@/app/events/Model";
+import GrowAtlPopup from "@/app/events/Popup/Atea";
+
+
 
 const Technology = () => {
+
+  const [open, setOpen] = useState(false);
+
+  useEffect(() => {
+setOpen(true);
+  }, []);
+
+  const handleClose = () => setOpen(false);
+
   return (
     <main className="h-full w-full overflow-hidden">
       <BgSection />
@@ -28,6 +43,9 @@ const Technology = () => {
         }
       />
       <Testimonials type="technology" />
+      <Modal open={open} onClose={handleClose}>
+        <GrowAtlPopup onClose={handleClose} />
+      </Modal>
     </main>
   );
 };
