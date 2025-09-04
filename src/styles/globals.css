@@ -188,13 +188,13 @@ body {
 
 .swiper-button-prev,
 .swiper-button-next {
-  color: #F47937 !important; /* arrow color */
+  color: #F47937 !important; 
 }
 
 .swiper-button-prev {
-  left: 2.5rem !important; /* moves left arrow inward */
+  left: 2.5rem !important; 
 }
 
 .swiper-button-next {
-  right: 2.5rem !important; /* moves right arrow inward */
+  right: 2.5rem !important;
 }

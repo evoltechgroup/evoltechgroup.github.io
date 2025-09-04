@@ -1,5 +1,5 @@
 import InnovBg from "@/assets/images/Events/siia/SiiaBg.png";
-import Logo from "@/assets/logo/evoltech-black-logo.svg"; // 👈 your logo file
+import Logo from "@/assets/logo/evoltech-black-logo.svg";
 import { ChevronRightCircle } from "lucide-react";
 import { siiaFeatures } from "@/data/eventData";
 import Link from "next/link";

@@ -46,7 +46,7 @@ const GrowAtlPopup = ({ onClose }: GrowAtlPopupProps) => {
         </div>
       </div>
 
-     {/* <div className=" relative z-10 flex-1 overflow-y-auto px-6 py-4 max-h-[55vh]"> */}
+    
       <div className="p-4 text-center space-y-2">
         <h2 className="text-xl sm:text-2xl font-semibold text-gray-900">
           Join us for GrowATL 2025,
@@ -105,7 +105,7 @@ const GrowAtlPopup = ({ onClose }: GrowAtlPopupProps) => {
 
       </div>
     </div>
-    // </div>
+    
   );
 };
 
