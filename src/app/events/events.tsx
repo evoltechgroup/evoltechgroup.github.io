@@ -62,7 +62,7 @@ const EventCard: React.FC<EventCardProps> = ({
       <img
         src={logo}
         alt="event logo"
-        className="h-16 sm:h-20 md:h-32 object-contain"
+        className="h-16 sm:h-20 md:h-32 object-contain rounded-2xl"
       />
     </div>
   )}
@@ -135,7 +135,7 @@ const EventCard: React.FC<EventCardProps> = ({
 
               
               <div className="flex items-center gap-4 mb-4">
-                {logo && <img src={logo} alt="event logo" className="h-12 sm:h-16" />}
+                {logo && <img src={logo} alt="event logo" className="h-12 sm:h-16 " />}
                 <h3 className="text-lg sm:text-xl md:text-2xl font-semibold">{title}</h3>
               </div>
 
