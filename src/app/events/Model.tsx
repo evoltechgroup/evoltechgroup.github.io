@@ -47,7 +47,7 @@ const Modal = ({ open, onClose, children }: ModalProps) => {
             exit={{ y: -300, opacity: 0, scale: 0.95 }}
             transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
           >
-            <div className="p-6">{children}</div>
+            <div className="p-1">{children}</div>
           </motion.div>
         </motion.div>
       )}

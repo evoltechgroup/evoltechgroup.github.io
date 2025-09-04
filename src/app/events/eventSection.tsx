@@ -27,7 +27,7 @@ const EventSection = () => {
       time: "10am - 2:00pm",
       location: "Johns Creek, Georgia",
       buttonText: "Discover more",
-      label: " Innovations, Insights and Impact",
+      label: " Innovations, Insights and Impact",
     },
     {
       id: 2,
@@ -36,17 +36,17 @@ const EventSection = () => {
       date: "October 12-14 | PHX",
       buttonText: "Discover more",
       label: "The Innovation Spotlight",
-    }
+    },
   ];
 
   const handleOpen = (event: any) => {
     setActiveEvent(event);
-    swiperRef.current?.autoplay?.stop(); 
+    swiperRef.current?.autoplay?.stop();
   };
 
   const handleClose = () => {
     setActiveEvent(null);
-    swiperRef.current?.autoplay?.start(); 
+    swiperRef.current?.autoplay?.start();
   };
 
   return (
@@ -55,7 +55,10 @@ const EventSection = () => {
         modules={[Navigation, Autoplay]}
         spaceBetween={0}
         slidesPerView={1}
-        navigation
+        navigation={{
+          prevEl: ".custom-prev",
+          nextEl: ".custom-next",
+        }}
         autoplay={{ delay: 5000, disableOnInteraction: false }}
         loop={true}
         onSwiper={(swiper) => (swiperRef.current = swiper)}
@@ -65,13 +68,16 @@ const EventSection = () => {
             <EventCard {...event} onOpen={() => handleOpen(event)} />
           </SwiperSlide>
         ))}
+
+        {/* Custom navigation arrows */}
+        <div className="custom-prev swiper-button-prev !text-[#F47937] !left-4 lg:!left-10 "></div>
+        <div className="custom-next swiper-button-next !text-[#F47937] !right-4 lg:!right-10 "></div>
       </Swiper>
 
       <Modal open={!!activeEvent} onClose={handleClose}>
-  {activeEvent?.id === 1 && <GrowAtlPopup onClose={handleClose} />}
-  {activeEvent?.id === 2 && <SiiaPopup event={activeEvent} onClose={handleClose} />}
-</Modal>
-
+        {activeEvent?.id === 1 && <GrowAtlPopup onClose={handleClose} />}
+        {activeEvent?.id === 2 && <SiiaPopup event={activeEvent} onClose={handleClose} />}
+      </Modal>
     </div>
   );
 };

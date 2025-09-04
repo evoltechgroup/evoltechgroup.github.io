@@ -92,7 +92,7 @@ const EventCard: React.FC<EventCardProps> = ({
   <div className="flex justify-center md:justify-end w-full md:w-auto lg:pl-16">
     <button
       onClick={onOpen}
-      className="flex items-center gap-2 px-5 py-2 bg-orange-500 hover:bg-orange-600 text-white rounded-full font-medium text-sm sm:text-base"
+      className="flex items-center gap-2 px-5 py-2 bg-orange-500 hover:bg-orange-600 text-white rounded-full font-medium text-sm sm:text-base cursor-pointer"
     >
       {buttonText}
       <ChevronRightCircle size={22} strokeWidth={1.5} />
