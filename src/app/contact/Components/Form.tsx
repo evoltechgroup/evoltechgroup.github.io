@@ -27,7 +27,7 @@ const Form = () => {
     }
   }, []);
 
-  console.log({ source });
+ 
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -56,7 +56,6 @@ const Form = () => {
       );
       setSubmitted(true);
     } catch (error) {
-      console.error("Email send error:", error);
       alert("Something went wrong. Please try again.");
       setSubmitted(false);
     }
@@ -160,15 +159,15 @@ const Form = () => {
               Your message sent successfully. <br />
               We’ll get back to you soon!
             </p>
-            <Button
-              onClick={() => setSubmitted(false)}
+            <a
+              href="/"
               className="w-fit gap-2 items-center cursor-pointer justify-center sm:justify-start pr-2 pl-6 py-2 flex bg-[#FFBB00] rounded-full text-sm"
             >
-              <span className="font-semibold text-center">Resubmit</span>
+              <span className="font-semibold text-center">Continue exploring....</span>
               <span>
                 <CircleChevronRight size={18} />
               </span>
-            </Button>
+            </a>
           </motion.div>
         )}
       </AnimatePresence>
