@@ -3,7 +3,7 @@ import Ramesh from "@/assets/images/Events/atea/Ramesh.png";
 import Kanchana from "@/assets/images/Events/atea/Kanchana.png";
 import Nazeera from "@/assets/images/Events/atea/Nazeera.png";
 import  Thulasi  from "@/assets/images/Events/atea/Thulasi.png";
-import Smily from "@/assets/images/Events/siia/smily.svg";
+import Smily from "@/assets/images/Events/siia/Smily.svg";
 import Transform from "@/assets/images/Events/siia/Transform.svg";
 import CutCosts from "@/assets/images/Events/siia/CutCost.svg";
 import BuildSmart from "@/assets/images/Events/siia/BuildSmarter.svg";
