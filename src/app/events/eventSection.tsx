@@ -4,7 +4,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
-
+import { useRouter } from "next/navigation";
 import EventCard from "./events";
 import Modal from "./Model";
 import GrowAtlPopup from "./Popup/Atea";
@@ -17,12 +17,13 @@ import { useState, useRef } from "react";
 const EventSection = () => {
   const [activeEvent, setActiveEvent] = useState<any>(null);
   const swiperRef = useRef<any>(null);
+  const router = useRouter();
 
   const events = [
     {
       id: 1,
       logo: Atea.src,
-      title: "Join EvolTech at GrowATL 2025",
+      title: "EvolTech at GrowATL 2025",
       date: "September 06",
       time: "10am - 2:00pm",
       location: "Johns Creek, Georgia",
@@ -40,6 +41,10 @@ const EventSection = () => {
   ];
 
   const handleOpen = (event: any) => {
+     if (event.id === 1) {
+       router.push("/contact?source=ATEA2025#contact-form");
+       return;
+     }
     setActiveEvent(event);
     swiperRef.current?.autoplay?.stop();
   };
@@ -75,7 +80,7 @@ const EventSection = () => {
       </Swiper>
 
       <Modal open={!!activeEvent} onClose={handleClose}>
-        {activeEvent?.id === 1 && <GrowAtlPopup onClose={handleClose} />}
+        {/* {activeEvent?.id === 1 && <GrowAtlPopup onClose={handleClose} />} */}
         {activeEvent?.id === 2 && <SiiaPopup event={activeEvent} onClose={handleClose} />}
       </Modal>
     </div>

@@ -20,7 +20,7 @@ const GrowAtlPopup = ({ onClose }: GrowAtlPopupProps) => {
         
         <button
     onClick={onClose}
-    className="absolute top-0 right-0 z-50 font-bold text-[#F47937] bg-white rounded-2xl p-4 py-2 hover:text-[#ef6b24] shadow-md cursor-pointer"
+    className="absolute top-0 right-0 z-50 font-bold text-[#F47937] bg-white rounded-2xl px-3.5 py-2 hover:text-[#ef6b24] shadow-md cursor-pointer"
   >
     ✕
   </button>

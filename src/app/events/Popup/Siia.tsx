@@ -19,7 +19,7 @@ const SiiaPopup = ({ event, onClose }: SiiaPopupProps) => {
       <div className="bg-white rounded-2xl shadow-lg max-w-2xl w-full mx-4 overflow-hidden relative">
         <button
           onClick={onClose}
-          className="absolute top-0 right-0 z-10 font-bold text-[#F47937] bg-white rounded-2xl  p-4 py-2 hover:text-[#ef6b24] shadow-md cursor-pointer"
+          className="absolute top-0 right-0 z-10 font-bold text-[#F47937] bg-white rounded-2xl  px-3.5 py-2 hover:text-[#ef6b24] shadow-md cursor-pointer"
         >
           ✕
         </button>
@@ -28,7 +28,7 @@ const SiiaPopup = ({ event, onClose }: SiiaPopupProps) => {
           <img
             src={InnovBg.src}
             alt="INNOV8"
-            className="w-full object-cover rounded-2xl"
+            className="w-full object-cover rounded-[12px]"
           />
         </div>
 
