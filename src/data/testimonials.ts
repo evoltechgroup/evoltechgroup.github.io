@@ -25,8 +25,13 @@ export const testimonials = {
   ],
   consulting: [
     {
-      text: `I just wanted to SAY THANK YOU!!! Your team is AWESOME!!!`,
+      text: `EvolTech brought my dream to life with the website. I had a vision for Get Redd Consulting, and they captured it better than I imagined. They were always there to answer, quick to make changes, and so easy to work with. The end result is beautiful and feels like ‘me’. I’m so grateful to them for making this possible and truly trust them with any project!`,
       author: "Founder & CEO - Get Redd Consulting",
+      company: "Consulting Firm",
+    },
+    {
+      text: `Working with the EvolTech team was such a great experience. They made everything so easy and were always quick to reply, quick to update, and just really understood what we wanted. The site looks amazing and professional, and the whole process felt smooth from start to finish. I can’t thank them enough. I truly recommend for anyone who is looking for not only an amazing site, but amazing team, to contact them!`,
+      author: "Megan Manteiga, Get Redd Consulting",
       company: "Consulting Firm",
     },
   ],

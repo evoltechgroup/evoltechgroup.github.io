@@ -22,7 +22,7 @@ const EventSection = () => {
     {
       id: 1,
       logo: Atea.src,
-      title: "Join EvolTech at GrowATL 2025",
+      title: "EvolTech at GrowATL 2025",
       date: "September 06",
       time: "10am - 2:00pm",
       location: "Johns Creek, Georgia",
@@ -40,6 +40,10 @@ const EventSection = () => {
   ];
 
   const handleOpen = (event: any) => {
+     if (event.id === 1) {
+       window.location.href = "/contact?source=ATEA2025#contact-form"; //remove this line to enable popup
+       return;
+     }
     setActiveEvent(event);
     swiperRef.current?.autoplay?.stop();
   };
@@ -75,7 +79,7 @@ const EventSection = () => {
       </Swiper>
 
       <Modal open={!!activeEvent} onClose={handleClose}>
-        {activeEvent?.id === 1 && <GrowAtlPopup onClose={handleClose} />}
+        {/* {activeEvent?.id === 1 && <GrowAtlPopup onClose={handleClose} />} */}
         {activeEvent?.id === 2 && <SiiaPopup event={activeEvent} onClose={handleClose} />}
       </Modal>
     </div>

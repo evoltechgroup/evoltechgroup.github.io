@@ -6,8 +6,10 @@ import { motion, AnimatePresence } from "framer-motion";
 import { CircleChevronRight, RotateCcw } from "lucide-react";
 import emailjs from "emailjs-com";
 import { source } from "framer-motion/client";
+import { useRouter } from "next/navigation";
 
 const Form = () => {
+  const router = useRouter();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -159,15 +161,15 @@ const Form = () => {
               Your message sent successfully. <br />
               We’ll get back to you soon!
             </p>
-            <a
-              href="/"
+            <button
+              onClick={() => router.push("/")}
               className="w-fit gap-2 items-center cursor-pointer justify-center sm:justify-start pr-2 pl-6 py-2 flex bg-[#FFBB00] rounded-full text-sm"
             >
               <span className="font-semibold text-center">Continue exploring....</span>
               <span>
                 <CircleChevronRight size={18} />
               </span>
-            </a>
+            </button>
           </motion.div>
         )}
       </AnimatePresence>
