@@ -4,7 +4,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
-
+import { useRouter } from "next/navigation";
 import EventCard from "./events";
 import Modal from "./Model";
 import GrowAtlPopup from "./Popup/Atea";
@@ -17,6 +17,7 @@ import { useState, useRef } from "react";
 const EventSection = () => {
   const [activeEvent, setActiveEvent] = useState<any>(null);
   const swiperRef = useRef<any>(null);
+  const router = useRouter();
 
   const events = [
     {
@@ -41,7 +42,7 @@ const EventSection = () => {
 
   const handleOpen = (event: any) => {
      if (event.id === 1) {
-       window.location.href = "/contact?source=ATEA2025#contact-form"; //remove this line to enable popup
+       router.push("/contact?source=ATEA2025#contact-form");
        return;
      }
     setActiveEvent(event);
