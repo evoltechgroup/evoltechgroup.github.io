@@ -16,15 +16,6 @@ import GrowAtlPopup from "@/app/events/Popup/Atea";
 
 
 const Technology = () => {
-
-  const [open, setOpen] = useState(false);
-
-  useEffect(() => {
-setOpen(true);
-  }, []);
-
-  const handleClose = () => setOpen(false);
-
   return (
     <main className="h-full w-full overflow-hidden">
       <BgSection />
@@ -43,9 +34,6 @@ setOpen(true);
         }
       />
       <Testimonials type="technology" />
-      <Modal open={open} onClose={handleClose}>
-        <GrowAtlPopup onClose={handleClose} />
-      </Modal>
     </main>
   );
 };
