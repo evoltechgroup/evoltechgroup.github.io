@@ -1,6 +1,4 @@
 "use client";
-import type { Metadata } from "next";
-import { absoluteUrl, SITE_NAME } from "../seo.config";
 import Section1 from "./Content/Section1";
 import Section2 from "./Content/Section2";
 import Section3 from "./Content/Section3";
@@ -24,16 +22,3 @@ export default function Contact() {
     </main>
   );
 }
-
-export const metadata: Metadata = {
-  title: "Contact",
-  description:
-    "Contact EvolTech for consulting, technology, and back office solutions.",
-  alternates: {
-    canonical: absoluteUrl("/contact"),
-  },
-  openGraph: {
-    title: `Contact | ${SITE_NAME}`,
-    url: absoluteUrl("/contact"),
-  },
-};
