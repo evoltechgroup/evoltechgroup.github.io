@@ -4,6 +4,8 @@ import Testimonials from "@/app/ui/Testimonials";
 import Section1 from "./Contents/Section1";
 import LetsGrow from "@/app/services/components/LetsGrow";
 import WhyEvoltech from "./Contents/WhyEvoltech";
+import type { Metadata } from "next";
+import { absoluteUrl, SITE_NAME } from "@/app/seo.config";
 // import EventCard from "@/app/events/events";
 // import Innov from "@/assets/images/Events/Innov.png";
 const Consulting = () => {
@@ -27,3 +29,16 @@ const Consulting = () => {
 };
 
 export default Consulting;
+
+export const metadata: Metadata = {
+  title: "Consulting Services",
+  description:
+    "Strategic consulting to drive innovation, efficiency, and lasting growth.",
+  alternates: {
+    canonical: absoluteUrl("/services/consulting"),
+  },
+  openGraph: {
+    title: `Consulting Services | ${SITE_NAME}`,
+    url: absoluteUrl("/services/consulting"),
+  },
+};

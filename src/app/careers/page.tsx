@@ -1,3 +1,5 @@
+import type { Metadata } from "next";
+import { absoluteUrl, SITE_NAME } from "../seo.config";
 import Section1 from "./Contents/Section1";
 import Section2 from "./Contents/Section2";
 import Section3 from "./Contents/Section3";
@@ -13,3 +15,16 @@ export default function Careers() {
     </main>
   );
 }
+
+export const metadata: Metadata = {
+  title: "Careers",
+  description:
+    "Join EvolTech to build AI, cloud, and full‑stack products with impact.",
+  alternates: {
+    canonical: absoluteUrl("/careers"),
+  },
+  openGraph: {
+    title: `Careers | ${SITE_NAME}`,
+    url: absoluteUrl("/careers"),
+  },
+};

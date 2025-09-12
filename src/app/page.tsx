@@ -1,4 +1,6 @@
 "use client";
+import type { Metadata } from "next";
+import { absoluteUrl, SITE_NAME } from "./seo.config";
 import ServicesSection from "../components/services/ServicesSection";
 import Clients from "./about/Contents/Clients";
 import JoinOurTeam from "./about/components/JoinOurTeam";
@@ -18,3 +20,16 @@ export default function HomePage() {
     </main>
   );
 }
+
+export const metadata: Metadata = {
+  title: "Home",
+  description:
+    "EvolTech builds AI, cloud and full‑stack solutions to turn visionary ideas into reality.",
+  alternates: {
+    canonical: absoluteUrl("/"),
+  },
+  openGraph: {
+    title: `Home | ${SITE_NAME}`,
+    url: absoluteUrl("/"),
+  },
+};

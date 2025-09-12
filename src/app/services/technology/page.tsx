@@ -1,6 +1,6 @@
-"use client";
++"use client";
 
-import React,{useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import Section2 from "./Contents/Section2";
 import Section4 from "./Contents/Section4";
 import Section3 from "./Contents/Section3";
@@ -12,8 +12,8 @@ import VisiontoVictory from "./Contents/visiontoVictory";
 import Mastering from "./Contents/mastering";
 import Modal from "@/app/events/Model";
 import GrowAtlPopup from "@/app/events/Popup/Atea";
-
-
+import type { Metadata } from "next";
+import { absoluteUrl, SITE_NAME } from "@/app/seo.config";
 
 const Technology = () => {
   return (
@@ -39,3 +39,16 @@ const Technology = () => {
 };
 
 export default Technology;
+
+export const metadata: Metadata = {
+  title: "Technology Services",
+  description:
+    "AI, cloud, and full‑stack engineering to ship reliable, modern products.",
+  alternates: {
+    canonical: absoluteUrl("/services/technology"),
+  },
+  openGraph: {
+    title: `Technology Services | ${SITE_NAME}`,
+    url: absoluteUrl("/services/technology"),
+  },
+};

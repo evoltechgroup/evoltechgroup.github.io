@@ -6,11 +6,19 @@ import JoinOurTeam from "./components/JoinOurTeam";
 import Founder from "./Contents/Founder";
 import Clients from "./Contents/Clients";
 import { Metadata } from "next";
+import { absoluteUrl, SITE_NAME } from "../seo.config";
 
 export const metadata: Metadata = {
   title: "About",
   description:
     "We turn bold ideas into reality with AI, cloud, and full-stack solutions. With 25+ years of leadership and a global team 55% women, we drive innovation across finance, retail, insurance, and healthcare from the US and India.",
+  alternates: {
+    canonical: absoluteUrl("/about"),
+  },
+  openGraph: {
+    title: `About | ${SITE_NAME}`,
+    url: absoluteUrl("/about"),
+  },
 };
 
 export default function About() {
