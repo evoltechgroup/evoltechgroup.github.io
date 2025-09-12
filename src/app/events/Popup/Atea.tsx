@@ -94,7 +94,7 @@ const GrowAtlPopup = ({ onClose }: GrowAtlPopupProps) => {
         alt={panelist.name}
         className="w-24 h-24 rounded-2xl object-cover mb-2"
       />
-      <p className="font-semibold text-sm text-black">{panelist.name}</p>
+      <p className="font-semibold text-sm text-blackl">{panelist.name}</p>
       <p className="text-sm font-medium text-[#666666]">{panelist.title}</p>
       <p className="text-sm font-medium text-[#666666]">{panelist.company}</p>
     </div>

@@ -23,7 +23,7 @@ const ImageTextBlock: React.FC<ImageTextBlockProps> = ({
 }) => {
   return (
     <motion.div
-      className="flex flex-col w-full"
+      className="flex flex-col w-full overflow-visible"
       initial={{ opacity: 0, y: 60 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-100px" }}
@@ -34,7 +34,7 @@ const ImageTextBlock: React.FC<ImageTextBlockProps> = ({
       }}>
       <div className="grid grid-cols-4 sm:grid-cols-8 lg:grid-cols-12 xl:grid-cols-12 grid-rows-1 gap-4 max-w-7xl mx-auto px-4 lg:px-0">
         <motion.div
-          className="col-span-4 lg:col-start-2"
+          className="col-span-4 lg:col-start-2 overflow-visible"
           initial={{ opacity: 0, x: -50, scale: 0.9 }}
           whileInView={{ opacity: 1, x: 0, scale: 1 }}
           viewport={{ once: true, margin: "-50px" }}
@@ -49,10 +49,8 @@ const ImageTextBlock: React.FC<ImageTextBlockProps> = ({
                 src={imageSrc}
                 alt={altText}
                 className="w-full lg:w-[420px] h-[240px] lg:h-[275px] object-cover"
-                style={{
-                  borderRadius: "48px",
-                }}
-                initial={{ scale: 1.2 }}
+                style={{ willChange: "transform", transformOrigin: "center" }}
+                initial={{ scale: 1.05 }}
                 whileInView={{ scale: 1 }}
                 viewport={{ once: true }}
                 transition={{
@@ -67,7 +65,7 @@ const ImageTextBlock: React.FC<ImageTextBlockProps> = ({
                   boxShadow:
                     "rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px",
                 }}
-                className="absolute inset-0 bg-gradient-to-b from-[#190670] to-[#1B0A41] opacity-100 pointer-events-none rounded-[48px]"
+                className="absolute inset-0 bg-gradient-to-b from-[#190670] to-[#1B0A41] opacity-100 pointer-events-none rounded-3xl"
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
                 viewport={{ once: true }}
@@ -81,7 +79,7 @@ const ImageTextBlock: React.FC<ImageTextBlockProps> = ({
         </motion.div>
 
         <motion.div
-          className="col-span-4 lg:col-span-6 md:col-span-7 md:col-start-6 mt-6 md:mt-0 md:pl-10 flex flex-col space-y-4 items-start"
+          className="col-span-4 lg:col-span-6 md:col-span-7 md:col-start-6 mt-6 md:mt-0 md:pl-10 flex flex-col space-y-4 items-start overflow-visible"
           initial={{ opacity: 0, x: 50 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true, margin: "-50px" }}
