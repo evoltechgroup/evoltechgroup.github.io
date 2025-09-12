@@ -1,4 +1,3 @@
-"use client";
 import type { Metadata } from "next";
 import { absoluteUrl, SITE_NAME } from "./seo.config";
 import ServicesSection from "../components/services/ServicesSection";
@@ -22,14 +21,14 @@ export default function HomePage() {
 }
 
 export const metadata: Metadata = {
-  title: "Home",
+  title: "Evoltech",
   description:
     "EvolTech builds AI, cloud and full‑stack solutions to turn visionary ideas into reality.",
   alternates: {
     canonical: absoluteUrl("/"),
   },
   openGraph: {
-    title: `Home | ${SITE_NAME}`,
+    title: `Evoltech | ${SITE_NAME}`,
     url: absoluteUrl("/"),
   },
 };
