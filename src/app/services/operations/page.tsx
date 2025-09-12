@@ -1,6 +1,5 @@
 "use client";
-
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import Section1 from "./Content/Section1";
 import Section2 from "./Content/Section2";
 import Section3 from "./Content/Section3";
@@ -8,8 +7,6 @@ import LetsGrow from "@/app/services/components/LetsGrow";
 import Testimonials from "@/app/ui/Testimonials";
 import Modal from "@/app/events/Model";
 import SiiaPopup from "@/app/events/Popup/Siia";
-import type { Metadata } from "next";
-import { absoluteUrl, SITE_NAME } from "@/app/seo.config";
 
 const Operations = () => {
   const [open, setOpen] = useState(false);
@@ -43,16 +40,3 @@ const Operations = () => {
 };
 
 export default Operations;
-
-export const metadata: Metadata = {
-  title: "Operations Services",
-  description:
-    "Transform back office operations with efficient, scalable solutions by EvolTech.",
-  alternates: {
-    canonical: absoluteUrl("/services/operations"),
-  },
-  openGraph: {
-    title: `Operations Services | ${SITE_NAME}`,
-    url: absoluteUrl("/services/operations"),
-  },
-};
