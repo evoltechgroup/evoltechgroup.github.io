@@ -52,7 +52,7 @@ export default function Header() {
   return (
     <>
       <header
-        className={`w-full fixed top-0 left-0 overflow-hidden z-50 transition-all duration-300
+        className={`w-full fixed top-0 left-0 z-50 transition-all duration-300
           ${isScrolled ? "bg-[#181B2B] shadow-md" : "md:bg-transparent"}
           ${mobileMenuOpen ? "hidden" : ""}
         `}>
