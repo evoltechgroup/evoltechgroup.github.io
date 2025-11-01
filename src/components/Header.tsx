@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import Logo from "@/assets/logo/logo.svg";
 import { ChevronDown, ChevronUp, X } from "lucide-react";
 import { hamburgerIcon } from "@/assets/svg";
+import Anniversary from "@/assets/svg/animations/10Years.svg";
 
 export default function Header() {
   const pathname = usePathname();
@@ -51,20 +52,29 @@ export default function Header() {
   return (
     <>
       <header
-        className={`w-full fixed top-0 left-0 z-50 transition-all duration-300
+        className={`w-full fixed top-0 left-0 overflow-hidden z-50 transition-all duration-300
           ${isScrolled ? "bg-[#181B2B] shadow-md" : "md:bg-transparent"}
           ${mobileMenuOpen ? "hidden" : ""}
         `}>
         <div className="grid grid-cols-4 sm:grid-cols-8 lg:grid-cols-10 xl:grid-cols-12 grid-rows-1 gap-5 max-w-7xl mx-auto sm:px-10 py-4 xl:py-6 px-4 lg:px-0">
           <div className="w-full h-full flex col-span-4 sm:col-span-8 col-start-1 lg:col-span-8 xl:col-span-12 lg:col-start-2 xl:col-start-1 justify-between">
-            <Link href="/" className={`${mobileMenuOpen ? "hidden" : ""}`}>
-              <img
-                src={Logo.src}
-                alt="EvolTech Logo"
-                className="h-8 w-auto cursor-pointer"
-              />
-            </Link>
+            <div className="relative flex items-center justify-center gap-4">
+              <Link href="/" className={`${mobileMenuOpen ? "hidden" : ""}`}>
+                <img
+                  src={Logo.src}
+                  alt="EvolTech Logo"
+                  className="h-8 w-auto cursor-pointer"
+                />
+              </Link>
 
+              <div className="absolute -top-2.5 -right-15 md:-top-4 md:-right-23">
+                <img
+                  src={Anniversary.src}
+                  alt="EvolTech Anniversary"
+                  className="h-15 md:h-20 w-auto cursor-pointer"
+                />
+              </div>
+            </div>
             <nav className="hidden lg:flex flex-1 justify-center gap-5 sm:text-xs lg:text-sm xl:text-lg font-medium text-[#C7E5FF] items-center">
               <div className="relative group">
                 <span
@@ -150,11 +160,13 @@ export default function Header() {
               </Link>
             </div>
             {!mobileMenuOpen && (
-              <div className="lg:hidden border border-[#445767] px-3 py-1 rounded flex">
+              <div className="lg:hidden border border-[#445767] px-2 py-1 rounded flex">
                 <button
                   onClick={toggleMobileMenu}
                   className="text-white flex items-center gap-2">
-                  <span className="text-sm font-normal">Menu</span>
+                  <span className=" hidden sm:block text-sm font-normal">
+                    Menu
+                  </span>
                   <span>{hamburgerIcon}</span>
                 </button>
               </div>

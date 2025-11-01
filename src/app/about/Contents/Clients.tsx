@@ -12,20 +12,21 @@ import { partnerHeartIcon } from "@/assets/svg";
 import Button from "@/components/Button";
 import Text from "@/components/Text";
 import { AtClevel, Aws, Azure, oneLaw, Verita } from "@/assets/icons/TECHSTACK";
+import { motion } from "framer-motion";
 
 const logos = [
-  { id: 1, icon: Yoloh },
-  { id: 2, icon: PointC },
-  { id: 3, icon: Getredd },
-  { id: 4, icon: Gapi },
-  { id: 5, icon: FairBid },
-  { id: 6, icon: FiveOakIcon },
-  { id: 7, icon: ReinnovaIcon },
-  { id: 8, icon: Aws },
-  { id: 9, icon: Azure },
-  { id: 10, icon: oneLaw },
-  { id: 11, icon: AtClevel },
-  { id: 12, icon: Verita },
+  { id: 1, icon: Yoloh, name: "Yoloh" },
+  { id: 2, icon: PointC, name: "PointC" },
+  { id: 3, icon: Getredd, name: "Getredd" },
+  { id: 4, icon: Gapi, name: "Gapi" },
+  { id: 5, icon: FairBid, name: "FairBid" },
+  { id: 6, icon: FiveOakIcon, name: "FiveOak" },
+  { id: 7, icon: ReinnovaIcon, name: "Reinnova" },
+  { id: 8, icon: Aws, name: "AWS" },
+  { id: 9, icon: Azure, name: "Azure" },
+  { id: 10, icon: oneLaw, name: "OneLaw" },
+  { id: 11, icon: AtClevel, name: "AtClevel" },
+  { id: 12, icon: Verita, name: "Verita" },
 ];
 
 const Clients = () => {
@@ -48,51 +49,51 @@ const Clients = () => {
           </Text>
         </div>
         <div className="relative w-full overflow-hidden">
-          <div className="w-max flex animate-scroll">
-            {[...logos, ...logos].map((logo, idx) => (
-              <div
-                key={idx}
-                className={`flex-shrink-0 px-4 ${
-                  logo.icon === Verita
-                    ? "bg-gray-800 p-1 rounded-md inline-flex items-center justify-center"
-                    : ""
-                }`}>
-                <img
-                  src={logo.icon.src}
-                  alt={`Logo ${logo.id}`}
-                  className={`h-12  object-contain ${
-                    logo.icon === Verita ? "w-auto" : "w-32"
-                  }`}
-                />
-              </div>
-            ))}
+          {/* Marquee wrapper with mask */}
+          <div
+            className="w-full"
+            style={{
+              WebkitMaskImage:
+                "linear-gradient(to right, rgba(0,0,0,0), rgba(0,0,0,1) 100px, rgba(0,0,0,1) calc(100% - 100px), rgba(0,0,0,0))",
+              WebkitMaskRepeat: "no-repeat",
+              WebkitMaskSize: "100% 100%",
+              maskImage:
+                "linear-gradient(to right, rgba(0,0,0,0), rgba(0,0,0,1) 100px, rgba(0,0,0,1) calc(100% - 100px), rgba(0,0,0,0))",
+              maskRepeat: "no-repeat",
+              maskSize: "100% 100%",
+            }}>
+            <motion.div
+              initial={{ translateX: "0%" }}
+              animate={{ translateX: "-50%" }}
+              transition={{
+                duration: 35,
+                repeat: Infinity,
+                ease: "linear",
+                repeatType: "loop",
+              }}
+              className="flex min-w-fit gap-10">
+              {[...logos, ...logos].map((logo, idx) => (
+                <div
+                  key={idx}
+                  className={`flex-shrink-0 px-4 ${
+                    logo.icon === Verita
+                      ? "bg-gray-800 p-1 rounded-md inline-flex items-center justify-center"
+                      : ""
+                  }`}>
+                  <img
+                    src={logo.icon.src}
+                    alt={`Logo ${logo.id}`}
+                    title={logo.name}
+                    className={`h-12 object-contain ${
+                      logo.icon === Verita ? "w-auto" : "w-32"
+                    }`}
+                  />
+                </div>
+              ))}
+            </motion.div>
           </div>
         </div>
       </div>
-
-      <style jsx>{`
-        @keyframes scroll {
-          0% {
-            transform: translateX(0%);
-          }
-          100% {
-            transform: translateX(-50%);
-          }
-        }
-
-        .animate-scroll {
-          animation-name: scroll;
-          animation-timing-function: linear;
-          animation-iteration-count: infinite;
-          animation-duration: 30s;
-        }
-
-        @media (max-width: 768px) {
-          .animate-scroll {
-            animation-duration: 20s;
-          }
-        }
-      `}</style>
     </div>
   );
 };

@@ -19,8 +19,8 @@ export const infoCards = [
 ];
 export const infoCardsAbout = [
   {
-    title: "55",
-    description: `Employees <br/>& Growing`,
+    title: "20+",
+    description: `Technologies. <br/> & Trusted Expertise`,
   },
   {
     title: "7",
