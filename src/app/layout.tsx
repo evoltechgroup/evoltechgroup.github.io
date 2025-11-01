@@ -61,6 +61,9 @@ export const metadata: Metadata = {
   alternates: {
     canonical: SITE_URL,
   },
+  icons: {
+    icon: absoluteUrl(DEFAULT_OG_IMAGE),
+  },
 };
 
 export default function RootLayout({
@@ -95,6 +98,7 @@ export default function RootLayout({
         <Header />
         {children}
         <Footer />
+        {/* <GoToTopButton /> */}
         <ChatBot />
       </body>
     </html>
