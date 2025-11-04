@@ -43,12 +43,12 @@ const ImageTextBlock: React.FC<ImageTextBlockProps> = ({
             delay: index * 0.1 + 0.2,
             ease: [0.25, 0.46, 0.45, 0.94],
           }}>
-          <div className="rounded-3xl w-full h-full overflow-hidden">
+          <div className="w-full h-full overflow-hidden">
             <div className="relative">
               <motion.img
                 src={imageSrc}
                 alt={altText}
-                className="w-full lg:w-[420px] h-[240px] lg:h-[275px] object-cover"
+                className="w-full lg:w-[420px]  rounded-3xl h-[240px] lg:h-[275px] object-cover"
                 style={{ willChange: "transform", transformOrigin: "center" }}
                 initial={{ scale: 1.05 }}
                 whileInView={{ scale: 1 }}

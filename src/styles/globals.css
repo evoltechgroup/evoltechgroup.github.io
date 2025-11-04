@@ -153,6 +153,19 @@
   font-display: swap;
 }
 
+::-webkit-scrollbar {
+  width: 6px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #181b2b;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #3c3a3a80;
+}
+
 @layer base {
   * {
     @apply border-border outline-ring/50;
@@ -179,20 +192,18 @@ body {
   font-family: var(--font-gilroy);
 }
 
-
 /* globals.css */
 .container-grid {
   @apply grid grid-cols-4 sm:grid-cols-8 lg:grid-cols-12 gap-x-6 max-w-[1280px] mx-auto px-4;
 }
 
-
 .swiper-button-prev,
 .swiper-button-next {
-  color: #F47937 !important; 
+  color: #f47937 !important;
 }
 
 .swiper-button-prev {
-  left: 2.5rem !important; 
+  left: 2.5rem !important;
 }
 
 .swiper-button-next {
