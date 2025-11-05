@@ -19,6 +19,7 @@
     "next": "15.3.3",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "react-google-recaptcha": "^3.1.0",
     "swiper": "^11.2.10",
     "tailwind-merge": "^3.3.0"
   },
@@ -27,6 +28,7 @@
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "@types/react-google-recaptcha": "^2.1.9",
     "file-loader": "^6.2.0",
     "gh-pages": "^6.3.0",
     "tailwindcss": "^4",

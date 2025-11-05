@@ -1,25 +1,30 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { mailIcon } from "@/assets/svg";
 import Button from "@/components/Button";
 import { motion, AnimatePresence } from "framer-motion";
 import { CircleChevronRight, RotateCcw } from "lucide-react";
 import emailjs from "emailjs-com";
-import { source } from "framer-motion/client";
+import ReCAPTCHA from "react-google-recaptcha";
 import { useRouter } from "next/navigation";
+import emailjsInit from "@emailjs/browser";
 
 const Form = () => {
   const router = useRouter();
+  const recaptchaRef = useRef<ReCAPTCHA>(null);
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     company: "",
     message: "",
     source: "",
+    website: "",
   });
 
   const [formSource, setFormSource] = useState("EvolTech");
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
@@ -28,8 +33,6 @@ const Form = () => {
       setFormSource(source);
     }
   }, []);
-
- 
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -40,7 +43,18 @@ const Form = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
+
+    if (formData.website) {
+      return;
+    }
+
+    const token = recaptchaRef.current?.getValue();
+    if (!token) {
+      alert("Please verify that you are not a robot.");
+      return;
+    }
+
+    setIsSubmitting(true);
 
     try {
       const response = await emailjs.send(
@@ -53,13 +67,20 @@ const Form = () => {
           message: formData.message,
           time: new Date().toLocaleString(),
           source: formSource,
+          "g-recaptcha-response": token,
         },
         process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!
       );
+
       setSubmitted(true);
+
+      recaptchaRef.current?.reset();
     } catch (error) {
+      console.error("Email send error:", error);
       alert("Something went wrong. Please try again.");
-      setSubmitted(false);
+      recaptchaRef.current?.reset();
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -89,6 +110,16 @@ const Form = () => {
       .split(" ")
       .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
       .join(" ");
+
+  useEffect(() => {
+    emailjsInit.init({
+      publicKey: process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!,
+      limitRate: {
+        id: "app",
+        throttle: 5000,
+      },
+    });
+  }, []);
 
   return (
     <div className="w-full max-w-md p-6 perspective">
@@ -135,11 +166,43 @@ const Form = () => {
               </div>
             ))}
 
+            <input
+              type="text"
+              name="website"
+              value={formData.website}
+              onChange={handleChange}
+              style={{
+                display: "none",
+              }}
+              tabIndex={-1}
+              autoComplete="off"
+              aria-hidden="true"
+            />
+
+            <div className="mt-4  flex justify-center sm:justify-start">
+              <ReCAPTCHA
+                sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY!}
+                ref={recaptchaRef}
+                theme="light"
+              />
+            </div>
+
             <div className="w-full mt-4 flex items-center justify-center sm:justify-start text-black">
-              <Button className="w-fit gap-2 items-center cursor-pointer justify-center sm:justify-start pr-2 pl-6 py-2 flex bg-[#FFBB00] rounded-full text-sm">
-                <span className="font-semibold text-center">Send</span>
+              <Button
+                disabled={isSubmitting}
+                className={`w-fit gap-2 items-center cursor-pointer justify-center sm:justify-start pr-2 pl-6 py-2 flex rounded-full text-sm ${
+                  isSubmitting ? "bg-gray-400" : "bg-[#FFBB00]"
+                }`}
+              >
+                <span className="font-semibold text-center">
+                  {isSubmitting ? "Sending..." : "Send"}
+                </span>
                 <span>
-                  <CircleChevronRight size={18} />
+                  {isSubmitting ? (
+                    <RotateCcw size={18} className="animate-spin" />
+                  ) : (
+                    <CircleChevronRight size={18} />
+                  )}
                 </span>
               </Button>
             </div>
@@ -159,13 +222,15 @@ const Form = () => {
             </h2>
             <p className="text-[#212121] text-sm">
               Your message sent successfully. <br />
-              We’ll get back to you soon!
+              We'll get back to you soon!
             </p>
             <button
               onClick={() => router.push("/")}
               className="w-fit gap-2 items-center cursor-pointer justify-center sm:justify-start pr-2 pl-6 py-2 flex bg-[#FFBB00] rounded-full text-sm"
             >
-              <span className="font-semibold text-center">Continue exploring....</span>
+              <span className="font-semibold text-center">
+                Continue exploring....
+              </span>
               <span>
                 <CircleChevronRight size={18} />
               </span>
