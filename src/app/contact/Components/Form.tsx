@@ -122,7 +122,7 @@ const Form = () => {
   }, []);
 
   return (
-    <div className="w-full max-w-md p-6 perspective">
+    <div className="w-full lg:max-w-md p-6 perspective">
       <AnimatePresence mode="wait">
         {!submitted ? (
           <motion.form
@@ -180,11 +180,13 @@ const Form = () => {
             />
 
             <div className="mt-4  flex justify-center sm:justify-start">
-              <ReCAPTCHA
-                sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY!}
-                ref={recaptchaRef}
-                theme="light"
-              />
+              <div className="transform origin-center  lg:origin-left scale-[0.87] lg:scale-100">
+                <ReCAPTCHA
+                  sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY!}
+                  ref={recaptchaRef}
+                  theme="light"
+                />
+              </div>
             </div>
 
             <div className="w-full mt-4 flex items-center justify-center sm:justify-start text-black">
