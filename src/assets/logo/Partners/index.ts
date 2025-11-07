@@ -7,5 +7,3 @@ export { default as FiveOakIcon } from "./Fiveoak.svg";
 export { default as ReinnovaIcon } from "./Reinnova.svg";
 export { default as LendersCoperative } from "./LendersCoperative.png";
 export { default as Gapi } from "./Gapi.png";
-export { default as Atea } from "@/assets/images/Events/atea/Atea.png";
-export { default as Siia } from "./Siia.svg";
