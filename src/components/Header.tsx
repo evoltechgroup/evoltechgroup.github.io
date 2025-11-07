@@ -71,7 +71,7 @@ export default function Header() {
                 <img
                   src={Anniversary.src}
                   alt="EvolTech Anniversary"
-                  className="h-15 md:h-20 w-auto cursor-pointer"
+                  className="h-15 md:h-20 w-auto "
                 />
               </div>
             </div>

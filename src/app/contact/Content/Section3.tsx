@@ -16,7 +16,7 @@ const Section3 = () => {
         <div className="absolute right-0 -bottom-4">{topRightRing}</div>
       </div>
       <div className="grid grid-cols-4 sm:grid-cols-8 lg:grid-cols-12 grid-rows-1 gap-5 max-w-7xl mx-auto px-4 lg:px-0 relative z-2">
-        <div className="col-span-4 lg:col-span-12 flex flex-col relative z-2">
+        <div className="col-span-4 sm:col-span-8 lg:col-span-12 flex flex-col relative z-2">
           <BannerHeader
             chipText="The Growth Spark"
             chipBackgroundColor="#FFDEB7"
@@ -35,11 +35,11 @@ const Section3 = () => {
             arrowHeight={120}
           />
         </div>
-        <div className="col-span-4 lg:col-span-10  col-start-1 lg:col-start-3 w-full flex flex-col md:flex-row h-full justify-start gap-10 md:gap-20 items-center -mt-20 md:mt-0 pb-20">
+        <div className="col-span-4 sm:col-span-8 lg:col-span-12  col-start-1 lg:col-start-3 w-full flex flex-col md:flex-row h-full justify-start gap-10 md:gap-20 items-center -mt-20 md:mt-0 pb-20">
           <div className="w-fit flex items-center md:items-start justify-center mt-10 md:-mt-10">
             <TimeLine />
           </div>
-          <div className="w-full md:w-1/2 h-full flex items-center justify-start p-4">
+          <div className="w-full h-full flex items-center justify-center lg:justify-start p-4">
             <Form />
           </div>
         </div>
