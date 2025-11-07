@@ -20,7 +20,7 @@ export const infoCards = [
 export const infoCardsAbout = [
   {
     title: "20+",
-    description: `Technologies <br/> & Trusted Expertise`,
+    description: `Technologies. <br/> & Trusted Expertise`,
   },
   {
     title: "7",
