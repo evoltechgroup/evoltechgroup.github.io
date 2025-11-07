@@ -16,7 +16,7 @@ interface SiiaPopupProps {
 const SiiaPopup = ({ event, onClose }: SiiaPopupProps) => {
   return (
     <div className="fixed inset-0 flex items-center justify-center z-50 ">
-      <div className="bg-white rounded-2xl shadow-lg max-w-2xl h-[90vh] w-full mx-4 overflow-hidden relative">
+      <div className="bg-white rounded-2xl shadow-lg max-w-2xl lg:h-[90vh] w-full mx-4 overflow-hidden relative">
         <button
           onClick={onClose}
           className="absolute top-0 right-0 z-10 font-bold text-[#F47937] bg-white rounded-2xl px-2.5 lg:px-3.5 py-1 lg:py-2 hover:text-[#ef6b24] shadow-md cursor-pointer"
@@ -45,7 +45,7 @@ const SiiaPopup = ({ event, onClose }: SiiaPopupProps) => {
           </p>
  </div>
           <div
-            className="grid grid-cols-2 lg:grid-cols-4 bg-[#EDF3FE] border-y-1 p-4 lg:p-6 lg:px-1 w-full gap-6"
+            className="grid grid-cols-2 lg:grid-cols-4 bg-[#EDF3FE] border-y-1 p-4 lg:p-6  lg:px-16 w-full gap-6"
             style={{
               borderImageSource:
                 "linear-gradient(90deg, rgba(5,42,70,0.5), #F47937 100%)",
@@ -70,7 +70,7 @@ const SiiaPopup = ({ event, onClose }: SiiaPopupProps) => {
             ))}
           </div>
 
-          <p className="text-[#212121] text-base lg:text-lg font-medium leading-relaxed  lg:pb-2 px-3 lg:p-4 max-w-md mx-auto text-center">
+          <p className="text-[#212121] text-base lg:text-lg font-medium leading-relaxed  lg:pb-2 px-10 p-2 lg:p-4 max-w-md mx-auto text-center">
             Discover our handcrafted Hybrid Captive Model and unlock next-level
             customer experience with our AI-powered reputation management
             solution and team of technology experts.
@@ -78,7 +78,7 @@ const SiiaPopup = ({ event, onClose }: SiiaPopupProps) => {
 
           <Link
             href="/contact?source=SIIA2025#contact-form"
-            className="text-base lg:text-lg font-medium inline-flex gap-2 items-center bg-[#F47937] text-white px-4 lg:px-6 py-1 lg:py-2 rounded-full hover:bg-orange-600 transition  cursor-pointer"
+            className="text-base lg:text-lg font-medium inline-flex gap-2 items-center bg-[#F47937] text-white px-6 py-2 rounded-full hover:bg-orange-600 transition  cursor-pointer"
           >
             Connect with us
             <ChevronRightCircle size={20} strokeWidth={2} color="#FFDAC6" />
