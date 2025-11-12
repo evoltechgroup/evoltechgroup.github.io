@@ -3,7 +3,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { mailIcon } from "@/assets/svg";
 import Button from "@/components/Button";
 import { motion, AnimatePresence } from "framer-motion";
-import { CircleChevronRight, RotateCcw } from "lucide-react";
+import { CircleChevronRight, RotateCcw, AlertCircle, Mail } from "lucide-react";
 import emailjs from "emailjs-com";
 import ReCAPTCHA from "react-google-recaptcha";
 import { useRouter } from "next/navigation";
@@ -25,6 +25,13 @@ const Form = () => {
   const [formSource, setFormSource] = useState("EvolTech");
   const [submitted, setSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [recaptchaVerified, setRecaptchaVerified] = useState(false);
+
+  
+  const [validationError, setValidationError] = useState<{
+    message: string;
+    type: "recaptcha" | "submit" | "network";
+  } | null>(null);
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
@@ -39,6 +46,11 @@ const Form = () => {
   ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
+
+  
+    if (validationError) {
+      setValidationError(null);
+    }
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -49,12 +61,16 @@ const Form = () => {
     }
 
     const token = recaptchaRef.current?.getValue();
-    if (!token) {
-      alert("Please verify that you are not a robot.");
+    if (!token || !recaptchaVerified) {
+      setValidationError({
+        message: "Please complete the security verification to continue.",
+        type: "recaptcha",
+      });
       return;
     }
 
     setIsSubmitting(true);
+    setValidationError(null); 
 
     try {
       const response = await emailjs.send(
@@ -73,12 +89,15 @@ const Form = () => {
       );
 
       setSubmitted(true);
-
       recaptchaRef.current?.reset();
     } catch (error) {
       console.error("Email send error:", error);
-      alert("Something went wrong. Please try again.");
+      setValidationError({
+        message: "Failed to send message. Please try again later.",
+        type: "network",
+      });
       recaptchaRef.current?.reset();
+      setRecaptchaVerified(false);
     } finally {
       setIsSubmitting(false);
     }
@@ -179,15 +198,86 @@ const Form = () => {
               aria-hidden="true"
             />
 
-            <div className="mt-4  flex justify-center sm:justify-start">
-              <div className="transform origin-center  lg:origin-left scale-[0.87] lg:scale-100">
+            <div className="mt-4 flex justify-center sm:justify-start">
+              <div className="transform origin-center lg:origin-left scale-[0.87] lg:scale-100">
                 <ReCAPTCHA
                   sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY!}
                   ref={recaptchaRef}
                   theme="light"
+                  size="normal"
+                  onChange={(token) => {
+                    setRecaptchaVerified(!!token);
+                    // Clear reCAPTCHA validation error when verified
+                    if (validationError?.type === "recaptcha") {
+                      setValidationError(null);
+                    }
+                  }}
+                  onExpired={() => {
+                    setRecaptchaVerified(false);
+                    recaptchaRef.current?.reset();
+                  }}
+                  onError={() => {
+                    setRecaptchaVerified(false);
+                    setValidationError({
+                      message:
+                        "Security verification failed. Please try again.",
+                      type: "recaptcha",
+                    });
+                  }}
                 />
               </div>
             </div>
+
+            
+            <AnimatePresence>
+              {validationError && (
+                <motion.div
+                  initial={{ opacity: 0, y: 10, scale: 0.95 }}
+                  animate={{ opacity: 1, y: 0, scale: 1 }}
+                  exit={{ opacity: 0, y: 10, scale: 0.95 }}
+                  transition={{ type: "spring", damping: 25, stiffness: 300 }}
+                  className={`
+                    w-full p-4 rounded-lg border-2 shadow-lg backdrop-blur-sm
+                    ${
+                      validationError.type === "recaptcha"
+                        ? "bg-yellow-50 border-yellow-200 text-yellow-800"
+                        : "bg-red-50 border-red-200 text-red-800"
+                    }
+                  `}
+                  role="alert"
+                  aria-live="polite"
+                >
+                  <div className="flex items-start">
+                    <AlertCircle
+                      className={`h-5 w-5 mt-0.5 flex-shrink-0 ${
+                        validationError.type === "recaptcha"
+                          ? "text-yellow-500"
+                          : "text-red-500"
+                      }`}
+                    />
+                    <div className="ml-3 flex-1">
+                      <p className="text-sm font-semibold">
+                        {validationError.message}
+                      </p>
+                      {validationError.type === "network" && (
+                        <div className="mt-2 pt-2 border-t border-current border-opacity-20">
+                          <div className="flex items-center text-xs opacity-75">
+                            <Mail className="h-3 w-3 mr-1 flex-shrink-0" />
+                            <span className="mr-1">Need help? Write to</span>
+                            <a
+                              href="mailto:info@evoltechgroup.com"
+                              className="font-medium underline hover:no-underline focus:outline-none focus:ring-2 focus:ring-red-300 rounded"
+                            >
+                              info@evoltechgroup.com
+                            </a>
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
 
             <div className="w-full mt-4 flex items-center justify-center sm:justify-start text-black">
               <Button

@@ -103,14 +103,3 @@ const Clients = () => {
 };
 
 export default Clients;
-// //  <img
-//                     src={logo.icon.src}
-//                     alt={`Logo ${logo.id}`}
-//                     title={logo.name}
-//                     className={`h-14 object-contain ${
-//                       logo.icon === Verita
-//                         ? "w-auto"
-//                         : logo.icon === ReinnovaIcon
-//                         ? "w-40 h-16"
-//                         : "w-32"
-//                     // }`}

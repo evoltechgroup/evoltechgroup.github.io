@@ -13,7 +13,6 @@ import Footer from "@/components/Footer";
 import ChatBot from "./chat";
 import Script from "next/script";
 import GoogleAnalytics from "./GoogleAnalytics";
-import { useEffect } from "react";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
