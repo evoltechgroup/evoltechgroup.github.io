@@ -92,8 +92,7 @@ export default function RootLayout({
         </Script>
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased font-gilroy`}
-      >
+        className={`${geistSans.variable} ${geistMono.variable} antialiased font-gilroy`}>
         <GoogleAnalytics />
         <div id="modal-root" />
         <Header />
