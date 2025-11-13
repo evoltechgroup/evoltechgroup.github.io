@@ -32,9 +32,6 @@ const Operations = () => {
         }
       />
       <Testimonials type="operations" />
-      <Modal open={open} onClose={handleClose}>
-        <SiiaPopup onClose={handleClose} />
-      </Modal>
     </main>
   );
 };
