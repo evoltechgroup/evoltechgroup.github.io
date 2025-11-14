@@ -141,7 +141,7 @@ const Form = () => {
   }, []);
 
   return (
-    <div className="w-full lg:max-w-md p-6 perspective">
+    <div className="w-full lg:max-w-md p-2 lg:p-6 perspective">
       <AnimatePresence mode="wait">
         {!submitted ? (
           <motion.form
@@ -198,8 +198,8 @@ const Form = () => {
               aria-hidden="true"
             />
 
-            <div className="mt-4 flex justify-center sm:justify-start">
-              <div className="transform origin-center lg:origin-left scale-[0.87] lg:scale-100">
+            <div className="mt-4 flex justify-left">
+              <div className="transform origin-left scale-[0.87] lg:scale-100">
                 <ReCAPTCHA
                   sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY!}
                   ref={recaptchaRef}
@@ -259,27 +259,13 @@ const Form = () => {
                       <p className="text-sm font-semibold">
                         {validationError.message}
                       </p>
-                      {validationError.type === "network" && (
-                        <div className="mt-2 pt-2 border-t border-current border-opacity-20">
-                          <div className="flex items-center text-xs opacity-75">
-                            <Mail className="h-3 w-3 mr-1 flex-shrink-0" />
-                            <span className="mr-1">Need help? Write to</span>
-                            <a
-                              href="mailto:info@evoltechgroup.com"
-                              className="font-medium underline hover:no-underline focus:outline-none focus:ring-2 focus:ring-red-300 rounded"
-                            >
-                              info@evoltechgroup.com
-                            </a>
-                          </div>
-                        </div>
-                      )}
                     </div>
                   </div>
                 </motion.div>
               )}
             </AnimatePresence>
 
-            <div className="w-full mt-4 flex items-center justify-center sm:justify-start text-black">
+            <div className="w-full mt-4 flex items-center justify-start text-black">
               <Button
                 disabled={isSubmitting}
                 className={`w-fit gap-2 items-center cursor-pointer justify-center sm:justify-start pr-2 pl-6 py-2 flex rounded-full text-sm ${
