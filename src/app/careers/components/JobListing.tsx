@@ -29,13 +29,13 @@ const jobListings: JobListing[] = [
     id: "frontend",
     title: "Front-end developer",
     experience: "4-5 years experience",
-    location: "Pune",
+    location: "Chennai",
   },
   {
     id: "business-analyst",
     title: "Business Analyst",
     experience: "2-3 years experience",
-    location: "Pune, Chennai",
+    location: "Chennai",
   },
 ];
 

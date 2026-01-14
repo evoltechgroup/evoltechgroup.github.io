@@ -40,7 +40,7 @@ export const jobDescriptions: { id: string; data: JobDescriptionData }[] = [
     data: {
       title: "Business Analyst",
       experience: "3+ years experience",
-      location: "Pune, Chennai",
+      location: "Chennai",
       description: [
         "We are seeking a detail-oriented and analytical Business Analyst with expertise in the US Real Estate industries. The ideal candidate will be responsible for analyzing business needs, bridging communication between stakeholders, and ensuring that our house bidding app is optimized for market needs. You will collaborate closely with project managers, developers, and key business stakeholders to provide strategic insights and ensure successful implementation of solutions.",
       ],

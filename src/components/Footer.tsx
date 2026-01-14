@@ -32,10 +32,10 @@ export default function Footer() {
               </Link>
               <span className="text-gray-500 inline">/</span>
 
-              <Link href="/careers" className="hover:underline">
+              <Link href="/careers" className="hidden lg:flex hover:underline">
                 Careers
               </Link>
-              <span className="text-gray-500 inline">/</span>
+              <span className="hidden lg:inline text-gray-500">/</span>
 
               <Link href="/contact" className="hover:underline">
                 Contact
