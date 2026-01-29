@@ -45,7 +45,7 @@ export const eventsData: Event[] = [
     expired: "January 30, 2026",
     label: "Global Self-Insurance Forum",
     buttonText: "Discover more",
-    link: "https://www.siia.org/i4a/pages/index.cfm?pageid=8016",
+    // link: "https://www.siia.org/i4a/pages/index.cfm?pageid=8016",
   },
   {
     id: 4,
@@ -55,7 +55,7 @@ export const eventsData: Event[] = [
     expired: "February 19, 2026",
     buttonText: "Discover more",
     label: "Community Banking Excellence",
-    link: "https://www.aba.com/training-events/conferences/conference-for-community-bankers/program",
+    // link: "https://www.aba.com/training-events/conferences/conference-for-community-bankers/program",
   },
   {
     id: 5,
@@ -65,6 +65,6 @@ export const eventsData: Event[] = [
     expired: "February 28, 2026",
     buttonText: "Discover more",
     label: "Healthcare Innovation",
-    link: "https://www.siia.org/i4a/pages/index.cfm?pageid=8032",
+    // link: "https://www.siia.org/i4a/pages/index.cfm?pageid=8032",
   },
 ];
