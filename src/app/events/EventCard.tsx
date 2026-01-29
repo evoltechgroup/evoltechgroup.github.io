@@ -52,7 +52,7 @@ const EventCard: React.FC<EventCardProps> = ({
 
   return (
     <>
-      <div className="flex flex-col md:flex-col lg:flex-row items-center justify-center min-h-[300px] h-[350px] lg:h-[300px] p-6 md:p-10 gap-6 shadow-md bg-gradient-to-r from-[#F7E6DD] to-[#FFFFFF] ">
+      <div className="flex flex-col md:flex-col lg:flex-row items-center justify-center min-h-[300px] h-[350px] lg:h-[300px] p-6 md:p-10 gap-6 shadow-md bg-gradient-to-b from-[#DAE6FB] to-[#FDFEFF] ">
         <div className="flex flex-col md:flex-row items-center md:items-center  gap-6 ">
           {logo && (
             <div className="flex justify-center">
@@ -70,7 +70,7 @@ const EventCard: React.FC<EventCardProps> = ({
                 {label}
               </span>
             )}
-            <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-black">
+            <h2 className="text-xl sm:text-2xl md:text-3xl w-80 lg:w-full font-bold text-black">
               {title}
             </h2>
             <p className="text-[#F47937] text-base sm:text-lg md:text-2xl font-semibold">

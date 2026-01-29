@@ -11,6 +11,10 @@ import SiiaPopup from "./Popup/Siia";
 import { useState, useRef } from "react";
 import { eventsData } from "./events";
 import GrowAtlPopup from "./Popup/Atea";
+import SiiaDubaiPopup from "./Popup/SiiaDubai";
+import ABAPopup from "./Popup/ABA";
+import HealthcarePopup from "./Popup/Healthcare";
+import { ChevronLeftCircle, ChevronRightCircle } from "lucide-react";
 
 const EventSection = () => {
   const [activeEvent, setActiveEvent] = useState<any>(null);
@@ -24,10 +28,6 @@ const EventSection = () => {
   });
 
   const handleOpen = (event: any) => {
-    if (event.link) {
-      window.open(event.link, "_blank");
-      return;
-    }
     setActiveEvent(event);
     swiperRef.current?.autoplay?.stop();
   };
@@ -50,7 +50,8 @@ const EventSection = () => {
           }}
           autoplay={{ delay: 5000, disableOnInteraction: false }}
           loop={events.length > 1}
-          onSwiper={(swiper) => (swiperRef.current = swiper)}>
+          onSwiper={(swiper) => (swiperRef.current = swiper)}
+        >
           {events.map((event) => (
             <SwiperSlide key={event.id}>
               <EventCard {...event} onOpen={() => handleOpen(event)} />
@@ -59,8 +60,12 @@ const EventSection = () => {
 
           {events.length > 1 && (
             <>
-              <div className="custom-prev swiper-button-prev !text-[#F47937] !left-4 lg:!left-10 "></div>
-              <div className="custom-next swiper-button-next !text-[#F47937] !right-4 lg:!right-10 "></div>
+              <button className="custom-prev absolute left-4 lg:left-10 top-1/2 -translate-y-1/2 z-10 rounded-full transition-all">
+                <ChevronLeftCircle size={36} strokeWidth={1} className="text-[#757070]" />
+              </button>
+              <button className="custom-next absolute right-4 lg:right-10 top-1/2 -translate-y-1/2 z-10 rounded-full transition-all">
+                <ChevronRightCircle size={36} strokeWidth={1} className="text-[#757070]" />
+              </button>
             </>
           )}
         </Swiper>
@@ -71,9 +76,13 @@ const EventSection = () => {
       )}
 
       <Modal open={!!activeEvent} onClose={handleClose}>
+        {activeEvent?.id === 1 && <GrowAtlPopup onClose={handleClose} />}
         {activeEvent?.id === 2 && (
           <SiiaPopup event={activeEvent} onClose={handleClose} />
         )}
+        {activeEvent?.id === 3 && <SiiaDubaiPopup onClose={handleClose} />}
+        {activeEvent?.id === 4 && <ABAPopup onClose={handleClose} />}
+        {activeEvent?.id === 5 && <HealthcarePopup onClose={handleClose} />}
       </Modal>
     </div>
   );

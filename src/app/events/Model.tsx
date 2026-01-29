@@ -24,7 +24,7 @@ const Modal = ({ open, onClose, children }: ModalProps) => {
     <AnimatePresence>
       {open && (
         <motion.div
-          className="fixed inset-0 z-50 flex items-center justify-center  bg-black/90"
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/90"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
@@ -47,7 +47,7 @@ const Modal = ({ open, onClose, children }: ModalProps) => {
             exit={{ y: -300, opacity: 0, scale: 0.95 }}
             transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
           >
-            <div className="p-1">{children}</div>
+            <div className="p-1 ">{children}</div>
           </motion.div>
         </motion.div>
       )}
