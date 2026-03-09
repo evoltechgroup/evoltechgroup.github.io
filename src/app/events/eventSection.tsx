@@ -50,8 +50,7 @@ const EventSection = () => {
           }}
           autoplay={{ delay: 5000, disableOnInteraction: false }}
           loop={events.length > 1}
-          onSwiper={(swiper) => (swiperRef.current = swiper)}
-        >
+          onSwiper={(swiper) => (swiperRef.current = swiper)}>
           {events.map((event) => (
             <SwiperSlide key={event.id}>
               <EventCard {...event} onOpen={() => handleOpen(event)} />
@@ -61,19 +60,23 @@ const EventSection = () => {
           {events.length > 1 && (
             <>
               <button className="custom-prev absolute left-4 lg:left-10 top-1/2 -translate-y-1/2 z-10 rounded-full transition-all">
-                <ChevronLeftCircle size={36} strokeWidth={1} className="text-[#757070]" />
+                <ChevronLeftCircle
+                  size={36}
+                  strokeWidth={1}
+                  className="text-[#757070]"
+                />
               </button>
               <button className="custom-next absolute right-4 lg:right-10 top-1/2 -translate-y-1/2 z-10 rounded-full transition-all">
-                <ChevronRightCircle size={36} strokeWidth={1} className="text-[#757070]" />
+                <ChevronRightCircle
+                  size={36}
+                  strokeWidth={1}
+                  className="text-[#757070]"
+                />
               </button>
             </>
           )}
         </Swiper>
-      ) : (
-        <div className="text-center py-10 text-gray-500">
-          No upcoming events at this time.
-        </div>
-      )}
+      ) : null}
 
       <Modal open={!!activeEvent} onClose={handleClose}>
         {activeEvent?.id === 1 && <GrowAtlPopup onClose={handleClose} />}
