@@ -1,5 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
+import Script from "next/script";
 import Section1 from "./Content/Section1";
 import Section2 from "./Content/Section2";
 import Section3 from "./Content/Section3";
@@ -19,6 +20,25 @@ const Operations = () => {
 
   return (
     <main className="overflow-hidden w-full h-full">
+      <Script
+        id="schema-service-operations"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Service",
+            serviceType: "Operations Services",
+            provider: {
+              "@type": "Organization",
+              name: "EvolTech",
+              url: "https://www.evoltechgroup.com",
+            },
+            areaServed: ["US", "IN"],
+            description:
+              "Efficient operations support including hybrid captive models, 24/7 global operations, and process optimization across US and India offices.",
+          }),
+        }}
+      />
       <Section1 />
       <Section2 />
       <Section3 />

@@ -1,6 +1,7 @@
 +"use client";
 
 import React, { useState, useEffect } from "react";
+import Script from "next/script";
 import Section2 from "./Contents/Section2";
 import Section4 from "./Contents/Section4";
 import Section3 from "./Contents/Section3";
@@ -12,12 +13,29 @@ import VisiontoVictory from "./Contents/visiontoVictory";
 import Mastering from "./Contents/mastering";
 import Modal from "@/app/events/Model";
 import GrowAtlPopup from "@/app/events/Popup/Atea";
-import type { Metadata } from "next";
-import { absoluteUrl, SITE_NAME } from "@/app/seo.config";
 
 const Technology = () => {
   return (
     <main className="h-full w-full overflow-hidden">
+      <Script
+        id="schema-service-technology"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Service",
+            serviceType: "Technology Consulting",
+            provider: {
+              "@type": "Organization",
+              name: "EvolTech",
+              url: "https://www.evoltechgroup.com",
+            },
+            areaServed: ["US", "IN"],
+            description:
+              "Full-stack, AI, and cloud engineering services for FinTech, Banking, Healthcare, and Retail industries.",
+          }),
+        }}
+      />
       <BgSection />
       <Section2 />
       <Section1 />
@@ -39,16 +57,3 @@ const Technology = () => {
 };
 
 export default Technology;
-
-export const metadata: Metadata = {
-  title: "Technology Services",
-  description:
-    "AI, cloud, and full‑stack engineering to ship reliable, modern products.",
-  alternates: {
-    canonical: absoluteUrl("/services/technology"),
-  },
-  openGraph: {
-    title: `Technology Services | ${SITE_NAME}`,
-    url: absoluteUrl("/services/technology"),
-  },
-};

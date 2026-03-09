@@ -9,15 +9,25 @@ import { Metadata } from "next";
 import { absoluteUrl, SITE_NAME } from "../seo.config";
 
 export const metadata: Metadata = {
-  title: "About",
+  title: "About EvolTech | 10+ Years of Technology & Operations Innovation",
   description:
-    "We turn bold ideas into reality with AI, cloud, and full-stack solutions. With 25+ years of leadership and a global team 55% women, we drive innovation across finance, retail, insurance, and healthcare from the US and India.",
+    "Learn about EvolTech — a global technology and operations firm with 10+ years of experience, 55% women-led workforce, and offices in the US and India.",
   alternates: {
     canonical: absoluteUrl("/about"),
   },
   openGraph: {
-    title: `About | ${SITE_NAME}`,
+    title: "About EvolTech | 10+ Years of Technology & Operations Innovation",
+    description:
+      "Learn about EvolTech — a global technology and operations firm with 10+ years of experience, 55% women-led workforce, and offices in the US and India.",
     url: absoluteUrl("/about"),
+    siteName: "EvolTech",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "About EvolTech | 10+ Years of Technology & Operations Innovation",
+    description:
+      "Learn about EvolTech — a global technology and operations firm with 10+ years of experience, 55% women-led workforce, and offices in the US and India.",
   },
 };
 

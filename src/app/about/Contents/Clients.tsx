@@ -64,8 +64,7 @@ const Clients = () => {
                 "linear-gradient(to right, rgba(0,0,0,0), rgba(0,0,0,1) 100px, rgba(0,0,0,1) calc(100% - 100px), rgba(0,0,0,0))",
               maskRepeat: "no-repeat",
               maskSize: "100% 100%",
-            }}
-          >
+            }}>
             <motion.div
               initial={{ translateX: "0%" }}
               animate={{ translateX: "-100%" }}
@@ -75,8 +74,7 @@ const Clients = () => {
                 ease: "linear",
                 repeatType: "loop",
               }}
-              className="flex min-w-fit gap-15 items-center"
-            >
+              className="flex min-w-fit gap-15 items-center">
               {[...logos, ...logos].map((logo, idx) => (
                 <div
                   key={idx}
@@ -85,12 +83,13 @@ const Clients = () => {
                       ? "bg-gray-800 p-1 rounded-md inline-flex items-center justify-center"
                       : ""
                   }`}
-                >
+                  aria-hidden={idx >= logos.length ? "true" : undefined}>
                   <img
                     src={logo.icon.src}
                     alt={`Logo ${logo.id}`}
                     title={logo.name}
                     className={` object-contain ${logo.size}`}
+                    loading={idx >= logos.length ? "lazy" : undefined}
                   />
                 </div>
               ))}
@@ -103,14 +102,3 @@ const Clients = () => {
 };
 
 export default Clients;
-// //  <img
-//                     src={logo.icon.src}
-//                     alt={`Logo ${logo.id}`}
-//                     title={logo.name}
-//                     className={`h-14 object-contain ${
-//                       logo.icon === Verita
-//                         ? "w-auto"
-//                         : logo.icon === ReinnovaIcon
-//                         ? "w-40 h-16"
-//                         : "w-32"
-//                     // }`}
