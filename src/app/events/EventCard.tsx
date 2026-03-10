@@ -7,6 +7,7 @@ import { label } from "framer-motion/client";
 
 interface EventCardProps {
   logo?: string;
+  logoAlt?: string;
   title: string;
   date: string;
   time?: string;
@@ -21,6 +22,7 @@ interface EventCardProps {
 
 const EventCard: React.FC<EventCardProps> = ({
   logo,
+  logoAlt = "Event logo",
   title,
   date,
   time,
@@ -58,7 +60,7 @@ const EventCard: React.FC<EventCardProps> = ({
             <div className="flex justify-center">
               <img
                 src={logo}
-                alt="event logo"
+                alt={logoAlt}
                 className="h-16 w-24 sm:h-20 sm:w-28 md:h-32 md:w-60 object-contain rounded-2xl"
               />
             </div>
@@ -121,7 +123,7 @@ const EventCard: React.FC<EventCardProps> = ({
 
               <div className="flex items-center gap-4 mb-4">
                 {logo && (
-                  <img src={logo} alt="event logo" className="h-12 sm:h-16 " />
+                  <img src={logo} alt={logoAlt} className="h-12 sm:h-16 " />
                 )}
                 <h3 className="text-lg sm:text-xl md:text-2xl font-semibold">
                   {title}

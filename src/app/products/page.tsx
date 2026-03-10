@@ -16,14 +16,24 @@ const Products = () => {
 export default Products;
 
 export const metadata: Metadata = {
-  title: "Products",
+  title: "Products | EvolTech Technology Solutions",
   description:
-    "Explore EvolTech products built with AI, cloud, and modern tech.",
+    "Explore EvolTech's innovative technology products built with AI, cloud, and modern tech for FinTech, Banking, Healthcare, and Retail industries.",
   alternates: {
     canonical: absoluteUrl("/products"),
   },
   openGraph: {
-    title: `Products | ${SITE_NAME}`,
+    title: "Products | EvolTech Technology Solutions",
+    description:
+      "Explore EvolTech's innovative technology products built with AI, cloud, and modern tech for FinTech, Banking, Healthcare, and Retail industries.",
     url: absoluteUrl("/products"),
+    siteName: "EvolTech",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Products | EvolTech Technology Solutions",
+    description:
+      "Explore EvolTech's innovative technology products built with AI, cloud, and modern tech for FinTech, Banking, Healthcare, and Retail industries.",
   },
 };

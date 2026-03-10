@@ -91,10 +91,28 @@ export default function RootLayout({
             gtag('config', 'G-BT21FKPMCH');
           `}
         </Script>
+        <Script
+          id="schema-organization"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              name: "EvolTech",
+              url: "https://www.evoltechgroup.com",
+              logo: "https://www.evoltechgroup.com/_next/static/media/logo.9ce0a9e7.svg",
+              contactPoint: {
+                "@type": "ContactPoint",
+                contactType: "customer service",
+                url: "https://www.evoltechgroup.com/contact",
+              },
+              sameAs: ["https://www.linkedin.com/company/evoltechgroup/"],
+            }),
+          }}
+        />
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased font-gilroy`}
-      >
+        className={`${geistSans.variable} ${geistMono.variable} antialiased font-gilroy`}>
         <GoogleAnalytics />
         <div id="modal-root" />
         <Header />

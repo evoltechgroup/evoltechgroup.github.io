@@ -2,15 +2,25 @@ import { absoluteUrl, SITE_NAME } from "@/app/seo.config";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Operations Services",
+  title: "Operations Services | Hybrid Captive & BPO Solutions | EvolTech",
   description:
-    "Transform back office operations with efficient, scalable solutions by EvolTech.",
+    "Efficient operations support including hybrid captive models, 24/7 global operations, and process optimization across US and India offices.",
   alternates: {
     canonical: absoluteUrl("/services/operations"),
   },
   openGraph: {
-    title: `Operations Services | ${SITE_NAME}`,
+    title: "Operations Services | Hybrid Captive & BPO Solutions | EvolTech",
+    description:
+      "Efficient operations support including hybrid captive models, 24/7 global operations, and process optimization across US and India offices.",
     url: absoluteUrl("/services/operations"),
+    siteName: "EvolTech",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Operations Services | Hybrid Captive & BPO Solutions | EvolTech",
+    description:
+      "Efficient operations support including hybrid captive models, 24/7 global operations, and process optimization across US and India offices.",
   },
 };
 

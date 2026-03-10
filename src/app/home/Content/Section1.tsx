@@ -33,14 +33,21 @@ const Section1 = () => {
           loop
           muted
           playsInline
+          preload="none"
+          aria-hidden="true"
         />
       </div>
       <div className="relative z-10 w-full h-full grid grid-cols-4 sm:grid-cols-8 lg:grid-cols-12 grid-rows-1 gap-5 max-w-7xl mx-auto px-4 lg:px-0">
         <div className="w-full h-full flex flex-col justify-center gap-4 col-span-4 sm:col-span-6 lg:col-span-8 xl:col-span-10 col-start-1  sm:col-start-2 lg:col-start-3 xl:col-start-2  md:gap-10 xl:gap-15 items-center">
           <div className="flex flex-col md:gap-5 items-center relative">
+            <h1 className="sr-only">
+              AI & Full-Stack Technology Consulting for FinTech, Banking &
+              Healthcare | EvolTech
+            </h1>
             <Text
               className="font-semibold mb-2 md:mb-0 text-3xl sm:text-5xl xl:text-6xl text-center"
-              tag="p">
+              tag="p"
+              aria-hidden="true">
               Build
               <span className="w-2 h-2 rounded-full bg-yellow-400 inline-block" />{" "}
               <span className="">

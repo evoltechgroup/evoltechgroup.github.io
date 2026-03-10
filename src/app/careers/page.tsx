@@ -17,14 +17,24 @@ export default function Careers() {
 }
 
 export const metadata: Metadata = {
-  title: "Careers",
+  title: "Careers at EvolTech | Join Our US & India Technology Team",
   description:
-    "Join EvolTech to build AI, cloud, and full‑stack products with impact.",
+    "Join EvolTech and work on cutting-edge AI, cloud, and full-stack projects across our US and India offices. We're hiring engineers, designers, and operations specialists.",
   alternates: {
     canonical: absoluteUrl("/careers"),
   },
   openGraph: {
-    title: `Careers | ${SITE_NAME}`,
+    title: "Careers at EvolTech | Join Our US & India Technology Team",
+    description:
+      "Join EvolTech and work on cutting-edge AI, cloud, and full-stack projects across our US and India offices. We're hiring engineers, designers, and operations specialists.",
     url: absoluteUrl("/careers"),
+    siteName: "EvolTech",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Careers at EvolTech | Join Our US & India Technology Team",
+    description:
+      "Join EvolTech and work on cutting-edge AI, cloud, and full-stack projects across our US and India offices. We're hiring engineers, designers, and operations specialists.",
   },
 };

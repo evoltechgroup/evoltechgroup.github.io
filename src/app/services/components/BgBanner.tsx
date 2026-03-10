@@ -44,13 +44,13 @@ const BgBanner: React.FC<BgBannerProps> = ({
           <>
             <img
               src={backgroundImages.main.src}
-              alt="Background Main Image"
+              alt="EvolTech technology services background"
               className={`w-full z-8 h-full absolute sm:block ${
                 id === "operations"
                   ? "opacity-40 object-cover top-20"
                   : id === "products"
-                  ? "object-cover mix-blend-overlay opacity-25"
-                  : "left-0 object-cover sm:object-contain"
+                    ? "object-cover mix-blend-overlay opacity-25"
+                    : "left-0 object-cover sm:object-contain"
               } ${
                 id === "tech" &&
                 "hidden mix-blend-overlay opacity-50  md:left-20"
@@ -59,7 +59,7 @@ const BgBanner: React.FC<BgBannerProps> = ({
             {id === "tech" && backgroundImages.mobileTech && (
               <img
                 src={backgroundImages.mobileTech.src}
-                alt="Tech Mobile Background"
+                alt="EvolTech technology services mobile background"
                 className="w-full z-8 h-full absolute sm:hidden object-cover mix-blend-overlay opacity-50"
               />
             )}

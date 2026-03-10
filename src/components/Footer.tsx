@@ -3,6 +3,7 @@ import Link from "next/link";
 import Logo from "@/assets/logo/logo.svg";
 
 export default function Footer() {
+  const currentYear = new Date().getFullYear();
   return (
     <footer className="bg-[#181B2B] text-white w-full px-4 lg:pb-5 xl:pb-10">
       <div className="grid grid-cols-4 sm:grid-cols-8 lg:grid-cols-10 xl:grid-cols-12 grid-rows-1 gap-5 max-w-7xl mx-auto">
@@ -12,7 +13,7 @@ export default function Footer() {
               <img src={Logo.src} alt="EvolTech Logo" className="h-8 w-auto" />
             </Link>
             <span className="text-center text-xs lg:text-base font-normal sm:text-left text-[#AAAAAA]">
-              Copyright © 2025 EvolTech.
+              Copyright © {currentYear} EvolTech.
             </span>
           </div>
 
@@ -27,7 +28,7 @@ export default function Footer() {
                 Services
               </Link>
               <span className="text-gray-500 inline">/</span>
-               <Link href="/products" className="hover:underline">
+              <Link href="/products" className="hover:underline">
                 Products
               </Link>
               <span className="text-gray-500 inline">/</span>

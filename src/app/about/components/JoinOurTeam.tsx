@@ -30,7 +30,7 @@ const JoinOurTeam = () => {
             <div className="w-full md:w-fit h-80 lg:h-[600px] mx-auto rounded-[48px] overflow-hidden pt-8 relative">
               <img
                 src={JoinOurTeamImg.src}
-                alt="TeamMeeting"
+                alt="EvolTech team collaborating in office"
                 className="w-full h-[28rem] lg:h-full rounded-[48px] object-cover md:object-contain -translate-y-[50px]"
                 height={620}
                 width={500}
