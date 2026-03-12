@@ -88,39 +88,39 @@ export default function Header() {
                 <div
                   className={`absolute top-full -left-5 mt-3 lg:text-xs xl:text-sm bg-[#282D45] text-[#BBBBBB] rounded-full shadow-lg p-1 py-1
                          opacity-0 invisible group-hover:opacity-100 group-hover:visible
-                         transition-opacity duration-200 z-50 flex gap-2 whitespace-nowrap`}>
+                         transition-opacity duration-200 z-50 flex gap-2.5 whitespace-nowrap`}>
                   <div
                     className={`absolute -top-2 left-10 w-0 h-0 
                             border-l-8 border-r-8 border-b-8 
                             border-l-transparent border-r-transparent ${
                               isScrolled
                                 ? "border-b-[#282D45]"
-                                : "border-b-[#282d4570]"
+                                : "border-b-[#282d4524]"
                             }`}
                   />
                   <Link
                     href="/services/consulting"
-                    className={`p-2 px-3.5 rounded-full transition ${
+                    className={`p-2 px-4 rounded-full transition ${
                       pathname === "/services/consulting"
-                        ? "bg-white text-[#0B0F2B]"
+                        ? "bg-white text-[#0B0F2B] font-bold"
                         : "hover:bg-white hover:text-[#0B0F2B]"
                     }`}>
                     Consulting
                   </Link>
                   <Link
                     href="/services/technology"
-                    className={`p-2 rounded-full transition ${
+                    className={`p-2 px-4 rounded-full transition ${
                       pathname === "/services/technology"
-                        ? "bg-white text-[#0B0F2B]"
+                        ? "bg-white text-[#0B0F2B] font-bold"
                         : "hover:bg-white hover:text-[#0B0F2B]"
                     }`}>
                     Technology
                   </Link>
                   <Link
                     href="/services/operations"
-                    className={`p-2 rounded-full transition ${
+                    className={`p-2 px-4 rounded-full transition ${
                       pathname === "/services/operations"
-                        ? "bg-white text-[#0B0F2B]"
+                        ? "bg-white text-[#0B0F2B] font-bold"
                         : "hover:bg-white hover:text-[#0B0F2B]"
                     }`}>
                     Operations

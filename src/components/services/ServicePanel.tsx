@@ -4,6 +4,9 @@ import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import type { ServiceItem } from "../../data/ServicesData";
 import TechCardWithChip from "@/app/services/components/technChipCards";
+import { RoundChevronRight } from "@/assets/icons/custom-icons";
+import { useRouter } from "next/navigation";
+import ThemeButton from "../Button/ThemeButton";
 
 interface ServicePanelProps {
   service: ServiceItem;
@@ -16,12 +19,12 @@ export const ServicePanel: React.FC<ServicePanelProps> = ({ service }) => {
     iconSrc,
     imageSrc,
     ctaLabel = "Discover more",
-    ctaHref = "#",
+    ctaHref = "/",
     bullets,
   } = service;
 
   const [flip, setFlip] = useState(false);
-
+  const router = useRouter();
   useEffect(() => {
     setFlip(true);
     const timeout = setTimeout(() => setFlip(false), 400);
@@ -58,15 +61,12 @@ export const ServicePanel: React.FC<ServicePanelProps> = ({ service }) => {
           ))}
         </div>
 
-        <Link
-          href={ctaHref}
-          className="flex gap-2 bg-yellow-400 text-[#0B0F2B] px-6 py-2 rounded-full font-semibold hover:bg-yellow-300 transition mt-6  lg:mt-10 ml-4 lg:ml-0">
-          {ctaLabel}
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24">
-            <path d="M12 2a10 10 0 1 0 10 10A10.011 10.011 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8.009 8.009 0 0 1-8 8z" />
-            <path d="M9.293 8.707 12.586 12l-3.293 3.293 1.414 1.414L15.414 12l-4.707-4.707-1.414 1.414z" />
-          </svg>
-        </Link>
+        <ThemeButton
+          text={ctaLabel}
+          onClick={() => router.push(ctaHref)}
+          endIcon={<span>{RoundChevronRight}</span>}
+          extraStyles="mt-6 lg:mt-10 ml-4 lg:ml-0"
+        />
       </div>
 
       <div className="flex-1 p-10 pt-0 md:pt-0 md:p-0 flex justify-center relative perspective w-full">

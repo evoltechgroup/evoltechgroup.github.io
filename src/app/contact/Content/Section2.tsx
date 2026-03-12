@@ -19,9 +19,9 @@ const Section2 = () => {
             Office Locations
           </Text>
         </div>
-        <div className="w-full col-span-4 col-start-1 sm:col-span-8 sm:col-start-2 lg:col-span-12 lg:col-start-2 mt-5 lg:mt-10 flex flex-col md:flex-row justify-between gap-10 md:gap-30 items-center px-4 lg:px-0 pb-15 lg:pb-20">
+        <div className="w-full col-span-4 col-start-1 sm:col-span-8 sm:col-start-2 lg:col-span-12 lg:col-start-2 mt-5 lg:-mt-10 flex flex-col md:flex-row gap-10 md:gap-30 items-center justify-center px-4 lg:px-0 pb-15 lg:pb-20">
           {officeLocations.map((item, idx) => (
-            <div key={idx} className=" max-w-sm rounded-lg space-y-4">
+            <div key={idx} className="max-w-sm rounded-lg space-y-4">
               <div className="flex flex-col">
                 <div className="flex gap-4 items-center">
                   <div className="w-12 h-8">

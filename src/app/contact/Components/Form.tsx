@@ -8,6 +8,8 @@ import emailjs from "emailjs-com";
 import ReCAPTCHA from "react-google-recaptcha";
 import { useRouter } from "next/navigation";
 import emailjsInit from "@emailjs/browser";
+import ThemeButton from "@/components/Button/ThemeButton";
+import { RoundChevronRight } from "@/assets/icons/custom-icons";
 
 const Form = () => {
   const router = useRouter();
@@ -27,7 +29,6 @@ const Form = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [recaptchaVerified, setRecaptchaVerified] = useState(false);
 
-  
   const [validationError, setValidationError] = useState<{
     message: string;
     type: "recaptcha" | "submit" | "network";
@@ -42,12 +43,11 @@ const Form = () => {
   }, []);
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
 
-  
     if (validationError) {
       setValidationError(null);
     }
@@ -70,7 +70,7 @@ const Form = () => {
     }
 
     setIsSubmitting(true);
-    setValidationError(null); 
+    setValidationError(null);
 
     try {
       const response = await emailjs.send(
@@ -85,7 +85,7 @@ const Form = () => {
           source: formSource,
           "g-recaptcha-response": token,
         },
-        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!
+        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!,
       );
 
       setSubmitted(true);
@@ -151,14 +151,12 @@ const Form = () => {
             initial="initial"
             animate="animate"
             exit="exit"
-            className="space-y-4 backface-hidden"
-          >
+            className="space-y-4 backface-hidden">
             {["name", "email", "company", "message"].map((field) => (
               <div key={field} className="flex flex-col">
                 <label
                   htmlFor={field}
-                  className="mb-1 font-medium text-gray-700 capitalize"
-                >
+                  className="mb-1 font-medium text-gray-700 capitalize">
                   {field}
                 </label>
                 {field === "message" ? (
@@ -169,7 +167,8 @@ const Form = () => {
                     rows={4}
                     value={formData.message}
                     onChange={handleChange}
-                    className="px-4 py-2 border resize-none bg-white shadow rounded focus:outline-none focus:border-[#78B5EA] focus:shadow-[0_0_8px_#CAE6FFE5]"
+                    className="px-4 py-3 border border-gray-300 bg-white rounded-lg transition-all duration-200 resize-none
+                              focus:outline-none focus:border-[#5FA8E8] focus:ring-4 focus:ring-[#CAE6FF] focus:bg-[#F7FBFF]"
                   />
                 ) : (
                   <input
@@ -179,7 +178,8 @@ const Form = () => {
                     required={field !== "company"}
                     value={formData[field as keyof typeof formData]}
                     onChange={handleChange}
-                    className="px-4 py-2 border bg-white shadow rounded focus:outline-none focus:border-[#78B5EA] focus:shadow-[0_0_8px_#CAE6FFE5]"
+                    className="px-4 py-2 border border-gray-300 bg-white rounded-lg transition-all duration-200
+                              focus:outline-none focus:border-[#5FA8E8] focus:ring-4 focus:ring-[#CAE6FF] focus:bg-[#F7FBFF]"
                   />
                 )}
               </div>
@@ -228,7 +228,6 @@ const Form = () => {
               </div>
             </div>
 
-            
             <AnimatePresence>
               {validationError && (
                 <motion.div
@@ -245,8 +244,7 @@ const Form = () => {
                     }
                   `}
                   role="alert"
-                  aria-live="polite"
-                >
+                  aria-live="polite">
                   <div className="flex items-start">
                     <AlertCircle
                       className={`h-5 w-5 mt-0.5 flex-shrink-0 ${
@@ -266,23 +264,11 @@ const Form = () => {
             </AnimatePresence>
 
             <div className="w-full mt-4 flex items-center justify-start text-black">
-              <Button
-                disabled={isSubmitting}
-                className={`w-fit gap-2 items-center cursor-pointer justify-center sm:justify-start pr-2 pl-6 py-2 flex rounded-full text-sm ${
-                  isSubmitting ? "bg-gray-400" : "bg-[#FFBB00]"
-                }`}
-              >
-                <span className="font-semibold text-center">
-                  {isSubmitting ? "Sending..." : "Send"}
-                </span>
-                <span>
-                  {isSubmitting ? (
-                    <RotateCcw size={18} className="animate-spin" />
-                  ) : (
-                    <CircleChevronRight size={18} />
-                  )}
-                </span>
-              </Button>
+              <ThemeButton
+                text={isSubmitting ? "Sending..." : "Send"}
+                endIcon={<span className="">{RoundChevronRight}</span>}
+                extraStyles="!py-1 mt-2 font-semibold"
+              />
             </div>
           </motion.form>
         ) : (
@@ -292,8 +278,7 @@ const Form = () => {
             initial="initial"
             animate="animate"
             exit="exit"
-            className="bg-transparent flex flex-col items-center -mt-10 justify-center p-6 pt-0 rounded-lg text-center space-y-2 backface-hidden"
-          >
+            className="bg-transparent flex flex-col items-center -mt-10 justify-center p-6 pt-0 rounded-lg text-center space-y-2 backface-hidden">
             <div>{mailIcon}</div>
             <h2 className="text-3xl font-bold text-black">
               Thank you, {capitalizeName(formData.name)}!
@@ -302,17 +287,12 @@ const Form = () => {
               Your message sent successfully. <br />
               We'll get back to you soon!
             </p>
-            <button
+            <ThemeButton
+              text={"Continue exploring...."}
               onClick={() => router.push("/")}
-              className="w-fit gap-2 items-center cursor-pointer justify-center sm:justify-start pr-2 pl-6 py-2 flex bg-[#FFBB00] rounded-full text-sm"
-            >
-              <span className="font-semibold text-center">
-                Continue exploring....
-              </span>
-              <span>
-                <CircleChevronRight size={18} />
-              </span>
-            </button>
+              endIcon={<span className="">{RoundChevronRight}</span>}
+              extraStyles="!py-1 mt-2 font-semibold"
+            />
           </motion.div>
         )}
       </AnimatePresence>

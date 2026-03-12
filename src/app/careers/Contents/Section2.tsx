@@ -10,6 +10,8 @@ import { CircleChevronRight } from "lucide-react";
 import { useRouter } from "next/navigation";
 import Button from "@/components/Button";
 import CheckList from "../components/CheckList";
+import ThemeButton from "@/components/Button/ThemeButton";
+import { RoundChevronRight } from "@/assets/icons/custom-icons";
 
 const Section2 = () => {
   const router = useRouter();
@@ -82,7 +84,8 @@ const Section2 = () => {
                 })}
               </div>
               <div className="w-full h-full mt-8 flex items-start justify-start lg:justify-start md:justify-center ">
-                <Button
+                <ThemeButton
+                  text={"View Open Positions"}
                   onClick={() => {
                     const el = document.getElementById("job-listing");
                     if (el) {
@@ -92,12 +95,9 @@ const Section2 = () => {
                       });
                     }
                   }}
-                  className="w-fit gap-2 items-center justify-center sm:justify-start px-4 py-2 flex cursor-pointer bg-[#FFBB00] rounded-full text-sm">
-                  <span className="font-medium">View Open Positions</span>
-                  <span>
-                    <CircleChevronRight size={18} />
-                  </span>
-                </Button>
+                  endIcon={<span className="">{RoundChevronRight}</span>}
+                  extraStyles="!py-1 "
+                />
               </div>
             </div>
           </div>

@@ -4,6 +4,7 @@ import React, { useRef, useState, useEffect } from "react";
 import Label from "@/components/Label";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { TeamImages } from "@/data/team";
+import { createPortal } from "react-dom";
 
 const SCROLL_SPEED = 50;
 const DUPLICATE_COUNT = 3;
@@ -48,6 +49,8 @@ const TeamShowCase: React.FC = () => {
   const contentRef = useRef<HTMLDivElement>(null);
   const [scrollX, setScrollX] = useState(0);
   const [isAutoScrolling, setIsAutoScrolling] = useState(true);
+  const [cursorPos, setCursorPos] = useState({ x: 0, y: 0 });
+  const [hoveredName, setHoveredName] = useState<string | null>(null);
 
   const totalImages = TeamImages.length;
 
@@ -56,19 +59,14 @@ const TeamShowCase: React.FC = () => {
     let imageCounter = 0;
     let labelIndex = 0;
 
-    // Step 1: Main grouping loop
     while (labelIndex < labelTexts.length) {
       for (let i = 0; i < 4 && labelIndex < labelTexts.length; i++) {
         const image1 = imageCounter++ % totalImages;
         const image2 = imageCounter++ % totalImages;
-        result.push({
-          type: "label",
-          slotIndexes: [image1, image2],
-        });
+        result.push({ type: "label", slotIndexes: [image1, image2] });
         labelIndex++;
       }
 
-      // Spacer group
       const spacerImage1 = imageCounter++ % totalImages;
       const spacerImage2 = imageCounter++ % totalImages;
       result.push({
@@ -77,19 +75,14 @@ const TeamShowCase: React.FC = () => {
       });
     }
 
-    // Step 2: Add remaining images (not yet used)
     const usedIndexes = result.flatMap((g) => g.slotIndexes);
     const allIndexes = Array.from({ length: totalImages }, (_, i) => i);
     const unusedIndexes = allIndexes.filter((i) => !usedIndexes.includes(i));
-
     let extraImages = [...unusedIndexes];
 
-    // Fill the last pair if odd by wrapping from the start (no duplication)
     if (extraImages.length % 2 !== 0) {
       const firstAvailable = allIndexes.find((i) => !extraImages.includes(i));
-      if (firstAvailable !== undefined) {
-        extraImages.push(firstAvailable);
-      }
+      if (firstAvailable !== undefined) extraImages.push(firstAvailable);
     }
 
     for (let i = 0; i < extraImages.length; i += 2) {
@@ -112,15 +105,14 @@ const TeamShowCase: React.FC = () => {
     const originalContentWidth =
       contentRef.current.scrollWidth / DUPLICATE_COUNT;
 
+    contentRef.current.style.willChange = "transform";
+
     const step = (time: number) => {
       if (lastTime !== null) {
         const delta = time - lastTime;
         let newScrollX = scrollX + (SCROLL_SPEED * delta) / 1000;
-
-        if (newScrollX >= originalContentWidth) {
+        if (newScrollX >= originalContentWidth)
           newScrollX -= originalContentWidth;
-        }
-
         setScrollX(newScrollX);
       }
       lastTime = time;
@@ -128,7 +120,11 @@ const TeamShowCase: React.FC = () => {
     };
 
     animationFrameId = requestAnimationFrame(step);
-    return () => cancelAnimationFrame(animationFrameId);
+
+    return () => {
+      cancelAnimationFrame(animationFrameId);
+      if (contentRef.current) contentRef.current.style.willChange = "auto";
+    };
   }, [isAutoScrolling, scrollX]);
 
   useEffect(() => {
@@ -144,19 +140,18 @@ const TeamShowCase: React.FC = () => {
       contentRef.current.scrollWidth / DUPLICATE_COUNT;
     let newScrollX = scrollX + offset;
 
-    if (newScrollX < 0) {
-      newScrollX += originalContentWidth;
-    } else if (newScrollX >= originalContentWidth) {
+    if (newScrollX < 0) newScrollX += originalContentWidth;
+    else if (newScrollX >= originalContentWidth)
       newScrollX -= originalContentWidth;
-    }
 
     setScrollX(newScrollX);
   };
+
   const renderShowcaseContent = () => {
     let labelIndexLocal = 0;
 
     return (
-      <div className="flex select-none pointer-events-none">
+      <div className="flex select-none">
         {groupedSlots.map((group, idx) => {
           const padding = staggeredPadding[idx % staggeredPadding.length];
           const isLabel = group.type === "label";
@@ -170,10 +165,7 @@ const TeamShowCase: React.FC = () => {
                   <div
                     key={i}
                     className="absolute z-10 whitespace-nowrap top-0"
-                    style={{
-                      top: `${offset}%`,
-                      transform: "translateY(0%)",
-                    }}>
+                    style={{ top: `${offset}%`, transform: "translateY(0%)" }}>
                     <Label text={text} />
                   </div>
                 );
@@ -192,7 +184,13 @@ const TeamShowCase: React.FC = () => {
                   return (
                     <div
                       key={idx * 2 + i}
-                      className="relative h-[215px] w-[172px] border-4 border-white bg-white overflow-hidden">
+                      className="relative h-[215px] w-[172px] border-4 border-white bg-white overflow-hidden"
+                      style={{ cursor: "none" }}
+                      onMouseMove={(e) =>
+                        setCursorPos({ x: e.clientX, y: e.clientY })
+                      }
+                      onMouseEnter={() => setHoveredName(currentImage.name)}
+                      onMouseLeave={() => setHoveredName(null)}>
                       <img
                         src={currentImage.image.src}
                         alt={currentImage.name}
@@ -202,6 +200,7 @@ const TeamShowCase: React.FC = () => {
                   );
                 })}
               </div>
+
               <div
                 className="h-full"
                 style={{
@@ -210,6 +209,7 @@ const TeamShowCase: React.FC = () => {
                     "linear-gradient(to bottom, transparent, #4444445a, transparent)",
                 }}
               />
+
               {labelsToRender && (
                 <div className="flex relative">{labelsToRender}</div>
               )}
@@ -221,34 +221,56 @@ const TeamShowCase: React.FC = () => {
   };
 
   return (
-    <div className="relative overflow-hidden" style={{ width: "100vw" }}>
-      <div
-        ref={containerRef}
-        className="flex"
-        style={{ width: "max-content", overflow: "hidden" }}>
-        <div className="absolute p-5 mt-20 flex z-3 justify-between mb-4 gap-4 w-full h-full items-center">
+    <>
+      {hoveredName &&
+        createPortal(
+          <div
+            style={{
+              position: "fixed",
+              left: cursorPos.x + 14,
+              top: cursorPos.y + 14,
+              background: "black",
+              color: "white",
+              fontSize: "12px",
+              padding: "4px 10px",
+              borderRadius: "4px",
+              pointerEvents: "none",
+              zIndex: 9999,
+              whiteSpace: "nowrap",
+            }}>
+            {hoveredName}
+          </div>,
+          document.body,
+        )}
+
+      <div className="relative overflow-hidden" style={{ width: "100vw" }}>
+        <div className="absolute p-5 mt-20 flex z-10 justify-between gap-4 w-full h-full items-center pointer-events-none">
           <button
-            className="w-10 h-10 flex bg-white shadow hover:text-white cursor-pointer text-black items-center justify-center rounded-full hover:bg-gray-800 transition"
+            className="w-10 h-10 flex bg-white shadow hover:text-white cursor-pointer text-black items-center justify-center rounded-full hover:bg-gray-800 transition pointer-events-auto"
             onClick={() => manualScroll(-200)}>
             <ChevronLeft />
           </button>
           <button
-            className="w-10 h-10 flex md:mr-5 bg-white shadow hover:text-white cursor-pointer text-black items-center justify-center rounded-full hover:bg-gray-800 transition"
+            className="w-10 h-10 flex md:mr-5 bg-white shadow hover:text-white cursor-pointer text-black items-center justify-center rounded-full hover:bg-gray-800 transition pointer-events-auto"
             onClick={() => manualScroll(200)}>
             <ChevronRight />
           </button>
         </div>
 
         <div
-          ref={contentRef}
-          className="flex relative z-1"
-          style={{ willChange: "transform" }}>
-          {Array.from({ length: DUPLICATE_COUNT }).map((_, idx) => (
-            <React.Fragment key={idx}>{renderShowcaseContent()}</React.Fragment>
-          ))}
+          ref={containerRef}
+          className="flex"
+          style={{ width: "max-content", overflow: "hidden" }}>
+          <div ref={contentRef} className="flex relative z-1">
+            {Array.from({ length: DUPLICATE_COUNT }).map((_, idx) => (
+              <React.Fragment key={idx}>
+                {renderShowcaseContent()}
+              </React.Fragment>
+            ))}
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
