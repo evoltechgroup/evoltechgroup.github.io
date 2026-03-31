@@ -41,7 +41,7 @@ function Testimonials({ type }: Props) {
     setFade(false);
     setTimeout(() => {
       setIndex(
-        (i) => (i - 1 + testimonialList.length) % testimonialList.length
+        (i) => (i - 1 + testimonialList.length) % testimonialList.length,
       );
       setFade(true);
     }, 150);
@@ -66,7 +66,7 @@ function Testimonials({ type }: Props) {
       }}>
       <div className="grid grid-cols-4 sm:grid-cols-8 lg:grid-cols-12 grid-rows-1 gap-4 max-w-7xl mx-auto py-14 lg:py-10 px-4 lg:px-0">
         <div className="w-full col-span-4 col-start-1 sm:col-span-6 lg:col-span-8 sm:col-start-2 lg:col-start-3 flex justify-center flex-col">
-          <div className="w-full flex flex-col gap-5 items-center justify-center mb-4">
+          <div className="w-full flex flex-col gap-5 items-center justify-center mb-2">
             <Text
               className="font-semibold text-3xl text-white lg:text-5xl xl:text-[56px] text-center"
               tag="p">
@@ -79,12 +79,12 @@ function Testimonials({ type }: Props) {
               </span>
               {"customers about us"}
             </Text>
-            <div className="flex gap-2 justify-start items-start -ml-20 -mt-5 w-[70%]">
+            <div className="flex gap-2 justify-start items-start ml-[2rem] md:ml-[15rem] -mt-2  w-[70%]">
               <span className="text-[#FFBB00]">{followArrowRightV2}</span>
             </div>
           </div>
 
-          <div className="relative w-full flex justify-center col-span-8 col-start-3 mt-4">
+          <div className="relative w-full flex justify-center col-span-8 col-start-3 ">
             <div
               className="bg-white rounded-2xl shadow-lg px-8 py-8 max-w-2xl w-full h-fit flex flex-col justify-center items-center transition-all duration-500 relative"
               onTouchStart={(e) =>
@@ -113,17 +113,15 @@ function Testimonials({ type }: Props) {
               </p>
             </div>
           </div>
-
-          <div className="mt-6 text-center w-full flex flex-col gap-5 items-center">
+          <div className="mt-6 text-center w-full flex flex-col gap-3 items-center">
             <div className="font-bold text-[#C6C7F3] text-lg max-w-lg">
               {t.author}
             </div>
-            <span className="bg-[#FFEAA3] text-[#0B0F2B] px-4 py-1 rounded-full font-semibold text-xs mt-2 inline-block">
+            <span className="bg-[#FFEAA3] text-[#0B0F2B] px-4 py-2 rounded-full font-semibold text-xs inline-block">
               {t.company}
             </span>
           </div>
-
-          <div className="flex gap-2 justify-center mt-4">
+          <div className="flex gap-2 justify-center mt-5 sm:mt-10">
             {testimonialList.map((_, i) => (
               <button
                 key={i}

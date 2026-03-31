@@ -1,7 +1,9 @@
 "use client";
 import { bottomRing, leftRing } from "@/assets/effects";
+import { RoundChevronRight } from "@/assets/icons/custom-icons";
 import { followArrowDownV3 } from "@/assets/svg";
 import Button from "@/components/Button";
+import ThemeButton from "@/components/Button/ThemeButton";
 import Text from "@/components/Text";
 import { CircleChevronRight } from "lucide-react";
 import { useRouter } from "next/navigation";
@@ -43,22 +45,19 @@ const LetsGrow = ({ description, text, url }: LetsGrowProps) => {
               tag="p">
               {description}
             </Text>
-            <div className="w-full text-black mt-4 flex items-center justify-center">
-              <Button
-                onClick={() => {
-                  if (url) {
-                    window.open(url, "_blank");
-                  } else {
-                    router.push("/contact#contact-form");
-                  }
-                }}
-                className="cursor-pointer pt-1.5 w-fit gap-2 items-center justify-center sm:justify-start pr-2 pb-1.5 pl-4 flex bg-[#FFBB00] rounded-full text-sm">
-                <span className="font-semibold">{text ?? "Contact us"}</span>
-                <span>
-                  <CircleChevronRight size={18} />
-                </span>
-              </Button>
-            </div>
+
+            <ThemeButton
+              text={text ?? "Contact us"}
+              onClick={() => {
+                if (url) {
+                  window.open(url, "_blank");
+                } else {
+                  router.push("/contact#contact-form");
+                }
+              }}
+              endIcon={<span className="">{RoundChevronRight}</span>}
+              extraStyles="font-semibold"
+            />
           </div>
         </div>
       </div>

@@ -10,6 +10,8 @@ import {
 import { JoinOurTeamImg } from "@/assets/images";
 import { useRouter } from "next/navigation";
 import { followArrowDownV2 } from "@/assets/svg";
+import ThemeButton from "@/components/Button/ThemeButton";
+import { RoundChevronRight } from "@/assets/icons/custom-icons";
 
 const JoinOurTeam = () => {
   const router = useRouter();
@@ -72,14 +74,12 @@ const JoinOurTeam = () => {
                   support.
                 </p>
                 <div className="w-full mt-4 flex items-center justify-center sm:justify-start text-black">
-                  <Button
-                    onClick={() => router.push("/careers")}
-                    className="w-fit gap-2 items-center cursor-pointer justify-center sm:justify-start pr-2 pl-6 py-2 flex  bg-[#FFBB00] rounded-full text-sm">
-                    <span className="font-semibold text-center">Join</span>
-                    <span>
-                      <CircleChevronRight size={18} />
-                    </span>
-                  </Button>
+                  <ThemeButton
+                    text={"Join"}
+                    onClick={() => router.push("careers")}
+                    endIcon={<span className="">{RoundChevronRight}</span>}
+                    extraStyles="!py-1 font-semibold"
+                  />
                 </div>
               </div>
               <div className="w-full h-full opacity-70">

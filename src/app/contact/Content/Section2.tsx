@@ -12,16 +12,21 @@ const Section2 = () => {
       }}>
       <div className="grid grid-cols-4 sm:grid-cols-8 lg:grid-cols-12 grid-rows-1 gap-5 max-w-7xl mx-auto px-4 lg:px-0 pb-10 md:pb-0">
         <div className="w-full h-full col-span-4 col-start-1 sm:col-span-8 sm:col-start-1 lg:col-span-12 lg:col-start-1 items-center lg:-mt-15 ">
-          <img src={Map.src} alt="LeftGlobe" className="w-full h-full " />
+          <object
+            data={Map.src}
+            type="image/svg+xml"
+            className="w-full h-full"
+            aria-label="World map with office locations"
+          />
           <Text
             className="font-semibold text-4xl lg:text-6xl -mt-10 !text-center w-full"
             tag="p">
             Office Locations
           </Text>
         </div>
-        <div className="w-full col-span-4 col-start-1 sm:col-span-8 sm:col-start-2 lg:col-span-12 lg:col-start-2 mt-5 lg:mt-10 flex flex-col md:flex-row justify-between gap-10 md:gap-30 items-center px-4 lg:px-0 pb-15 lg:pb-20">
+        <div className="w-full col-span-4 col-start-1 sm:col-span-8 sm:col-start-2 lg:col-span-12 lg:col-start-2 mt-5 lg:-mt-10 flex flex-col md:flex-row gap-10 md:gap-30 items-center justify-center px-4 lg:px-0 pb-15 lg:pb-20">
           {officeLocations.map((item, idx) => (
-            <div key={idx} className=" max-w-sm rounded-lg space-y-4">
+            <div key={idx} className="max-w-sm rounded-lg space-y-4">
               <div className="flex flex-col">
                 <div className="flex gap-4 items-center">
                   <div className="w-12 h-8">

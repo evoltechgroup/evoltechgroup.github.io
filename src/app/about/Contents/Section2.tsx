@@ -7,6 +7,8 @@ import { whyEvoltechCard } from "@/data/about-us";
 import { followArrow, followArrowRight } from "@/assets/svg";
 import CardWithChip from "@/components/Card/CardWithChip";
 import { useRouter } from "next/navigation";
+import ThemeButton from "@/components/Button/ThemeButton";
+import { RoundChevronRight } from "@/assets/icons/custom-icons";
 
 const Section2 = () => {
   const router = useRouter();
@@ -92,15 +94,13 @@ const Section2 = () => {
                   );
                 })}
               </div>
-              <div className="w-full mt-7 md:mt-4 flex items-center md:justify-start justify-start">
-                <Button
+              <div className="w-full mt-7  flex items-center md:justify-start justify-start">
+                <ThemeButton
+                  text="More services"
                   onClick={() => router.push("/services/consulting")}
-                  className="w-fit gap-2 items-center justify-center sm:justify-start pr-2 pl-6 py-2 flex cursor-pointer  bg-[#FFBB00] rounded-full text-sm">
-                  <span className="font-semibold">More services</span>
-                  <span>
-                    <CircleChevronRight size={18} />
-                  </span>
-                </Button>
+                  endIcon={<span>{RoundChevronRight}</span>}
+                  extraStyles="!py-1 font-semibold"
+                />
               </div>
             </div>
           </div>
