@@ -1,5 +1,6 @@
 import React from "react";
 import Button from ".";
+import { twMerge } from "tailwind-merge";
 
 interface ThemeButtonProps {
   text: string;
@@ -16,12 +17,16 @@ const ThemeButton: React.FC<ThemeButtonProps> = ({
   endIcon,
   onClick,
   extraStyles,
-  disabled
+  disabled,
 }) => {
   const themeStyles =
     "cursor-pointer w-fit text-black items-center gap-1 font-medium justify-center sm:justify-start flex pl-6 pr-2 py-2 bg-[#FFBB00] rounded-full text-sm sm:text-base transition-colors duration-800 hover:brightness-110";
   return (
-    <Button onClick={onClick} className={`${themeStyles} ${extraStyles}`} disabled={disabled}>
+    <Button
+      onClick={onClick}
+      className={twMerge(themeStyles, extraStyles)}
+      disabled={disabled}
+    >
       {startIcon && <span className="mr-2">{startIcon}</span>}
       {text}
       {endIcon && <span className="ml-2">{endIcon}</span>}

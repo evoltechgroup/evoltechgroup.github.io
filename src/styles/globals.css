@@ -1,5 +1,7 @@
 @import "tailwindcss";
 @import "tw-animate-css"; /* Import your font-face declarations first */
+@import "react-photo-album/styles.css";
+@import "react-day-picker/style.css";
 
 @custom-variant dark (&:is(.dark *));
 
@@ -219,4 +221,26 @@ body {
 
 .swiper-button-next {
   right: 2.5rem !important;
+}
+
+.event-section-content a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  transition: color 240ms ease;
+}
+
+.event-section-content a:hover,
+.event-section-content a:focus-visible {
+  color: #2563eb;
+}
+
+.rdp-range_middle .rdp-day_button {
+  color: #1a1a2e;
+}
+
+.rdp-range_start .rdp-day_button,
+.rdp-range_end .rdp-day_button,
+.rdp-selected .rdp-day_button {
+  color: #ffffff;
 }

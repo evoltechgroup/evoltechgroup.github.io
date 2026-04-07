@@ -12,6 +12,10 @@ export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
+  const [experiencesOpen, setExperiencesOpen] = useState(false);
+
+  const isServicesPath = pathname.startsWith("/services");
+  const isExperiencesPath = pathname.startsWith("/events");
 
   useEffect(() => {
     const handleScroll = () => {
@@ -79,9 +83,7 @@ export default function Header() {
               <div className="relative group">
                 <span
                   className={`cursor-pointer transition ${
-                    pathname.startsWith("/services")
-                      ? "text-[#FFBB00]"
-                      : "text-[#C7E5FF]"
+                    isServicesPath ? "text-[#FFBB00]" : "text-[#C7E5FF]"
                   }`}>
                   Services
                 </span>
@@ -92,11 +94,7 @@ export default function Header() {
                   <div
                     className={`absolute -top-2 left-10 w-0 h-0 
                             border-l-8 border-r-8 border-b-8 
-                            border-l-transparent border-r-transparent ${
-                              isScrolled
-                                ? "border-b-[#282D45]"
-                                : "border-b-[#282d4524]"
-                            }`}
+                            border-l-transparent border-r-transparent border-b-[#282D45]`}
                   />
                   <Link
                     href="/services/consulting"
@@ -143,6 +141,35 @@ export default function Header() {
                 }`}>
                 Careers
               </Link>
+              <span className="text-[#63A4DD]">/</span>
+              <div className="relative group">
+                <span
+                  className={`cursor-pointer transition ${
+                    isExperiencesPath ? "text-[#FFBB00]" : "text-[#C7E5FF]"
+                  }`}>
+                  Experiences
+                </span>
+                <div
+                  className={`absolute top-full -left-5 mt-3 lg:text-xs xl:text-sm bg-[#282D45] text-[#BBBBBB] rounded-full shadow-lg p-1 py-1
+	                         opacity-0 invisible group-hover:opacity-100 group-hover:visible
+	                         transition-opacity duration-200 z-50 flex gap-2.5 whitespace-nowrap`}>
+                  <div
+                    className={`absolute -top-2 left-10 w-0 h-0 
+	                            border-l-8 border-r-8 border-b-8 
+	                            border-l-transparent border-r-transparent border-b-[#282D45]`}
+                  />
+                  <Link
+                    href="/events?category=conference"
+                    className="p-2 px-4 rounded-full transition hover:bg-white hover:text-[#0B0F2B]">
+                    Conference
+                  </Link>
+                  <Link
+                    href="/events?category=internal"
+                    className="p-2 px-4 rounded-full transition hover:bg-white hover:text-[#0B0F2B]">
+                    EvolTech Space
+                  </Link>
+                </div>
+              </div>
               <span className="text-[#63A4DD]">/</span>
               <Link
                 href="/about"
@@ -223,6 +250,28 @@ export default function Header() {
             <Link href="/careers" onClick={toggleMobileMenu}>
               Careers
             </Link>
+            <button
+              onClick={() => setExperiencesOpen(!experiencesOpen)}
+              className="flex items-center gap-2 ">
+              Experiences
+              <span className="text-sm">
+                {experiencesOpen ? <ChevronUp /> : <ChevronDown />}
+              </span>
+            </button>
+            {experiencesOpen && (
+              <div className="flex flex-col gap-4 items-center text-base font-normal">
+                <Link
+                  href="/events?category=conference"
+                  onClick={toggleMobileMenu}>
+                  Conference
+                </Link>
+                <Link
+                  href="/events?category=internal"
+                  onClick={toggleMobileMenu}>
+                  EvolTech Space
+                </Link>
+              </div>
+            )}
             <Link href="/about" onClick={toggleMobileMenu}>
               Who we are
             </Link>
