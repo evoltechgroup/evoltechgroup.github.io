@@ -1,6 +1,6 @@
 "use client";
 
-import { Shield } from "lucide-react";
+import { Settings, Shield } from "lucide-react";
 import { useConsent } from "@/context/ConsentContext";
 
 export default function CookieBanner() {
@@ -30,7 +30,13 @@ export default function CookieBanner() {
             <p className="text-white/60 text-xs sm:text-sm leading-relaxed pl-9">
               We use cookies to analyse site traffic via Google Analytics,
               helping us improve your experience. No data is collected unless
-              you accept.{" "}
+              you accept and you can change your preferences at any time using
+              the{" "}
+              <span className="text-yellow-100 inline-flex items-center gap-1 align-middle translate-y-[-0.5px]">
+                <Settings size={13} strokeWidth={1.8} />
+                <span>Settings </span>
+              </span>
+              {"  "}from the footer.
               {/* <a
                 href="#"
                 className="underline underline-offset-2 text-white/80 hover:text-white transition-colors"

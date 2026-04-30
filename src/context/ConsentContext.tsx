@@ -23,6 +23,7 @@ interface ConsentContextValue {
   showBanner: boolean;
   acceptAll: () => void;
   rejectAll: () => void;
+  savePreferences: (prefs: ConsentPreferences) => void;
 }
 
 const ConsentContext = createContext<ConsentContextValue | null>(null);
@@ -60,13 +61,17 @@ export function ConsentProvider({ children }: { children: React.ReactNode }) {
     () => applyAndSave(ALL_REJECTED),
     [applyAndSave],
   );
+  const savePreferences = useCallback(
+    (prefs: ConsentPreferences) => applyAndSave(prefs),
+    [applyAndSave],
+  );
 
   // Only show banner after hydration — avoids flash for returning visitors
   const showBanner = mounted && !consent.hasDecided;
 
   return (
     <ConsentContext.Provider
-      value={{ consent, showBanner, acceptAll, rejectAll }}
+      value={{ consent, showBanner, acceptAll, rejectAll, savePreferences }}
     >
       {children}
     </ConsentContext.Provider>
