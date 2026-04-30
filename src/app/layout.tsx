@@ -80,13 +80,6 @@ export default function RootLayout({
           rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
         />
-        {/*
-          Google Consent Mode v2 — initialise dataLayer and set ALL consent
-          signals to "denied" before any analytics script loads.
-          This runs inline/synchronously so GA never fires without consent.
-          The ConsentContext will call gtag('consent','update',...) once
-          the user's stored preference (or fresh decision) is applied.
-        */}
         <Script id="consent-mode-default" strategy="beforeInteractive">
           {`
             window.dataLayer = window.dataLayer || [];
