@@ -13,6 +13,8 @@ import Footer from "@/components/Footer";
 import ChatBot from "./chat";
 import Script from "next/script";
 import GoogleAnalytics from "./GoogleAnalytics";
+import { ConsentProvider } from "@/context/ConsentContext";
+import CookieBanner from "@/components/CookieConsent/CookieBanner";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -78,16 +80,14 @@ export default function RootLayout({
           rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
         />
-        <Script
-          strategy="afterInteractive"
-          src="https://www.googletagmanager.com/gtag/js?id=G-BT21FKPMCH"
-        />
-        <Script id="google-analytics" strategy="afterInteractive">
+        <Script id="consent-mode-default" strategy="beforeInteractive">
           {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-BT21FKPMCH');
+            gtag('consent', 'default', {
+              analytics_storage: 'denied',
+              wait_for_update: 500
+            });
           `}
         </Script>
         <Script
@@ -111,14 +111,18 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased font-gilroy`}>
-        <GoogleAnalytics />
-        <div id="modal-root" />
-        <Header />
-        {children}
-        <Footer />
-        {/* <GoToTopButton /> */}
-        <ChatBot />
+        className={`${geistSans.variable} ${geistMono.variable} antialiased font-gilroy`}
+      >
+        <ConsentProvider>
+          <GoogleAnalytics />
+          <div id="modal-root" />
+          <Header />
+          {children}
+          <Footer />
+          {/* <GoToTopButton /> */}
+          <ChatBot />
+          <CookieBanner />
+        </ConsentProvider>
       </body>
     </html>
   );

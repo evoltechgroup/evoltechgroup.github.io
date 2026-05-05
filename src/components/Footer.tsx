@@ -1,6 +1,7 @@
 import { Linkedin, Mails } from "lucide-react";
 import Link from "next/link";
 import Logo from "@/assets/logo/logo.svg";
+import CookieSettingsModal from "@/components/CookieConsent/CookieSettingsModal";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -18,46 +19,53 @@ export default function Footer() {
           </div>
 
           <div className="flex flex-col sm:flex-row items-center justify-center order-1 lg:order-2 gap-4">
-            <nav className="flex flex-nowrap justify-center gap-2 sm:gap-4 text-sm lg:text-base text-white">
-              <Link href="/about" className="hover:underline">
-                Who We Are
-              </Link>
-              <span className="text-gray-500 inline">/</span>
+            <div className="flex flex-col items-start gap-1">
+              <nav className="flex flex-nowrap justify-center gap-2 sm:gap-4 text-sm lg:text-base text-white">
+                <Link href="/about" className="hover:underline">
+                  Who We Are
+                </Link>
+                <span className="text-gray-500 inline">/</span>
 
-              <Link href="/services/consulting" className="hover:underline">
-                Services
-              </Link>
-              <span className="text-gray-500 inline">/</span>
-              <Link href="/products" className="hover:underline">
-                Products
-              </Link>
-              <span className="text-gray-500 inline">/</span>
+                <Link href="/services/consulting" className="hover:underline">
+                  Services
+                </Link>
+                <span className="text-gray-500 inline">/</span>
+                <Link href="/products" className="hover:underline">
+                  Products
+                </Link>
+                <span className="text-gray-500 inline">/</span>
 
-              <Link href="/careers" className="hidden lg:flex hover:underline">
-                Careers
-              </Link>
-              <span className="hidden lg:inline text-gray-500">/</span>
+                <Link
+                  href="/careers"
+                  className="hidden lg:flex hover:underline"
+                >
+                  Careers
+                </Link>
+                <span className="hidden lg:inline text-gray-500">/</span>
 
-              <Link href="/contact" className="hover:underline">
-                Contact
-              </Link>
-            </nav>
-
+                <Link href="/contact" className="hover:underline">
+                  Contact
+                </Link>
+              </nav>
+            </div>
             <div className="flex gap-6 justify-center text-[#AAAAAA] sm:-mt-1">
               <a
                 href="https://www.linkedin.com/company/evoltechgroup/"
                 className="hover:opacity-80"
                 aria-label="Connect on LinkedIn"
                 target="_blank"
-                rel="noopener noreferrer">
+                rel="noopener noreferrer"
+              >
                 <Linkedin size={15} />
               </a>
               <a
                 href="mailto:info@evoltechgroup.com"
                 className="hover:opacity-80"
-                aria-label="Send Mail">
+                aria-label="Send Mail"
+              >
                 <Mails size={15} />
               </a>
+              <CookieSettingsModal />
             </div>
           </div>
         </div>
