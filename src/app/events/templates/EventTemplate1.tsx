@@ -28,19 +28,19 @@ const EventTemplate1: React.FC<EventTemplate1Props> = ({ event }) => {
           <div className="w-full pb-5">
             <div className="grid grid-cols-4 sm:grid-cols-8 lg:grid-cols-12 grid-rows-1 gap-5 max-w-7xl mx-auto px-4 lg:px-0">
               <div className="col-span-4 col-start-1 lg:col-span-10 lg:col-start-2">
-                <div className="relative h-[270px] w-full overflow-hidden shadow-lg">
+                <div className="relative h-[150px] sm:h-[270px] w-full overflow-hidden shadow-lg">
                   <Image
                     src={event.bannerImage!}
                     alt={event.title}
                     fill
-                    className="object-cover"
+                    className="sm:object-cover"
                   />
                 </div>
               </div>
             </div>
           </div>
         )}
-        <div className="w-full py-10">
+        <div className="w-full md:py-10">
           <div className="grid grid-cols-4 sm:grid-cols-8 lg:grid-cols-12 grid-rows-1 gap-5 max-w-7xl mx-auto px-4 lg:px-0">
             <div className="col-span-4 col-start-1 lg:col-span-10 lg:col-start-2">
               {event.detailContent.overview && (

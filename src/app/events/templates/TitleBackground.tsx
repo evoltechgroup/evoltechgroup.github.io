@@ -8,11 +8,12 @@ import {
   Bg191,
   Bg193,
   EventsBg,
+  EvoltechGroupV2,
 } from "@/assets/images/Events";
 import { formatEventDateRange } from "@/data/eventDetailsConfig";
 import ThemeButton from "@/components/Button/ThemeButton";
 import { ChevronLeft } from "lucide-react";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 
 interface TitleBackgroundProps {
@@ -29,20 +30,22 @@ interface TitleBackgroundProps {
 
 const TitleBackground: React.FC<TitleBackgroundProps> = ({ event }) => {
   const router = useRouter();
+  const searchParams = useSearchParams();
+
+  const category = searchParams.get("category");
+
   const [backHref, setBackHref] = useState("/events");
 
   useEffect(() => {
-    const params = new URLSearchParams(window.location.search);
-    const category = params.get("category");
-
     if (category === "conference" || category === "internal") {
       setBackHref(`/events?category=${category}`);
       return;
     }
 
     setBackHref("/events");
-  }, []);
+  }, [category]);
 
+  const EventBg = category === "internal" ? EvoltechGroupV2 : EventsBg;
   return (
     <div className="relative flex w-full flex-col items-center bg-[#ffff] py-10 h-[60vh] lg:h-[75vh] xl:h-[75vh]">
       <div className="absolute inset-0 z-0 w-full h-full flex bg-black overflow-hidden pointer-events-none">
@@ -79,8 +82,8 @@ const TitleBackground: React.FC<TitleBackgroundProps> = ({ event }) => {
           </div>
           <div className="absolute z-3 w-full h-full">
             <img
-              src={EventsBg.src}
-              alt="EventsBg"
+              src={EventBg.src}
+              alt="EventBg"
               className="md:absolute w-full h-full lg:h-auto lg:-bottom-34 z-3 object-cover mix-blend-lighten lg:object-fill"
             />
           </div>

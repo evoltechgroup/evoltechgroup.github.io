@@ -1,3 +1,4 @@
+"use client";
 import { eclipseEffect } from "@/assets/effects";
 import {
   Bg126,
@@ -7,11 +8,36 @@ import {
   Bg191,
   Bg193,
   EventsBg,
+  EvoltechGroup,
+  EvoltechGroupV2,
 } from "@/assets/images/Events";
 import { followArrowDown } from "@/assets/svg";
 import Text from "@/components/Text";
+import { useSearchParams } from "next/navigation";
+import { getCategoryFromQuery } from "./Section2";
 
 const Section1 = () => {
+  const searchParams = useSearchParams();
+  const activeCategory = getCategoryFromQuery(searchParams.get("category"));
+  const SectionTitle =
+    activeCategory === "conference"
+      ? "Explore Our Events"
+      : activeCategory === "internal"
+        ? "Discover Our Events"
+        : "Explore Our Events";
+  const SectionDescription =
+    activeCategory === "conference"
+      ? "Connect with industry experts"
+      : activeCategory === "internal"
+        ? "Engage, learn, and grow together"
+        : "Connect with industry experts";
+  const EventBG =
+    activeCategory === "conference"
+      ? EventsBg
+      : activeCategory === "internal"
+        ? EvoltechGroupV2
+        : EventsBg;
+
   return (
     <section className="relative flex w-full flex-col items-center bg-[#ffff] py-10 h-[60vh] lg:h-[75vh] xl:h-[75vh]">
       <div className="absolute inset-0 z-0 w-full h-full flex bg-black overflow-hidden pointer-events-none">
@@ -48,8 +74,8 @@ const Section1 = () => {
           </div>
           <div className="absolute z-3 w-full h-full">
             <img
-              src={EventsBg.src}
-              alt="EventsBg"
+              src={EventBG.src}
+              alt="EventBG"
               className="md:absolute w-full h-full lg:h-auto lg:-bottom-34 z-3 object-cover mix-blend-lighten lg:object-fill"
             />
           </div>
@@ -75,12 +101,13 @@ const Section1 = () => {
             <Text
               className="font-semibold text-3xl sm:text-4xl md:text-5xl xl:text-6xl text-center"
               tag="p">
-              Explore Our Events
+              {SectionTitle}
             </Text>
             <Text className="text-xl sm:text-2xl md:text-3xl max-w-[40rem] text-center text-[#FFBB00]">
-              Connect with industry experts
+              {SectionDescription}
             </Text>
-            <div className="flex items-center justify-center w-10 md:w-[71px]">
+            <div
+              className={`flex items-center justify-center w-10 md:w-[71px] ${activeCategory === "internal" ? "invisible" : ""}`}>
               {followArrowDown}
             </div>
           </div>

@@ -3,12 +3,16 @@ import React from "react";
 import { EventDetail } from "@/data/eventDetailsConfig";
 import TitleBackground from "./TitleBackground";
 import EventPhotoAlbum from "../components/EventPhotoAlbum";
+import ThemeButton from "@/components/Button/ThemeButton";
+import { RoundChevronRight } from "@/assets/icons/custom-icons";
+import { useRouter } from "next/navigation";
 
 interface EventTemplate3Props {
   event: EventDetail;
 }
 
 const EventTemplate3: React.FC<EventTemplate3Props> = ({ event }) => {
+  const router = useRouter();
   return (
     <div className="w-full">
       <TitleBackground event={event} />
@@ -46,7 +50,7 @@ const EventTemplate3: React.FC<EventTemplate3Props> = ({ event }) => {
               event.detailContent.images.length > 0 && (
                 <div className="mt-16">
                   <h2 className="text-2xl md:text-3xl font-bold text-[#1a1a2e] mb-8 text-center">
-                    Here are some photos from the event!
+                    Here are few photos from the event!
                   </h2>
                   <EventPhotoAlbum
                     images={event.detailContent.images}
@@ -54,6 +58,31 @@ const EventTemplate3: React.FC<EventTemplate3Props> = ({ event }) => {
                   />
                 </div>
               )}
+
+            {event.detailContent.ctaText && (
+              <div className="w-full flex justify-center items-center py-10">
+                <ThemeButton
+                  text={event.detailContent.ctaText ?? "Contact Us"}
+                  onClick={() => {
+                    const ctaLink = event.detailContent.ctaLink;
+
+                    if (event.status === "past" || !ctaLink) {
+                      router.push(
+                        `/contact?source=${encodeURIComponent(event.title)}#contact-form`,
+                      );
+                      return;
+                    }
+
+                    window.open(
+                      ctaLink,
+                      ctaLink.startsWith("http") ? "_blank" : "_self",
+                    );
+                  }}
+                  endIcon={<span>{RoundChevronRight}</span>}
+                  extraStyles="!py-2"
+                />
+              </div>
+            )}
           </div>
         </div>
       </div>

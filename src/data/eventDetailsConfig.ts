@@ -31,6 +31,38 @@ import SiiaDubai1 from "@/assets/images/Events/siia/siia dubai/siia-dubai1.png";
 import SiiaDubai2 from "@/assets/images/Events/siia/siia dubai/siia-dubai2.png";
 import SiiaDubai3 from "@/assets/images/Events/siia/siia dubai/siia-dubai3.png";
 import SiiaDubaiBanner from "@/assets/images/Events/siia/siia dubai/siia-dubai-banner.png";
+import {
+  AISession1,
+  AndamanTrip1,
+  AndamanTrip10,
+  AndamanTrip11,
+  AndamanTrip2,
+  AndamanTrip3,
+  AndamanTrip4,
+  AndamanTrip5,
+  AndamanTrip6,
+  AndamanTrip7,
+  AndamanTrip8,
+  AndamanTrip9,
+  ChristmasCelebration1,
+  ChristmasCelebration2,
+  ChristmasCelebration3,
+  DiwaliCelebration1,
+  DiwaliCelebration2,
+  DiwaliCelebration3,
+  DiwaliCelebration4,
+  EvolTechCeremony1,
+  Marathon1,
+  PongalCelebration1,
+  PongalCelebration2,
+  PongalCelebration3,
+  PongalCelebration4,
+} from "@/assets/images/Events/EvoltechSpace";
+import {
+  AmericanBankers1,
+  AmericanBankers2,
+  AmericanBankersBanner,
+} from "@/assets/images/Events/Confrence";
 
 export type EventTemplate =
   | "template1"
@@ -344,50 +376,49 @@ const rawEventDetailsConfig: RawEventDetail[] = [
       ctaLink: "/contact?source=SIIA2025#contact-form",
     },
   },
-  {
-    id: 9,
-    slug: "siia-international-conference-dubai-2026",
-    template: "template2",
-    category: "conference",
-    image: SiiaDubai1,
-    title: "SIIA International Conference - Dubai",
-    description:
-      "SIIA's Dubai conference connected global self-insurance, healthcare, and captive leaders around international growth, innovation, and AI-enabled operations.",
-    fromDate: "2026-01-26",
-    toDate: "2026-01-28",
-    tags: [
-      { label: "Conference", bgColor: "#FE7F00" },
-      { label: "Global Forum", bgColor: "#4A90E2" },
-      { label: "Self-Insurance", bgColor: "#FFBB00" },
-    ],
-    city: "Dubai",
-    state: "UAE",
-    bannerImage: SiiaDubaiBanner,
-    detailContent: {
-      overview:
-        "The SIIA International Conference in Dubai brought together leaders from self-insurance, healthcare, and captive insurance for a distinctly global exchange of ideas, partnerships, and market perspectives.",
-      sections: [
-        {
-          title: "A global meeting point",
-          content:
-            "Dubai's role as a gateway to the Middle East, Africa, and South Asia made the event especially valuable for organizations exploring international expansion, regional partnerships, and emerging models in self-insurance.",
-        },
-        {
-          title: "What stood out",
-          content:
-            "Attendees explored the growing intersection of captives, benefits, TPAs, and AI-enabled administration while connecting with both regional operators and multinational organizations active in the market.",
-        },
-        {
-          title: "Why EvolTech was there",
-          content:
-            "We joined the forum to engage with decision-makers navigating modern operations, data-driven workflows, and technology-enabled service delivery across complex insurance environments.",
-        },
-      ],
-      images: [SiiaDubai3, SiiaDubai2, SiiaDubai1],
-      ctaText: "More details",
-      ctaLink: "https://www.siia.org/i4a/pages/index.cfm?pageid=8016",
-    },
-  },
+  // {
+  //   id: 9,
+  //   slug: "siia-international-conference-dubai-2026",
+  //   template: "template1",
+  //   category: "conference",
+  //   image: SiiaDubai1,
+  //   title: "SIIA International Conference - Dubai",
+  //   description:
+  //     "SIIA's Dubai conference connected global self-insurance, healthcare, and captive leaders around international growth, innovation, and AI-enabled operations.",
+  //   fromDate: "2026-01-26",
+  //   toDate: "2026-01-28",
+  //   tags: [
+  //     { label: "Conference", bgColor: "#FE7F00" },
+  //     { label: "Global Forum", bgColor: "#4A90E2" },
+  //     { label: "Self-Insurance", bgColor: "#FFBB00" },
+  //   ],
+  //   city: "Dubai",
+  //   state: "UAE",
+  //   bannerImage: AmericanBankersBanner,
+  //   detailContent: {
+  //     overview:
+  //       "The SIIA International Conference in Dubai brought together leaders from self-insurance, healthcare, and captive insurance for a distinctly global exchange of ideas, partnerships, and market perspectives.",
+  //     sections: [
+  //       {
+  //         title: "A global meeting point",
+  //         content:
+  //           "Dubai's role as a gateway to the Middle East, Africa, and South Asia made the event especially valuable for organizations exploring international expansion, regional partnerships, and emerging models in self-insurance.",
+  //       },
+  //       {
+  //         title: "What stood out",
+  //         content:
+  //           "Attendees explored the growing intersection of captives, benefits, TPAs, and AI-enabled administration while connecting with both regional operators and multinational organizations active in the market.",
+  //       },
+  //       {
+  //         title: "Why EvolTech was there",
+  //         content:
+  //           "We joined the forum to engage with decision-makers navigating modern operations, data-driven workflows, and technology-enabled service delivery across complex insurance environments.",
+  //       },
+  //     ],
+  //     ctaText: "More details",
+  //     ctaLink: "https://www.siia.org/i4a/pages/index.cfm?pageid=8016",
+  //   },
+  // },
   {
     id: 6,
     slug: "aba-conference-community-bankers",
@@ -422,6 +453,7 @@ const rawEventDetailsConfig: RawEventDetail[] = [
             "The conference created meaningful opportunities to hear directly from banking leaders, understand the pressures facing community institutions, and connect our solutions to real operational needs.",
         },
       ],
+      images: [AmericanBankers1, AmericanBankers2],
       ctaText: "More details",
       ctaLink:
         "https://www.aba.com/training-events/conferences/conference-for-community-bankers/program",
@@ -602,7 +634,293 @@ const rawEventDetailsConfig: RawEventDetail[] = [
             "Sun, sea, sand, and shared experiences helped us bond, recharge, and align on our vision for the year ahead. From team-building activities on pristine beaches to strategic planning sessions with ocean views, this retreat was the perfect blend of work and play.",
         },
       ],
-      images: [AndamanEvent],
+      images: [
+        AndamanTrip1,
+        AndamanTrip2,
+        AndamanTrip4,
+        AndamanTrip9,
+        AndamanTrip3,
+        AndamanTrip5,
+        AndamanTrip6,
+        AndamanTrip7,
+        AndamanTrip8,
+        AndamanTrip10,
+        AndamanTrip11,
+      ],
+    },
+  },
+  {
+    id: 12,
+    slug: "evoltech-pongal-celebration-2026",
+    template: "template2",
+    category: "internal",
+    image: PongalCelebration2,
+    title: "EvolTech Pongal Celebration 2026",
+    description:
+      "A vibrant celebration of harvest and heritage at our Chennai office, featuring traditional decor, festive food, and team festivities.",
+    fromDate: "2026-01-13",
+    toDate: "2026-01-13",
+    city: "Chennai",
+    state: "TN",
+    venue: "EvolTech Office",
+    detailContent: {
+      overview:
+        "We celebrated the festival of harvest, Pongal, at the EvolTech Space, bringing the team together to honor tradition and share in the festive spirit.",
+      sections: [
+        {
+          title: "Tradition & Festivity",
+          content:
+            "The office was transformed with traditional 'Kolam' designs and sugarcane decorations. The team gathered to witness the symbolic boiling of the milk, marking prosperity and new beginnings for the year ahead.",
+        },
+        {
+          title: "Cultural Connection",
+          content:
+            "Dressed in traditional attire, the team enjoyed a festive lunch served on banana leaves, fostering a deep sense of community and appreciation for our shared heritage.",
+        },
+      ],
+      images: [
+        PongalCelebration2,
+        PongalCelebration1,
+        PongalCelebration3,
+        PongalCelebration4,
+      ],
+    },
+  },
+  {
+    id: 13,
+    slug: "evoltech-christmas-celebration-2025",
+    template: "template3",
+    category: "internal",
+    image: ChristmasCelebration1,
+    title: "EvolTech Christmas & Year-End Social",
+    description:
+      "Wrapping up 2025 with holiday cheer, Secret Santa surprises, and a celebration of our team's collective success.",
+    fromDate: "2025-12-24",
+    toDate: "2025-12-24",
+    tags: [
+      { label: "Internal Event", bgColor: "#B6D2FF" },
+      { label: "Celebration", bgColor: "#FFBB00" },
+    ],
+    detailContent: {
+      overview:
+        "The EvolTech office transformed into a festive hub as we celebrated the holiday season and a successful close to 2025.",
+      sections: [
+        {
+          title: "The Spirit of New Beginnings",
+          content:
+            "The office was transformed with traditional 'Kolam' designs and sugarcane decorations. The team gathered to witness the symbolic boiling of the milk, marking prosperity and new beginnings for the year ahead.",
+        },
+        {
+          title: "Traditional Heritage",
+          content:
+            "Dressed in traditional attire, the team enjoyed a festive lunch served on banana leaves, fostering a deep sense of community and appreciation for our shared heritage. This celebration serves as a reminder of our roots and the importance of coming together as one family.",
+        },
+        {
+          title: "Team Bonding & Games",
+          content:
+            "The afternoon was filled with traditional games and lighthearted competition. It wasn't just about the festival; it was about building the strong cultural foundation that makes the EvolTech team unique.",
+        },
+      ],
+      images: [
+        ChristmasCelebration1,
+        ChristmasCelebration2,
+        ChristmasCelebration3,
+      ],
+      highlights: [
+        "Secret Santa gift exchange and reveals",
+        "Traditional holiday themed team lunch",
+        "Year-end reflection and appreciation session",
+        "Festive office decor and 'Best Dressed' celebration",
+      ],
+    },
+  },
+  {
+    id: 14,
+    slug: "chennai-marathon-run-for-our-national-heroes-2026",
+    template: "template3",
+    category: "internal",
+    image: Marathon1,
+    title: "Chennai Marathon - Run for our National Heroes",
+    description:
+      "The EvolTech team hit the streets of Chennai to run in honor of our national heroes, promoting fitness and gratitude.",
+    fromDate: "2025-12-07",
+    toDate: "2025-12-07",
+    tags: [
+      { label: "Fitness", bgColor: "#4A90E2" },
+      { label: "Community", bgColor: "#FE7F00" },
+      { label: "Social Cause", bgColor: "#FFBB00" },
+    ],
+    city: "Chennai",
+    state: "TN",
+    detailContent: {
+      overview:
+        "Our team proudly participated in the 2026 Chennai Marathon, dedicated to the theme 'Run for our National Heroes.'",
+      sections: [
+        {
+          title: "Running for a Cause",
+          content:
+            "More than just a race, this marathon was a tribute to the bravery and sacrifice of our national heroes. The EvolTech team joined thousands of fellow citizens on the streets of Chennai, fueled by a collective sense of pride and a desire to give back to those who serve our nation.",
+        },
+        {
+          title: "Team Endurance & Spirit",
+          content:
+            "Starting in the early morning hours, our participants pushed their physical limits across various categories. From seasoned runners to first-timers, the camaraderie was palpable as team members cheered each other on at every kilometer mark, embodying the 'one team' spirit that defines our office culture.",
+        },
+        {
+          title: "Fitness Beyond the Desk",
+          content:
+            "At EvolTech, we believe that peak professional performance starts with physical well-being. This marathon was a perfect opportunity to step away from our screens, hit the pavement, and reinforce our commitment to a healthy, active lifestyle while supporting a significant social cause.",
+        },
+        {
+          title: "A Memorable Finish",
+          content:
+            "Crossing the finish line wasn't just about the medals; it was about the shared experience of contributing to a larger movement. The day concluded with a team breakfast where we shared stories of the run and reflected on the importance of honoring our heroes through action.",
+        },
+      ],
+      highlights: [
+        "Team participation in 5K, 10K, and Half-Marathon categories",
+        "Dedicated 'Run for our National Heroes' tribute run",
+        "Early morning team warm-up and strategy session",
+        "Post-marathon celebration and fitness recognition",
+      ],
+      images: [],
+    },
+  },
+  {
+    id: 16,
+    slug: "evoltech-diwali-celebration-2025",
+    template: "template3",
+    category: "internal",
+    image: DiwaliCelebration3,
+    title: "Diwali 2025 - Festival of Lights",
+    description:
+      "A luminous celebration at our Chennai office featuring traditional diyas, festive sweets, and a spirit of togetherness.",
+    fromDate: "2025-10-16",
+    toDate: "2025-10-16",
+    city: "Chennai",
+    state: "TN",
+    venue: "EvolTech Office",
+    detailContent: {
+      overview:
+        "EvolTech celebrated Diwali with a burst of color and light, marking the triumph of knowledge over ignorance and unity over all.",
+      sections: [
+        {
+          title: "Illuminating the Workspace",
+          content:
+            "The Chennai office was transformed into a glowing hub of celebration. Team members came together to light traditional diyas and decorate the workspace with vibrant marigolds, creating an atmosphere that felt more like a home than an office.",
+        },
+        {
+          title: "Tradition and Style",
+          content:
+            "It was a day of cultural pride as everyone arrived in their finest traditional wear. From intricate sarees to elegant dhotis, the diversity and style of the team added to the festive brilliance of the afternoon.",
+        },
+        {
+          title: "Sweets, Savories, and Stories",
+          content:
+            "No Diwali is complete without the feast. We shared a variety of traditional sweets and savory snacks, taking a break from our engineering sprints to share stories and celebrate the personal milestones of the team.",
+        },
+        {
+          title: "The Spirit of Gratitude",
+          content:
+            "As the day concluded, the leadership team expressed their gratitude for the hard work that has powered our growth throughout 2025. The event reinforced our core values: that our strength lies in our people and our shared traditions.",
+        },
+      ],
+      highlights: [
+        "Traditional Diya lighting ceremony",
+        "Office-wide Rangoli competition",
+        "Grand Diwali festive lunch",
+        "Traditional attire 'Best Dressed' awards",
+      ],
+      images: [DiwaliCelebration1, DiwaliCelebration3, DiwaliCelebration4],
+    },
+  },
+  {
+    id: 17,
+    slug: "evoltech-ai-innovation-session-2026",
+    template: "template3",
+    category: "internal",
+    image: AISession1,
+    title: "AI & Future Tech: Internal Deep-Dive",
+    description:
+      "Exploring the intersection of Generative AI, image restoration, and automated workflows in our development pipeline.",
+    fromDate: "2025-11-15",
+    toDate: "2025-11-15",
+    city: "Chennai",
+    state: "TN",
+    venue: "EvolTech Office - Innovation Lab",
+    detailContent: {
+      overview:
+        "Our engineering team gathered for an intensive session on leveraging AI tools to enhance our technical delivery and creative workflows.",
+      sections: [
+        {
+          title: "Mastering Generative Workflows",
+          content:
+            "This session focused on the practical application of Generative AI within our current projects. We explored techniques for high-fidelity image restoration and cinematic video generation, aligning with our commitment to delivering professional-grade visual content for events like the EvolTech Summit.",
+        },
+        {
+          title: "AI-Powered Development",
+          content:
+            "Beyond visual media, we discussed integrating AI into our coding standards. The team shared insights on using LLMs to maintain our 'Architecture over Speed' philosophy, ensuring that AI-assisted code still adheres to our strict modularity and clean code principles.",
+        },
+        {
+          title: "Future Roadmap: CLRFI & Automation",
+          content:
+            "We dedicated the final segment to discussing how AI will power the next phase of the CLRFI platform. From automated lead generation to intelligent mortgage flyer processing, the session provided a roadmap for making our serverless infrastructure even more autonomous.",
+        },
+      ],
+      highlights: [
+        "Workshop on AI-driven image sharpening and studio lighting",
+        "Demo of cinematic video generation from static photos",
+        "Strategic planning for AI integration in the CLRFI platform",
+        "Collaborative session on AI-assisted clean code practices",
+      ],
+    },
+  },
+  {
+    id: 18,
+    slug: "evoltech-office-opening-2025",
+    template: "template3",
+    category: "internal",
+    image: EvolTechCeremony1,
+    title: "Office Opening Ceremony",
+    description:
+      "Commemorating the official inauguration of our Chennai operations and the beginning of a new chapter for the team.",
+    fromDate: "2025-08-14",
+    toDate: "2025-08-14",
+    tags: [
+      { label: "Internal Event", bgColor: "#B6D2FF" },
+      { label: "Milestone", bgColor: "#4A90E2" },
+      { label: "Team Culture", bgColor: "#8DCAFF" },
+    ],
+    city: "Chennai",
+    state: "TN",
+    venue: "EvolTech Office",
+    detailContent: {
+      overview:
+        "We officially opened the doors to our Chennai headquarters, a space designed to foster the modularity and clean code principles that define our engineering culture.",
+      sections: [
+        {
+          title: "A Vision Realized",
+          content:
+            "The opening ceremony marked the culmination of months of planning. Leadership, including Thulasi sir, joined the full team to cut the ribbon on a workspace optimized for collaborative system architecture and technical innovation.",
+        },
+        {
+          title: "Designed for Innovation",
+          content:
+            "Every corner of the new office reflects our 'Architecture over Speed' philosophy. With dedicated zones for deep-focus engineering and open areas for rapid prototyping, the environment is built to support our expanding expertise in Next.js and AWS serverless infrastructure.",
+        },
+        {
+          title: "Building the Future Together",
+          content:
+            "As we gathered for the inaugural lunch, the energy was focused on the road ahead. This office is not just a building; it is the foundation where our multi-tenant integrations and the CLRFI platform will continue to evolve.",
+        },
+      ],
+      highlights: [
+        "Official ribbon-cutting ceremony with leadership",
+        "Inaugural walkthrough of the new engineering bays",
+        "Team-wide luncheon and strategy kickoff",
+        "Special presentation on the 2025-2026 technical roadmap",
+      ],
     },
   },
 ];

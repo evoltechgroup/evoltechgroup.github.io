@@ -1,4 +1,6 @@
 export { default as EventsBg } from "./Background/Events-Bg.png";
+export { default as EvoltechGroup } from "./Background/Evoltech_Group.jpg";
+export { default as EvoltechGroupV2 } from "./Background/Evoltech_Group_v2.jpg";
 export { default as Bg126 } from "./Background/126.svg";
 export { default as Bg188 } from "./Background/188.svg";
 export { default as Bg189 } from "./Background/189.svg";

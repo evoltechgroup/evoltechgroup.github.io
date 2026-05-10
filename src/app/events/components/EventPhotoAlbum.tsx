@@ -54,7 +54,7 @@ const EventPhotoAlbum: React.FC<EventPhotoAlbumProps> = ({
             sizes={sizes}
             loading={loading}
             style={style}
-            className={`w-full object-cover ${className ?? ""}`}
+            className={`w-full object-cover pointer-events-none ${className ?? ""}`}
           />
         ),
       }}

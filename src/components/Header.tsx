@@ -17,6 +17,17 @@ export default function Header() {
   const isServicesPath = pathname.startsWith("/services");
   const isExperiencesPath = pathname.startsWith("/events");
 
+  const hasDarkHero =
+    pathname === "/" ||
+    pathname === "/about" ||
+    pathname.startsWith("/services") ||
+    pathname === "/products" ||
+    pathname === "/careers" ||
+    pathname === "/events" ||
+    pathname === "/contact";
+
+  const showSolidBg = isScrolled || !hasDarkHero;
+
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 10);
@@ -57,7 +68,7 @@ export default function Header() {
     <>
       <header
         className={`w-full fixed top-0 left-0 z-50 transition-all duration-300
-          ${isScrolled ? "bg-[#181B2B] shadow-md" : "md:bg-transparent"}
+          ${showSolidBg ? "bg-[#181B2B] shadow-md" : "md:bg-transparent"}
           ${mobileMenuOpen ? "hidden" : ""}
         `}>
         <div className="grid grid-cols-4 sm:grid-cols-8 lg:grid-cols-10 xl:grid-cols-12 grid-rows-1 gap-5 max-w-7xl mx-auto sm:px-10 py-4 xl:py-6 px-4 lg:px-0">
@@ -147,14 +158,14 @@ export default function Header() {
                   className={`cursor-pointer transition ${
                     isExperiencesPath ? "text-[#FFBB00]" : "text-[#C7E5FF]"
                   }`}>
-                  Experiences
+                  Engage
                 </span>
                 <div
-                  className={`absolute top-full -left-5 mt-3 lg:text-xs xl:text-sm bg-[#282D45] text-[#BBBBBB] rounded-full shadow-lg p-1 py-1
+                  className={`absolute top-full -left-25 mt-3 lg:text-xs xl:text-sm bg-[#282D45] text-[#BBBBBB] rounded-full shadow-lg p-1 py-1
 	                         opacity-0 invisible group-hover:opacity-100 group-hover:visible
 	                         transition-opacity duration-200 z-50 flex gap-2.5 whitespace-nowrap`}>
                   <div
-                    className={`absolute -top-2 left-10 w-0 h-0 
+                    className={`absolute -top-2 left-30 w-0 h-0 
 	                            border-l-8 border-r-8 border-b-8 
 	                            border-l-transparent border-r-transparent border-b-[#282D45]`}
                   />
@@ -168,6 +179,16 @@ export default function Header() {
                     className="p-2 px-4 rounded-full transition hover:bg-white hover:text-[#0B0F2B]">
                     EvolTech Space
                   </Link>
+                  {/* <Link
+                    href="/events?category=internal"
+                    className="p-2 px-4 rounded-full transition hover:bg-white hover:text-[#0B0F2B]">
+                    People & Culture
+                  </Link>
+                  <Link
+                    href="/events?category=internal"
+                    className="p-2 px-4 rounded-full transition hover:bg-white hover:text-[#0B0F2B]">
+                    Success Stories
+                  </Link> */}
                 </div>
               </div>
               <span className="text-[#63A4DD]">/</span>
@@ -253,7 +274,7 @@ export default function Header() {
             <button
               onClick={() => setExperiencesOpen(!experiencesOpen)}
               className="flex items-center gap-2 ">
-              Experiences
+              Media
               <span className="text-sm">
                 {experiencesOpen ? <ChevronUp /> : <ChevronDown />}
               </span>
