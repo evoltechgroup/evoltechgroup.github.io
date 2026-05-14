@@ -158,7 +158,7 @@ export default function Header() {
                   className={`cursor-pointer transition ${
                     isExperiencesPath ? "text-[#FFBB00]" : "text-[#C7E5FF]"
                   }`}>
-                  Engage
+                  Network
                 </span>
                 <div
                   className={`absolute top-full -left-25 mt-3 lg:text-xs xl:text-sm bg-[#282D45] text-[#BBBBBB] rounded-full shadow-lg p-1 py-1
@@ -274,7 +274,7 @@ export default function Header() {
             <button
               onClick={() => setExperiencesOpen(!experiencesOpen)}
               className="flex items-center gap-2 ">
-              Media
+              Network
               <span className="text-sm">
                 {experiencesOpen ? <ChevronUp /> : <ChevronDown />}
               </span>

@@ -623,15 +623,33 @@ const rawEventDetailsConfig: RawEventDetail[] = [
     tags: [
       { label: "Internal Event", bgColor: "#B6D2FF" },
       { label: "Team Bonding", bgColor: "#4A90E2" },
+      { label: "Adventure", bgColor: "#FE7F00" },
     ],
+    city: "Port Blair",
+    state: "Andaman & Nicobar",
     detailContent: {
       overview:
         "Our entire team escaped to the stunning Andaman Islands for an unforgettable 2026 offsite.",
       sections: [
         {
-          title: "",
+          title: "Island Inspiration",
           content:
-            "Sun, sea, sand, and shared experiences helped us bond, recharge, and align on our vision for the year ahead. From team-building activities on pristine beaches to strategic planning sessions with ocean views, this retreat was the perfect blend of work and play.",
+            "From team-building activities on pristine beaches to strategic planning sessions with ocean views, this retreat was the perfect blend of relaxation and collective focus. The serene environment of the islands provided the ideal backdrop for the team to step away from the daily routine and connect on a personal level.",
+        },
+        {
+          title: "Exploring North Bay & Ross Island",
+          content:
+            "The retreat kicked off with a journey into the history and natural beauty of the archipelago. We spent our mornings exploring the ruins of Ross Island and diving into the vibrant marine life at North Bay. These excursions allowed the team to step away from the daily routine and connect while navigating the stunning coastal landscapes of Port Blair.",
+        },
+        {
+          title: "Recharging & Visioning",
+          content:
+            "Between the adventures, we found time for quiet reflection. Whether it was strategic planning sessions with ocean views or sharing meals on pristine beaches, this retreat was the perfect blend of work and play. We returned to the office with a renewed sense of purpose and a stronger connection as a family.",
+        },
+        {
+          title: "The DJ Night",
+          content:
+            "As the sun set, the energy shifted from exploration to celebration. We hosted an exclusive DJ night under the stars, where the team traded their walking shoes for the dance floor. It was a night filled with music, laughter, and high energy, serving as the perfect celebration of our collective efforts and the strong bond we share as a team.",
         },
       ],
       images: [
