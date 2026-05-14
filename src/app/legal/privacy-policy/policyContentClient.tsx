@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
+import type { MouseEvent } from "react";
 
 type PolicySection = {
   id: string;
@@ -20,15 +21,21 @@ function PolicySectionBlock({ section }: { section: PolicySection }) {
       <h2 className="text-3xl font-semibold tracking-tight text-[#1B1E28]">
         {section.title}
       </h2>
-      {section.paragraphs?.map((paragraph) => (
-        <p key={paragraph} className="mt-5 text-lg leading-8 text-[#5E6678]">
+      {section.paragraphs?.map((paragraph, index) => (
+        <p
+          key={`${section.id}-paragraph-${index}`}
+          className="mt-5 text-lg leading-8 text-[#5E6678]"
+        >
           {paragraph}
         </p>
       ))}
       {section.bullets && (
         <ul className="mt-5 space-y-4 text-lg leading-8 text-[#5E6678]">
-          {section.bullets.map((bullet) => (
-            <li key={bullet} className="flex items-start gap-3">
+          {section.bullets.map((bullet, index) => (
+            <li
+              key={`${section.id}-bullet-${index}`}
+              className="flex items-start gap-3"
+            >
               <span className="mt-3 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-[#2B3447]" />
               <span>{bullet}</span>
             </li>
@@ -63,7 +70,7 @@ export default function PrivacyPolicyContent({ sections }: Props) {
         }
       }
 
-      setActiveSectionId(current);
+      setActiveSectionId((prev) => (prev === current ? prev : current));
     };
 
     updateActiveSection();
@@ -76,10 +83,7 @@ export default function PrivacyPolicyContent({ sections }: Props) {
     };
   }, [sectionIds]);
 
-  const handleNavClick = (
-    event: React.MouseEvent<HTMLAnchorElement>,
-    id: string,
-  ) => {
+  const handleNavClick = (event: MouseEvent<HTMLAnchorElement>, id: string) => {
     event.preventDefault();
     const section = document.getElementById(id);
     if (!section) return;

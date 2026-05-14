@@ -69,7 +69,7 @@ export default function Footer() {
                 </div>
               </div>
 
-              {/* Mobile + tablet: social icons + Privacy Policy + Cookie Settings all in one row */}
+              {/* Shared row: Privacy Policy + Cookie Settings on all sizes, with social icons added here on mobile/tablet only */}
               <div className="flex items-center justify-center lg:justify-start lg:self-start gap-2 sm:gap-4 text-xs lg:text-sm text-[#AAAAAA]">
                 {/* Social icons only shown here on mobile and tablet */}
                 <div className="flex lg:hidden gap-4 text-[#AAAAAA]">
