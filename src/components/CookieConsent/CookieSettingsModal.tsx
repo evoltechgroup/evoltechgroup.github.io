@@ -57,7 +57,7 @@ export default function CookieSettingsModal() {
         aria-label="Open cookie settings"
       >
         <Settings size={13} strokeWidth={1.8} />
-        <span>Settings</span>
+        <span>Cookie Settings</span>
       </button>
 
       {/* Backdrop + modal */}
