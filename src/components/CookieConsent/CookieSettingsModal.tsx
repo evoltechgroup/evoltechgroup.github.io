@@ -1,10 +1,13 @@
 "use client";
 
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import { Settings, X, ShieldCheck, BarChart2 } from "lucide-react";
 import { useConsent } from "@/context/ConsentContext";
 
 export default function CookieSettingsModal() {
+  const pathname = usePathname();
   const { consent, savePreferences } = useConsent();
   const [open, setOpen] = useState(false);
   const [analyticsOn, setAnalyticsOn] = useState(consent.preferences.analytics);
@@ -40,12 +43,17 @@ export default function CookieSettingsModal() {
     };
   }, [open]);
 
+  // Ensure modal is closed after any successful client-side navigation.
+  useEffect(() => {
+    setOpen(false);
+  }, [pathname]);
+
   return (
     <>
       {/* Trigger — placed inline in the Footer */}
       <button
         onClick={handleOpen}
-        className="flex items-center gap-1.5 text-[#AAAAAA] hover:text-white transition-colors text-xs cursor-pointer"
+        className="flex items-center gap-1.5 text-[#AAAAAA] hover:text-white transition-colors text-sm cursor-pointer"
         aria-label="Open cookie settings"
       >
         <Settings size={13} strokeWidth={1.8} />
@@ -149,9 +157,13 @@ export default function CookieSettingsModal() {
 
             {/* Footer */}
             <div className="px-6 pb-5 flex items-center justify-between gap-4 border-t border-white/10 pt-4">
-              <p className="text-white/40 cursor-pointer hover:text-white/70 text-xs underline underline-offset-2 transition-colors">
+              <Link
+                href="/legal/privacy-policy"
+                onClick={handleClose}
+                className="text-white/40 hover:text-white/70 text-xs underline underline-offset-2 transition-colors"
+              >
                 Privacy Policy
-              </p>
+              </Link>
               <div className="flex gap-2">
                 <button
                   onClick={handleClose}
