@@ -128,9 +128,46 @@ export default function PrivacyPolicyContent({ sections }: Props) {
             </aside>
 
             <div className="space-y-12">
-              {sections.map((section) => (
-                <PolicySectionBlock key={section.id} section={section} />
-              ))}
+              {sections.map((section) =>
+                section.id === "contact-us" ? (
+                  <section
+                    key={section.id}
+                    id={section.id}
+                    className="scroll-mt-36 pt-2"
+                  >
+                    <h2 className="text-3xl font-semibold tracking-tight text-[#1B1E28]">
+                      {section.title}
+                    </h2>
+                    {section.paragraphs?.map((paragraph, index) => {
+                      const isLast =
+                        index === (section.paragraphs?.length ?? 0) - 1;
+                      return isLast ? (
+                        <p
+                          key={`${section.id}-paragraph-${index}`}
+                          className="mt-5 flex flex-wrap items-center gap-3 text-lg leading-8 text-[#5E6678]"
+                        >
+                          {paragraph}
+                          <a
+                            href="mailto:privacy@evoltechgroup.com"
+                            className="inline-flex items-center rounded-full bg-yellow-500 px-5 py-2.5 text-sm font-semibold text-black transition-colors hover:bg-[#2D3343] hover:text-white"
+                          >
+                            privacy@evoltechgroup.com
+                          </a>
+                        </p>
+                      ) : (
+                        <p
+                          key={`${section.id}-paragraph-${index}`}
+                          className="mt-5 text-lg leading-8 text-[#5E6678]"
+                        >
+                          {paragraph}
+                        </p>
+                      );
+                    })}
+                  </section>
+                ) : (
+                  <PolicySectionBlock key={section.id} section={section} />
+                ),
+              )}
 
               <section className="border-t border-[#D3D8E0] pt-12">
                 <h2 className="text-3xl font-semibold tracking-tight text-[#1B1E28]">
@@ -151,12 +188,6 @@ export default function PrivacyPolicyContent({ sections }: Props) {
                   signals.
                 </p>
                 <div className="mt-6 flex flex-wrap gap-3">
-                  <a
-                    href="mailto:privacy@evoltechgroup.com"
-                    className="inline-flex items-center rounded-full bg-yellow-500 px-5 py-2.5 text-sm font-semibold text-black transition-colors hover:bg-[#2D3343] hover:text-white"
-                  >
-                    Contact privacy@evoltechgroup.com
-                  </a>
                   <Link
                     href="/contact"
                     className="inline-flex items-center rounded-full border border-[#1B1E28]/30 px-5 py-2.5 text-sm font-semibold text-[#1B1E28] transition-colors hover:bg-white"

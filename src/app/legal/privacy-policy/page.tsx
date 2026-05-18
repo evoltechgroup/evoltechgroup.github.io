@@ -178,7 +178,7 @@ const sections: PolicySection[] = [
     title: "15. Contact Us",
     paragraphs: [
       "Please feel free to contact us if you have any questions about this Policy or our practices, or if you are seeking to exercise any of your statutory rights.",
-      "You may contact us at privacy@evoltechgroup.com.",
+      "You may contact us at:",
     ],
   },
 ];
