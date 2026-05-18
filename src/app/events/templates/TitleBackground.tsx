@@ -14,13 +14,14 @@ import { formatEventDateRange } from "@/data/eventDetailsConfig";
 import ThemeButton from "@/components/Button/ThemeButton";
 import { ChevronLeft } from "lucide-react";
 import { useRouter, useSearchParams } from "next/navigation";
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 
 interface TitleBackgroundProps {
   event: {
     title: string;
     fromDate: string;
     toDate: string;
+    dateLabel?: string;
     tags?: { label: string; bgColor: string }[];
     city?: string;
     state?: string;
@@ -28,7 +29,7 @@ interface TitleBackgroundProps {
   };
 }
 
-const TitleBackground: React.FC<TitleBackgroundProps> = ({ event }) => {
+const TitleBackgroundContent: React.FC<TitleBackgroundProps> = ({ event }) => {
   const router = useRouter();
   const searchParams = useSearchParams();
 
@@ -139,6 +140,16 @@ const TitleBackground: React.FC<TitleBackgroundProps> = ({ event }) => {
         </div>
       </div>
     </div>
+  );
+};
+
+const TitleBackground: React.FC<TitleBackgroundProps> = ({ event }) => {
+  return (
+    <Suspense
+      fallback={<div className="h-[60vh] lg:h-[75vh] w-full bg-black" />}
+    >
+      <TitleBackgroundContent event={event} />
+    </Suspense>
   );
 };
 

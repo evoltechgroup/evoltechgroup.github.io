@@ -37,9 +37,16 @@ export const metadata: Metadata = {
 const EventsPage = () => {
   return (
     <main className="bg-[#0B0F2B] text-white overflow-hidden">
-      <Section1 />
       <Suspense
-        fallback={<div className="min-h-[85vh] bg-white" aria-hidden="true" />}>
+        fallback={
+          <div className="min-h-[75vh] bg-[#0B0F2B]" aria-hidden="true" />
+        }
+      >
+        <Section1 />
+      </Suspense>
+      <Suspense
+        fallback={<div className="min-h-[85vh] bg-white" aria-hidden="true" />}
+      >
         <Section2 />
       </Suspense>
     </main>
