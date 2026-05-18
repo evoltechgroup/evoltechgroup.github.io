@@ -27,8 +27,8 @@ const CuratedEventCard: React.FC<CuratedEventCardProps> = ({
         ? {
             label: "Upcoming",
             className: "bg-[#FE7F00] text-white",
-        }
-      : null;
+          }
+        : null;
   const eventHref = category
     ? `/events/${event.slug}?category=${category}`
     : `/events/${event.slug}`;
@@ -44,7 +44,8 @@ const CuratedEventCard: React.FC<CuratedEventCardProps> = ({
           />
           {badgeConfig && (
             <span
-              className={`absolute top-3 right-3 rounded-full px-3 py-1 text-xs font-semibold ${badgeConfig.className}`}>
+              className={`absolute top-3 right-3 rounded-full px-3 py-1 text-xs font-semibold ${badgeConfig.className}`}
+            >
               {badgeConfig.label}
             </span>
           )}
@@ -62,7 +63,10 @@ const CuratedEventCard: React.FC<CuratedEventCardProps> = ({
         <div className="mt-auto bg-white px-5 pb-5 pt-2">
           <div className="flex items-center gap-2 text-sm text-[#444444] bg-[#F3F5F7] rounded-sm font-medium w-max px-3 py-1">
             <span className="text-[#444444]">{CalenderIcon}</span>
-            <span>{formatEventDateRange(event.fromDate, event.toDate)}</span>
+            <span>
+              {event.dateLabel ??
+                formatEventDateRange(event.fromDate, event.toDate)}
+            </span>
           </div>
         </div>
       </div>

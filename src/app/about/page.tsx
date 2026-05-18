@@ -4,6 +4,7 @@ import Testimonials from "../ui/Testimonials";
 import Section1 from "./Contents/Section1";
 import JoinOurTeam from "./components/JoinOurTeam";
 import Founder from "./Contents/Founder";
+import Advisors from "./Contents/Advisors";
 import Clients from "./Contents/Clients";
 import { Metadata } from "next";
 import { absoluteUrl, SITE_NAME } from "../seo.config";
@@ -37,6 +38,7 @@ export default function About() {
       <Section1 />
       <Section2 />
       <Founder />
+      <Advisors />
       <Section3 />
       <Clients />
       <Testimonials type="about" />

@@ -52,6 +52,9 @@ import {
   AndamanTrip17,
   AndamanTrip18,
   AndamanTrip19,
+  Cruise2,
+  Cruise3,
+  FireCamp,
   ChristmasCelebration1,
   ChristmasCelebration2,
   ChristmasCelebration3,
@@ -65,8 +68,16 @@ import {
   PongalCelebration2,
   PongalCelebration3,
   PongalCelebration4,
+  PongalCelebration5,
+  PongalCelebration6,
+  PongalCelebration7,
+  PongalCelebration8,
   Cruise,
   Cruise1,
+  Resort,
+  PongalCelebration9,
+  PongalCelebration10,
+  PongalCelebration11,
 } from "@/assets/images/Events/EvoltechSpace";
 import {
   AmericanBankers1,
@@ -104,6 +115,7 @@ export interface EventDetailContent {
   highlights?: string[];
   ctaText?: string;
   ctaLink?: string;
+  videos?: string[];
 }
 
 export interface EventDetail {
@@ -113,6 +125,8 @@ export interface EventDetail {
   category: EventCategory;
   status: EventStatus;
   showInList?: boolean;
+  pinned?: boolean;
+  dateLabel?: string;
 
   image: StaticImageData;
   title: string;
@@ -169,6 +183,8 @@ export const formatEventDateRange = (fromDate: string, toDate: string) => {
 
 const sortEventsByNewest = (events: EventDetail[]) => {
   return [...events].sort((left, right) => {
+    if (left.pinned && !right.pinned) return -1;
+    if (!left.pinned && right.pinned) return 1;
     return (
       new Date(`${right.fromDate}T00:00:00`).getTime() -
       new Date(`${left.fromDate}T00:00:00`).getTime()
@@ -671,12 +687,16 @@ const rawEventDetailsConfig: RawEventDetail[] = [
         AndamanTrip10,
         AndamanTrip16,
         AndamanTrip13,
+        Resort,
+        FireCamp,
         Cruise,
-        Cruise1,
-        AndamanEvent,
+        Cruise2,
+        Cruise3,
+
+        // AndamanEvent,
         AndamanTrip1,
         AndamanTrip2,
-        AndamanTrip4,
+        // AndamanTrip4,
         AndamanTrip9,
         AndamanTrip3,
         AndamanTrip5,
@@ -710,6 +730,8 @@ const rawEventDetailsConfig: RawEventDetail[] = [
     city: "Chennai",
     state: "TN",
     venue: "EvolTech Office",
+    pinned: true,
+    dateLabel: "All Time",
     detailContent: {
       overview:
         "Leadership at EvolTech extends well beyond strategy, vision, and business growth. It lives equally in presence, connection, and the moments we create together as one team.",
@@ -773,6 +795,13 @@ const rawEventDetailsConfig: RawEventDetail[] = [
         PongalCelebration1,
         PongalCelebration3,
         PongalCelebration4,
+        PongalCelebration5,
+        PongalCelebration7,
+        PongalCelebration8,
+        PongalCelebration6,
+        PongalCelebration9,
+        PongalCelebration10,
+        PongalCelebration11,
       ],
     },
   },

@@ -121,7 +121,8 @@ const TitleBackground: React.FC<TitleBackgroundProps> = ({ event }) => {
             </h1>
             <div className="flex flex-wrap items-center gap-2">
               <span className="text-lg text-gray-200 bg-[#FE7F00] px-2 py-1 rounded-md font-medium">
-                {formatEventDateRange(event.fromDate, event.toDate)}
+                {event.dateLabel ??
+                  formatEventDateRange(event.fromDate, event.toDate)}
               </span>
               {event.city && (
                 <span className="text-lg text-gray-200  bg-[#FE7F00] px-2 py-1 rounded-md font-medium">

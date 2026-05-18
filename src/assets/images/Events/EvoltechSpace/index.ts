@@ -3,6 +3,14 @@ export { default as PongalCelebration1 } from "./Pongal-Celebration 1.jpeg";
 export { default as PongalCelebration2 } from "./Pongal-Celebration 2.jpeg";
 export { default as PongalCelebration3 } from "./Pongal-Celebration 3.jpeg";
 export { default as PongalCelebration4 } from "./Pongal-Celebration 4.jpeg";
+export { default as PongalCelebration5 } from "./Pongal.jpeg";
+export { default as PongalCelebration6 } from "./Pongal2.jpeg";
+export { default as PongalCelebration7 } from "./Pongal3.jpeg";
+export { default as PongalCelebration8 } from "./Pongal4.jpeg";
+export { default as PongalCelebration9 } from "./Pongal5.jpeg";
+export { default as PongalCelebration10 } from "./Pongal6.jpeg";
+export { default as PongalCelebration11 } from "./Pongal7.jpeg";
+
 
 // Christmas Celebration
 export { default as ChristmasCelebration1 } from "./Christmas Celebration 1.jpeg";
@@ -46,3 +54,7 @@ export { default as AndamanTrip18 } from "./AndamanTripAirport2.jpeg";
 export { default as AndamanTrip19 } from "./AndamanTripFlight.jpeg";
 export { default as Cruise } from "./Cruise.jpeg";
 export { default as Cruise1 } from "./Cruise1.png";
+export { default as Cruise2 } from "./Cruise.jpg";
+export { default as Cruise3 } from "./Cruise3.jpg";
+export { default as FireCamp } from "./FireCamp.jpg";
+export { default as Resort } from "./resort.jpeg";
