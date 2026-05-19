@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { Settings, Shield } from "lucide-react";
 import { useConsent } from "@/context/ConsentContext";
 
@@ -36,13 +37,13 @@ export default function CookieBanner() {
                 <Settings size={13} strokeWidth={1.8} />
                 <span>Settings </span>
               </span>
-              {"  "}from the footer.
-              {/* <a
-                href="#"
+              {"  "}from the footer.{" "}
+              <Link
+                href="/legal/privacy-policy"
                 className="underline underline-offset-2 text-white/80 hover:text-white transition-colors"
               >
                 Privacy Policy
-              </a> */}
+              </Link>
             </p>
           </div>
 
