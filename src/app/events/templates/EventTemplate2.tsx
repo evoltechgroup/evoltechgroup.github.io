@@ -50,50 +50,18 @@ const EventTemplate2: React.FC<EventTemplate2Props> = ({ event }) => {
                 </div>
               ))}
 
-              {event.detailContent.videos &&
-                event.detailContent.videos.length > 0 && (
+              {(event.detailContent.images?.length || event.detailContent.videos?.length) ? (
                   <div className="mt-12">
                     <h2 className="text-2xl font-bold text-[#1a1a2e] mb-6 text-center">
-                      Video Highlights
-                    </h2>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                      {event.detailContent.videos.map((src, index) => (
-                        <div
-                          key={index}
-                          className="aspect-video rounded-lg overflow-hidden border border-[#E7EBF3] shadow-[0_12px_32px_rgba(15,23,42,0.08)]"
-                        >
-                          {/\.(mp4|webm|ogg)$/i.test(src) ? (
-                            <video
-                              src={src}
-                              controls
-                              className="w-full h-full object-cover"
-                            />
-                          ) : (
-                            <iframe
-                              src={src}
-                              className="w-full h-full"
-                              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                              allowFullScreen
-                            />
-                          )}
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                )}
-
-              {event.detailContent.images &&
-                event.detailContent.images.length > 0 && (
-                  <div className="mt-12">
-                    <h2 className="text-2xl font-bold text-[#1a1a2e] mb-6 text-center">
-                      Event Gallery
+                      Here are few photos from the event!
                     </h2>
                     <EventPhotoAlbum
-                      images={event.detailContent.images}
+                      images={event.detailContent.images ?? []}
                       eventTitle={event.title}
+                      videos={event.detailContent.videos}
                     />
                   </div>
-                )}
+                ) : null}
 
               {event.detailContent.ctaText && (
                 <div className="flex w-full items-center justify-center py-10">

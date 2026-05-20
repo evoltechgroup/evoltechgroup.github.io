@@ -19,12 +19,19 @@ export { default as ChristmasCelebration3 } from "./Christmas Celebration 3.jpeg
 
 // Marathon
 export { default as Marathon1 } from "./Marathon 2026.jpeg";
+export { default as Marathon2 } from "./Marathon.jpeg";
+export { default as Marathon3 } from "./Marathon1.jpeg";
+export { default as Marathon4 } from "./Marathon2.jpeg";
+export { default as Marathon } from "./Marathon3.jpeg";
 
 // Diwali Celebration
 export { default as DiwaliCelebration1 } from "./Diwali Celebration 1.jpeg";
 export { default as DiwaliCelebration2 } from "./Diwali Celebration 2.jpeg";
 export { default as DiwaliCelebration3 } from "./Diwali Celebration 3.jpeg";
 export { default as DiwaliCelebration4 } from "./Diwali Celebration 4.jpg";
+export { default as DiwaliCelebration5 } from "./Diwali.jpeg";
+export { default as DiwaliCelebration6 } from "./Diwali1.jpeg";
+export { default as DiwaliCelebration7 } from "./Diwali2.jpeg";
 
 // AI session
 export { default as AISession1 } from "./AI Session.jpg";

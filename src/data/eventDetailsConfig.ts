@@ -78,7 +78,15 @@ import {
   PongalCelebration9,
   PongalCelebration10,
   PongalCelebration11,
+  Marathon4,
+  Marathon2,
+  Marathon3,
+  Marathon,
+  DiwaliCelebration7,
+  DiwaliCelebration5,
+  DiwaliCelebration6,
 } from "@/assets/images/Events/EvoltechSpace";
+import { Christmas } from "@/assets/events/video";
 import {
   AmericanBankers1,
   AmericanBankers2,
@@ -125,8 +133,7 @@ export interface EventDetail {
   category: EventCategory;
   status: EventStatus;
   showInList?: boolean;
-  pinned?: boolean;
-  dateLabel?: string;
+  space?: "ceo";
 
   image: StaticImageData;
   title: string;
@@ -183,8 +190,6 @@ export const formatEventDateRange = (fromDate: string, toDate: string) => {
 
 const sortEventsByNewest = (events: EventDetail[]) => {
   return [...events].sort((left, right) => {
-    if (left.pinned && !right.pinned) return -1;
-    if (!left.pinned && right.pinned) return 1;
     return (
       new Date(`${right.fromDate}T00:00:00`).getTime() -
       new Date(`${left.fromDate}T00:00:00`).getTime()
@@ -640,7 +645,7 @@ const rawEventDetailsConfig: RawEventDetail[] = [
     slug: "andaman-team-meetup-2026",
     template: "template3",
     category: "internal",
-    image: AndamanEvent,
+    image: Cruise3,
     title: "2026 Team Meetup - Andaman Islands",
     description:
       "Our entire team escaped to the stunning Andaman Islands for an unforgettable 2026 offsite. Sun, sea, sand, and shared experiences helped us bond, recharge...",
@@ -716,7 +721,7 @@ const rawEventDetailsConfig: RawEventDetail[] = [
     slug: "moments-with-our-ceo",
     template: "template3",
     category: "internal",
-    image: EvolTechCeremony1,
+    image: Cruise1,
     title: "Moments with Our CEO",
     description:
       "Celebrating the meaningful moments, shared experiences, and human connection between our CEO, Thulasidharan LG, and the EvolTech teams in India.",
@@ -730,8 +735,7 @@ const rawEventDetailsConfig: RawEventDetail[] = [
     city: "Chennai",
     state: "TN",
     venue: "EvolTech Office",
-    pinned: true,
-    dateLabel: "All Time",
+    space: "ceo" as const,
     detailContent: {
       overview:
         "Leadership at EvolTech extends well beyond strategy, vision, and business growth. It lives equally in presence, connection, and the moments we create together as one team.",
@@ -845,6 +849,7 @@ const rawEventDetailsConfig: RawEventDetail[] = [
         ChristmasCelebration2,
         ChristmasCelebration3,
       ],
+      // videos: [Christmas],
       highlights: [
         "Secret Santa gift exchange and reveals",
         "Traditional holiday themed team lunch",
@@ -902,7 +907,7 @@ const rawEventDetailsConfig: RawEventDetail[] = [
         "Early morning team warm-up and strategy session",
         "Post-marathon celebration and fitness recognition",
       ],
-      images: [],
+      images: [Marathon, Marathon1, Marathon2, Marathon4],
     },
   },
   {
@@ -950,7 +955,14 @@ const rawEventDetailsConfig: RawEventDetail[] = [
         "Grand Diwali festive lunch",
         "Traditional attire 'Best Dressed' awards",
       ],
-      images: [DiwaliCelebration1, DiwaliCelebration3, DiwaliCelebration4],
+      images: [
+        DiwaliCelebration1,
+        DiwaliCelebration3,
+        DiwaliCelebration4,
+        DiwaliCelebration5,
+        DiwaliCelebration6,
+        DiwaliCelebration7,
+      ],
     },
   },
   {

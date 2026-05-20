@@ -8,6 +8,7 @@ import {
 } from "@/data/eventDetailsConfig";
 import CuratedEventCard from "../components/CuratedEventCard";
 import { TabButton } from "@/components/services/tabButton";
+import { SpaceSwitch } from "@/components/SpaceSwitch";
 import ThemeButton from "@/components/Button/ThemeButton";
 import { RoundChevronDown } from "@/assets/icons/custom-icons";
 import { CalendarRange, ChevronDown, X } from "lucide-react";
@@ -19,6 +20,13 @@ const FILTERS: { label: string; value: FilterType }[] = [
   { label: "All Events", value: "all" },
   { label: "Upcoming", value: "upcoming" },
   { label: "Past", value: "past" },
+];
+
+type SpaceFilter = "evoltech" | "ceo";
+
+const SPACE_FILTERS: { label: string; value: SpaceFilter }[] = [
+  { label: "EvolTech Space", value: "evoltech" },
+  { label: "CEO Space", value: "ceo" },
 ];
 
 const DATE_LABEL_FORMATTER = new Intl.DateTimeFormat("en-US", {
@@ -49,6 +57,7 @@ const Section2 = () => {
   const [selectedYear, setSelectedYear] = useState("");
   const [selectedMonth, setSelectedMonth] = useState("");
   const [isMonthPickerOpen, setIsMonthPickerOpen] = useState(false);
+  const [activeSpace, setActiveSpace] = useState<SpaceFilter>("evoltech");
   const [visibleCount, setVisibleCount] = useState(6);
   const dateFilterRef = useRef<HTMLDivElement | null>(null);
   const activeCategory = getCategoryFromQuery(searchParams.get("category"));
@@ -77,8 +86,14 @@ const Section2 = () => {
             : event.status === activeFilter;
       const matchesCategory =
         activeCategory === "all" ? true : event.category === activeCategory;
+      const matchesSpace =
+        activeCategory !== "internal"
+          ? true
+          : activeSpace === "ceo"
+            ? event.space === "ceo"
+            : event.space !== "ceo";
 
-      if (!matchesStatus || !matchesCategory) {
+      if (!matchesStatus || !matchesCategory || !matchesSpace) {
         return false;
       }
 
@@ -105,7 +120,13 @@ const Section2 = () => {
 
   useEffect(() => {
     setVisibleCount(6);
-  }, [activeCategory, activeFilter, selectedMonth, selectedYear]);
+  }, [activeCategory, activeFilter, selectedMonth, selectedYear, activeSpace]);
+
+  useEffect(() => {
+    if (activeCategory !== "internal") {
+      setActiveSpace("evoltech");
+    }
+  }, [activeCategory]);
 
   useEffect(() => {
     if (!isMonthPickerOpen) {
@@ -144,29 +165,40 @@ const Section2 = () => {
         )
     : "Select Year / Month";
 
-  const sectionContent = {
-    all: {
-      title: "Curated Experiences",
-      description:
-        "Explore our latest conference appearances and EvolTech Space moments in one place.",
-      singularCountLabel: "event",
-      pluralCountLabel: "events",
-    },
-    conference: {
-      title: "Conference Experiences",
-      description:
-        "Browse conferences where EvolTech is learning, connecting, and sharing ideas across industries.",
-      singularCountLabel: "conference event",
-      pluralCountLabel: "conference events",
-    },
-    internal: {
-      title: "EvolTech Space",
-      description:
-        "See the internal moments that shape our culture, from leadership gatherings to team experiences.",
-      singularCountLabel: "EvolTech Space event",
-      pluralCountLabel: "EvolTech Space events",
-    },
-  }[activeCategory];
+  const sectionContent = (() => {
+    if (activeCategory === "internal" && activeSpace === "ceo") {
+      return {
+        title: "CEO Space",
+        description:
+          "Celebrating the meaningful moments, shared experiences, and human connection between our CEO and the EvolTech teams.",
+        singularCountLabel: "CEO event",
+        pluralCountLabel: "CEO events",
+      };
+    }
+    return {
+      all: {
+        title: "Curated Experiences",
+        description:
+          "Explore our latest conference appearances and EvolTech Space moments in one place.",
+        singularCountLabel: "event",
+        pluralCountLabel: "events",
+      },
+      conference: {
+        title: "Conference Experiences",
+        description:
+          "Browse conferences where EvolTech is learning, connecting, and sharing ideas across industries.",
+        singularCountLabel: "conference event",
+        pluralCountLabel: "conference events",
+      },
+      internal: {
+        title: "EvolTech Space",
+        description:
+          "See the internal moments that shape our culture, from leadership gatherings to team experiences.",
+        singularCountLabel: "EvolTech Space event",
+        pluralCountLabel: "EvolTech Space events",
+      },
+    }[activeCategory];
+  })();
 
   const countLabel =
     filteredEvents.length === 1
@@ -175,14 +207,27 @@ const Section2 = () => {
 
   return (
     <section
-      className="w-full min-h-[85vh] bg-white py-4 md:py-16"
+      className="w-full min-h-[85vh] bg-white py-4 md:py-16 transition-colors duration-500"
       style={{
         backgroundImage:
-          "linear-gradient(to bottom, rgba(217, 229, 251, 1) 0%, #ffff 80%)",
-      }}>
+          activeCategory === "internal" && activeSpace === "ceo"
+            ? "linear-gradient(160deg, rgba(56, 189, 248, 0.38) 0%, rgba(147, 197, 253, 0.22) 55%, #ffffff 100%)"
+            : "linear-gradient(to bottom, rgba(217, 229, 251, 1) 0%, #ffff 80%)",
+      }}
+    >
       <div className="grid grid-cols-4 sm:grid-cols-8 lg:grid-cols-12 grid-rows-1 gap-5 max-w-7xl mx-auto px-4 lg:px-0 ">
         <div className="col-span-4 col-start-1 sm:col-span-8 lg:col-span-10 lg:col-start-2 ">
-          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 mb-10">
+          {activeCategory === "internal" && (
+            <div className="mb-10">
+              <SpaceSwitch
+                options={SPACE_FILTERS}
+                activeValue={activeSpace}
+                onChange={(v) => setActiveSpace(v as SpaceFilter)}
+              />
+            </div>
+          )}
+
+          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 mb-6">
             <div>
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#1a1a2e]">
                 {sectionContent.title}
@@ -217,7 +262,8 @@ const Section2 = () => {
                     hasDateFilter
                       ? "border-[#58619D] bg-[#58619D] text-white shadow-md"
                       : "border-[#D7DFEC] bg-white text-[#1a1a2e] hover:border-[#58619D] hover:shadow-sm"
-                  }`}>
+                  }`}
+                >
                   <CalendarRange
                     size={15}
                     className={hasDateFilter ? "text-white" : "text-[#58619D]"}
@@ -251,7 +297,8 @@ const Section2 = () => {
                       <button
                         type="button"
                         onClick={() => setIsMonthPickerOpen(false)}
-                        className="shrink-0 rounded-full p-1.5 text-gray-400 transition hover:bg-[#F4F6FA] hover:text-[#1a1a2e]">
+                        className="shrink-0 rounded-full p-1.5 text-gray-400 transition hover:bg-[#F4F6FA] hover:text-[#1a1a2e]"
+                      >
                         <X size={14} />
                       </button>
                     </div>
@@ -271,7 +318,8 @@ const Section2 = () => {
                               setSelectedMonth("");
                             }
                           }}
-                          className="w-full rounded-xl border border-[#D7DFEC] bg-white px-3 py-2.5 text-sm text-[#1a1a2e] outline-none transition focus:border-[#58619D] focus:ring-2 focus:ring-[#58619D]/10">
+                          className="w-full rounded-xl border border-[#D7DFEC] bg-white px-3 py-2.5 text-sm text-[#1a1a2e] outline-none transition focus:border-[#58619D] focus:ring-2 focus:ring-[#58619D]/10"
+                        >
                           <option value="">All years</option>
                           {availableYears.map((year) => (
                             <option key={year} value={year}>
@@ -285,7 +333,8 @@ const Section2 = () => {
                         <label
                           className={`mb-1.5 block text-xs font-semibold uppercase tracking-wide transition ${
                             selectedYear ? "text-gray-500" : "text-gray-300"
-                          }`}>
+                          }`}
+                        >
                           Month
                         </label>
                         <select
@@ -294,7 +343,8 @@ const Section2 = () => {
                           onChange={(event) =>
                             setSelectedMonth(event.target.value)
                           }
-                          className="w-full rounded-xl border border-[#D7DFEC] bg-white px-3 py-2.5 text-sm text-[#1a1a2e] outline-none transition focus:border-[#58619D] focus:ring-2 focus:ring-[#58619D]/10 disabled:cursor-not-allowed disabled:border-[#EEF0F8] disabled:bg-[#F8F9FC] disabled:text-gray-300">
+                          className="w-full rounded-xl border border-[#D7DFEC] bg-white px-3 py-2.5 text-sm text-[#1a1a2e] outline-none transition focus:border-[#58619D] focus:ring-2 focus:ring-[#58619D]/10 disabled:cursor-not-allowed disabled:border-[#EEF0F8] disabled:bg-[#F8F9FC] disabled:text-gray-300"
+                        >
                           <option value="">All months</option>
                           {MONTH_OPTIONS.map((month) => (
                             <option key={month.value} value={month.value}>
@@ -314,7 +364,8 @@ const Section2 = () => {
                             setSelectedYear("");
                             setSelectedMonth("");
                           }}
-                          className="inline-flex items-center gap-1.5 rounded-full border border-[#D7DFEC] px-3 py-1.5 text-xs font-semibold text-[#58619D] transition hover:border-[#58619D] hover:bg-[#EEF0F9]">
+                          className="inline-flex items-center gap-1.5 rounded-full border border-[#D7DFEC] px-3 py-1.5 text-xs font-semibold text-[#58619D] transition hover:border-[#58619D] hover:bg-[#EEF0F9]"
+                        >
                           <X size={11} />
                           Clear filter
                         </button>
@@ -326,13 +377,101 @@ const Section2 = () => {
             </div>
           </div>
           <div className="mt-5 grid grid-cols-1 items-stretch gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {visibleEvents.map((event) => (
-              <CuratedEventCard
-                key={event.id}
-                event={event}
-                category={activeCategory === "all" ? undefined : activeCategory}
-              />
-            ))}
+            {activeCategory === "internal" && activeSpace === "ceo"
+              ? // CEO Space: 6 placeholder cards (content coming soon)
+                Array.from({ length: 6 }).map((_, i) => (
+                  <div
+                    key={i}
+                    className="relative h-[25rem] rounded overflow-hidden"
+                    style={{
+                      background:
+                        "linear-gradient(135deg, #daeffe 0%, #c8e8fb 45%, #d6effe 100%)",
+                      boxShadow: "0 10px_32px rgba(15,23,42,0.08)",
+                    }}
+                  >
+                    {/* Shimmer image placeholder */}
+                    <div className="w-full h-48 bg-[#b6d9f5]/60 flex items-center justify-center">
+                      <svg
+                        width="48"
+                        height="48"
+                        viewBox="0 0 48 48"
+                        fill="none"
+                        opacity="0.35"
+                      >
+                        <rect
+                          x="4"
+                          y="4"
+                          width="40"
+                          height="40"
+                          rx="8"
+                          stroke="#1761A0"
+                          strokeWidth="2"
+                        />
+                        <circle
+                          cx="16"
+                          cy="16"
+                          r="5"
+                          stroke="#1761A0"
+                          strokeWidth="2"
+                        />
+                        <path
+                          d="M4 32l10-10 8 8 6-6 16 16"
+                          stroke="#1761A0"
+                          strokeWidth="2"
+                          strokeLinejoin="round"
+                        />
+                      </svg>
+                    </div>
+                    {/* Content area */}
+                    <div className="px-4 pt-4 pb-4 flex flex-col gap-2">
+                      <div className="h-4 w-2/3 rounded-full bg-[#4C96D7]/20" />
+                      <div className="h-3 w-full rounded-full bg-[#4C96D7]/12" />
+                      <div className="h-3 w-4/5 rounded-full bg-[#4C96D7]/12" />
+                      <div className="mt-2 h-3 w-1/2 rounded-full bg-[#4C96D7]/10" />
+                    </div>
+                    {/* Coming Soon label */}
+                    <div className="absolute bottom-4 left-4 inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-semibold text-[#1761A0] bg-white/60 border border-[#4C96D7]/25 backdrop-blur-sm">
+                      <svg
+                        width="12"
+                        height="12"
+                        viewBox="0 0 12 12"
+                        fill="none"
+                      >
+                        <circle
+                          cx="6"
+                          cy="6"
+                          r="5"
+                          stroke="#4C96D7"
+                          strokeWidth="1.5"
+                        />
+                        <path
+                          d="M6 3.5v3l2 1"
+                          stroke="#4C96D7"
+                          strokeWidth="1.5"
+                          strokeLinecap="round"
+                        />
+                      </svg>
+                      Coming Soon
+                    </div>
+                    {/* Decorative bite */}
+                    <div
+                      className="absolute rounded-full bg-white/80"
+                      style={{ width: 80, height: 80, bottom: -24, right: -24 }}
+                    />
+                  </div>
+                ))
+              : visibleEvents.map((event) => (
+                  <CuratedEventCard
+                    key={event.id}
+                    event={event}
+                    category={
+                      activeCategory === "all" ? undefined : activeCategory
+                    }
+                    variant={
+                      activeCategory === "internal" ? "compact" : "sleek"
+                    }
+                  />
+                ))}
           </div>
           {hasMore && (
             <div className="w-full justify-center items-center flex p-6 pt-10">
