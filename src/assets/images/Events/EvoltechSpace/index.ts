@@ -38,6 +38,13 @@ export { default as AISession1 } from "./AI Session.jpg";
 
 //Office Opening Ceremony
 export { default as EvolTechCeremony1 } from "./Office Opening.jpeg";
+export { default as OpeningCeremony } from "./OpeningCeremony.jpeg";
+export { default as OpeningCeremony1 } from "./OpeningCeremony1.jpeg";
+export { default as OpeningCeremony2 } from "./OpeningCeremony2.jpeg";
+export { default as OpeningCeremony3 } from "./OpeningCeremony3.jpeg";
+export { default as OpeningCeremony4 } from "./OpeningCeremony4.jpeg";
+export { default as OpeningCeremony6 } from "./OpeningCeremony6.jpeg";
+
 
 // Andaman Trip
 export { default as AndamanTrip1 } from "./Andaman 1.jpeg";
@@ -65,3 +72,12 @@ export { default as Cruise2 } from "./Cruise.jpg";
 export { default as Cruise3 } from "./Cruise3.jpg";
 export { default as FireCamp } from "./FireCamp.jpg";
 export { default as Resort } from "./resort.jpeg";
+
+//moments with ceo
+export { default as MomentsWithCEO1 } from "./MomentsWithCeo.jpeg";
+export { default as MomentsWithCEO2 } from "./MomentsWithCeo1.jpeg";
+export { default as MomentsWithCEO3 } from "./MomentsWithCeo2.jpeg";
+export { default as MomentsWithCEO4 } from "./MomentsWithCeo3.jpeg";
+export { default as MomentsWithCEO5 } from "./MomentsWithCeo4.jpeg";
+export { default as MomentsWithCEO6 } from "./MomentsWithCeo5.jpeg";
+export { default as MomentsWithCEO7 } from "./MomentsWithCeo6.jpeg";

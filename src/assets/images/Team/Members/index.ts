@@ -42,4 +42,4 @@ export { default as Thahir } from "./Thahir.jpg";
 export { default as Thulasi } from "./Thulasi.png";
 export { default as Tom } from "./Tom.jpeg";
 export { default as Vijay } from "./vijay.png";
-export { default as Greg } from "./GregArms.jpg";
+export { default as Greg } from "./GregArms.png";

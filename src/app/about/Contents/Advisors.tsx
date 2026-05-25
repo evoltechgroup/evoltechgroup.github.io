@@ -9,7 +9,7 @@ const advisors: LeaderProfileData[] = [
     name: "Greg Arms",
     title: "Strategic Advisor",
     role: "Strategic Advisor",
-    linkedinUrl: "https://www.linkedin.com/",
+    linkedinUrl: "https://www.linkedin.com/in/gregarms/",
     heading: "Our Advisor",
     bio: [
       "Greg Arms serves as a Strategic Advisor to EvolTech, bringing deep industry experience and relationships across the self-insurance and healthcare benefits landscape. His background spans collaboration with self-funded employers, third-party administrators (TPAs), carriers, payer organizations, and healthcare service networks throughout the United States and Internationally.",

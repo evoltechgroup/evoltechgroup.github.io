@@ -1,41 +1,7 @@
 ﻿"use client";
-import React, { useEffect, useState } from "react";
-import { motion, useSpring, useTransform } from "framer-motion";
 
-/* ── Geometry ───────────────────────────────────────────────────────────────── */
-const LOGO_W = 42;
-const LOGO_H = 24;
-const CAPSULE_H = 50;
-const CAPSULE_W = 200;
-const TRACK_PAD = 6;
-const POS_L = TRACK_PAD;
-const POS_R = CAPSULE_W - LOGO_W - TRACK_PAD;
-
-/* ── EvolTech logo mark (3 strips) ──────────────────────────────────────────── */
-function LogoMark() {
-  return (
-    <svg
-      width={LOGO_W}
-      height={LOGO_H}
-      viewBox="0 0 56 32"
-      fill="none"
-      style={{ display: "block" }}
-    >
-      <path
-        d="M0.800781 21.3512C0.800781 21.0631 0.924979 20.7891 1.14157 20.5992L22.9796 1.45457C23.626 0.887909 24.6388 1.34692 24.6388 2.20653V10.6488C24.6388 10.9369 24.5146 11.2109 24.2981 11.4008L2.45999 30.5454C1.81361 31.1121 0.800781 30.6531 0.800781 29.7935V21.3512Z"
-        fill="#8DCAFF"
-      />
-      <path
-        d="M16.0703 21.3512C16.0703 21.0631 16.1945 20.7891 16.4111 20.5992L38.2492 1.45457C38.8955 0.887909 39.9084 1.34692 39.9084 2.20653V10.6488C39.9084 10.9369 39.7842 11.2109 39.5676 11.4008L17.7295 30.5454C17.0831 31.1121 16.0703 30.6531 16.0703 29.7935V21.3512Z"
-        fill="#4C96D7"
-      />
-      <path
-        d="M31.3301 21.3512C31.3301 21.0631 31.4543 20.7891 31.6709 20.5992L53.5089 1.45457C54.1553 0.887909 55.1681 1.34692 55.1681 2.20653V10.6488C55.1681 10.9369 55.0439 11.2109 54.8274 11.4008L32.9893 30.5454C32.3429 31.1121 31.3301 30.6531 31.3301 29.7935V21.3512Z"
-        fill="#1761A0"
-      />
-    </svg>
-  );
-}
+import React from "react";
+import { motion } from "framer-motion";
 
 /* ── Types ──────────────────────────────────────────────────────────────────── */
 export interface SpaceSwitchOption {
@@ -49,7 +15,79 @@ interface SpaceSwitchProps {
   onChange: (value: string) => void;
 }
 
-/* ── SpaceSwitch ────────────────────────────────────────────────────────────── */
+/* ── Geometry ───────────────────────────────────────────────────────────────── */
+const W = 292;
+const H = 50;
+const R = H / 2;
+const CX = W / 2;
+const STROKE = 2.2;
+const PAD = STROKE / 2 + 2;
+
+/*
+ * Directional open half-capsule paths.
+ *
+ * LEFT / EvolTech Space:
+ *   Starts at CENTER-TOP.
+ *   Flows anti-clockwise around the left half.
+ *   Ends at CENTER-BOTTOM.
+ *
+ * RIGHT / CEO Space:
+ *   Starts at CENTER-BOTTOM.
+ *   Flows anti-clockwise around the right half.
+ *   Ends at CENTER-TOP.
+ *
+ * Both paths stay open at the centre divider.
+ * No inner vertical border is drawn.
+ */
+function getOpenHalfCapsulePath(side: "left" | "right") {
+  const top = PAD;
+  const bottom = H - PAD;
+  const radius = (bottom - top) / 2;
+  const centerY = H / 2;
+
+  if (side === "right") {
+    const outerRight = W - PAD;
+
+    return `
+      M ${CX},${bottom}
+      H ${outerRight - radius}
+      A ${radius},${radius} 0 0 0 ${outerRight},${centerY}
+      A ${radius},${radius} 0 0 0 ${outerRight - radius},${top}
+      H ${CX}
+    `;
+  }
+
+  const outerLeft = PAD;
+
+  return `
+    M ${CX},${top}
+    H ${outerLeft + radius}
+    A ${radius},${radius} 0 0 0 ${outerLeft},${centerY}
+    A ${radius},${radius} 0 0 0 ${outerLeft + radius},${bottom}
+    H ${CX}
+  `;
+}
+
+/* Dim always-visible base outline */
+const FULL_PATH = `
+  M ${R},0
+  L ${W - R},0
+  A ${R},${R} 0 1,1 ${W - R},${H}
+  L ${R},${H}
+  A ${R},${R} 0 1,0 ${R},0
+  Z
+`;
+
+/* ── Motion ─────────────────────────────────────────────────────────────────── */
+const EASE = [0.22, 1, 0.36, 1] as const;
+const TRANSITION = { duration: 0.56, ease: EASE } as const;
+
+/* ── Colours ────────────────────────────────────────────────────────────────── */
+const BLUE = "#4C96D7";
+const BLUE_MID = "rgba(141,202,255,0.60)";
+const BLUE_HALO = "rgba(76,150,215,0.28)";
+
+/* ── Component ──────────────────────────────────────────────────────────────── */
 export const SpaceSwitch: React.FC<SpaceSwitchProps> = ({
   options,
   activeValue,
@@ -57,251 +95,205 @@ export const SpaceSwitch: React.FC<SpaceSwitchProps> = ({
 }) => {
   const left = options[0];
   const right = options[1];
-  const isRight = activeValue === right?.value;
-  const [hovered, setHovered] = useState(false);
-
-  /* Spring: 0 = left (options[0] active), 1 = right (options[1] active) */
-  const progress = useSpring(isRight ? 1 : 0, {
-    stiffness: 340,
-    damping: 28,
-    mass: 0.9,
-    restDelta: 0.001,
-  });
-
-  useEffect(() => {
-    progress.set(isRight ? 1 : 0);
-  }, [isRight, progress]);
-
-  /* Logo slides only — no rotation */
-  const logoX = useTransform(progress, [0, 1], [POS_L, POS_R]);
-
-  /* Sliding shadow under logo */
-  const shadowX = useTransform(logoX, (v) => v + LOGO_W / 2 - 20);
-  const shadowOp = useTransform(
-    progress,
-    [0, 0.4, 0.6, 1],
-    [0.22, 0.08, 0.08, 0.22],
-  );
-
-  /* Glow tracks logo */
-  const glowX = useTransform(logoX, (v) => v - (68 - LOGO_W) / 2);
-  /* White active-pill slides with logo */
-  const pillX = useTransform(logoX, (v) => v - 5);
-
-  /*
-   * Text visibility:
-   *   left text  = options[0].label → shown when CEO (right) is active → progress near 1
-   *   right text = options[1].label → shown when EvolTech (left) is active → progress near 0
-   */
-  const leftTextOp = useTransform(progress, [0.5, 0.8], [0, 1]);
-  const rightTextOp = useTransform(progress, [0.2, 0.5], [1, 0]);
-
-  /* Slight horizontal drift on text for polish */
-  const leftTextX = useTransform(progress, [0.5, 0.8], [-5, 0]);
-  const rightTextX = useTransform(progress, [0.2, 0.5], [0, 5]);
-
   if (!left || !right) return null;
 
+  const isRight = activeValue === right.value;
+  const activeSide = isRight ? "right" : "left";
+  const activePath = getOpenHalfCapsulePath(activeSide);
+
   return (
-    <button
-      type="button"
-      role="switch"
-      aria-checked={isRight}
-      onClick={() => onChange(isRight ? left.value : right.value)}
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
+    <div
+      role="radiogroup"
+      aria-label="Space selector"
       style={{
         position: "relative",
-        display: "inline-block",
-        width: CAPSULE_W,
-        height: CAPSULE_H,
-        borderRadius: CAPSULE_H / 2,
-        background: "#ffffff",
+        display: "inline-flex",
+        width: W,
+        height: H,
+        borderRadius: R,
+        background:
+          "linear-gradient(160deg, rgba(10,16,44,0.98) 0%, rgba(5,8,24,0.99) 100%)",
         boxShadow: [
-          "inset 0 2px 6px rgba(0,0,0,0.06)",
-          "inset 0 -1px 3px rgba(255,255,255,0.95)",
-          "0 3px 12px rgba(0,0,0,0.06)",
-          "0 1px 3px rgba(0,0,0,0.04)",
-          hovered
-            ? [
-                "0 0 0 1.5px #4C96D7",
-                "0 0 18px rgba(141,202,255,0.75)",
-                "0 0 36px rgba(76,150,215,0.55)",
-                "0 0 60px rgba(76,150,215,0.30)",
-              ].join(", ")
-            : "0 0 0 1px rgba(0,0,0,0.07)",
+          "0 8px 36px rgba(0,0,0,0.60)",
+          "0 2px 8px rgba(0,0,0,0.35)",
+          "inset 0 1px 0 rgba(141,202,255,0.06)",
+          "inset 0 -1px 0 rgba(0,0,0,0.40)",
         ].join(", "),
-        overflow: "hidden",
-        cursor: "pointer",
-        outline: "none",
-        userSelect: "none",
-        padding: 0,
-        border: "none",
-        transition: "box-shadow 200ms ease",
+        overflow: "visible",
       }}
     >
-      {/* Inner track groove */}
+      {/* ── Top gloss sheen ─────────────────────────────────────────────────── */}
       <div
-        aria-hidden
-        style={{
-          position: "absolute",
-          top: 6,
-          bottom: 6,
-          left: 5,
-          right: 5,
-          borderRadius: "9999px",
-          background: "rgba(0,0,0,0.05)",
-          border: "1px solid rgba(0,0,0,0.07)",
-          boxShadow: "inset 0 1px 4px rgba(0,0,0,0.09)",
-        }}
-      />
-
-      {/* Top gloss sheen */}
-      <div
-        aria-hidden
+        aria-hidden="true"
         style={{
           position: "absolute",
           top: 0,
           left: 0,
           right: 0,
-          height: "42%",
-          borderRadius: `${CAPSULE_H / 2}px ${CAPSULE_H / 2}px 40% 40% / 50% 50% 30% 30%`,
+          height: "40%",
+          borderRadius: `${R}px ${R}px 50% 50% / 55% 55% 35% 35%`,
           background:
-            "linear-gradient(to bottom, rgba(255,255,255,0.72), rgba(255,255,255,0))",
+            "linear-gradient(to bottom, rgba(255,255,255,0.04), transparent)",
+          pointerEvents: "none",
+          zIndex: 2,
+        }}
+      />
+
+      {/* ── SVG animated border ─────────────────────────────────────────────── */}
+      <svg
+        viewBox={`0 0 ${W} ${H}`}
+        width={W}
+        height={H}
+        aria-hidden="true"
+        style={{
+          position: "absolute",
+          inset: 0,
+          pointerEvents: "none",
+          zIndex: 3,
+          overflow: "visible",
+        }}
+      >
+        <defs>
+          <filter id="ss-halo" x="-80%" y="-80%" width="260%" height="260%">
+            <feGaussianBlur stdDeviation="5" result="b" />
+            <feMerge>
+              <feMergeNode in="b" />
+              <feMergeNode in="SourceGraphic" />
+            </feMerge>
+          </filter>
+
+          <filter id="ss-corona" x="-40%" y="-40%" width="180%" height="180%">
+            <feGaussianBlur stdDeviation="1.8" result="b" />
+            <feMerge>
+              <feMergeNode in="b" />
+              <feMergeNode in="SourceGraphic" />
+            </feMerge>
+          </filter>
+        </defs>
+
+       
+        {/*
+          Active open half-border.
+          The key forces a fresh pathLength draw on every side change.
+          This avoids delayed morphing and keeps the flow directional.
+        */}
+        <motion.path
+          key={`${activeSide}-halo`}
+          d={activePath}
+          fill="none"
+          stroke={BLUE_HALO}
+          strokeWidth={11}
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          filter="url(#ss-halo)"
+          initial={{ pathLength: 0 }}
+          animate={{ pathLength: 1 }}
+          transition={TRANSITION}
+        />
+
+        <motion.path
+          key={`${activeSide}-corona`}
+          d={activePath}
+          fill="none"
+          stroke={BLUE_MID}
+          strokeWidth={4}
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          filter="url(#ss-corona)"
+          initial={{ pathLength: 0 }}
+          animate={{ pathLength: 1 }}
+          transition={TRANSITION}
+        />
+
+        <motion.path
+          key={`${activeSide}-edge`}
+          d={activePath}
+          fill="none"
+          stroke={BLUE}
+          strokeWidth={STROKE}
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          initial={{ pathLength: 0 }}
+          animate={{ pathLength: 1 }}
+          transition={TRANSITION}
+        />
+      </svg>
+
+      {/* ── Centre divider ──────────────────────────────────────────────────── */}
+      <div
+        aria-hidden="true"
+        style={{
+          position: "absolute",
+          left: "50%",
+          top: "20%",
+          height: "60%",
+          width: 1,
+          transform: "translateX(-0.5px)",
+          background: "rgba(76,150,215,0.09)",
+          zIndex: 4,
           pointerEvents: "none",
         }}
       />
 
-      {/* Ambient glow (tracks logo) */}
-      <motion.div
-        aria-hidden
+      {/* ── Left button — EvolTech Space ────────────────────────────────────── */}
+      <button
+        type="button"
+        role="radio"
+        aria-checked={!isRight}
+        onClick={() => onChange(left.value)}
         style={{
-          position: "absolute",
-          top: "50%",
-          left: 0,
-          x: glowX,
-          y: "-50%",
-          width: 68,
-          height: 44,
-          borderRadius: "50%",
-          background:
-            "radial-gradient(ellipse, rgba(76,150,215,0.2) 0%, rgba(23,97,160,0.07) 55%, transparent 75%)",
-          filter: "blur(10px)",
-          pointerEvents: "none",
-        }}
-      />
-
-      {/* Sliding white active-pill (shows which side is active) */}
-      <motion.div
-        aria-hidden
-        style={{
-          position: "absolute",
-          top: 5,
-          left: 0,
-          x: pillX,
-          width: LOGO_W + 10,
-          height: CAPSULE_H - 10,
-          borderRadius: (CAPSULE_H - 10) / 2,
+          flex: 1,
+          position: "relative",
+          zIndex: 5,
+          fontSize: "0.775rem",
+          fontWeight: 700,
+          fontFamily: "inherit",
+          letterSpacing: "0.015em",
+          color: !isRight ? "#ffffff" : "rgba(141,202,255,0.30)",
+          textShadow: !isRight
+            ? "0 0 18px rgba(76,150,215,0.75), 0 0 36px rgba(76,150,215,0.40)"
+            : "none",
           background: "transparent",
-          // boxShadow:
-          //   "0 2px 10px rgba(23,97,160,0.14), 0 1px 4px rgba(0,0,0,0.10)",
-          pointerEvents: "none",
-        }}
-      />
-
-      {/* Shadow (tracks logo) */}
-      <motion.div
-        aria-hidden
-        style={{
-          position: "absolute",
-          bottom: 4,
-          left: 0,
-          x: shadowX,
-          opacity: shadowOp,
-          width: 40,
-          height: 5,
-          borderRadius: "50%",
-          background: "rgba(23,97,160,0.3)",
-          filter: "blur(4px)",
-          pointerEvents: "none",
-        }}
-      />
-
-      {/*
-       * Left text — options[0].label ("EvolTech Space")
-       * Appears on left side when CEO Space (right) is active
-       */}
-      <motion.span
-        aria-hidden
-        style={{
-          position: "absolute",
-          /* spans the left half (logo rests on right when CEO active) */
-          left: TRACK_PAD,
-          right: LOGO_W + TRACK_PAD + 4,
-          top: 0,
-          bottom: 0,
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          x: leftTextX,
-          opacity: leftTextOp,
-          fontSize: "0.8125rem",
-          fontWeight: 600,
-          letterSpacing: "-0.02em",
-          color: "#1761A0",
+          border: "none",
+          cursor: "pointer",
+          transition: "color 250ms ease, text-shadow 250ms ease",
+          outline: "none",
           whiteSpace: "nowrap",
-          pointerEvents: "none",
+          textAlign: "center",
         }}
       >
         {left.label}
-      </motion.span>
+      </button>
 
-      {/*
-       * Right text — options[1].label ("CEO Space")
-       * Appears on right side when EvolTech Space (left) is active
-       */}
-      <motion.span
-        aria-hidden
+      {/* ── Right button — CEO Space ─────────────────────────────────────────── */}
+      <button
+        type="button"
+        role="radio"
+        aria-checked={isRight}
+        onClick={() => onChange(right.value)}
         style={{
-          position: "absolute",
-          /* spans the right half (logo rests on left when EvolTech active) */
-          left: LOGO_W + TRACK_PAD + 4,
-          right: TRACK_PAD,
-          top: 0,
-          bottom: 0,
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          x: rightTextX,
-          opacity: rightTextOp,
-          fontSize: "0.8125rem",
-          fontWeight: 600,
-          letterSpacing: "-0.02em",
-          color: "#1761A0",
+          flex: 1,
+          position: "relative",
+          zIndex: 5,
+          fontSize: "0.775rem",
+          fontWeight: 700,
+          fontFamily: "inherit",
+          letterSpacing: "0.015em",
+          color: isRight ? "#ffffff" : "rgba(141,202,255,0.30)",
+          textShadow: isRight
+            ? "0 0 18px rgba(76,150,215,0.75), 0 0 36px rgba(76,150,215,0.40)"
+            : "none",
+          background: "transparent",
+          border: "none",
+          cursor: "pointer",
+          transition: "color 250ms ease, text-shadow 250ms ease",
+          outline: "none",
           whiteSpace: "nowrap",
-          pointerEvents: "none",
+          textAlign: "center",
         }}
       >
         {right.label}
-      </motion.span>
-
-      {/* Sliding logo mark */}
-      <motion.div
-        aria-hidden
-        style={{
-          position: "absolute",
-          top: (CAPSULE_H - LOGO_H) / 2,
-          left: 0,
-          x: logoX,
-          width: LOGO_W,
-          height: LOGO_H,
-          pointerEvents: "none",
-          willChange: "transform",
-          filter: "drop-shadow(0 1px 6px rgba(23,97,160,0.35))",
-        }}
-      >
-        <LogoMark />
-      </motion.div>
-    </button>
+      </button>
+    </div>
   );
 };

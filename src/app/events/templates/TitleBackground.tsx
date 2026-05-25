@@ -14,7 +14,7 @@ import { formatEventDateRange } from "@/data/eventDetailsConfig";
 import ThemeButton from "@/components/Button/ThemeButton";
 import { ChevronLeft } from "lucide-react";
 import { useRouter, useSearchParams } from "next/navigation";
-import { Suspense, useEffect, useState } from "react";
+import { Suspense } from "react";
 
 interface TitleBackgroundProps {
   event: {
@@ -26,6 +26,7 @@ interface TitleBackgroundProps {
     city?: string;
     state?: string;
     venue?: string;
+    category?: string;
   };
 }
 
@@ -33,18 +34,7 @@ const TitleBackgroundContent: React.FC<TitleBackgroundProps> = ({ event }) => {
   const router = useRouter();
   const searchParams = useSearchParams();
 
-  const category = searchParams.get("category");
-
-  const [backHref, setBackHref] = useState("/events");
-
-  useEffect(() => {
-    if (category === "conference" || category === "internal") {
-      setBackHref(`/events?category=${category}`);
-      return;
-    }
-
-    setBackHref("/events");
-  }, [category]);
+  const category = event.category ?? searchParams.get("category");
 
   const EventBg = category === "internal" ? EvoltechGroupV2 : EventsBg;
   return (
@@ -109,7 +99,7 @@ const TitleBackgroundContent: React.FC<TitleBackgroundProps> = ({ event }) => {
           <div className="col-span-4 col-start-1 flex w-full flex-col items-start gap-4 text-left lg:col-span-10 lg:col-start-2">
             <ThemeButton
               text="Back to All Events"
-              onClick={() => router.push(backHref)}
+              onClick={() => router.back()}
               startIcon={
                 <span className="">
                   <ChevronLeft />

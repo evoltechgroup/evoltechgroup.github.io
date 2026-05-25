@@ -85,6 +85,19 @@ import {
   DiwaliCelebration7,
   DiwaliCelebration5,
   DiwaliCelebration6,
+  OpeningCeremony1,
+  OpeningCeremony6,
+  OpeningCeremony4,
+  OpeningCeremony3,
+  OpeningCeremony2,
+  OpeningCeremony,
+  MomentsWithCEO1,
+  MomentsWithCEO2,
+  MomentsWithCEO3,
+  MomentsWithCEO4,
+  MomentsWithCEO5,
+  MomentsWithCEO6,
+  MomentsWithCEO7,
 } from "@/assets/images/Events/EvoltechSpace";
 import { Christmas } from "@/assets/events/video";
 import {
@@ -92,6 +105,13 @@ import {
   AmericanBankers2,
   AmericanBankersBanner,
 } from "@/assets/images/Events/Confrence";
+import {
+  TheGOATrip,
+  ThePuneTeam,
+  BowlingWithTheTeam,
+  DinnerWithTeam,
+  LunchwithTheTeam,
+} from "@/assets/images/Team/Outing";
 
 export type EventTemplate =
   | "template1"
@@ -147,6 +167,12 @@ export interface EventDetail {
 
   tags?: EventTag[];
   bannerImage?: StaticImageData;
+  /** Primary video URL (YouTube embed or direct MP4) — shows a video player on the detail page */
+  videoUrl?: string;
+  /** Episode identifier for video-type events, e.g. "EP 01" */
+  episode?: string;
+  /** Runtime for video-type events, e.g. "18 min" */
+  duration?: string;
   detailContent: EventDetailContent;
 }
 
@@ -721,7 +747,7 @@ const rawEventDetailsConfig: RawEventDetail[] = [
     slug: "moments-with-our-ceo",
     template: "template3",
     category: "internal",
-    image: Cruise1,
+    image: MomentsWithCEO5,
     title: "Moments with Our CEO",
     description:
       "Celebrating the meaningful moments, shared experiences, and human connection between our CEO, Thulasidharan LG, and the EvolTech teams in India.",
@@ -762,6 +788,14 @@ const rawEventDetailsConfig: RawEventDetail[] = [
         "Shared dinners, outings, theatre visits, and bowling sessions",
         "Moments that reflect EvolTech’s people-first culture",
         "A leadership culture built on warmth, accessibility, and belonging",
+      ],
+      images: [
+        MomentsWithCEO1,
+        MomentsWithCEO2,
+        MomentsWithCEO3,
+        MomentsWithCEO4,
+        MomentsWithCEO5,
+        MomentsWithCEO6,
       ],
     },
   },
@@ -1012,7 +1046,7 @@ const rawEventDetailsConfig: RawEventDetail[] = [
     slug: "evoltech-office-opening-2025",
     template: "template3",
     category: "internal",
-    image: EvolTechCeremony1,
+    image: OpeningCeremony1,
     title: "Office Opening Ceremony",
     description:
       "Commemorating the official inauguration of our Chennai operations and the beginning of a new chapter for the team.",
@@ -1052,6 +1086,219 @@ const rawEventDetailsConfig: RawEventDetail[] = [
         "Team-wide luncheon and strategy kickoff",
         "Special presentation on the 2025-2026 technical roadmap",
       ],
+      images: [
+        OpeningCeremony,
+        OpeningCeremony1,
+        OpeningCeremony2,
+        OpeningCeremony3,
+        OpeningCeremony4,
+        OpeningCeremony6,
+      ],
+    },
+  },
+  // ── CEO Video Episodes ───────────────────────────────────────
+  {
+    id: 20,
+    slug: "ceo-video-building-culture",
+    template: "template3",
+    category: "internal",
+    space: "ceo" as const,
+    showInList: false,
+    image: MomentsWithCEO3,
+    episode: "EP 01",
+    duration: "18 min",
+    videoUrl:
+      "https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7434291295868690432?compact=1",
+    title: "Guess the employee by their voice? 🎤",
+    description:
+      "Our CEO shares the principles behind building a people-first culture and why presence — physical and emotional — defines leadership at EvolTech.",
+    fromDate: "2026-02-01",
+    toDate: "2026-02-01",
+    tags: [
+      { label: "Leadership", bgColor: "#B6D2FF" },
+      { label: "CEO Space", bgColor: "#4A90E2" },
+    ],
+    detailContent: {
+      overview:
+        "Leadership at EvolTech is not just about strategy — it is about showing up. In this episode, our CEO Thulasidharan LG reflects on what it truly means to build culture through presence, authenticity, and genuine connection.",
+      sections: [
+        {
+          title: "Why Culture Starts at the Top",
+          content:
+            "Culture is not built through policy documents or mission statements. It is built through consistent behaviour at every level — especially at the leadership level. In this conversation, our CEO unpacks what that looks like at EvolTech and how presence has become one of our most powerful leadership tools.",
+        },
+      ],
+    },
+  },
+  {
+    id: 21,
+    slug: "ceo-video-vision-2026",
+    template: "template3",
+    category: "internal",
+    space: "ceo" as const,
+    showInList: false,
+    image: MomentsWithCEO4,
+    episode: "EP 02",
+    duration: "24 min",
+    videoUrl:
+      "https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7429199267229204480?compact=1",
+    title: "Some companies plan meetings.EvolTech plans memories. 🌍✨",
+    description:
+      "A candid conversation about where EvolTech is headed in 2026: the technology bets we're making, the people we're investing in, and the purpose driving every decision.",
+    fromDate: "2026-03-01",
+    toDate: "2026-03-01",
+    tags: [
+      { label: "Strategy", bgColor: "#B6D2FF" },
+      { label: "CEO Space", bgColor: "#4A90E2" },
+    ],
+    detailContent: {
+      overview:
+        "2026 is a pivotal year for EvolTech. Our CEO walks through the strategic pillars guiding the company — from our technology roadmap to the talent investments that will define our next chapter.",
+      sections: [
+        {
+          title: "Technology Bets for 2026",
+          content:
+            "From AI-assisted engineering workflows to expanding our AWS serverless expertise, this episode dives into the specific technology choices EvolTech is doubling down on — and why.",
+        },
+      ],
+    },
+  },
+  {
+    id: 22,
+    slug: "ceo-video-navigating-fintech",
+    template: "template3",
+    category: "internal",
+    space: "ceo" as const,
+    showInList: false,
+    image: MomentsWithCEO5,
+    episode: "EP 03",
+    duration: "16 min",
+    videoUrl: "",
+    title: "Navigating Fintech: Insights from the Frontlines",
+    description:
+      "What does it take to build and sustain a fintech product in today's regulatory and market landscape? Our CEO shares hard-won insights from years on the frontlines.",
+    fromDate: "2026-04-01",
+    toDate: "2026-04-01",
+    tags: [
+      { label: "Industry", bgColor: "#B6D2FF" },
+      { label: "CEO Space", bgColor: "#4A90E2" },
+    ],
+    detailContent: {
+      overview:
+        "The fintech industry is evolving faster than ever. In this episode, our CEO draws on firsthand experience navigating regulatory shifts, customer expectations, and market dynamics to share practical insights for building lasting fintech solutions.",
+      sections: [
+        {
+          title: "What the Market Is Telling Us",
+          content:
+            "EvolTech operates at the intersection of technology and financial services. In this conversation, our CEO shares what the market signals are pointing to — and how EvolTech is positioning itself to respond.",
+        },
+      ],
+    },
+  },
+  {
+    id: 23,
+    slug: "ceo-video-innovation-practice",
+    template: "template3",
+    category: "internal",
+    space: "ceo" as const,
+    showInList: false,
+    image: MomentsWithCEO7,
+
+    duration: "21 min",
+    videoUrl: "",
+    title: "Innovation in Practice: How EvolTech Builds for Tomorrow",
+    description:
+      "Innovation is not an abstract concept at EvolTech — it is a daily practice. Our CEO reveals the frameworks, mindsets, and team rituals that keep EvolTech ahead of the curve.",
+    fromDate: "2026-05-15",
+    toDate: "2026-05-15",
+    tags: [
+      { label: "Product Vision", bgColor: "#B6D2FF" },
+      { label: "CEO Space", bgColor: "#4A90E2" },
+    ],
+    detailContent: {
+      overview:
+        "Innovation at EvolTech is deliberate, structured, and deeply human. In the latest episode of the Executive Video Library, our CEO breaks down the practices and principles that allow the team to consistently build ahead of the curve.",
+      sections: [
+        {
+          title: "The EvolTech Innovation Framework",
+          content:
+            "From rapid prototyping sessions to cross-functional product reviews, this episode reveals the internal practices that drive innovation at EvolTech — and how anyone on the team can contribute to building for tomorrow.",
+        },
+      ],
+    },
+  },
+  {
+    id: 24,
+    slug: "goa-team-offsite-2026",
+    template: "template2",
+    category: "internal",
+    image: TheGOATrip,
+    title: "Team Offsite — Goa",
+    description:
+      "The EvolTech team escaped to the sun-soaked shores of Goa for a well-deserved offsite — a perfect blend of relaxation, team bonding, and unforgettable memories.",
+    fromDate: "2026-03-01",
+    toDate: "2026-03-04",
+    tags: [
+      { label: "Team Offsite", bgColor: "#B6D2FF" },
+      { label: "Goa", bgColor: "#4A90E2" },
+    ],
+    city: "Goa",
+    state: "GA",
+    venue: "Goa",
+    showInList: true,
+    detailContent: {
+      overview:
+        "Our team headed to the vibrant shores of Goa for an exciting offsite. From beach walks to team dinners under the stars, this trip was a celebration of our people and the bonds that make EvolTech special.",
+      sections: [
+        {
+          title: "Sun, Sand & Team Spirit",
+          content:
+            "The Goa offsite was more than just a trip — it was a reminder of why we work so hard together. Teams from across EvolTech came together to unwind, explore, and celebrate the connections that define our culture.",
+        },
+        {
+          title: "Evenings to Remember",
+          content:
+            "Late evenings by the beach, shared meals, and spontaneous adventures made this offsite one for the books. Goa gave us the perfect backdrop to step back, recharge, and return stronger.",
+        },
+      ],
+      images: [TheGOATrip, DinnerWithTeam, LunchwithTheTeam],
+    },
+  },
+  {
+    id: 25,
+    slug: "pune-team-outing-2026",
+    template: "template2",
+    category: "internal",
+    image: ThePuneTeam,
+    title: "Pune Team Outing",
+    description:
+      "The EvolTech Pune team came together for a memorable outing — a day filled with laughter, great food, and the kind of connection that only happens when you step out of the office.",
+    fromDate: "2025-04-15",
+    toDate: "2025-04-15",
+    tags: [
+      { label: "Team Outing", bgColor: "#B6D2FF" },
+      { label: "Pune", bgColor: "#4A90E2" },
+    ],
+    city: "Pune",
+    state: "MH",
+    venue: "Pune",
+    showInList: true,
+    detailContent: {
+      overview:
+        "The Pune team stepped out for a day of fun, great food, and meaningful connection. Events like these remind us that the strongest teams are not built through shared targets alone — they are built through shared experiences.",
+      sections: [
+        {
+          title: "Pune Team Moments",
+          content:
+            "From laughs over lunch to memorable activities, the Pune outing was a celebration of the incredible people who make our Pune office shine. A day to step back, breathe, and enjoy each other's company.",
+        },
+        {
+          title: "Bowling & Beyond",
+          content:
+            "The team rounded off the day with a friendly bowling session — competitive, noisy, and full of memories. These are the moments that build the culture we are proud of.",
+        },
+      ],
+      images: [ThePuneTeam, BowlingWithTheTeam, LunchwithTheTeam],
     },
   },
 ];

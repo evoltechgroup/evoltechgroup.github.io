@@ -16,6 +16,67 @@ const EventTemplate3: React.FC<EventTemplate3Props> = ({ event }) => {
   return (
     <div className="w-full">
       <TitleBackground event={event} />
+
+      {/* ── Video player — shown when the event has a videoUrl ── */}
+      {event.episode && (
+        <div className="w-full bg-[#0B1530] py-10 px-4">
+          <div className="max-w-4xl mx-auto">
+            {event.videoUrl ? (
+              /* 16:9 responsive iframe */
+              <div
+                className="relative w-full"
+                style={{ paddingBottom: "56.25%" }}
+              >
+                <iframe
+                  src={event.videoUrl}
+                  title={event.title}
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowFullScreen
+                  className="absolute inset-0 w-full h-full rounded-2xl"
+                  style={{ border: "none" }}
+                />
+              </div>
+            ) : (
+              /* Coming-soon placeholder */
+              <div
+                className="relative w-full aspect-video rounded-2xl flex flex-col items-center justify-center gap-4"
+                style={{
+                  background:
+                    "linear-gradient(135deg, #0B1E3D 0%, #1761A0 60%, #0D2B52 100%)",
+                  border: "1px solid rgba(76,150,215,0.25)",
+                }}
+              >
+                <div
+                  className="w-16 h-16 rounded-full flex items-center justify-center"
+                  style={{
+                    background: "rgba(255,187,0,0.15)",
+                    border: "2px solid rgba(255,187,0,0.35)",
+                  }}
+                >
+                  <svg
+                    width="28"
+                    height="28"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    aria-hidden
+                  >
+                    <polygon points="5,3 19,12 5,21" fill="#FFBB00" />
+                  </svg>
+                </div>
+                <p className="text-[#8DCAFF]/70 text-sm font-medium">
+                  Video coming soon
+                </p>
+                {event.duration && (
+                  <span className="text-[#8DCAFF]/40 text-xs">
+                    {event.episode} · {event.duration}
+                  </span>
+                )}
+              </div>
+            )}
+          </div>
+        </div>
+      )}
+
       <div
         className="w-full bg-white py-16"
         style={{
@@ -47,18 +108,19 @@ const EventTemplate3: React.FC<EventTemplate3Props> = ({ event }) => {
               </div>
             ))}
 
-            {(event.detailContent.images?.length || event.detailContent.videos?.length) ? (
-                <div className="mt-16">
-                  <h2 className="text-2xl md:text-3xl font-bold text-[#1a1a2e] mb-8 text-center">
-                    Here are few photos from the event!
-                  </h2>
-                  <EventPhotoAlbum
-                    images={event.detailContent.images ?? []}
-                    eventTitle={event.title}
-                    videos={event.detailContent.videos}
-                  />
-                </div>
-              ) : null}
+            {event.detailContent.images?.length ||
+            event.detailContent.videos?.length ? (
+              <div className="mt-16">
+                <h2 className="text-2xl md:text-3xl font-bold text-[#1a1a2e] mb-8 text-center">
+                  Here are few photos from the event!
+                </h2>
+                <EventPhotoAlbum
+                  images={event.detailContent.images ?? []}
+                  eventTitle={event.title}
+                  videos={event.detailContent.videos}
+                />
+              </div>
+            ) : null}
 
             {event.detailContent.ctaText && (
               <div className="w-full flex justify-center items-center py-10">
