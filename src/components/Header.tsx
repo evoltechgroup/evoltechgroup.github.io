@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import Logo from "@/assets/logo/logo.svg";
 import { ChevronDown, ChevronUp, X } from "lucide-react";
@@ -9,14 +9,22 @@ import Anniversary from "@/assets/svg/animations/10Years.svg";
 
 export default function Header() {
   const pathname = usePathname();
+  const searchParams = useSearchParams();
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
   const [whoWeAreOpen, setWhoWeAreOpen] = useState(false);
 
+  const isEvolTechSpace =
+    pathname.startsWith("/events") &&
+    searchParams.get("category") === "internal";
   const isServicesPath = pathname.startsWith("/services");
-  const isExperiencesPath = pathname.startsWith("/events");
-  const isWhoWeArePath = pathname === "/about" || pathname === "/careers";
+  const isExperiencesPath = pathname.startsWith("/events") && !isEvolTechSpace;
+  const isWhoWeArePath =
+    pathname === "/about" ||
+    pathname === "/careers" ||
+    pathname === "/news" ||
+    isEvolTechSpace;
 
   const hasDarkHero =
     pathname === "/" ||
@@ -25,7 +33,8 @@ export default function Header() {
     pathname === "/products" ||
     pathname === "/careers" ||
     pathname === "/events" ||
-    pathname === "/contact";
+    pathname === "/contact" ||
+    pathname === "/news";
 
   const showSolidBg = isScrolled || !hasDarkHero;
 
@@ -201,6 +210,16 @@ export default function Header() {
                     Careers
                   </Link>
                   <Link
+                    href="/news"
+                    className={`p-2 px-4 rounded-full transition ${
+                      pathname === "/news"
+                        ? "bg-white text-[#0B0F2B] font-bold"
+                        : "hover:bg-white hover:text-[#0B0F2B]"
+                    }`}
+                  >
+                    News
+                  </Link>
+                  <Link
                     href="/events?category=internal"
                     className="p-2 px-4 rounded-full transition hover:bg-white hover:text-[#0B0F2B]"
                   >
@@ -300,6 +319,9 @@ export default function Header() {
                 </Link>
                 <Link href="/careers" onClick={toggleMobileMenu}>
                   Careers
+                </Link>
+                <Link href="/news" onClick={toggleMobileMenu}>
+                  News
                 </Link>
                 <Link
                   href="/events?category=internal"
