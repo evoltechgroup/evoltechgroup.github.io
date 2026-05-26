@@ -1,5 +1,6 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
@@ -108,6 +109,27 @@ function TableOfContents({ blocks }: { blocks: ContentBlock[] }) {
     (b): b is Extract<ContentBlock, { type: "heading" }> =>
       b.type === "heading",
   );
+  const [activeId, setActiveId] = useState("");
+  const headingIds = headings.map((h) => h.id).join(",");
+
+  useEffect(() => {
+    if (!headingIds) return;
+    const ids = headingIds.split(",");
+    const onScroll = () => {
+      // Reading line = 20% from the top of the viewport
+      const readingLine = window.scrollY + window.innerHeight * 0.2;
+      let current = ids[0] ?? "";
+      for (const id of ids) {
+        const el = document.getElementById(id);
+        if (el && el.offsetTop <= readingLine) current = id;
+      }
+      setActiveId(current);
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll(); // set initial state
+    return () => window.removeEventListener("scroll", onScroll);
+  }, [headingIds]);
+
   if (headings.length === 0) return null;
   return (
     <nav className="hidden xl:block">
@@ -116,18 +138,32 @@ function TableOfContents({ blocks }: { blocks: ContentBlock[] }) {
           Contents
         </p>
         <ul className="space-y-2">
-          {headings.map((h) => (
-            <li key={h.id}>
-              <a
-                href={`#${h.id}`}
-                className={`block text-xs leading-relaxed transition-colors duration-150 hover:text-white ${
-                  h.level === 3 ? "pl-3 text-[#C7E5FF]/45" : "text-[#C7E5FF]/60"
-                }`}
-              >
-                {h.content}
-              </a>
-            </li>
-          ))}
+          {headings.map((h) => {
+            const isActive = activeId === h.id;
+            return (
+              <li key={h.id}>
+                <a
+                  href={`#${h.id}`}
+                  className={`flex items-center gap-1.5 text-xs leading-relaxed transition-all duration-200 ${
+                    h.level === 3 ? "pl-3" : ""
+                  } ${
+                    isActive
+                      ? "text-[#FFBB00] font-semibold"
+                      : h.level === 3
+                        ? "text-[#C7E5FF]/45 hover:text-white"
+                        : "text-[#C7E5FF]/60 hover:text-white"
+                  }`}
+                >
+                  <span
+                    className={`flex-shrink-0 rounded-full transition-all duration-200 ${
+                      isActive ? "w-1.5 h-1.5 bg-[#FFBB00]" : "w-0 h-1.5"
+                    }`}
+                  />
+                  {h.content}
+                </a>
+              </li>
+            );
+          })}
         </ul>
       </div>
     </nav>
@@ -195,12 +231,22 @@ function Sidebar({ article }: { article: NewsArticle }) {
                 className="group flex gap-3 items-start"
               >
                 <div
-                  className="w-14 h-14 rounded-xl flex-shrink-0 bg-gradient-to-br"
+                  className="relative w-14 h-14 rounded-xl flex-shrink-0 overflow-hidden"
                   style={{
                     background: `linear-gradient(135deg, ${r.accentColor}55, #0B0F2B)`,
                     border: `1px solid ${r.accentColor}22`,
                   }}
-                />
+                >
+                  {r.bannerImage && (
+                    <Image
+                      src={r.bannerImage}
+                      alt={r.title}
+                      fill
+                      sizes="56px"
+                      className="object-cover"
+                    />
+                  )}
+                </div>
                 <div className="flex-1 min-w-0">
                   <span
                     className="text-[10px] font-bold uppercase tracking-wider block mb-0.5"
@@ -380,39 +426,32 @@ export default function ArticleDetail({ article }: { article: NewsArticle }) {
       >
         <div className="max-w-4xl mx-auto">
           {article.bannerImage ? (
-            /* Real photo banner — split layout */
+            /* Full-cover photo banner */
             <div
-              className={`relative rounded-3xl overflow-hidden h-64 sm:h-80 bg-gradient-to-br ${article.gradient}`}
+              className="relative rounded-3xl overflow-hidden bg-[#040c22] w-full"
+              style={{ aspectRatio: "21 / 8" }}
             >
-              {/* Photo — right-aligned, full portrait visible */}
-              <div className="absolute right-0 top-0 h-full w-[55%] sm:w-[52%]">
-                <Image
-                  src={article.bannerImage}
-                  alt={article.title}
-                  fill
-                  className="object-contain object-right"
-                  priority
-                />
-                {/* Subtle left blend only — no hard edge */}
-                <div
-                  className="absolute inset-0"
-                  style={{
-                    background:
-                      "linear-gradient(to right, rgba(11,21,48,0.95) 0%, rgba(11,21,48,0.4) 18%, transparent 40%)",
-                  }}
-                />
-              </div>
-
-              {/* Radial glow on left */}
+              <Image
+                src={article.bannerImage}
+                alt={article.title}
+                fill
+                className="object-contain object-center"
+                priority
+              />
+              {/* Edge fades — blends bg into page seamlessly */}
+              <div className="absolute inset-y-0 left-0 w-20 bg-gradient-to-r from-[#040c22] to-transparent pointer-events-none" />
+              <div className="absolute inset-y-0 right-0 w-20 bg-gradient-to-l from-[#040c22] to-transparent pointer-events-none" />
+              <div className="absolute inset-x-0 top-0 h-10 bg-gradient-to-b from-[#040c22] to-transparent pointer-events-none" />
+              {/* Bottom fade so category badge stays readable */}
               <div
-                className="absolute inset-0 opacity-25"
+                className="absolute bottom-0 left-0 right-0 h-16"
                 style={{
-                  background: `radial-gradient(ellipse at 20% 50%, ${categoryColor}88 0%, transparent 55%)`,
+                  background:
+                    "linear-gradient(to top, rgba(4,12,34,0.75) 0%, transparent 100%)",
                 }}
               />
-
               {/* Corner badge */}
-              <div className="absolute bottom-5 left-6">
+              <div className="absolute bottom-4 left-6">
                 <span
                   className="px-3 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider"
                   style={{
@@ -537,45 +576,6 @@ export default function ArticleDetail({ article }: { article: NewsArticle }) {
               Explore Events
               <ArrowRight size={15} />
             </Link>
-          </div>
-
-          {/* Contact CTA */}
-          <div className="relative rounded-3xl overflow-hidden px-8 py-10 text-center">
-            <div className="absolute inset-0 bg-gradient-to-br from-[#0f1e40] via-[#0d1a35] to-[#0B0F2B]" />
-            <div
-              className="absolute inset-0 opacity-25"
-              style={{
-                background:
-                  "radial-gradient(ellipse at 50% 0%, rgba(76,150,215,0.5) 0%, transparent 60%)",
-              }}
-            />
-            <div
-              className="absolute inset-0 opacity-[0.03]"
-              style={{
-                backgroundImage:
-                  "linear-gradient(rgba(255,255,255,1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,1) 1px, transparent 1px)",
-                backgroundSize: "36px 36px",
-              }}
-            />
-            <div className="relative">
-              <p className="text-[#C7E5FF]/50 text-xs uppercase tracking-widest mb-3">
-                Get in touch
-              </p>
-              <h2 className="text-xl sm:text-2xl font-bold text-white mb-3">
-                Want to talk about what we do?
-              </h2>
-              <p className="text-[#C7E5FF]/60 text-sm mb-6 max-w-md mx-auto">
-                We work with organizations navigating technology, operations,
-                and growth. Reach out and let&rsquo;s start a real conversation.
-              </p>
-              <Link
-                href="/contact"
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#FFBB00] text-[#0B0F2B] text-sm font-bold hover:bg-[#ffd44d] transition-colors duration-200"
-              >
-                Contact us
-                <ExternalLink size={14} />
-              </Link>
-            </div>
           </div>
         </div>
       </motion.section>

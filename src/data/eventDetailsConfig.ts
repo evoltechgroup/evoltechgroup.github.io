@@ -1236,8 +1236,8 @@ const rawEventDetailsConfig: RawEventDetail[] = [
     title: "Team Offsite — Goa",
     description:
       "The EvolTech team escaped to the sun-soaked shores of Goa for a well-deserved offsite — a perfect blend of relaxation, team bonding, and unforgettable memories.",
-    fromDate: "2026-03-01",
-    toDate: "2026-03-04",
+    fromDate: "2024-08-02",
+    toDate: "2024-08-04",
     tags: [
       { label: "Team Offsite", bgColor: "#B6D2FF" },
       { label: "Goa", bgColor: "#4A90E2" },

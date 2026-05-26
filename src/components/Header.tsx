@@ -1,13 +1,13 @@
 "use client";
 import Link from "next/link";
 import { usePathname, useSearchParams } from "next/navigation";
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import Logo from "@/assets/logo/logo.svg";
 import { ChevronDown, ChevronUp, X } from "lucide-react";
 import { hamburgerIcon } from "@/assets/svg";
 import Anniversary from "@/assets/svg/animations/10Years.svg";
 
-export default function Header() {
+function HeaderInner() {
   const pathname = usePathname();
   const searchParams = useSearchParams();
   const [isScrolled, setIsScrolled] = useState(false);
@@ -344,5 +344,13 @@ export default function Header() {
         </div>
       )}
     </>
+  );
+}
+
+export default function Header() {
+  return (
+    <Suspense fallback={null}>
+      <HeaderInner />
+    </Suspense>
   );
 }

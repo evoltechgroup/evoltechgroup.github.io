@@ -1,8 +1,11 @@
-/* ─────────────────────────────────────────────────────────────────────────────
+﻿/* ─────────────────────────────────────────────────────────────────────────────
  * EvolTech News & Insights — centralized article data
  * ───────────────────────────────────────────────────────────────────────────── */
 import type { StaticImageData } from "next/image";
 import GregArmsImg from "@/assets/images/Team/Members/GregArms.png";
+import FiveOakInsideImg from "@/assets/effects/FiveOak-EvolTech.jpg";
+import ThulasiInsideImg from "@/assets/effects/Thulasi-Banner.png";
+import { GregArms } from "@/assets/effects/Banner";
 
 export type ArticleCategory =
   | "Company News"
@@ -55,7 +58,7 @@ export const NEWS_ARTICLES: NewsArticle[] = [
     author: { name: "EvolTech Team", role: "Editorial", initials: "ET" },
     gradient: "from-[#0B1530] via-[#1761A0] to-[#0d3d6e]",
     accentColor: "#FFBB00",
-    bannerImage: GregArmsImg,
+    bannerImage: GregArms,
     body: [
       {
         type: "paragraph",
@@ -162,427 +165,157 @@ export const NEWS_ARTICLES: NewsArticle[] = [
           "This is a meaningful step in EvolTech's journey. Our focus remains on building technology and operational solutions that help healthcare and benefits organisations work better, faster, and smarter. Greg's advisory role strengthens our ability to do that with greater depth and market alignment. We look forward to sharing more about EvolTech's expanding capabilities in this space in the months ahead.",
       },
     ],
-    related: [
-      "siia-spring-exchange-2026",
-      "siia-price-transparency-2026",
-      "ai-innovation-deep-dive",
-    ],
+    related: ["fiveoak-evoltech-partnership", "thulasidharan-ceo-announcement"],
   },
 
-  /* ── 1. SIIA Spring Exchange 2026 ────────────────────────────────────────── */
+  /* ── Fiveoak & EvolTech Partnership ─────────────────────────────────────── */
   {
-    slug: "siia-spring-exchange-2026",
-    category: "Events",
-    isFeatured: true,
+    slug: "fiveoak-evoltech-partnership",
+    category: "Company News",
     title:
-      "EvolTech at SIIA Spring Exchange 2026 — Conversations That Drive Business Forward",
+      "EvolTech & Fiveoak: Expanding and Elevating Our Partnership to New Markets",
     excerpt:
-      "We joined the self-insurance industry's most relationship-driven forum in New Orleans. Here's what stood out, who we met, and why it mattered for the organizations we work with.",
-    date: "April 2, 2026",
-    readTime: "4 min read",
-    author: { name: "EvolTech Team", role: "Editorial", initials: "ET" },
-    gradient: "from-[#1761A0] via-[#0d3d6e] to-[#050d1f]",
-    accentColor: "#4C96D7",
-    body: [
-      {
-        type: "paragraph",
-        content:
-          "SIIA Spring Exchange is one of those events where the value isn't on the mainstage — it's in the hallway conversations, the dinner tables, and the moments between sessions where people stop performing and start talking. We brought a small, focused team to New Orleans this year and left with exactly the kind of context that shapes how we work with the organizations in this space.",
-      },
-      {
-        type: "heading",
-        level: 2,
-        id: "conversations-that-matter",
-        content: "The conversations that matter most",
-      },
-      {
-        type: "paragraph",
-        content:
-          "Self-insurance is a space built on trust and long-term relationships. The organizations that lead here — the TPAs, stop-loss carriers, captive managers — operate in a world where reputation travels faster than any marketing campaign. What we consistently heard was a desire for partners who understand the operational reality, not just the technology pitch. That's the conversation we're built for.",
-      },
-      {
-        type: "heading",
-        level: 2,
-        id: "three-things-we-heard",
-        content: "Three things we heard on the floor",
-      },
-      {
-        type: "list",
-        items: [
-          "Data integrity is the core problem — organizations aren't lacking data, they're struggling to trust it.",
-          "Compliance workloads are crowding out strategic thinking at mid-size TPAs.",
-          "AI conversations have matured: people are past the hype and asking about specific, provable workflows.",
-        ],
-      },
-      {
-        type: "quote",
-        content:
-          "The gap between compliance and operational reality is where strategy happens — and where most vendors stop listening.",
-        attribution: "Overheard at SIIA Spring Exchange, New Orleans",
-      },
-      {
-        type: "paragraph",
-        content:
-          "We'll be following up on several of the relationships we started here. If you were at the Exchange and want to continue a conversation, reach out directly — we'd rather have a focused call than exchange brochures.",
-      },
-    ],
-    related: [
-      "aba-community-bankers-recap",
-      "siia-price-transparency-2026",
-      "growatl-2025-panel",
-    ],
-  },
-
-  /* ── 2. ABA Community Bankers 2026 ───────────────────────────────────────── */
-  {
-    slug: "aba-community-bankers-recap",
-    category: "Events",
-    title: "Connecting with Community Banking Leaders at ABA Orlando 2026",
-    excerpt:
-      "The ABA Conference for Community Bankers gave us direct access to executives navigating digital transformation. We brought practical technology conversations — here's what we heard back.",
-    date: "February 18, 2026",
+      "Our partnership with Fiveoak is reaching new markets and new customers. Together, we\u2019re delivering cutting-edge Virtual AI Assistant solutions transforming customer engagement and brand impact across retail, law, banking, and healthcare.",
+    date: "April 15, 2026",
     readTime: "3 min read",
     author: { name: "EvolTech Team", role: "Editorial", initials: "ET" },
     gradient: "from-[#1a3a5c] to-[#0B0F2B]",
     accentColor: "#4C96D7",
+    bannerImage: FiveOakInsideImg,
     body: [
       {
         type: "paragraph",
         content:
-          "Community banks occupy a critical but often underserved position in the US financial ecosystem. They know their customers deeply but frequently lack the technical infrastructure to compete with larger institutions on digital experience. The ABA Conference brought together a cross-section of leaders working through exactly this tension.",
+          "Our partnership with Fiveoak is reaching new markets and new customers, and we\u2019re excited to share this next phase of our journey together!",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Over the years, Fiveoak has been a trusted leader in helping organizations build stronger brand reputations. Now, with the combined force of Fiveoak and EvolTech, we\u2019re amplifying our go-to-market strategy to deliver cutting-edge Virtual AI Assistant solutions that are already transforming customer engagement and brand impact for retail and law firm customers today.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Together, we\u2019re geared up to extend these capabilities across industries including banking, credit unions, healthcare, and insurance.",
       },
       {
         type: "heading",
         level: 2,
-        id: "technology-moment",
-        content: "Why community banking is having a technology moment",
+        id: "together-fiveoak-new-heights",
+        content: "Together, We\u2019re Taking Fiveoak to New Heights",
       },
       {
         type: "paragraph",
         content:
-          "Regulatory pressure, rising customer expectations, and the expansion of fintech alternatives have pushed technology investment to the top of the priority list for community bank executives. What we found in Orlando was not resistance to change — but a healthy skepticism about where to start and who to trust. That skepticism, in our experience, is a sign of a mature buyer.",
-      },
-      {
-        type: "heading",
-        level: 2,
-        id: "what-executives-told-us",
-        content: "What executives told us",
-      },
-      {
-        type: "paragraph",
-        content:
-          "Most of the conversations circled around two themes: reducing operational drag in back-office processes and building digital touchpoints that don't feel generic. Several leaders mentioned that their core banking system vendors weren't moving fast enough. That gap — between the platform and the customer-facing layer — is exactly where we do our best work.",
-      },
-      {
-        type: "quote",
-        content:
-          "We don't need another platform. We need someone who can make what we already have work the way it should.",
-        attribution: "Community bank EVP, ABA Orlando 2026",
-      },
-      {
-        type: "paragraph",
-        content:
-          "We came away from Orlando with a clearer picture of where the industry is heading and a set of relationships that we're looking forward to building on.",
-      },
-    ],
-    related: [
-      "siia-spring-exchange-2026",
-      "siia-price-transparency-2026",
-      "ai-innovation-deep-dive",
-    ],
-  },
-
-  /* ── 3. EvolTech Office 2026 ─────────────────────────────────────────────── */
-  {
-    slug: "evoltech-office-2026",
-    category: "Company News",
-    title: "EvolTech 2.0 — A New Space Built for the Next Chapter",
-    excerpt:
-      "We officially opened our expanded Chennai office with a traditional blessing ceremony. More space, more energy, and a stronger foundation for the team building the future of EvolTech.",
-    date: "March 9, 2026",
-    readTime: "2 min read",
-    author: { name: "EvolTech Team", role: "Editorial", initials: "ET" },
-    gradient: "from-[#2d1a5c] to-[#0B0F2B]",
-    accentColor: "#8DCAFF",
-    body: [
-      {
-        type: "paragraph",
-        content:
-          "Every company has a moment when its physical space stops matching its ambitions. For EvolTech, that moment arrived last year when our Chennai team outgrew what we'd built. This March, we inaugurated our new space with a traditional blessing ceremony — a moment that felt earned, not rushed.",
-      },
-      {
-        type: "heading",
-        level: 2,
-        id: "designed-for-how-we-work",
-        content: "A space designed for how we actually work",
-      },
-      {
-        type: "paragraph",
-        content:
-          "The new office was designed with collaboration and deep work in mind — not as competing goals, but as modes that the space supports intentionally. Dedicated focus zones sit alongside open collaboration areas. The team helped shape the layout, and you can feel that in how naturally people move through it.",
-      },
-      {
-        type: "heading",
-        level: 2,
-        id: "what-this-represents",
-        content: "What this represents",
-      },
-      {
-        type: "paragraph",
-        content:
-          "We've grown meaningfully over the past three years — in team size, in client scope, and in the complexity of the work we take on. The new space is a reflection of that growth and a foundation for what comes next. It's also a statement of intent: we're building something long-term here.",
-      },
-      {
-        type: "quote",
-        content:
-          "Spaces shape culture. We wanted this office to reflect who we are — thoughtful, collaborative, and genuinely invested in the work.",
-      },
-    ],
-    related: [
-      "andaman-team-meetup",
-      "growatl-2025-panel",
-      "ai-innovation-deep-dive",
-    ],
-  },
-
-  /* ── 4. SIIA Price Transparency 2026 ─────────────────────────────────────── */
-  {
-    slug: "siia-price-transparency-2026",
-    category: "Industry",
-    title: "Price Transparency in Healthcare: What the Forum Made Clear",
-    excerpt:
-      "SIIA's Price Transparency Forum surfaced real tension between compliance demands and operational reality. The organizations leading the shift are the ones using data — not just collecting it.",
-    date: "February 27, 2026",
-    readTime: "5 min read",
-    author: { name: "EvolTech Team", role: "Editorial", initials: "ET" },
-    gradient: "from-[#0d4a3a] to-[#0B0F2B]",
-    accentColor: "#FFBB00",
-    body: [
-      {
-        type: "paragraph",
-        content:
-          "Price transparency mandates have been law for years now, but compliance rates remain inconsistent — and the quality of what's disclosed varies enormously. The SIIA Price Transparency Forum in Jacksonville brought together stakeholders from across the self-funded ecosystem to examine what's working, what isn't, and what comes next.",
-      },
-      {
-        type: "heading",
-        level: 2,
-        id: "compliance-burden",
-        content: "The compliance burden is real — but it's not the whole story",
-      },
-      {
-        type: "paragraph",
-        content:
-          "Most of the organizations in the room have cleared the basic compliance bar. The harder conversation is about what to do with the data once you're producing it. Machine-readable files are only valuable if someone is reading them — and most employers and plan sponsors still lack the tools or expertise to act on what's disclosed.",
-      },
-      {
-        type: "heading",
-        level: 2,
-        id: "where-the-opportunity-lies",
-        content: "Where the opportunity lies",
-      },
-      {
-        type: "paragraph",
-        content:
-          "The TPAs and benefit administrators that are pulling ahead aren't just compliant — they're building analytical capabilities on top of the transparency data. They're comparing negotiated rates, identifying outliers, and bringing that intelligence to employer clients as a value-add. That's the shift from compliance to competitive advantage.",
-      },
-      {
-        type: "quote",
-        content:
-          "Transparency without analysis is just paperwork. The organizations winning here are turning mandate into insight.",
-        attribution: "Forum panelist, Jacksonville 2026",
-      },
-      {
-        type: "paragraph",
-        content:
-          "EvolTech works with several organizations navigating exactly this challenge — building operational capacity to move from data collection to data use. If this is a conversation your organization is having, we're happy to share what we've learned.",
-      },
-    ],
-    related: [
-      "siia-spring-exchange-2026",
-      "aba-community-bankers-recap",
-      "ai-innovation-deep-dive",
-    ],
-  },
-
-  /* ── 5. AI Innovation Deep-Dive ──────────────────────────────────────────── */
-  {
-    slug: "ai-innovation-deep-dive",
-    category: "Technology",
-    title: "Inside Our AI Deep-Dive: From Generative Workflows to Smarter Code",
-    excerpt:
-      "Our engineering team ran an intensive session on integrating AI into delivery pipelines and creative workflows. This is what we're building toward — and how we're keeping quality at the center.",
-    date: "November 16, 2025",
-    readTime: "6 min read",
-    author: {
-      name: "EvolTech Engineering",
-      role: "Technology",
-      initials: "EE",
-    },
-    gradient: "from-[#1a1050] to-[#0B0F2B]",
-    accentColor: "#a78bfa",
-    body: [
-      {
-        type: "paragraph",
-        content:
-          "There's a lot of noise in the AI conversation right now — most of it generated by vendors selling outcomes they can't deliver. Our internal AI deep-dive session was designed as an antidote to that: a focused, hands-on examination of where AI tools actually improve how we work and where the hype outpaces the reality.",
-      },
-      {
-        type: "heading",
-        level: 2,
-        id: "setting-the-scope",
-        content: "Setting the scope right",
-      },
-      {
-        type: "paragraph",
-        content:
-          "We scoped the session around three specific questions: Where does AI reduce friction in delivery? Where does it introduce new risk? And where is human judgment irreplaceable? Answering these with specificity — rather than abstractly — is what separates useful AI adoption from performative adoption.",
-      },
-      {
-        type: "heading",
-        level: 2,
-        id: "where-ai-helped",
-        content: "Where AI actually helped us",
+          "Our expanded collaboration is focused on delivering impactful outcomes such as:",
       },
       {
         type: "list",
         items: [
-          "Code review acceleration — catching patterns and edge cases that reviewers sometimes miss under time pressure.",
-          "Documentation generation — producing first drafts of technical specs from existing code, which engineers then refine.",
-          "Creative concepting — using generative tools to rapidly explore visual directions before committing resources.",
-          "Client communication drafts — accelerating the iteration cycle on complex written deliverables.",
+          "Elevated brand recognition in competitive markets",
+          "Continuous improvement in customer experiences through AI",
+          "Deepened customer engagement and improved retention",
+          "Transforming metrics into meaningful and actionable insights",
+        ],
+      },
+      {
+        type: "quote",
+        content:
+          "At EvolTech, our mission has always been to bring innovation and measurable impact to our customers and partners. Extending our collaboration with Fiveoak allows us to go further, delivering AI-powered engagement and reputation management that elevates customer experience and insights across banking, credit unions, healthcare, insurance, and retail industries.",
+        attribution: "Thulasidharan LG, CEO of EvolTech",
+      },
+      {
+        type: "quote",
+        content:
+          "We\u2019re excited to continue our journey with EvolTech. Together, we\u2019re combining Fiveoak\u2019s AI-driven customer engagement platform with EvolTech\u2019s deep industry expertise to help organizations build stronger relationships, unlock meaningful data insights, and create measurable value for their customers.",
+        attribution: "Trey Richards, CEO of Fiveoak",
+      },
+      {
+        type: "paragraph",
+        content:
+          "We are excited about our shared vision to reshape customer experience and elevate brand excellence across industries.",
+      },
+    ],
+    related: ["greg-arms-strategic-advisor", "thulasidharan-ceo-announcement"],
+  },
+
+  /* ── CEO Announcement ───────────────────────────────────────────────────── */
+  {
+    slug: "thulasidharan-ceo-announcement",
+    category: "Company News",
+    title:
+      "The Wait Is Over \u2014 Welcoming Thulasidharan LG as CEO of EvolTech",
+    excerpt:
+      "Having supported EvolTech as a Strategic Advisor, Thulasidharan LG now steps into the CEO role with a clear focus, determination, and a commitment to spark creativity while upholding our people-first culture.",
+    date: "August 1, 2025",
+    readTime: "3 min read",
+    author: { name: "EvolTech Team", role: "Editorial", initials: "ET" },
+    gradient: "from-[#2d1a5c] to-[#0B0F2B]",
+    accentColor: "#a78bfa",
+    bannerImage: ThulasiInsideImg,
+    body: [
+      {
+        type: "paragraph",
+        content:
+          "We\u2019re excited to welcome Thulasidharan LG as the new Chief Executive Officer of EvolTech, effective August 1, 2025.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Having supported EvolTech as a Strategic Advisor, he now steps into the CEO role with a clear focus, determination, and a commitment to spark creativity while upholding our people-first culture.",
+      },
+      {
+        type: "heading",
+        level: 2,
+        id: "his-vision",
+        content: "His Vision",
+      },
+      {
+        type: "paragraph",
+        content:
+          "To build a company that leads with integrity, delivers real innovation, and creates a positive impact where technology solves practical business problems while taking care of the people who make it all possible.",
+      },
+      {
+        type: "heading",
+        level: 2,
+        id: "his-mission",
+        content: "His Mission",
+      },
+      {
+        type: "list",
+        items: [
+          "To nurture a culture rooted in trust, agility, and continuous learning",
+          "To empower our teams, deepen client partnerships, and deliver meaningful, measurable outcomes",
         ],
       },
       {
         type: "heading",
         level: 2,
-        id: "what-we-are-watching",
-        content: "What we're watching",
+        id: "our-people-our-culture",
+        content: "Our People, Our Culture",
+      },
+      {
+        type: "paragraph",
+        content: "EvolTech\u2019s greatest strength is its people.",
       },
       {
         type: "paragraph",
         content:
-          "The most interesting near-term development is AI that works within existing toolchains rather than requiring new platforms. The tools that win in enterprise contexts will be the ones that integrate rather than replace. We're evaluating several of these closely.",
+          "L.G. Thulasidharan believes that true leadership is about creating space for others to lead \u2014 by listening deeply, building trust, and choosing purpose over position.",
       },
       {
         type: "quote",
         content:
-          "The question isn't whether to use AI — it's whether you're using it where it actually earns its place.",
-        attribution: "EvolTech Engineering Team",
-      },
-    ],
-    related: [
-      "evoltech-office-2026",
-      "siia-price-transparency-2026",
-      "growatl-2025-panel",
-    ],
-  },
-
-  /* ── 6. GrowATL 2025 ─────────────────────────────────────────────────────── */
-  {
-    slug: "growatl-2025-panel",
-    category: "Events",
-    title: "GrowATL 2025 — EvolTech on the Technology Panel",
-    excerpt:
-      "We joined ATEA Atlanta's flagship summit to talk about scaling operations, building smarter tech foundations, and turning innovation into measurable value. Here's our perspective.",
-    date: "September 6, 2025",
-    readTime: "3 min read",
-    author: { name: "EvolTech Team", role: "Editorial", initials: "ET" },
-    gradient: "from-[#3a1a10] to-[#0B0F2B]",
-    accentColor: "#FFBB00",
-    body: [
-      {
-        type: "paragraph",
-        content:
-          "GrowATL is one of the few summits in the region that puts technology leadership in conversation with business strategy — not as separate tracks, but as the same conversation. We joined the technology panel this year to share how EvolTech thinks about the relationship between infrastructure, process, and growth.",
-      },
-      {
-        type: "heading",
-        level: 2,
-        id: "what-the-panel-discussed",
-        content: "What the panel discussed",
+          "The future isn\u2019t something we wait for \u2014 it\u2019s something we build together.",
+        attribution: "L.G. Thulasidharan, CEO, EvolTech",
       },
       {
         type: "paragraph",
         content:
-          "The panel covered a range of ground — from the practical challenges of scaling operations in mid-size companies to the strategic questions around when to build versus buy. We tried to bring a perspective grounded in what actually works in the field, not what looks good in a pitch deck.",
-      },
-      {
-        type: "heading",
-        level: 2,
-        id: "our-core-message",
-        content: "Our core message",
-      },
-      {
-        type: "paragraph",
-        content:
-          "The companies that scale well don't necessarily have better technology — they have better operational discipline around the technology they do have. Clarity of process, quality of data, and consistency of execution are the compounding advantages that most growth-stage companies underinvest in.",
-      },
-      {
-        type: "quote",
-        content:
-          "Sustainable scale isn't a technology problem. It's a systems problem — and systems start with people and process, not software.",
-        attribution: "EvolTech at GrowATL 2025",
+          "We look forward to what\u2019s ahead and to building it together.",
       },
     ],
-    related: [
-      "siia-spring-exchange-2026",
-      "aba-community-bankers-recap",
-      "evoltech-office-2026",
-    ],
-  },
-
-  /* ── 7. Andaman Team Meetup ──────────────────────────────────────────────── */
-  {
-    slug: "andaman-team-meetup",
-    category: "Culture",
-    title: "Andaman 2026 — Why We Make Time for the Team",
-    excerpt:
-      "The entire EvolTech team escaped to the Andaman Islands for three days of sun, sea, and shared experiences. This isn't a retreat report — it's a reminder of why belonging matters.",
-    date: "January 27, 2026",
-    readTime: "4 min read",
-    author: { name: "EvolTech Team", role: "Editorial", initials: "ET" },
-    gradient: "from-[#0d3a4a] to-[#0B0F2B]",
-    accentColor: "#34d399",
-    body: [
-      {
-        type: "paragraph",
-        content:
-          "We took the whole team to the Andaman Islands in January — three days away from screens, client deliverables, and the ordinary rhythm of work. It's an investment we make deliberately, because we believe the quality of a team's relationships is inseparable from the quality of their work.",
-      },
-      {
-        type: "heading",
-        level: 2,
-        id: "why-we-go",
-        content: "Why we go",
-      },
-      {
-        type: "paragraph",
-        content:
-          "There's something that happens when you take people out of their professional context and put them somewhere genuinely beautiful. The hierarchies flatten, the conversations go deeper, and you remember that the people you work with every day are genuinely interesting humans. We come back knowing each other better — and that shows in how we collaborate.",
-      },
-      {
-        type: "heading",
-        level: 2,
-        id: "three-days",
-        content: "What three days actually looked like",
-      },
-      {
-        type: "paragraph",
-        content:
-          "Snorkeling, beach walks, long meals, and conversations that had nothing to do with work — and some that eventually did, but in the best way. By the last evening, people were talking about where the company is headed and what they want to build next. That's the kind of conversation you can't schedule into a calendar.",
-      },
-      {
-        type: "quote",
-        content:
-          "You can't manufacture culture. But you can create the conditions for it — and then get out of the way.",
-        attribution: "EvolTech, Andaman Islands 2026",
-      },
-    ],
-    related: [
-      "evoltech-office-2026",
-      "growatl-2025-panel",
-      "siia-spring-exchange-2026",
-    ],
+    related: ["greg-arms-strategic-advisor", "fiveoak-evoltech-partnership"],
   },
 ];
 
