@@ -7,7 +7,7 @@ export const jobDescriptions: { id: string; data: JobDescriptionData }[] = [
       title: "Associate GCP DevOps Engineer",
       experience: "2 to 4 years",
       location: "Chennai",
-      applyUrl: "https://evoltech.keka.com/careers/jobdetails/73161",
+      applyUrl: "https://evoltech.keka.com/careers/applyjob/73161",
       description: [
         "This is an exciting opportunity to join a friendly team working on some of the hottest GCP technologies. This team is primarily focused on the deployment, automation, and support of mission-critical client solutions in GCP.",
         "You will be working on a variety of projects and environments for household names using the latest technologies including GCP, Terraform, Ansible, PowerShell, Datadog, Jenkins, Bitbucket, Jira, Containers, and more.",
@@ -49,7 +49,7 @@ export const jobDescriptions: { id: string; data: JobDescriptionData }[] = [
       title: "AWS DevOps Engineer - (Associate)",
       experience: "2 to 4 years",
       location: "Chennai",
-      applyUrl: "https://evoltech.keka.com/careers/jobdetails/73160",
+      applyUrl: "https://evoltech.keka.com/careers/applyjob/73160",
       description: [
         "Primary job responsibility is to provide cloud support to manage AWS cloud infrastructure environments through cross-technology administration, scripting execution, and monitoring automation.",
         "You will assess solution architecture and enable issue resolution for cloud infrastructure by working closely with application and other teams.",
@@ -92,7 +92,7 @@ export const jobDescriptions: { id: string; data: JobDescriptionData }[] = [
       title: "Azure DevOps Engineer",
       experience: "2 to 8 years",
       location: "Chennai",
-      applyUrl: "https://evoltech.keka.com/careers/jobdetails/73158",
+      applyUrl: "https://evoltech.keka.com/careers/applyjob/73158",
       description: [
         "We are seeking a highly skilled Azure DevOps Engineer to lead cloud infrastructure automation, CI/CD pipeline development, and platform reliability initiatives.",
         "The ideal candidate will have deep expertise in Microsoft Azure, DevOps practices, and modern Infrastructure-as-Code (IaC) approaches, along with the ability to mentor and guide junior engineers.",
@@ -150,7 +150,7 @@ export const jobDescriptions: { id: string; data: JobDescriptionData }[] = [
       title: "AWS DevOps Manager",
       experience: "9 to 15 years",
       location: "Chennai",
-      applyUrl: "https://evoltech.keka.com/careers/jobdetails/73157",
+      applyUrl: "https://evoltech.keka.com/careers/applyjob/73157",
       description: [
         "This is an exciting opportunity to join a friendly team working on some of the hottest AWS technologies. The team is primarily focused on the deployment, automation, and support of mission-critical client solutions in AWS.",
         "You will work on a variety of projects and environments for household-name clients using the latest technologies including AWS, Terraform, Ansible, PowerShell, Datadog, Jenkins, Bitbucket, Jira, and Containers.",
@@ -202,7 +202,7 @@ export const jobDescriptions: { id: string; data: JobDescriptionData }[] = [
       title: "AWS DevOps Engineer",
       experience: "2 to 8 years",
       location: "Chennai",
-      applyUrl: "https://evoltech.keka.com/careers/jobdetails/73093",
+      applyUrl: "https://evoltech.keka.com/careers/applyjob/73093",
       description: [
         "This is an exciting opportunity to join a friendly team working on some of the hottest AWS technologies. The team is primarily focused on the deployment, automation, and support of mission-critical client solutions in AWS.",
         "You will work on a variety of projects and environments for household-name clients using the latest technologies including AWS, Terraform, Ansible, PowerShell, Datadog, Jenkins, Bitbucket, Jira, and Containers.",
@@ -244,7 +244,7 @@ export const jobDescriptions: { id: string; data: JobDescriptionData }[] = [
       title: "Windows System Administrator (L2)",
       experience: "6 to 10 years",
       location: "Chennai",
-      applyUrl: "https://evoltech.keka.com/careers/jobdetails/73166",
+      applyUrl: "https://evoltech.keka.com/careers/applyjob/73166",
       description: [
         "We are looking for a skilled Windows System Administrator (L2) with strong experience in managing and troubleshooting Windows server environments. The ideal candidate should have hands-on expertise in Active Directory, DNS, DHCP, OS installation and upgrades, server hardware troubleshooting, backup support, and patch management. Knowledge of VMware, networking, storage, and Azure will be an added advantage.",
         "The candidate will work closely with customers, end-users, and internal teams to ensure smooth infrastructure operations, resolve incidents within SLA timelines, and support enterprise Windows environments.",
@@ -283,7 +283,7 @@ export const jobDescriptions: { id: string; data: JobDescriptionData }[] = [
       title: "Senior AWS DevOps Engineer",
       experience: "9 to 15 years",
       location: "Chennai",
-      applyUrl: "https://evoltech.keka.com/careers/jobdetails/73155",
+      applyUrl: "https://evoltech.keka.com/careers/applyjob/73155",
       description: [
         "This is an exciting opportunity to join a friendly team working on some of the hottest AWS technologies. The team is primarily focused on the deployment, automation, and support of mission-critical client solutions in AWS.",
         "You will work on a variety of projects and environments for household-name clients using the latest technologies including AWS, Terraform, Ansible, PowerShell, Datadog, Jenkins, Bitbucket, Jira, and Containers.",
@@ -335,7 +335,7 @@ export const jobDescriptions: { id: string; data: JobDescriptionData }[] = [
       title: "Linux System Administrator (L2)",
       experience: "4 to 6 years",
       location: "Chennai",
-      applyUrl: "https://evoltech.keka.com/careers/jobdetails/73165",
+      applyUrl: "https://evoltech.keka.com/careers/applyjob/73165",
       description: [
         "We are looking for a Linux System Administrator (L2) responsible for day-to-day administration, monitoring, and support of Linux operating systems in production environments. The ideal candidate should have strong hands-on experience in Linux system administration, troubleshooting, OS patching, performance tuning, and operational support across on-premise and cloud platforms.",
         "The candidate will work closely with L3 teams to resolve complex issues, support VMware and storage environments, perform automation tasks, and ensure system availability and stability in enterprise production environments.",
@@ -386,7 +386,7 @@ export const jobDescriptions: { id: string; data: JobDescriptionData }[] = [
       title: "Solution Architect (AWS & Nutanix)",
       experience: "8 to 15 years",
       location: "Chennai",
-      applyUrl: "https://evoltech.keka.com/careers/jobdetails/73156",
+      applyUrl: "https://evoltech.keka.com/careers/applyjob/73156",
       description: [
         "We are seeking an experienced Solution Architect with deep expertise in AWS, Nutanix on AWS (NC2), and enterprise security and observability solutions to design, build, and modernize scalable and secure cloud and hybrid solutions.",
         "This role plays a critical part in migrating workloads from on-premises data centers to AWS, enabling standardized cloud solutions, and integrating automation, security, and monitoring capabilities.",
@@ -446,7 +446,7 @@ export const jobDescriptions: { id: string; data: JobDescriptionData }[] = [
       title: "Observability Engineer (L2)",
       experience: "7 to 15 years",
       location: "Chennai",
-      applyUrl: "https://evoltech.keka.com/careers/jobdetails/73164",
+      applyUrl: "https://evoltech.keka.com/careers/applyjob/73164",
       description: [
         "We are looking for an Observability Engineer (L2) responsible for supporting and optimizing end-to-end monitoring and observability solutions across distributed, hybrid, and legacy environments. The ideal candidate should have strong expertise in monitoring platforms, anomaly detection, automation, and observability best practices to improve system reliability, performance, and operational efficiency.",
         "The candidate will play a key role in advancing observability maturity by implementing proactive monitoring strategies, reducing alert fatigue, automating monitoring operations, and leveraging AI-driven insights for predictive incident detection and root-cause analysis.",
@@ -486,7 +486,7 @@ export const jobDescriptions: { id: string; data: JobDescriptionData }[] = [
       title: "Senior Azure DevOps Engineer",
       experience: "9 to 15 years",
       location: "Chennai",
-      applyUrl: "https://evoltech.keka.com/careers/jobdetails/73159",
+      applyUrl: "https://evoltech.keka.com/careers/applyjob/73159",
       description: [
         "We are seeking a highly skilled Senior Azure DevOps Engineer to lead cloud infrastructure automation, CI/CD pipeline development, and platform reliability initiatives.",
         "The ideal candidate will have deep expertise in Microsoft Azure, DevOps practices, and modern Infrastructure-as-Code (IaC) approaches, along with the ability to mentor and guide junior engineers.",
@@ -544,7 +544,7 @@ export const jobDescriptions: { id: string; data: JobDescriptionData }[] = [
       title: "Senior GCP DevOps Engineer",
       experience: "9 to 15 years",
       location: "Chennai",
-      applyUrl: "https://evoltech.keka.com/careers/jobdetails/73163",
+      applyUrl: "https://evoltech.keka.com/careers/applyjob/73163",
       description: [
         "We are looking for a Senior GCP DevOps Engineer with strong expertise in deploying, automating, and supporting mission-critical client solutions on Google Cloud Platform (GCP). The ideal candidate should have hands-on experience with cloud infrastructure, automation, CI/CD pipelines, configuration management, and containerized environments.",
         "The candidate will work on enterprise-scale projects using the latest technologies including GCP, Terraform, GitHub, Ansible, Jenkins, Datadog, Kubernetes, and Docker while collaborating with cross-functional teams to deliver scalable, highly available, and automated cloud solutions.",
@@ -595,7 +595,7 @@ export const jobDescriptions: { id: string; data: JobDescriptionData }[] = [
       title: "GCP DevOps Engineer",
       experience: "4 to 8 years",
       location: "Chennai",
-      applyUrl: "https://evoltech.keka.com/careers/jobdetails/73162",
+      applyUrl: "https://evoltech.keka.com/careers/applyjob/73162",
       description: [
         "This is an exciting opportunity to join a friendly team working on some of the hottest GCP technologies. The team is primarily focused on the deployment, automation, and support of mission-critical client solutions in GCP.",
         "You will work on a variety of projects and environments for household-name clients using the latest technologies including GCP, Terraform, Ansible, PowerShell, Datadog, Jenkins, Bitbucket, Jira, and Containers.",
