@@ -1,9 +1,10 @@
 "use client";
-import { ArrowRight, ChevronLeft, ChevronRight, Search } from "lucide-react";
+import { ArrowRight, Search } from "lucide-react";
 import { JobDescriptionModal } from "./JobDescription";
-import { useState, ChangeEvent, KeyboardEvent } from "react";
+import { useState, useEffect, ChangeEvent, KeyboardEvent } from "react";
 import { jobDescriptions } from "@/data/JobData";
 import { JobDescriptionData } from "./JobDescription";
+import PrevNextPagination from "@/components/Pagination/PrevNextPagination";
 
 interface JobListing {
   id: string;
@@ -117,6 +118,12 @@ const JobListings = () => {
   );
   const placeholderCount = Math.max(0, JOBS_PER_PAGE - paginatedJobs.length);
 
+  useEffect(() => {
+    if (totalPages > 0 && currentPage > totalPages) {
+      setCurrentPage(totalPages);
+    }
+  }, [currentPage, totalPages]);
+
   const handleJobClick = (id: string) => {
     const found = jobDescriptions.find((job) => job.id === id);
     if (found) {
@@ -130,7 +137,11 @@ const JobListings = () => {
   };
 
   const handlePageChange = (page: number) => {
-    setCurrentPage(page);
+    if (totalPages < 1) {
+      setCurrentPage(1);
+      return;
+    }
+    setCurrentPage(Math.min(Math.max(page, 1), totalPages));
   };
 
   const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
@@ -181,6 +192,7 @@ const JobListings = () => {
                 onClick={() => handleJobClick(job.id)}
                 onKeyDown={(e: KeyboardEvent<HTMLDivElement>) => {
                   if (e.key === "Enter" || e.key === " ") {
+                    e.preventDefault();
                     handleJobClick(job.id);
                   }
                 }}
@@ -222,50 +234,11 @@ const JobListings = () => {
         )}
       </div>
 
-      {/* Pagination */}
-      {totalPages > 1 && (
-        <div className="flex items-center justify-center gap-4 mt-6">
-          {/* Prev */}
-          <button
-            onClick={() => handlePageChange(currentPage - 1)}
-            disabled={currentPage === 1}
-            className="group flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-semibold disabled:opacity-30 disabled:cursor-not-allowed transition-all duration-200"
-            style={{ color: "#1761A0" }}
-          >
-            <span
-              className="flex items-center justify-center w-7 h-7 rounded-full transition-all duration-200 group-hover:scale-110 group-disabled:scale-100"
-              style={{ backgroundColor: "#1761A0" }}
-            >
-              <ChevronLeft className="w-4 h-4 text-white" />
-            </span>
-            Prev
-          </button>
-
-          {/* Page indicator */}
-          <span
-            className="text-xs font-semibold px-3 py-1 rounded-full"
-            style={{ backgroundColor: "#E8F4FF", color: "#1761A0" }}
-          >
-            {currentPage} of {totalPages}
-          </span>
-
-          {/* Next */}
-          <button
-            onClick={() => handlePageChange(currentPage + 1)}
-            disabled={currentPage === totalPages}
-            className="group flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-semibold disabled:opacity-30 disabled:cursor-not-allowed transition-all duration-200"
-            style={{ color: "#1761A0" }}
-          >
-            Next
-            <span
-              className="flex items-center justify-center w-7 h-7 rounded-full transition-all duration-200 group-hover:scale-110 group-disabled:scale-100"
-              style={{ backgroundColor: "#1761A0" }}
-            >
-              <ChevronRight className="w-4 h-4 text-white" />
-            </span>
-          </button>
-        </div>
-      )}
+      <PrevNextPagination
+        currentPage={currentPage}
+        totalPages={totalPages}
+        onPageChange={handlePageChange}
+      />
 
       {selectedJob && (
         <JobDescriptionModal
