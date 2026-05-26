@@ -1,7 +1,7 @@
 "use client";
 import { ArrowRight, ChevronLeft, ChevronRight, Search } from "lucide-react";
 import { JobDescriptionModal } from "./JobDescription";
-import { useState } from "react";
+import { useState, ChangeEvent, KeyboardEvent } from "react";
 import { jobDescriptions } from "@/data/JobData";
 import { JobDescriptionData } from "./JobDescription";
 
@@ -133,7 +133,7 @@ const JobListings = () => {
     setCurrentPage(page);
   };
 
-  const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
     setSearchQuery(e.target.value);
     setCurrentPage(1);
   };
@@ -173,11 +173,19 @@ const JobListings = () => {
           </div>
         ) : (
           <>
-            {paginatedJobs.map((job, index) => (
+            {paginatedJobs.map((job) => (
               <div
-                key={index}
+                key={job.id}
+                role="button"
+                tabIndex={0}
                 onClick={() => handleJobClick(job.id)}
-                className="group flex items-center justify-between p-6 bg-background transition-all duration-300 hover:bg-[#E8F4FF] hover:shadow-lg hover:-translate-y-1 cursor-pointer hover:border-l-4 hover:border-l-[#4C96D7]"
+                onKeyDown={(e: KeyboardEvent<HTMLDivElement>) => {
+                  if (e.key === "Enter" || e.key === " ") {
+                    handleJobClick(job.id);
+                  }
+                }}
+                className="group flex items-center justify-between p-6 bg-background transition-all duration-300 hover:bg-[#E8F4FF] hover:shadow-lg hover:-translate-y-1 cursor-pointer hover:border-l-4 hover:border-l-[#4C96D7] focus:outline-none focus:ring-2 focus:ring-[#4C96D7]"
+                aria-label={`View job: ${job.title}`}
               >
                 <div className="flex-1">
                   <h3 className="text-sm lg:text-2xl font-semibold text-foreground group-hover:text-primary transition-colors duration-300">
