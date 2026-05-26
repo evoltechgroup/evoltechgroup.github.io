@@ -8,6 +8,7 @@ export interface JobDescriptionData {
   title: string;
   experience: string;
   location: string;
+  applyUrl: string;
   description: string[];
   responsibilities: string[];
   qualifications: string[];
@@ -31,15 +32,15 @@ export const JobDescriptionModal: React.FC<JobDescriptionModalProps> = ({
     if (isOpen) {
       // Save current scroll position
       const scrollY = window.scrollY;
-      document.body.style.position = 'fixed';
+      document.body.style.position = "fixed";
       document.body.style.top = `-${scrollY}px`;
-      document.body.style.width = '100%';
+      document.body.style.width = "100%";
 
       return () => {
         // Restore scroll position when modal closes
-        document.body.style.position = '';
-        document.body.style.top = '';
-        document.body.style.width = '';
+        document.body.style.position = "";
+        document.body.style.top = "";
+        document.body.style.width = "";
         window.scrollTo(0, scrollY);
       };
     }
@@ -128,9 +129,7 @@ export const JobDescriptionModal: React.FC<JobDescriptionModalProps> = ({
                         {CheckCircle}
                       </div>
                       <p className="text-gray-600 leading-relaxed flex-1">
-                        <span className="font-bold text-gray-500">
-                          {title}:
-                        </span>{" "}
+                        <span className="font-bold text-gray-500">{title}</span>{" "}
                         {detail}
                       </p>
                     </div>
@@ -164,21 +163,23 @@ export const JobDescriptionModal: React.FC<JobDescriptionModalProps> = ({
         <div className="relative z-10 border-t bg-gray-50 px-6 py-4">
           <div className="flex flex-col sm:flex-row gap-3">
             <a
-  href="mailto:Hr@evoltechgroup.com"
+              href={jobData.applyUrl}
+              target="_blank"
+              rel="noopener noreferrer"
               className="bg-gray-700 hover:bg-gray-900 text-white font-medium px-8 py-2 rounded-lg cursor-pointer"
-              role="button"
-              >
+            >
               Apply now
-          </a>
+            </a>
             <button
               onClick={onClose}
-              className="border border-gray-300 hover:bg-gray-200 text-gray-700 px-8 py-2 rounded-lg cursor-pointer">
+              className="border border-gray-300 hover:bg-gray-200 text-gray-700 px-8 py-2 rounded-lg cursor-pointer"
+            >
               Close
             </button>
           </div>
         </div>
       </div>
     </div>,
-    modalRoot
+    modalRoot,
   );
 };
