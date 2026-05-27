@@ -90,7 +90,7 @@ export const jobDescriptions: { id: string; data: JobDescriptionData }[] = [
     id: "azure-devops-engineer",
     data: {
       title: "Azure DevOps Engineer",
-      experience: "2 to 8 years",
+      experience: "4 to 8 years",
       location: "Chennai",
       applyUrl: "https://evoltech.keka.com/careers/applyjob/73158",
       description: [
@@ -148,7 +148,7 @@ export const jobDescriptions: { id: string; data: JobDescriptionData }[] = [
     id: "aws-devops-manager",
     data: {
       title: "AWS DevOps Manager",
-      experience: "9 to 15 years",
+      experience: "12 to 18 years",
       location: "Chennai",
       applyUrl: "https://evoltech.keka.com/careers/applyjob/73157",
       description: [
@@ -200,7 +200,7 @@ export const jobDescriptions: { id: string; data: JobDescriptionData }[] = [
     id: "aws-devops-engineer",
     data: {
       title: "AWS DevOps Engineer",
-      experience: "2 to 8 years",
+      experience: "4 to 8 years",
       location: "Chennai",
       applyUrl: "https://evoltech.keka.com/careers/applyjob/73093",
       description: [
@@ -281,7 +281,7 @@ export const jobDescriptions: { id: string; data: JobDescriptionData }[] = [
     id: "senior-aws-devops-engineer",
     data: {
       title: "Senior AWS DevOps Engineer",
-      experience: "9 to 15 years",
+      experience: "8 to 12 years",
       location: "Chennai",
       applyUrl: "https://evoltech.keka.com/careers/applyjob/73155",
       description: [
@@ -484,7 +484,7 @@ export const jobDescriptions: { id: string; data: JobDescriptionData }[] = [
     id: "senior-azure-devops-engineer",
     data: {
       title: "Senior Azure DevOps Engineer",
-      experience: "9 to 15 years",
+      experience: "8 to 12 years",
       location: "Chennai",
       applyUrl: "https://evoltech.keka.com/careers/applyjob/73159",
       description: [
@@ -542,7 +542,7 @@ export const jobDescriptions: { id: string; data: JobDescriptionData }[] = [
     id: "senior-gcp-devops-engineer",
     data: {
       title: "Senior GCP DevOps Engineer",
-      experience: "9 to 15 years",
+      experience: "8 to 12 years",
       location: "Chennai",
       applyUrl: "https://evoltech.keka.com/careers/applyjob/73163",
       description: [
