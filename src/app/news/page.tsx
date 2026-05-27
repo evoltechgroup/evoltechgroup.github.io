@@ -262,7 +262,7 @@ export default function NewsPage() {
                         Strategic Advisor &mdash;
                       </p>
                       <p className="text-[#38bdf8] text-sm font-bold uppercase tracking-[0.18em] leading-snug mt-1">
-                        Healthcare &amp; Self-Insurance
+                        Healthcare &amp; Insurance
                       </p>
                     </div>
 

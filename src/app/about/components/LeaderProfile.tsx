@@ -45,8 +45,7 @@ const LeaderProfile = ({
     <div className="h-full flex flex-col w-full md:pb-5 gap-5 md:items-end items-center justify-start md:justify-between md:w-fit">
       <div
         className="rounded-[10px] relative overflow-hidden"
-        style={{ width: imageWidth, height: imageHeight }}
-      >
+        style={{ width: imageWidth, height: imageHeight }}>
         <div className="w-full h-full relative flex justify-end items-end">
           <div
             className="w-full absolute bottom-0 rounded-xl z-1"
@@ -71,13 +70,12 @@ const LeaderProfile = ({
           {title}
         </Text>
       </div>
-      <div className="flex gap-3 w-full items-center justify-start">
-        <div className="w-5 h-5">{linkedInIcon}</div>
+      <div className="flex w-full items-center justify-start">
         <Link
           href={linkedinUrl}
           target="_blank"
-          className="xl:text-base sm:text-sm cursor-pointer text-[#007EBB] font-semibold"
-        >
+          className="xl:text-base flex gap-3 w-full items-center justify-start sm:text-sm cursor-pointer text-[#007EBB] font-semibold">
+          <div className="w-5 h-5">{linkedInIcon}</div>
           View LinkedIn Profile
         </Link>
       </div>
@@ -88,14 +86,12 @@ const LeaderProfile = ({
     <div className="flex flex-col items-start gap-3 md:gap-0 justify-center">
       <Button
         className="p-1.5 flex w-fit text-black rounded-full text-xm px-4 font-medium"
-        style={{ backgroundColor: badgeBg }}
-      >
+        style={{ backgroundColor: badgeBg }}>
         {role}
       </Button>
       <Text
         className="font-semibold text-3xl md:text-[48px] text-black max-w-[50rem]"
-        tag="p"
-      >
+        tag="p">
         {heading}
       </Text>
       <div className="flex flex-col text-black gap-5 max-w-xl mt-3 md:mt-0">
