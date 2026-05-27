@@ -9,9 +9,9 @@ export default function Careers() {
   return (
     <main className="bg-[#0B0F2B] text-white min-h-screen overflow-hidden">
       <Section1 />
+      <Section4 />
       <Section2 />
       <Section3 />
-      <Section4 />
     </main>
   );
 }
