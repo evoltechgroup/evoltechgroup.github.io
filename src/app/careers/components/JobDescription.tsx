@@ -8,6 +8,7 @@ export interface JobDescriptionData {
   title: string;
   experience: string;
   location: string;
+  applyUrl: string;
   description: string[];
   responsibilities: string[];
   qualifications: string[];
@@ -31,15 +32,15 @@ export const JobDescriptionModal: React.FC<JobDescriptionModalProps> = ({
     if (isOpen) {
       // Save current scroll position
       const scrollY = window.scrollY;
-      document.body.style.position = 'fixed';
+      document.body.style.position = "fixed";
       document.body.style.top = `-${scrollY}px`;
-      document.body.style.width = '100%';
+      document.body.style.width = "100%";
 
       return () => {
         // Restore scroll position when modal closes
-        document.body.style.position = '';
-        document.body.style.top = '';
-        document.body.style.width = '';
+        document.body.style.position = "";
+        document.body.style.top = "";
+        document.body.style.width = "";
         window.scrollTo(0, scrollY);
       };
     }
@@ -119,22 +120,35 @@ export const JobDescriptionModal: React.FC<JobDescriptionModalProps> = ({
               </h2>
               <div className="space-y-3">
                 {jobData.responsibilities.map((responsibility, index) => {
-                  const [title, ...rest] = responsibility.split(":");
-                  const detail = rest.join(":").trim();
-
-                  return (
-                    <div key={index} className="flex items-start gap-3">
-                      <div className="flex-shrink-0 w-5 h-5 rounded-full flex items-center justify-center mt-0.5">
-                        {CheckCircle}
+                  // If the string contains a colon, split and render as before. Otherwise, render the whole string.
+                  if (responsibility.includes(":")) {
+                    const [title, ...rest] = responsibility.split(":");
+                    const detail = rest.join(":").trim();
+                    return (
+                      <div key={index} className="flex items-start gap-3">
+                        <div className="flex-shrink-0 w-5 h-5 rounded-full flex items-center justify-center mt-0.5">
+                          {CheckCircle}
+                        </div>
+                        <p className="text-gray-600 leading-relaxed flex-1">
+                          <span className="font-bold text-gray-500">
+                            {title}
+                          </span>
+                          {detail && <> {detail}</>}
+                        </p>
                       </div>
-                      <p className="text-gray-600 leading-relaxed flex-1">
-                        <span className="font-bold text-gray-500">
-                          {title}:
-                        </span>{" "}
-                        {detail}
-                      </p>
-                    </div>
-                  );
+                    );
+                  } else {
+                    return (
+                      <div key={index} className="flex items-start gap-3">
+                        <div className="flex-shrink-0 w-5 h-5 rounded-full flex items-center justify-center mt-0.5">
+                          {CheckCircle}
+                        </div>
+                        <p className="text-gray-600 leading-relaxed flex-1">
+                          {responsibility}
+                        </p>
+                      </div>
+                    );
+                  }
                 })}
               </div>
             </section>
@@ -164,21 +178,24 @@ export const JobDescriptionModal: React.FC<JobDescriptionModalProps> = ({
         <div className="relative z-10 border-t bg-gray-50 px-6 py-4">
           <div className="flex flex-col sm:flex-row gap-3">
             <a
-  href="mailto:Hr@evoltechgroup.com"
+              href={jobData.applyUrl}
+              target="_blank"
+              rel="noopener noreferrer"
               className="bg-gray-700 hover:bg-gray-900 text-white font-medium px-8 py-2 rounded-lg cursor-pointer"
-              role="button"
-              >
+              onClick={onApply}
+            >
               Apply now
-          </a>
+            </a>
             <button
               onClick={onClose}
-              className="border border-gray-300 hover:bg-gray-200 text-gray-700 px-8 py-2 rounded-lg cursor-pointer">
+              className="border border-gray-300 hover:bg-gray-200 text-gray-700 px-8 py-2 rounded-lg cursor-pointer"
+            >
               Close
             </button>
           </div>
         </div>
       </div>
     </div>,
-    modalRoot
+    modalRoot,
   );
 };
