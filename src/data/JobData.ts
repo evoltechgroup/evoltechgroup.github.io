@@ -6,7 +6,7 @@ export const jobDescriptions: { id: string; data: JobDescriptionData }[] = [
     data: {
       title: "Associate GCP DevOps Engineer",
       experience: "2 to 4 years",
-      location: "Chennai",
+      location: "Chennai, Others",
       applyUrl: "https://evoltech.keka.com/careers/applyjob/73161",
       description: [
         "This is an exciting opportunity to join a friendly team working on some of the hottest GCP technologies. This team is primarily focused on the deployment, automation, and support of mission-critical client solutions in GCP.",
@@ -48,7 +48,7 @@ export const jobDescriptions: { id: string; data: JobDescriptionData }[] = [
     data: {
       title: "AWS DevOps Engineer - (Associate)",
       experience: "2 to 4 years",
-      location: "Chennai",
+      location: "Chennai, Others",
       applyUrl: "https://evoltech.keka.com/careers/applyjob/73160",
       description: [
         "Primary job responsibility is to provide cloud support to manage AWS cloud infrastructure environments through cross-technology administration, scripting execution, and monitoring automation.",
@@ -90,8 +90,8 @@ export const jobDescriptions: { id: string; data: JobDescriptionData }[] = [
     id: "azure-devops-engineer",
     data: {
       title: "Azure DevOps Engineer",
-      experience: "2 to 8 years",
-      location: "Chennai",
+      experience: "4 to 8 years",
+      location: "Chennai, Others",
       applyUrl: "https://evoltech.keka.com/careers/applyjob/73158",
       description: [
         "We are seeking a highly skilled Azure DevOps Engineer to lead cloud infrastructure automation, CI/CD pipeline development, and platform reliability initiatives.",
@@ -148,8 +148,8 @@ export const jobDescriptions: { id: string; data: JobDescriptionData }[] = [
     id: "aws-devops-manager",
     data: {
       title: "AWS DevOps Manager",
-      experience: "9 to 15 years",
-      location: "Chennai",
+      experience: "12 to 18 years",
+      location: "Chennai, Others",
       applyUrl: "https://evoltech.keka.com/careers/applyjob/73157",
       description: [
         "This is an exciting opportunity to join a friendly team working on some of the hottest AWS technologies. The team is primarily focused on the deployment, automation, and support of mission-critical client solutions in AWS.",
@@ -200,8 +200,8 @@ export const jobDescriptions: { id: string; data: JobDescriptionData }[] = [
     id: "aws-devops-engineer",
     data: {
       title: "AWS DevOps Engineer",
-      experience: "2 to 8 years",
-      location: "Chennai",
+      experience: "4 to 8 years",
+      location: "Chennai, Others",
       applyUrl: "https://evoltech.keka.com/careers/applyjob/73093",
       description: [
         "This is an exciting opportunity to join a friendly team working on some of the hottest AWS technologies. The team is primarily focused on the deployment, automation, and support of mission-critical client solutions in AWS.",
@@ -243,7 +243,7 @@ export const jobDescriptions: { id: string; data: JobDescriptionData }[] = [
     data: {
       title: "Windows System Administrator (L2)",
       experience: "6 to 10 years",
-      location: "Chennai",
+      location: "Chennai, Others",
       applyUrl: "https://evoltech.keka.com/careers/applyjob/73166",
       description: [
         "We are looking for a skilled Windows System Administrator (L2) with strong experience in managing and troubleshooting Windows server environments. The ideal candidate should have hands-on expertise in Active Directory, DNS, DHCP, OS installation and upgrades, server hardware troubleshooting, backup support, and patch management. Knowledge of VMware, networking, storage, and Azure will be an added advantage.",
@@ -281,8 +281,8 @@ export const jobDescriptions: { id: string; data: JobDescriptionData }[] = [
     id: "senior-aws-devops-engineer",
     data: {
       title: "Senior AWS DevOps Engineer",
-      experience: "9 to 15 years",
-      location: "Chennai",
+      experience: "8 to 12 years",
+      location: "Chennai, Others",
       applyUrl: "https://evoltech.keka.com/careers/applyjob/73155",
       description: [
         "This is an exciting opportunity to join a friendly team working on some of the hottest AWS technologies. The team is primarily focused on the deployment, automation, and support of mission-critical client solutions in AWS.",
@@ -334,7 +334,7 @@ export const jobDescriptions: { id: string; data: JobDescriptionData }[] = [
     data: {
       title: "Linux System Administrator (L2)",
       experience: "4 to 6 years",
-      location: "Chennai",
+      location: "Chennai, Others",
       applyUrl: "https://evoltech.keka.com/careers/applyjob/73165",
       description: [
         "We are looking for a Linux System Administrator (L2) responsible for day-to-day administration, monitoring, and support of Linux operating systems in production environments. The ideal candidate should have strong hands-on experience in Linux system administration, troubleshooting, OS patching, performance tuning, and operational support across on-premise and cloud platforms.",
@@ -385,7 +385,7 @@ export const jobDescriptions: { id: string; data: JobDescriptionData }[] = [
     data: {
       title: "Solution Architect (AWS & Nutanix)",
       experience: "8 to 15 years",
-      location: "Chennai",
+      location: "Chennai, Others",
       applyUrl: "https://evoltech.keka.com/careers/applyjob/73156",
       description: [
         "We are seeking an experienced Solution Architect with deep expertise in AWS, Nutanix on AWS (NC2), and enterprise security and observability solutions to design, build, and modernize scalable and secure cloud and hybrid solutions.",
@@ -445,7 +445,7 @@ export const jobDescriptions: { id: string; data: JobDescriptionData }[] = [
     data: {
       title: "Observability Engineer (L2)",
       experience: "7 to 15 years",
-      location: "Chennai",
+      location: "Chennai, Others",
       applyUrl: "https://evoltech.keka.com/careers/applyjob/73164",
       description: [
         "We are looking for an Observability Engineer (L2) responsible for supporting and optimizing end-to-end monitoring and observability solutions across distributed, hybrid, and legacy environments. The ideal candidate should have strong expertise in monitoring platforms, anomaly detection, automation, and observability best practices to improve system reliability, performance, and operational efficiency.",
@@ -484,8 +484,8 @@ export const jobDescriptions: { id: string; data: JobDescriptionData }[] = [
     id: "senior-azure-devops-engineer",
     data: {
       title: "Senior Azure DevOps Engineer",
-      experience: "9 to 15 years",
-      location: "Chennai",
+      experience: "8 to 12 years",
+      location: "Chennai, Others",
       applyUrl: "https://evoltech.keka.com/careers/applyjob/73159",
       description: [
         "We are seeking a highly skilled Senior Azure DevOps Engineer to lead cloud infrastructure automation, CI/CD pipeline development, and platform reliability initiatives.",
@@ -542,8 +542,8 @@ export const jobDescriptions: { id: string; data: JobDescriptionData }[] = [
     id: "senior-gcp-devops-engineer",
     data: {
       title: "Senior GCP DevOps Engineer",
-      experience: "9 to 15 years",
-      location: "Chennai",
+      experience: "8 to 12 years",
+      location: "Chennai, Others",
       applyUrl: "https://evoltech.keka.com/careers/applyjob/73163",
       description: [
         "We are looking for a Senior GCP DevOps Engineer with strong expertise in deploying, automating, and supporting mission-critical client solutions on Google Cloud Platform (GCP). The ideal candidate should have hands-on experience with cloud infrastructure, automation, CI/CD pipelines, configuration management, and containerized environments.",
@@ -594,7 +594,7 @@ export const jobDescriptions: { id: string; data: JobDescriptionData }[] = [
     data: {
       title: "GCP DevOps Engineer",
       experience: "4 to 8 years",
-      location: "Chennai",
+      location: "Chennai, Others",
       applyUrl: "https://evoltech.keka.com/careers/applyjob/73162",
       description: [
         "This is an exciting opportunity to join a friendly team working on some of the hottest GCP technologies. The team is primarily focused on the deployment, automation, and support of mission-critical client solutions in GCP.",
