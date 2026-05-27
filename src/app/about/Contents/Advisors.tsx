@@ -12,9 +12,9 @@ const advisors: LeaderProfileData[] = [
     linkedinUrl: "https://www.linkedin.com/in/gregarms/",
     heading: "Our Advisor",
     bio: [
-      "Greg Arms serves as a Strategic Advisor to EvolTech, bringing deep industry experience and relationships across the self-insurance and healthcare benefits landscape. His background spans collaboration with self-funded employers, third-party administrators (TPAs), carriers, payer organizations, and healthcare service networks throughout the United States and Internationally.",
-      "In his advisory role, Greg works closely with EvolTech’s leadership team to provide strategic guidance on industry trends, operational challenges, and the evolving needs of organizations within the self-insured market. His perspective helps support the company’s long-term vision as EvolTech continues to expand its capabilities supporting healthcare and benefits organizations through technology-enabled operational solutions.",
-      "Greg’s experience and industry insight also help EvolTech better understand the dynamics of the healthcare benefits ecosystem, strengthen alignment with market needs, and foster meaningful relationships across the broader self-insured community. His guidance contributes to EvolTech’s continued focus on operational excellence, innovation, and customer-centered growth.y",
+      "Greg is a 40-year veteran of the global insurance industry, with senior leadership experience across the Life, Health, Disability, and Pension sectors spanning the United States and international markets. Over his career, Greg has held C-suite and global practice leadership roles at Chubb, Marsh, Willis Group, UnitedHealth Group, and AIG.",
+      "Greg advises organizations from InsurTech start-ups to Global 500 companies on strategy, innovation, and growth. He is an active member of the Self Insurance Institute of America (SIIA), serving on its nominating committee and as Program Chair for SIIA's international conferences.",
+      "Greg brings to EvolTech a rare combination of global network, industry depth, and strategic perspective — helping the company expand its reach across industries and international markets.",
     ],
   },
 ];

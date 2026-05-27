@@ -3,9 +3,14 @@
  * ───────────────────────────────────────────────────────────────────────────── */
 import type { StaticImageData } from "next/image";
 import GregArmsImg from "@/assets/images/Team/Members/GregArms.png";
-import FiveOakInsideImg from "@/assets/effects/FiveOak-EvolTech.jpg";
-import ThulasiInsideImg from "@/assets/effects/Thulasi-Banner.png";
-import { GregArms } from "@/assets/effects/Banner";
+import Thulasi from "@/assets/images/Team/Members/Thulasi.png";
+import {
+  GregArms,
+  TenthYearBanner,
+  ThulasiBanner1,
+  FiveOakEvolTech,
+  TenthYearBanner1,
+} from "@/assets/effects/Banner";
 
 export type ArticleCategory =
   | "Company News"
@@ -40,6 +45,8 @@ export interface NewsArticle {
   gradient: string;
   accentColor: string;
   bannerImage?: StaticImageData;
+  /** Small square-friendly image used in related-story thumbnails. Falls back to bannerImage. */
+  coverImage?: StaticImageData;
   body: ContentBlock[];
   related: string[]; // slugs of related articles
 }
@@ -50,121 +57,78 @@ export const NEWS_ARTICLES: NewsArticle[] = [
     slug: "greg-arms-strategic-advisor",
     category: "Company News",
     isFeatured: true,
-    title: "Introducing Our Strategic Advisor — Greg Arms",
+    title: "EvolTech Announces Greg Arms as Strategic Advisor",
     excerpt:
-      "Strengthening our healthcare and self-insurance expertise. EvolTech welcomes Greg Arms — a 40-year veteran of the global insurance industry — as a Strategic Advisor.",
+      "EvolTech welcomes Greg Arms, a 40-year insurance industry veteran, as Strategic Advisor to support the company’s continued growth and market expansion.",
     date: "May 25, 2026",
-    readTime: "5 min read",
+    readTime: "4 min read",
     author: { name: "EvolTech Team", role: "Editorial", initials: "ET" },
     gradient: "from-[#0B1530] via-[#1761A0] to-[#0d3d6e]",
     accentColor: "#FFBB00",
     bannerImage: GregArms,
+    coverImage: GregArmsImg,
+
     body: [
       {
         type: "paragraph",
         content:
-          "At EvolTech, our growth has always been anchored in two things — the right people and the right relationships. As we continue to expand our capabilities across healthcare, self-insurance, and benefits technology, we are proud to welcome Greg Arms as a Strategic Advisor to EvolTech.",
+          "EvolTech is pleased to announce the appointment of Greg Arms as Strategic Advisor, supporting the company’s continued growth and market expansion.",
       },
+
+      {
+        type: "paragraph",
+        content:
+          "Greg is a 40-year insurance industry veteran with deep experience in the Life, Health, and Pension insurance sectors, both in the US and internationally. Throughout his career, he has held senior leadership roles at some of the industry’s foremost insurance carriers and brokers.",
+      },
+
+      {
+        type: "paragraph",
+        content:
+          "In his advisory role, Greg will work closely with EvolTech’s leadership team to provide strategic insight into market trends, operational challenges, and the evolving needs of organizations within the insurance and healthcare ecosystem.",
+      },
+
       {
         type: "heading",
         level: 2,
-        id: "who-is-greg-arms",
-        content: "Who is Greg Arms?",
+        id: "greg-arms-statement",
+        content: "A Message from Greg Arms",
       },
-      {
-        type: "paragraph",
-        content:
-          "Greg is a 40-year veteran of the global insurance industry, with deep experience across Life, Health, Disability, and Pension sectors spanning both U.S. operations and international markets.",
-      },
-      {
-        type: "paragraph",
-        content:
-          "Over the course of his distinguished career, Greg has held senior executive leadership roles at some of the world's most respected carriers and brokers:",
-      },
-      {
-        type: "list",
-        items: [
-          "Chubb — Global Head of Accident & Health",
-          "Marsh — Global Co-Leader of Mercer Marsh Benefits",
-          "Willis Group — Chairman & CEO of Global Employee Benefits Practice",
-          "UnitedHealth Group — Chief Marketing Officer & International CEO",
-          "AIG — VP Life Insurance & President, Worldwide Director of Group Management Division",
-        ],
-      },
-      {
-        type: "paragraph",
-        content:
-          "Today, Greg serves as President & CEO of The Arms Group, where he advises organisations ranging from Insurtech start-ups to Global 500 companies on operational performance, innovation, strategic partnerships, and executive development.",
-      },
-      {
-        type: "heading",
-        level: 2,
-        id: "what-gregs-advisory-brings",
-        content: "What Greg's Advisory Brings to EvolTech",
-      },
-      {
-        type: "paragraph",
-        content:
-          "EvolTech's leadership team, under the direction of our CEO Thulasidharan LG, has been purposefully building the expertise and relationships needed to serve healthcare and self-insurance organisations at a higher level. Greg's addition to our advisory structure reflects that commitment.",
-      },
-      {
-        type: "paragraph",
-        content:
-          "His perspective gives EvolTech deeper visibility into the dynamics of the self-insured market — the challenges facing TPAs, self-funded employers, payer organisations, and healthcare service networks — and the technology gaps that organisations within this ecosystem most urgently need to close.",
-      },
-      {
-        type: "paragraph",
-        content:
-          "As EvolTech continues to expand its technology-enabled operational solutions for healthcare and benefits organisations, Greg's industry insight and relationships will help us stay sharply aligned with where the market is heading — and build solutions that genuinely serve it.",
-      },
-      {
-        type: "heading",
-        level: 2,
-        id: "gregs-current-advisory-engagements",
-        content: "Greg's Current Advisory Engagements",
-      },
-      {
-        type: "paragraph",
-        content:
-          "Beyond his role with EvolTech, Greg brings active advisory experience from across the healthcare and insurance technology space:",
-      },
-      {
-        type: "list",
-        items: [
-          "OutcomeRx — Senior Advisor; an insurance management services company focused on cell and gene therapy coverages and warranty solutions",
-          "INTERVENT International — Advisor; a firm offering behavioural change and population health management solutions backed by over 100 peer-reviewed scientific studies",
-          "Cavo Health — Advisor; a technology company delivering AI-powered word matching engines to optimise healthcare spending",
-        ],
-      },
-      {
-        type: "paragraph",
-        content:
-          "Greg is also an active member of the Self-Insurance Institute of America (SIIA), where he has served as Program Chair for SIIA's international conference, and participates actively in the World Captives Forum, the South Carolina Captive Insurance Association, and the World Affairs Council of Charleston.",
-      },
-      {
-        type: "heading",
-        level: 2,
-        id: "a-message-from-our-ceo",
-        content: "A Message from Our CEO",
-      },
+
       {
         type: "quote",
         content:
-          "As EvolTech deepens its focus on healthcare and the self-insurance ecosystem, having an advisor of Greg's calibre — with his global carrier experience, his active industry presence, and his genuine understanding of where this market is headed — is genuinely valuable to how we think and build. We are glad to have him working alongside our leadership team.",
-        attribution: "Thulasidharan LG, CEO, EvolTech",
+          "EvolTech has developed proven technology solutions that enhance operational excellence and customer service for the organizations they support. It is exciting to work with such outstanding and thoughtful leaders, along with highly capable teams that design and deliver truly innovative outcomes for their clients.",
+        attribution: "Greg Arms, Strategic Advisor, EvolTech",
       },
+
+      {
+        type: "heading",
+        level: 2,
+        id: "ceo-message",
+        content: "A Message from Our CEO",
+      },
+
+      {
+        type: "quote",
+        content:
+          "We are thrilled to welcome Greg to EvolTech as a Strategic Advisor. His strategic perspective, global experience, and strong relationships across multiple insurance and healthcare-related sectors will help EvolTech better address the evolving needs of organizations across industries and geographies.",
+        attribution: "LG Thulasidharan, CEO, EvolTech",
+      },
+
       {
         type: "heading",
         level: 2,
         id: "looking-ahead",
         content: "Looking Ahead",
       },
+
       {
         type: "paragraph",
         content:
-          "This is a meaningful step in EvolTech's journey. Our focus remains on building technology and operational solutions that help healthcare and benefits organisations work better, faster, and smarter. Greg's advisory role strengthens our ability to do that with greater depth and market alignment. We look forward to sharing more about EvolTech's expanding capabilities in this space in the months ahead.",
+          "Greg’s appointment reflects EvolTech’s broader commitment to bringing together experienced industry leaders who can help guide the company’s strategic direction and foster meaningful collaboration across the insurance and healthcare ecosystem.",
       },
     ],
+
     related: ["fiveoak-evoltech-partnership", "thulasidharan-ceo-announcement"],
   },
 
@@ -181,7 +145,7 @@ export const NEWS_ARTICLES: NewsArticle[] = [
     author: { name: "EvolTech Team", role: "Editorial", initials: "ET" },
     gradient: "from-[#1a3a5c] to-[#0B0F2B]",
     accentColor: "#4C96D7",
-    bannerImage: FiveOakInsideImg,
+    bannerImage: FiveOakEvolTech,
     body: [
       {
         type: "paragraph",
@@ -252,7 +216,8 @@ export const NEWS_ARTICLES: NewsArticle[] = [
     author: { name: "EvolTech Team", role: "Editorial", initials: "ET" },
     gradient: "from-[#2d1a5c] to-[#0B0F2B]",
     accentColor: "#a78bfa",
-    bannerImage: ThulasiInsideImg,
+    bannerImage: ThulasiBanner1,
+    coverImage: Thulasi,
     body: [
       {
         type: "paragraph",
@@ -316,6 +281,139 @@ export const NEWS_ARTICLES: NewsArticle[] = [
       },
     ],
     related: ["greg-arms-strategic-advisor", "fiveoak-evoltech-partnership"],
+  },
+  {
+    slug: "10-years-of-evoltech",
+    category: "Company News",
+    isFeatured: true,
+
+    title: "The Story of EvolTech — 10 Years of Evolution",
+
+    excerpt:
+      "From a small passionate team in 2015 to a decade of innovation, growth, and transformation — celebrating 10 years of EvolTech.",
+
+    date: "June 10, 2026",
+    readTime: "4 min read",
+
+    author: {
+      name: "EvolTech Team",
+      role: "Editorial",
+      initials: "ET",
+    },
+
+    gradient: "from-[#0B1530] via-[#1761A0] to-[#0d3d6e]",
+    accentColor: "#4C96D7",
+    bannerImage: TenthYearBanner1,
+
+    body: [
+      {
+        type: "heading",
+        level: 2,
+        id: "where-it-began",
+        content: "Where It Began",
+      },
+
+      {
+        type: "paragraph",
+        content:
+          "In 2015, EvolTech began as a small, passionate team supporting the U.S. retail sector with a simple vision — to solve real business challenges through technology.",
+      },
+
+      {
+        type: "paragraph",
+        content:
+          "What followed was a journey built through persistence, collaboration, and continuous learning. Every challenge helped shape the foundation of who we are today.",
+      },
+
+      {
+        type: "heading",
+        level: 2,
+        id: "our-evolution",
+        content: "Our Evolution",
+      },
+
+      {
+        type: "paragraph",
+        content:
+          "The turning point came in 2020, when the world paused and businesses were forced to rethink the future.",
+      },
+
+      {
+        type: "paragraph",
+        content: "For EvolTech, this became an opportunity to evolve.",
+      },
+
+      {
+        type: "paragraph",
+        content:
+          "By 2022, our transformation accelerated as we expanded beyond delivery into innovation — building products, developing IP, and creating technology-led solutions that deliver measurable business impact.",
+      },
+
+      {
+        type: "paragraph",
+        content:
+          "In 2024, our growth was also reflected in our culture, with 55% women representation, reinforcing our belief that strong innovation is built by empowered and diverse teams.",
+      },
+
+      {
+        type: "heading",
+        level: 2,
+        id: "a-new-chapter",
+        content: "A New Chapter",
+      },
+
+      {
+        type: "paragraph",
+        content:
+          "As we entered our 10th year, EvolTech welcomed a major leadership milestone.",
+      },
+
+      {
+        type: "paragraph",
+        content:
+          "In 2025, Thulasidharan LG stepped in as CEO, bringing strategic vision, operational leadership, and a renewed focus on scaling EvolTech’s next phase of growth and transformation.",
+      },
+
+      {
+        type: "paragraph",
+        content:
+          "This marked the beginning of an exciting new chapter for the company.",
+      },
+
+      {
+        type: "heading",
+        level: 2,
+        id: "looking-ahead",
+        content: "Looking Ahead",
+      },
+
+      {
+        type: "paragraph",
+        content:
+          "Ten years is an important milestone — but for EvolTech, it’s just the beginning.",
+      },
+
+      {
+        type: "paragraph",
+        content:
+          "As we move forward, our commitment remains unchanged: building meaningful technology solutions, strengthening client partnerships, empowering our people, and creating lasting impact.",
+      },
+
+      {
+        type: "paragraph",
+        content:
+          "To every client, partner, employee, advisor, and supporter who has been part of this journey — thank you.",
+      },
+
+      {
+        type: "quote",
+        content:
+          "Here’s to the next decade of innovation, growth, and transformation.",
+        attribution: "EvolTech — Together, We Evolve.",
+      },
+    ],
+
+    related: ["greg-arms-strategic-advisor", "thulasidharan-ceo-announcement"],
   },
 ];
 

@@ -70,7 +70,7 @@ function renderBlock(block: ContentBlock, i: number) {
       return (
         <blockquote
           key={i}
-          className="my-8 pl-6 border-l-4 border-[#FFBB00] bg-[#FFBB00]/5 rounded-r-xl py-5 pr-5"
+          className="my-8 pl-6 border-l-4 border-[#1761A0] bg-[#FFBB00]/5 rounded-r-xl py-5 pr-5"
         >
           <p className="text-white text-base sm:text-lg italic font-medium leading-relaxed mb-2">
             &ldquo;{block.content}&rdquo;
@@ -134,7 +134,7 @@ function TableOfContents({ blocks }: { blocks: ContentBlock[] }) {
   return (
     <nav className="hidden xl:block">
       <div className="sticky top-28">
-        <p className="text-[10px] uppercase tracking-widest text-[#C7E5FF]/40 font-semibold mb-4">
+        <p className="text-xs uppercase tracking-widest text-[#C7E5FF]/40 font-semibold mb-4">
           Contents
         </p>
         <ul className="space-y-2">
@@ -144,11 +144,11 @@ function TableOfContents({ blocks }: { blocks: ContentBlock[] }) {
               <li key={h.id}>
                 <a
                   href={`#${h.id}`}
-                  className={`flex items-center gap-1.5 text-xs leading-relaxed transition-all duration-200 ${
+                  className={`flex items-center gap-1.5 text-sm leading-relaxed transition-all duration-200 ${
                     h.level === 3 ? "pl-3" : ""
                   } ${
                     isActive
-                      ? "text-[#FFBB00] font-semibold"
+                      ? "text-[#FFBB00] font-medium"
                       : h.level === 3
                         ? "text-[#C7E5FF]/45 hover:text-white"
                         : "text-[#C7E5FF]/60 hover:text-white"
@@ -237,13 +237,13 @@ function Sidebar({ article }: { article: NewsArticle }) {
                     border: `1px solid ${r.accentColor}22`,
                   }}
                 >
-                  {r.bannerImage && (
+                  {(r.coverImage ?? r.bannerImage) && (
                     <Image
-                      src={r.bannerImage}
+                      src={(r.coverImage ?? r.bannerImage)!}
                       alt={r.title}
                       fill
                       sizes="56px"
-                      className="object-cover"
+                      className="object-cover object-center"
                     />
                   )}
                 </div>
@@ -429,7 +429,7 @@ export default function ArticleDetail({ article }: { article: NewsArticle }) {
             /* Full-cover photo banner */
             <div
               className="relative rounded-3xl overflow-hidden bg-[#040c22] w-full"
-              style={{ aspectRatio: "21 / 8" }}
+              style={{ aspectRatio: "9 / 4" }}
             >
               <Image
                 src={article.bannerImage}

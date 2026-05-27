@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import Image from "next/image";
 import type { StaticImageData } from "next/image";
 import Link from "next/link";
@@ -9,20 +9,27 @@ import {
   Clock,
   FileText,
   Heart,
-  MapPin,
   Newspaper,
   Shield,
-  Tag,
   Users,
 } from "lucide-react";
 import GregArmsImg from "@/assets/images/Team/Members/GregArms.png";
-import NewsBannerImg from "@/assets/effects/NewsBanner.png";
-import FiveOakBannerImg from "@/assets/effects/FiveOak-Evoltech-banner.png";
-import Thulasi from "@/assets/effects/BannerSample.png";
+// import NewsBannerImg from "@/assets/effects/NewsBanner.png";
+// import FiveOakBannerImg from "@/assets/effects/FiveOak-Evoltech-banner.png";
+// import ThulasiBanner from "@/assets/effects/ThulasiBanner.png";
+// import TenthYearBanner1 from "@/assets/effects/10-years-Banner.png";
 import { LiquidGlassButton } from "./LiquidGlassButton";
+// import { ThulasiBanner1 } from "@/assets/effects/Banner";
+import {
+  NewsBanner,
+  FiveOakEvolTechBanner,
+  ThulasiBanner,
+  TenthYearBanner,
+  sampleBanner,
+} from "@/assets/effects/Banner";
 
 /* ─────────────────────────────────────────────────────────────────────────────
- * Static data — replace with a CMS/fetch when ready
+ * Static data
  * ───────────────────────────────────────────────────────────────────────────── */
 type ArticleCategory =
   | "Company News"
@@ -38,91 +45,11 @@ interface Article {
   excerpt: string;
   date: string;
   readTime: string;
-  gradient: string; // Tailwind gradient classes for placeholder image
+  gradient: string;
   accentColor: string;
   image?: StaticImageData;
   href: string;
 }
-
-const FEATURED: Article = {
-  id: "greg-arms-strategic-advisor",
-  category: "Company News",
-  title: "Introducing Our Strategic Advisor \u2014 Greg Arms",
-  excerpt:
-    "Strengthening our healthcare and self-insurance expertise. EvolTech welcomes Greg Arms \u2014 a 40-year veteran of the global insurance industry \u2014 as a Strategic Advisor.",
-  date: "May 25, 2026",
-  readTime: "5 min read",
-  gradient: "from-[#0B1530] via-[#1761A0] to-[#0d3d6e]",
-  accentColor: "#FFBB00",
-  image: GregArmsImg,
-  href: "/news/greg-arms-strategic-advisor",
-};
-
-const ARTICLES: Article[] = [
-  {
-    id: "fiveoak-evoltech-partnership",
-    category: "Company News",
-    title:
-      "EvolTech & Fiveoak: Expanding and Elevating Our Partnership to New Markets",
-    excerpt:
-      "Our partnership with Fiveoak is reaching new markets and new customers. Together, we're delivering cutting-edge Virtual AI Assistant solutions transforming customer engagement and brand impact.",
-    date: "April 15, 2026",
-    readTime: "3 min read",
-    gradient: "from-[#1a3a5c] to-[#0B0F2B]",
-    accentColor: "#4C96D7",
-    image: FiveOakBannerImg,
-    href: "/news/fiveoak-evoltech-partnership",
-  },
-  {
-    id: "thulasidharan-ceo-announcement",
-    category: "Company News",
-    title: "The Wait Is Over — Welcoming Thulasidharan LG as CEO of EvolTech",
-    excerpt:
-      "Having supported EvolTech as a Strategic Advisor, Thulasidharan LG now steps into the CEO role with a clear focus, determination, and a commitment to spark creativity while upholding our people-first culture.",
-    date: "August 1, 2025",
-    readTime: "3 min read",
-    gradient: "from-[#2d1a5c] to-[#0B0F2B]",
-    accentColor: "#a78bfa",
-    image: Thulasi,
-    href: "/news/thulasidharan-ceo-announcement",
-  },
-];
-
-interface UpcomingEvent {
-  id: string;
-  title: string;
-  date: string;
-  location: string;
-  format: string;
-  href: string;
-}
-
-const UPCOMING_EVENTS: UpcomingEvent[] = [
-  {
-    id: "spring-exchange-2026",
-    title: "SIIA Spring Exchange 2026",
-    date: "Mar 30 – Apr 1, 2026",
-    location: "New Orleans, LA",
-    format: "Conference",
-    href: "/events/spring-exchange-2026",
-  },
-  {
-    id: "aba-bankers",
-    title: "ABA Conference for Community Bankers",
-    date: "February 15–17, 2026",
-    location: "Orlando, FL",
-    format: "Conference",
-    href: "/events/aba-conference-community-bankers",
-  },
-  {
-    id: "siia-price-transparency",
-    title: "SIIA Price Transparency Forum",
-    date: "February 25–26, 2026",
-    location: "Jacksonville, FL",
-    format: "Forum",
-    href: "/events/siia-price-transparency-forum-2026",
-  },
-];
 
 const CATEGORY_COLORS: Record<ArticleCategory, string> = {
   "Company News": "#FFBB00",
@@ -131,6 +58,76 @@ const CATEGORY_COLORS: Record<ArticleCategory, string> = {
   Technology: "#a78bfa",
   Culture: "#34d399",
 };
+
+/* ─────────────────────────────────────────────────────────────────────────────
+ * All news in one pool — the entry with the newest date becomes the featured
+ * card automatically. To add a new article:
+ *   1. Add it here with today's date.
+ *   2. The old featured article drops to the grid. Nothing else to change.
+ * ───────────────────────────────────────────────────────────────────────────── */
+const ALL_ARTICLES: Article[] = [
+  {
+    id: "greg-arms-strategic-advisor",
+    category: "Company News" as ArticleCategory,
+    title: "Introducing Our Strategic Advisor \u2014 Greg Arms",
+    excerpt:
+      "Strengthening our healthcare and self-insurance expertise. EvolTech welcomes Greg Arms \u2014 a 40-year veteran of the global insurance industry \u2014 as a Strategic Advisor.",
+    date: "May 25, 2026",
+    readTime: "5 min read",
+    gradient: "from-[#0B1530] via-[#1761A0] to-[#0d3d6e]",
+    accentColor: "#FFBB00",
+    image: GregArmsImg,
+    href: "/news/greg-arms-strategic-advisor",
+  },
+  // ── Add new articles below — newest date wins featured ────────────────────
+  {
+    id: "10-years-of-evoltech",
+    category: "Company News" as ArticleCategory,
+    title: "The Story of EvolTech \u2014 10 Years of Evolution",
+    excerpt:
+      "From a small passionate team in 2015 to a decade of innovation, growth, and transformation \u2014 celebrating 10 years of EvolTech.",
+    date: "June 10, 2025",
+    readTime: "3 min read",
+    gradient: "from-[#0B1530] via-[#1761A0] to-[#0d3d6e]",
+    accentColor: "#4C96D7",
+    image: TenthYearBanner,
+    href: "/news/10-years-of-evoltech",
+  },
+  {
+    id: "fiveoak-evoltech-partnership",
+    category: "Company News" as ArticleCategory,
+    title:
+      "EvolTech & Fiveoak: Expanding and Elevating Our Partnership to New Markets",
+    excerpt:
+      "Our partnership with Fiveoak is reaching new markets and new customers. Together, we're delivering cutting-edge Virtual AI Assistant solutions transforming customer engagement and brand impact.",
+    date: "April 15, 2026",
+    readTime: "3 min read",
+    gradient: "from-[#1a3a5c] to-[#0B0F2B]",
+    accentColor: "#4C96D7",
+    image: FiveOakEvolTechBanner,
+    href: "/news/fiveoak-evoltech-partnership",
+  },
+  {
+    id: "thulasidharan-ceo-announcement",
+    category: "Company News" as ArticleCategory,
+    title:
+      "The Wait Is Over \u2014 Welcoming Thulasidharan LG as CEO of EvolTech",
+    excerpt:
+      "Having supported EvolTech as a Strategic Advisor, Thulasidharan LG now steps into the CEO role with a clear focus, determination, and a commitment to spark creativity while upholding our people-first culture.",
+    date: "August 1, 2025",
+    readTime: "3 min read",
+    gradient: "from-[#2d1a5c] to-[#0B0F2B]",
+    accentColor: "#a78bfa",
+    image: sampleBanner,
+    href: "/news/thulasidharan-ceo-announcement",
+  },
+].sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+
+/* Derived — do not edit manually */
+const FEATURED = ALL_ARTICLES[0]!;
+const ARTICLES = ALL_ARTICLES.slice(1);
+/** true while Greg Arms is still the newest article → renders the custom branded card */
+const isGregArmsFeatured = FEATURED.id === "greg-arms-strategic-advisor";
 
 /* ─────────────────────────────────────────────────────────────────────────────
  * Page
@@ -183,11 +180,11 @@ export default function NewsPage() {
       {/* ── 2. Featured Article ─────────────────────────────────────────────── */}
       <section className="px-4 pb-20">
         <div className="max-w-7xl mx-auto">
-          {FEATURED.image ? (
+          {isGregArmsFeatured ? (
             /* ── Premium hero banner ── */
             <Link href={FEATURED.href} className="group block">
               <div
-                className="relative rounded-3xl overflow-hidden cursor-pointer"
+                className="relative rounded-3xl overflow-hidden cursor-pointer transition-all duration-500 group-hover:shadow-[0_0_60px_rgba(76,150,215,0.25)] group-hover:scale-[1.005]"
                 style={{ minHeight: 540 }}
               >
                 {/* Dark navy base */}
@@ -195,7 +192,7 @@ export default function NewsPage() {
 
                 {/* World-map / nodes — full opacity */}
                 <Image
-                  src={NewsBannerImg}
+                  src={NewsBanner}
                   alt=""
                   fill
                   className="object-cover"
@@ -229,7 +226,7 @@ export default function NewsPage() {
                   {/* LEFT — text */}
                   <div className="flex flex-col justify-center px-8 sm:px-12 py-12 lg:py-16">
                     {/* Category badge */}
-                    <div className="inline-flex w-fit items-center px-4 py-1.5 rounded-full border border-[#FFBB00]/60 text-[#FFBB00] text-[11px] font-bold tracking-[0.25em] uppercase mb-6">
+                    <div className="inline-flex w-fit items-center px-4 py-1.5 rounded-full border border-[#4C96D7] text-[#8DCAFF] text-[11px] font-bold tracking-[0.25em] uppercase mb-6">
                       Company News
                     </div>
 
@@ -295,9 +292,9 @@ export default function NewsPage() {
                     />
 
                     {/* Portrait */}
-                    <div className="relative w-full h-[420px] sm:h-[540px] lg:absolute lg:inset-0 lg:h-auto">
+                    <div className="relative w-full h-[420px] sm:h-[540px] lg:absolute lg:inset-0 lg:inset-y-0 lg:h-auto">
                       <Image
-                        src={FEATURED.image}
+                        src={FEATURED.image!}
                         alt="Greg Arms — Strategic Advisor"
                         fill
                         className="object-contain object-bottom"
@@ -367,10 +364,20 @@ export default function NewsPage() {
           ) : (
             /* ── Standard gradient card ── */
             <Link href={FEATURED.href} className="group block">
-              <div className="relative rounded-3xl overflow-hidden h-[420px] sm:h-[480px] cursor-pointer">
+              <div className="relative rounded-3xl overflow-hidden h-[420px] sm:h-[480px] cursor-pointer transition-all duration-500 group-hover:shadow-[0_0_60px_rgba(76,150,215,0.25)] group-hover:scale-[1.005]">
                 <div
                   className={`absolute inset-0 bg-gradient-to-br ${FEATURED.gradient}`}
                 />
+                {FEATURED.image && (
+                  <Image
+                    src={FEATURED.image}
+                    alt=""
+                    fill
+                    className="object-contain object-center"
+                    aria-hidden
+                    priority
+                  />
+                )}
                 <div
                   className="absolute inset-0 opacity-[0.04]"
                   style={{
@@ -442,13 +449,15 @@ export default function NewsPage() {
                 News &amp; Stories
               </h2>
             </div>
-            <Link
-              href="/events"
-              className="hidden sm:inline-flex items-center gap-2 text-sm text-[#C7E5FF]/70 hover:text-[#FFBB00] transition-colors duration-200 font-medium"
-            >
-              View all events
-              <ArrowRight size={14} />
-            </Link>
+            {ARTICLES.length > 3 && (
+              <Link
+                href="/news"
+                className="hidden sm:inline-flex items-center gap-2 text-sm text-[#C7E5FF]/70 hover:text-[#FFBB00] transition-colors duration-200 font-medium"
+              >
+                View all News
+                <ArrowRight size={14} />
+              </Link>
+            )}
           </div>
 
           {/* Grid */}
@@ -530,83 +539,20 @@ export default function NewsPage() {
             ))}
           </div>
 
-          {/* Mobile: view all events link */}
-          <div className="mt-8 sm:hidden text-center">
-            <Link
-              href="/events"
-              className="inline-flex items-center gap-2 text-sm text-[#C7E5FF]/70 hover:text-[#FFBB00] transition-colors font-medium"
-            >
-              View all events
-              <ArrowRight size={14} />
-            </Link>
-          </div>
+          {/* Mobile: view all news link */}
+          {ARTICLES.length > 3 && (
+            <div className="mt-8 sm:hidden text-center">
+              <Link
+                href="/news"
+                className="inline-flex items-center gap-2 text-sm text-[#C7E5FF]/70 hover:text-[#FFBB00] transition-colors font-medium"
+              >
+                View all News
+                <ArrowRight size={14} />
+              </Link>
+            </div>
+          )}
         </div>
       </section>
-
-      {/* ── 4. Upcoming Events ──────────────────────────────────────────────── */}
-      {/* <section className="px-4 pb-24">
-        <div className="max-w-7xl mx-auto">
-          <div className="flex items-end justify-between mb-10">
-            <div>
-              <p className="text-[#FFBB00] text-xs font-semibold uppercase tracking-widest mb-2">
-                On the calendar
-              </p>
-              <h2 className="text-2xl sm:text-3xl font-bold text-white">
-                Upcoming Events
-              </h2>
-            </div>
-            <Link
-              href="/events?category=conference"
-              className="hidden sm:inline-flex items-center gap-2 text-sm text-[#C7E5FF]/70 hover:text-[#FFBB00] transition-colors duration-200 font-medium"
-            >
-              All conferences
-              <ArrowRight size={14} />
-            </Link>
-          </div>
-
-          <div className="flex flex-col gap-4">
-            {UPCOMING_EVENTS.map((event, i) => (
-              <Link key={event.id} href={event.href} className="group block">
-                <div className="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-6 p-5 sm:p-6 rounded-2xl border border-white/[0.07] bg-[#0d1222] hover:border-[#4C96D7]/40 hover:bg-[#0f1628] transition-all duration-300">
-                  <span className="text-4xl sm:text-5xl font-bold text-white/10 font-mono leading-none select-none w-12 sm:text-right flex-shrink-0">
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
-
-              
-                  <div className="hidden sm:block w-px h-12 bg-white/10 flex-shrink-0" />
-
-                  <div className="flex-1 min-w-0">
-                    <div className="flex flex-wrap items-center gap-2 mb-1.5">
-                      <span className="px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-[#4C96D7]/15 text-[#8DCAFF] border border-[#4C96D7]/25">
-                        {event.format}
-                      </span>
-                    </div>
-                    <h3 className="text-base sm:text-lg font-bold text-white leading-snug group-hover:text-[#FFBB00] transition-colors duration-200">
-                      {event.title}
-                    </h3>
-                  </div>
-
-                  <div className="flex sm:flex-col items-start sm:items-end gap-3 sm:gap-1 flex-shrink-0 text-[#C7E5FF]/60 text-xs">
-                    <span className="flex items-center gap-1.5">
-                      <Calendar size={12} />
-                      {event.date}
-                    </span>
-                    <span className="flex items-center gap-1.5">
-                      <MapPin size={12} />
-                      {event.location}
-                    </span>
-                  </div>
-
-                  <ArrowRight
-                    size={18}
-                    className="hidden sm:block text-white/20 group-hover:text-[#FFBB00] group-hover:translate-x-1 transition-all duration-200 flex-shrink-0"
-                  />
-                </div>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section> */}
     </main>
   );
 }
