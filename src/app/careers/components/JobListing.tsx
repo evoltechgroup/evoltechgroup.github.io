@@ -87,8 +87,8 @@ const jobListings: JobListing[] = [
     location: "India",
   },
   {
-    id: "windows-system-administrator",
-    title: "Windows System Administrator",
+    id: "windows-system-administrator-l2",
+    title: "Windows System Administrator (L2)",
     experience: "6 - 10 years experience",
     location: "India",
   },
