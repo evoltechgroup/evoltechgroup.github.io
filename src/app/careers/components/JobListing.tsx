@@ -14,6 +14,48 @@ interface JobListing {
 }
 
 const jobListings: JobListing[] = [
+   {
+    id: "devops-engineer-terraform-harness",
+    title: "DevOps Engineer - Terraform & Harness",
+    experience: "4 - 8 years experience",
+    location: "India",
+  },
+  {
+    id: "solaris-l3-system-administrator",
+    title: "Solaris L3 System Administrator",
+    experience: "8 - 10 years experience",
+    location: "India",
+  },
+  {
+    id: "solaris-l2-system-administrator",
+    title: "Solaris L2 System Administrator ",
+    experience: "4 - 7 years experience",
+    location: "India",
+  },
+  {
+    id: "windows-system-administrator-l3",
+    title: "Windows System Administrator (L3)",
+    experience: "10 - 15 years experience",
+    location: "India",
+  },
+  {
+    id: "linux-l3-system-administrator",
+    title: "Linux L3 System Administrator",
+    experience: "8 - 10 years experience",
+    location: "India",
+  },
+  {
+    id:"senior-observability-engineer-l3",
+    title: "Senior Observability Engineer (L3)",
+    experience: "10 - 15 years experience",
+    location: "India",
+  },
+  {
+    id: "iam-engineer",
+    title: "IAM Engineer",
+    experience: "5 - 10 years experience",
+    location: "India",
+  },
   {
     id: "associate-gcp-devops-engineer",
     title: "Associate GCP DevOps Engineer",
@@ -45,8 +87,8 @@ const jobListings: JobListing[] = [
     location: "India",
   },
   {
-    id: "windows-system-administrator",
-    title: "Windows System Administrator",
+    id: "windows-system-administrator-l2",
+    title: "Windows System Administrator (L2)",
     experience: "6 - 10 years experience",
     location: "India",
   },
@@ -92,48 +134,7 @@ const jobListings: JobListing[] = [
     experience: "4 - 8 years experience",
     location: "India",
   },
-  {
-    id: "devops-engineer-terraform-harness",
-    title: "DevOps Engineer - Terraform & Harness",
-    experience: "4 - 8 years experience",
-    location: "India",
-  },
-  {
-    id: "solaris-l3-system-administrator",
-    title: "Solaris L3 System Administrator",
-    experience: "8 - 10 years experience",
-    location: "India",
-  },
-  {
-    id: "solaris-l2-system-administrator",
-    title: "Solaris L2 System Administrator ",
-    experience: "4 - 7 years experience",
-    location: "India",
-  },
-  {
-    id: "windows-system-administrator-l3",
-    title: "Windows System Administrator (L3)",
-    experience: "10 - 15 years experience",
-    location: "India",
-  },
-  {
-    id: "linux-l3-system-administrator",
-    title: "Linux L3 System Administrator",
-    experience: "8 - 10 years experience",
-    location: "India",
-  },
-  {
-    id:"senior-observability-engineer-l3",
-    title: "Senior Observability Engineer (L3)",
-    experience: "10 - 15 years experience",
-    location: "India",
-  },
-  {
-    id: "iam-engineer",
-    title: "IAM Engineer",
-    experience: "5 - 10 years experience",
-    location: "India",
-  },
+ 
 ];
 
 const JOBS_PER_PAGE = 7;
