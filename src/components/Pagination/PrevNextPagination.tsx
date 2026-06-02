@@ -32,11 +32,8 @@ const PrevNextPagination = ({
         className="group flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-semibold disabled:opacity-30 disabled:cursor-not-allowed transition-all duration-200"
         style={{ color: "#1761A0" }}
       >
-        <span
-          className="flex items-center justify-center w-7 h-7 rounded-full transition-all duration-200 group-hover:scale-110 group-disabled:scale-100"
-          style={{ backgroundColor: "#1761A0" }}
-        >
-          <ChevronLeft className="w-4 h-4 text-white" />
+        <span className="flex items-center justify-center w-7 h-7 rounded-full transition-all duration-200 group-hover:scale-110 group-disabled:scale-100 border-2 border-[#1761A0]">
+          <ChevronLeft className="w-4 h-4 text-[#1761A0]" strokeWidth={3} />
         </span>
         Prev
       </button>
@@ -55,11 +52,8 @@ const PrevNextPagination = ({
         style={{ color: "#1761A0" }}
       >
         Next
-        <span
-          className="flex items-center justify-center w-7 h-7 rounded-full transition-all duration-200 group-hover:scale-110 group-disabled:scale-100"
-          style={{ backgroundColor: "#1761A0" }}
-        >
-          <ChevronRight className="w-4 h-4 text-white" />
+        <span className="flex items-center justify-center w-7 h-7 rounded-full transition-all duration-200 group-hover:scale-110 group-disabled:scale-100 border-2 border-[#1761A0]">
+          <ChevronRight className="w-4 h-4 text-[#1761A0]" strokeWidth={3} />
         </span>
       </button>
     </div>
