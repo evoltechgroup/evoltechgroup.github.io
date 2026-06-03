@@ -239,7 +239,7 @@ export const jobDescriptions: { id: string; data: JobDescriptionData }[] = [
     },
   },
   {
-    id: "windows-system-administrator",
+    id: "windows-system-administrator-l2",
     data: {
       title: "Windows System Administrator (L2)",
       experience: "6 to 10 years",
