@@ -91,7 +91,7 @@ const CEOVideoLibraryCard: React.FC<CEOVideoLibraryCardProps> = ({
               <div className="mt-2 flex items-end justify-between gap-2">
                 <div className="inline-flex items-center gap-1.5 text-xs text-[#1a1a2e] font-semibold bg-[#4C96D7]/10 rounded-full px-3 py-1.5 border border-[#4C96D7]/20">
                   <span className="text-[#4C96D7]">{CalenderIcon}</span>
-                  <span>2026 · {videoCount} Episodes</span>
+                  <span>Feb – May 2026</span>
                 </div>
                 {/* Spacer for the arrow button */}
                 <div className="w-10 h-10 flex-shrink-0" />

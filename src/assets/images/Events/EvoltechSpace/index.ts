@@ -11,7 +11,6 @@ export { default as PongalCelebration9 } from "./Pongal5.jpeg";
 export { default as PongalCelebration10 } from "./Pongal6.jpeg";
 export { default as PongalCelebration11 } from "./Pongal7.jpeg";
 
-
 // Christmas Celebration
 export { default as ChristmasCelebration1 } from "./Christmas Celebration 1.jpeg";
 export { default as ChristmasCelebration2 } from "./Christmas Celebration 2.jpeg";
@@ -35,6 +34,10 @@ export { default as DiwaliCelebration7 } from "./Diwali2.jpeg";
 
 // AI session
 export { default as AISession1 } from "./AI Session.jpg";
+export { default as AISession2 } from "./AiTraining1.jpeg";
+export { default as AISession3 } from "./AiTraining2.jpeg";
+export { default as AISession4 } from "./AiTraining3.jpeg";
+export { default as AISession5 } from "./AiTraining4.jpeg";
 
 //Office Opening Ceremony
 export { default as EvolTechCeremony1 } from "./Office Opening.jpeg";
@@ -44,7 +47,6 @@ export { default as OpeningCeremony2 } from "./OpeningCeremony2.jpeg";
 export { default as OpeningCeremony3 } from "./OpeningCeremony3.jpeg";
 export { default as OpeningCeremony4 } from "./OpeningCeremony4.jpeg";
 export { default as OpeningCeremony6 } from "./OpeningCeremony6.jpeg";
-
 
 // Andaman Trip
 export { default as AndamanTrip1 } from "./Andaman 1.jpeg";
@@ -81,3 +83,21 @@ export { default as MomentsWithCEO4 } from "./MomentsWithCeo3.jpeg";
 export { default as MomentsWithCEO5 } from "./MomentsWithCeo4.jpeg";
 export { default as MomentsWithCEO6 } from "./MomentsWithCeo5.jpeg";
 export { default as MomentsWithCEO7 } from "./MomentsWithCeo6.jpeg";
+
+//Pune Trip
+export { default as PuneTrip1 } from "./pune.jpeg";
+export { default as PuneTrip2 } from "./pune1.jpeg";
+export { default as PuneTrip3 } from "./pune2.jpeg";
+
+
+//Goa Trip
+export { default as GoaTrip1 } from "./Goa.jpeg";
+export { default as GoaTrip2 } from "./Goa1.jpeg";
+export { default as GoaTrip3 } from "./Goa2.jpeg";
+export { default as GoaTrip4 } from "./Goa3.jpeg";
+
+//Ai training session
+export { default as AiTraining1 } from "./AiTraining1.jpeg";
+export { default as AiTraining2 } from "./AiTraining2.jpeg";
+export { default as AiTraining3 } from "./AiTraining3.jpeg";
+export { default as AiTraining4 } from "./AiTraining4.jpeg";

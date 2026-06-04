@@ -231,7 +231,7 @@ export default function NewsPage() {
                     </div>
 
                     {/* Headline */}
-                    <div className="mb-5">
+                    <div className="mb-6">
                       <h2
                         className="text-white font-bold leading-[1.1]"
                         style={{ fontSize: "clamp(2.4rem, 4.5vw, 3.8rem)" }}
@@ -239,9 +239,9 @@ export default function NewsPage() {
                         Introducing
                       </h2>
                       <h2
-                        className="font-black leading-[1.0]"
+                        className="font-black leading-[1.0] py-2"
                         style={{
-                          fontSize: "clamp(3rem, 7vw, 5.5rem)",
+                          fontSize: "clamp(3rem, 6vw, 5.5rem)",
                           background:
                             "linear-gradient(90deg, #e0d0ff 0%, #b197fc 40%, #7c6fe8 100%)",
                           WebkitBackgroundClip: "text",

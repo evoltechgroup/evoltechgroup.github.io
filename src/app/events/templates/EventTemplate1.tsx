@@ -5,6 +5,7 @@ import { EventDetail } from "@/data/eventDetailsConfig";
 import ThemeButton from "@/components/Button/ThemeButton";
 import { RoundChevronRight } from "@/assets/icons/custom-icons";
 import TitleBackground from "./TitleBackground";
+import EventPhotoAlbum from "../components/EventPhotoAlbum";
 import { useRouter } from "next/navigation";
 
 interface EventTemplate1Props {
@@ -23,7 +24,8 @@ const EventTemplate1: React.FC<EventTemplate1Props> = ({ event }) => {
         style={{
           backgroundImage:
             "linear-gradient(to bottom, rgba(217, 229, 251, 0.5) 0%, #ffff 40%)",
-        }}>
+        }}
+      >
         {hasBanner && (
           <div className="w-full pb-5">
             <div className="grid grid-cols-4 sm:grid-cols-8 lg:grid-cols-12 grid-rows-1 gap-5 max-w-7xl mx-auto px-4 lg:px-0">
@@ -61,7 +63,8 @@ const EventTemplate1: React.FC<EventTemplate1Props> = ({ event }) => {
                     section.leftHighlight
                       ? "border-[#4A90E2] bg-white shadow-sm w-fit p-2 pl-4"
                       : "border-transparent"
-                  }`}>
+                  }`}
+                >
                   {section.title && (
                     <h3
                       className={`text-xl !font-semibold text-[#1a1a2e] ${section.content && "mb-3"}`}
@@ -76,6 +79,20 @@ const EventTemplate1: React.FC<EventTemplate1Props> = ({ event }) => {
                   )}
                 </div>
               ))}
+
+              {event.detailContent.images?.length ||
+              event.detailContent.videos?.length ? (
+                <div className="mt-12">
+                  <h2 className="text-2xl font-bold text-[#1a1a2e] mb-6 text-center">
+                    Conference Highlights
+                  </h2>
+                  <EventPhotoAlbum
+                    images={event.detailContent.images ?? []}
+                    eventTitle={event.title}
+                    videos={event.detailContent.videos}
+                  />
+                </div>
+              ) : null}
 
               {event.detailContent.ctaText && (
                 <div className="w-full flex justify-center items-center py-10">

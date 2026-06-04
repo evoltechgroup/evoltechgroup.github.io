@@ -5,16 +5,21 @@ import Image from "next/image";
 import TitleBackground from "@/app/events/templates/TitleBackground";
 import {
   eventDetailsConfig,
+  formatEventDateRange,
   type EventDetail,
 } from "@/data/eventDetailsConfig";
 
-/** CEO episodes with a real video URL only — no Coming Soon placeholders */
+/** CEO episodes with a real video URL only — sorted by date (newest first) */
 const CEO_VIDEO_EVENTS = eventDetailsConfig
   .filter(
     (e): e is EventDetail & { episode: string } =>
       e.space === "ceo" && !!e.episode && !!e.videoUrl,
   )
-  .sort((a, b) => (a.episode ?? "").localeCompare(b.episode ?? ""));
+  .sort(
+    (a, b) =>
+      new Date(`${a.fromDate}T00:00:00`).getTime() -
+      new Date(`${b.fromDate}T00:00:00`).getTime(),
+  );
 
 const LIBRARY_EVENT = {
   title: "Executive Video Library",
@@ -111,9 +116,12 @@ function VideoCard({
 
           {/* Text */}
           <div className="relative z-10 flex flex-col h-full px-4 pt-3 pb-3">
-            <h3 className="text-sm font-bold text-[#1a1a2e] leading-snug line-clamp-2 flex-1">
+            <h3 className="text-sm font-bold text-[#1a1a2e] leading-snug line-clamp-2 mb-1">
               {event.title}
             </h3>
+            <p className="text-[11px] text-[#334155]/60 font-medium flex-1">
+              {formatEventDateRange(event.fromDate, event.toDate)}
+            </p>
             <div className="h-2 flex-shrink-0" />
           </div>
 

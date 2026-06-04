@@ -21,7 +21,7 @@ const Section1 = () => {
   const activeCategory = getCategoryFromQuery(searchParams.get("category"));
   const SectionTitle =
     activeCategory === "conference"
-      ? "Explore Our Events"
+      ? "Explore Our Conferences"
       : activeCategory === "internal"
         ? "Discover Our Events"
         : "Explore Our Events";
@@ -40,7 +40,7 @@ const Section1 = () => {
 
   return (
     <section className="relative flex w-full flex-col items-center bg-[#ffff] py-10 h-[60vh] lg:h-[75vh] xl:h-[75vh]">
-      <div className="absolute inset-0 z-0 w-full h-full flex bg-black overflow-hidden pointer-events-none">
+      <div className="">
         <div className="absolute inset-0 z-0 w-full h-full flex bg-black overflow-hidden pointer-events-none">
           <div className="absolute z-8 w-full h-full">{eclipseEffect}</div>
 
@@ -100,14 +100,16 @@ const Section1 = () => {
           <div className="flex flex-col gap-3 md:gap-5 items-center justify-center mt-4">
             <Text
               className="font-semibold text-3xl sm:text-4xl md:text-5xl xl:text-6xl text-center"
-              tag="p">
+              tag="p"
+            >
               {SectionTitle}
             </Text>
             <Text className="text-xl sm:text-2xl md:text-3xl max-w-[40rem] text-center text-[#FFBB00]">
               {SectionDescription}
             </Text>
             <div
-              className={`flex items-center justify-center w-10 md:w-[71px] ${activeCategory === "internal" ? "invisible" : ""}`}>
+              className={`flex items-center justify-center w-10 md:w-[71px] ${activeCategory === "internal" ? "invisible" : ""}`}
+            >
               {followArrowDown}
             </div>
           </div>

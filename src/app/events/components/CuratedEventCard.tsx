@@ -43,11 +43,11 @@ function SleekCard({
         {/* Card shell */}
         <div className="absolute inset-0 rounded-3xl border border-[#E4EAF4] bg-white shadow-[0_10px_30px_rgba(15,23,42,0.08)] group-hover:shadow-[0_20px_44px_rgba(15,23,42,0.16)] transition-shadow duration-300 flex flex-col overflow-hidden">
           {/* Image */}
-          <div className="relative w-full h-48 sm:h-52 flex-shrink-0 overflow-hidden">
+          <div className="relative w-full h-48 sm:h-52 flex-shrink-0 overflow-hidden bg-[#0B1530] flex items-center justify-center">
             <img
               src={event.image.src}
               alt={event.title}
-              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+              className="w-full h-full object-cover transition-transform duration-300"
             />
             {badge && (
               <span
@@ -86,7 +86,6 @@ function SleekCard({
                   </span>
                 </div>
               </div>
-              <div className="h-6 flex-shrink-0" />
             </div>
 
             {/* White circle — expands from corner to fill card on hover */}
@@ -339,15 +338,14 @@ function CompactCard({
               <p className="text-xs text-[#334155]/70 leading-relaxed line-clamp-3 flex-1">
                 {event.description}
               </p>
-              <div className="mt-2">
-                <div className="inline-flex items-center gap-1.5 text-xs text-[#1a1a2e] bg-[#4C96D7]/10 rounded-full px-3 py-1.5 border border-[#4C96D7]/20">
+              <div className="">
+                <div className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#1a1a2e] bg-[#4C96D7]/10 rounded-full px-3 py-1.5 border border-[#4C96D7]/20">
                   <span className="text-[#4C96D7]">{CalenderIcon}</span>
                   <span className="whitespace-nowrap">
                     {formatEventDateRange(event.fromDate, event.toDate)}
                   </span>
                 </div>
               </div>
-              <div className="h-6 flex-shrink-0" />
             </div>
 
             {/* Inset shimmer ring — ice-blue border glow on hover */}

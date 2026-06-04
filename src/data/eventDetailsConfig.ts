@@ -16,9 +16,13 @@ import {
   EvolTechCeremony,
   SpringExchange,
   SpringExchangeBanner,
+  AbaBanner,
+  HCAABanner,
+  HCAA,
 } from "@/assets/images/Events/CuratedEvents";
 import Alwyn from "@/assets/images/Events/atea/Alwyn.png";
 import AteaBg from "@/assets/images/Events/atea/Atea-Bg.png";
+import AteaBanner from "@/assets/images/Events/atea/Atea.png";
 import Kanchana from "@/assets/images/Events/atea/Kanchana.png";
 import Nazeera from "@/assets/images/Events/atea/Nazeera.png";
 import Ramesh from "@/assets/images/Events/atea/Ramesh.png";
@@ -26,11 +30,22 @@ import Thulasi from "@/assets/images/Events/atea/Thulasi.png";
 import ABABanner from "@/assets/images/Events/ABA/aba-banner.png";
 import AbaBg from "@/assets/images/Events/ABA/Aba-bg.png";
 import Innov from "@/assets/images/Events/siia/Innov.png";
+import SiiaBg from "@/assets/images/Events/siia/SiiaBg.png";
 import HealthcareBanner from "@/assets/images/Events/siia/siia heathcare/siia-healthcare-banner.png";
 import SiiaDubai1 from "@/assets/images/Events/siia/siia dubai/siia-dubai1.png";
 import SiiaDubai2 from "@/assets/images/Events/siia/siia dubai/siia-dubai2.png";
 import SiiaDubai3 from "@/assets/images/Events/siia/siia dubai/siia-dubai3.png";
 import SiiaDubaiBanner from "@/assets/images/Events/siia/siia dubai/siia-dubai-banner.png";
+import {
+  CEO1,
+  CEO2,
+  CEO3,
+  CEO4,
+  CEO5,
+  CEO6,
+  CEO7,
+  CEO8,
+} from "@/assets/images/Events/EvoltechSpace/Moments-With-Ceo/index";
 import {
   AISession1,
   AndamanTrip1,
@@ -98,8 +113,21 @@ import {
   MomentsWithCEO5,
   MomentsWithCEO6,
   MomentsWithCEO7,
+  AiTraining1,
+  AiTraining2,
+  AiTraining3,
+  AiTraining4,
+  GoaTrip1,
+  GoaTrip4,
+  GoaTrip3,
+  GoaTrip2,
 } from "@/assets/images/Events/EvoltechSpace";
-import { Christmas } from "@/assets/events/video";
+import {
+  AiBanner,
+  ChristmasBanner,
+  DiwaliBanner,
+  AiBanner2,
+} from "@/assets/effects/Banner";
 import {
   AmericanBankers1,
   AmericanBankers2,
@@ -259,8 +287,8 @@ const rawEventDetailsConfig: RawEventDetail[] = [
     title: "SIIA Spring Exchange 2026",
     description:
       "SIIA's Spring Exchange brings self-insurance leaders together for relationship-building, capital conversations, and practical business growth.",
-    fromDate: "2026-03-30",
-    toDate: "2026-04-01",
+    fromDate: "2027-03-30",
+    toDate: "2027-04-01",
     tags: [
       { label: "Conference", bgColor: "#FE7F00" },
       { label: "Networking", bgColor: "#FFBB00" },
@@ -269,61 +297,30 @@ const rawEventDetailsConfig: RawEventDetail[] = [
     city: "New Orleans",
     state: "LA",
     venue: "Sheraton New Orleans",
-    bannerImage: SpringExchangeBanner,
     detailContent: {
       overview:
-        "Spring Exchange is SIIA's relationship-driven forum for leaders across the self-insurance marketplace. The event is designed to create more room for meaningful conversations, sharper collaboration, and faster business momentum.",
+        "EvolTech attended SIIA's Spring Exchange in New Orleans — a relationship-driven forum bringing together leaders across the self-insurance marketplace for focused business conversations, partnership building, and capital discussions.",
       sections: [
         {
-          title: "A program built to move business forward",
+          title: "Why EvolTech Was There",
           content:
-            "The Spring Exchange format focuses on high-value meetings, peer conversations, and targeted introductions that help attendees turn time on site into real opportunities.",
+            "EvolTech attended Spring Exchange to connect with key players across the self-insurance marketplace, explore partnership opportunities, and position our technology solutions for teams evaluating digital transformation in TPA and self-insured employer operations.",
           leftHighlight: true,
         },
         {
-          title: "More time for real conversations",
+          title: "Conversations That Mattered",
           content:
-            "Attendees get expanded time with industry peers, decision-makers, and potential partners so meetings can go beyond introductions and become productive working sessions.",
+            "We used the event's meeting-focused format to have productive, targeted conversations with decision-makers looking at modernizing claims workflows, reducing administrative cost, and building more scalable operations — precisely the problems our technology is built to solve.",
         },
         {
-          title: "Deep-dive discussions",
+          title: "What We Took Away",
           content:
-            "Instead of relying only on formal presentations, the program creates space for focused small-group conversations around market challenges, operating strategies, and growth opportunities.",
-        },
-        {
-          title: "Public and private meeting space",
-          content:
-            "Dedicated networking areas and reservable meeting rooms make it easier for teams to host client conversations, partnership discussions, and follow-up meetings during the event.",
-        },
-        {
-          title: "Access to capital conversations",
-          content:
-            "Private equity and investment participants add another layer of opportunity for organizations exploring strategic growth, minority investment, or broader capital solutions.",
-        },
-        {
-          title: "Vendor showcases",
-          content:
-            "Showcase sessions give solution providers more room to demonstrate their capabilities in context and help attendees evaluate products in a more useful, business-focused setting.",
-        },
-        {
-          title: "Career coaching and leadership development",
-          content:
-            "Special programming supports rising leaders with coaching, practical guidance, and time with experienced industry executives.",
-        },
-        {
-          title: "Women in SIIA",
-          content:
-            "Dedicated networking time highlights and supports the women shaping the future of the self-insurance industry.",
-        },
-        {
-          title: "Why it matters",
-          content:
-            "Spring Exchange remains one of the industry's strongest venues for turning introductions into action and conversations into partnerships.",
+            "Spring Exchange reinforced the value of showing up in person. The connections made and conversations started at the event directly supported our business development momentum and confirmed the market's appetite for practical, well-executed technology solutions in the self-insurance space.",
           leftHighlight: true,
         },
       ],
-      ctaText: "More details",
-      ctaLink: "#",
+      ctaText: "Connect with us",
+      ctaLink: "/contact?source=SpringExchange2026#contact-form",
     },
   },
   {
@@ -335,8 +332,8 @@ const rawEventDetailsConfig: RawEventDetail[] = [
     title: "GrowATL 2025 - Tech Panel",
     description:
       "EvolTech joined GrowATL 2025 for a technology panel focused on innovation, insights, impact, and the future of the Atlanta startup ecosystem.",
-    fromDate: "2025-09-06",
-    toDate: "2025-09-06",
+    fromDate: "2026-09-06",
+    toDate: "2026-09-06",
     tags: [
       { label: "Conference", bgColor: "#FE7F00" },
       { label: "Technology", bgColor: "#4A90E2" },
@@ -350,20 +347,18 @@ const rawEventDetailsConfig: RawEventDetail[] = [
         "GrowATL 2025 was ATEA Atlanta Chapter's flagship entrepreneurship and innovation summit, bringing founders, operators, and ecosystem builders together for a day of bold conversations and practical momentum.",
       sections: [
         {
-          title: "Theme",
+          title: "Why EvolTech Participated",
           content:
-            'The event centered on "ATL Ecosystem for Innovations, Insights and Impact," creating space for dialogue around technology leadership, startup growth, and the road to ATEA Atlanta Vision 2030.',
+            "Our team joined the GrowATL 2025 tech panel to exchange ideas with fellow leaders and contribute perspectives on scaling operations, building smarter technology foundations, and turning innovation into measurable business value.",
         },
         {
-          title: "Why EvolTech participated",
+          title: "Panel Conversations",
           content:
-            "Our team joined the tech panel to exchange ideas with fellow leaders and contribute perspectives on scaling operations, building smarter technology foundations, and turning innovation into measurable business value.",
+            "The session brought together cross-industry leadership voices from technology, healthcare, networking, and startup founders shaping the next phase of growth in the Atlanta region. EvolTech contributed our perspective on modern technology execution and what it takes to build lasting, scalable solutions in the current market environment.",
         },
-        {
-          title: "Panel conversations",
-          content:
-            "The session highlighted cross-industry leadership viewpoints from technology, healthcare, networking, and startup founders shaping the next phase of growth in the region.",
-        },
+      ],
+      videos: [
+        "https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7373369406070054915?compact=1",
       ],
       speakers: [
         {
@@ -426,7 +421,7 @@ const rawEventDetailsConfig: RawEventDetail[] = [
         {
           title: "Why the event mattered",
           content:
-            "The conference created strong opportunities to connect with teams actively evaluating digital transformation priorities and looking for execution partners who understand operations as well as technology.",
+            "The conference created strong opportunities to connect with teams actively evaluating digital transformation priorities and looking for execution partners who understood operations as well as technology.",
         },
       ],
       ctaText: "Connect with us",
@@ -451,7 +446,6 @@ const rawEventDetailsConfig: RawEventDetail[] = [
   //   ],
   //   city: "Dubai",
   //   state: "UAE",
-  //   bannerImage: AmericanBankersBanner,
   //   detailContent: {
   //     overview:
   //       "The SIIA International Conference in Dubai brought together leaders from self-insurance, healthcare, and captive insurance for a distinctly global exchange of ideas, partnerships, and market perspectives.",
@@ -481,7 +475,7 @@ const rawEventDetailsConfig: RawEventDetail[] = [
     slug: "aba-conference-community-bankers",
     template: "template2",
     category: "conference",
-    image: ABABanner,
+    image: EventsBg,
     title: "American Bankers Association (ABA) Conference",
     description:
       "EvolTech attended the ABA Conference for Community Bankers to connect with banking leaders and share practical technology solutions for modern community banking.",
@@ -494,7 +488,6 @@ const rawEventDetailsConfig: RawEventDetail[] = [
     city: "Orlando",
     state: "FL",
     venue: "JW Marriott Grande Lakes",
-    bannerImage: AbaBg,
     detailContent: {
       overview:
         "The ABA Conference for Community Bankers brought banking leaders together for practical conversations around growth, customer experience, operations, and technology strategy.",
@@ -521,7 +514,7 @@ const rawEventDetailsConfig: RawEventDetail[] = [
     slug: "hcaa-executive-forum-2026",
     template: "template2",
     category: "conference",
-    image: EventsBg,
+    image: HCAABanner,
     title: "HCAA 2026 Executive Forum",
     description:
       "EvolTech tracked the HCAA Executive Forum to stay close to leadership conversations shaping healthcare cost containment, benefits operations, and employer strategy.",
@@ -539,7 +532,7 @@ const rawEventDetailsConfig: RawEventDetail[] = [
         {
           title: "Why it was relevant",
           content:
-            "The forum aligned closely with the challenges our healthcare clients face, especially around controlling cost, improving administrative execution, and responding to a fast-changing benefits landscape.",
+            "The forum aligned closely with the challenges our healthcare clients faced, especially around controlling cost, improving administrative execution, and responding to a fast-changing benefits landscape.",
         },
         {
           title: "EvolTech's lens",
@@ -582,9 +575,9 @@ const rawEventDetailsConfig: RawEventDetail[] = [
             "Industry leaders shared strategies for addressing rising medical and pharmacy costs, improving oversight, and building more informed health plan decisions.",
         },
         {
-          title: "Why EvolTech follows this space",
+          title: "Why We Attended",
           content:
-            "The event aligns closely with our interest in helping healthcare organizations translate data access into better workflows, lower friction, and more effective cost management.",
+            "The event aligned closely with our focus on helping healthcare organizations translate data access into better workflows, lower friction, and more effective cost management.",
         },
       ],
       ctaText: "More details",
@@ -629,6 +622,7 @@ const rawEventDetailsConfig: RawEventDetail[] = [
     template: "template3",
     category: "internal",
     image: AnnualLeadershipSummit01,
+    // bannerImage: AnnualLeadershipSummit01,
     title: "EvolTech Annual Leadership Summit 2025!",
     description:
       "Celebrating excellence is at the heart of EvolTech. Our R&R initiatives spotlight individual and team achievements, fostering a culture of appreciation...",
@@ -732,13 +726,11 @@ const rawEventDetailsConfig: RawEventDetail[] = [
         AndamanTrip3,
         AndamanTrip5,
         AndamanTrip6,
-        AndamanTrip7,
         AndamanTrip11,
         AndamanTrip12,
         // AndamanTrip14,
         // AndamanTrip15,
         AndamanTrip16,
-        AndamanTrip17,
       ],
     },
   },
@@ -794,8 +786,18 @@ const rawEventDetailsConfig: RawEventDetail[] = [
         MomentsWithCEO2,
         MomentsWithCEO3,
         MomentsWithCEO4,
-        MomentsWithCEO5,
         MomentsWithCEO6,
+        MomentsWithCEO7,
+        // CEO4,
+        CEO1,
+        CEO2,
+        CEO3,
+        MomentsWithCEO5,
+        CEO5,
+        CEO6,
+        CEO7,
+        CEO8,
+        // CEO4,
       ],
     },
   },
@@ -849,6 +851,7 @@ const rawEventDetailsConfig: RawEventDetail[] = [
     template: "template3",
     category: "internal",
     image: ChristmasCelebration1,
+    bannerImage: ChristmasBanner,
     title: "EvolTech Christmas & Year-End Social",
     description:
       "Wrapping up 2025 with holiday cheer, Secret Santa surprises, and a celebration of our team's collective success.",
@@ -883,7 +886,9 @@ const rawEventDetailsConfig: RawEventDetail[] = [
         ChristmasCelebration2,
         ChristmasCelebration3,
       ],
-      // videos: [Christmas],
+      videos: [
+        "https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7409995870210842624?compact=1",
+      ],
       highlights: [
         "Secret Santa gift exchange and reveals",
         "Traditional holiday themed team lunch",
@@ -950,6 +955,7 @@ const rawEventDetailsConfig: RawEventDetail[] = [
     template: "template3",
     category: "internal",
     image: DiwaliCelebration3,
+    bannerImage: DiwaliBanner,
     title: "Diwali 2025 - Festival of Lights",
     description:
       "A luminous celebration at our Chennai office featuring traditional diyas, festive sweets, and a spirit of togetherness.",
@@ -1005,6 +1011,7 @@ const rawEventDetailsConfig: RawEventDetail[] = [
     template: "template3",
     category: "internal",
     image: AISession1,
+    bannerImage: AiBanner,
     title: "AI & Future Tech: Internal Deep-Dive",
     description:
       "Exploring the intersection of Generative AI, image restoration, and automated workflows in our development pipeline.",
@@ -1039,6 +1046,7 @@ const rawEventDetailsConfig: RawEventDetail[] = [
         "Strategic planning for AI integration in the CLRFI platform",
         "Collaborative session on AI-assisted clean code practices",
       ],
+      images: [AiTraining1, AiTraining2, AiTraining3, AiTraining4],
     },
   },
   {
@@ -1085,6 +1093,10 @@ const rawEventDetailsConfig: RawEventDetail[] = [
         "Inaugural walkthrough of the new engineering bays",
         "Team-wide luncheon and strategy kickoff",
         "Special presentation on the 2025-2026 technical roadmap",
+      ],
+      videos: [
+        "https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7363534950446350336?compact=1",
+        "https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7361492210162286592?compact=1",
       ],
       images: [
         OpeningCeremony,
@@ -1173,7 +1185,8 @@ const rawEventDetailsConfig: RawEventDetail[] = [
     image: MomentsWithCEO5,
     episode: "EP 03",
     duration: "16 min",
-    videoUrl: "",
+    videoUrl:
+      "https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7428099602337198080?compact=1",
     title: "Navigating Fintech: Insights from the Frontlines",
     description:
       "What does it take to build and sustain a fintech product in today's regulatory and market landscape? Our CEO shares hard-won insights from years on the frontlines.",
@@ -1203,9 +1216,10 @@ const rawEventDetailsConfig: RawEventDetail[] = [
     space: "ceo" as const,
     showInList: false,
     image: MomentsWithCEO7,
-
+    episode: "EP 04",
     duration: "21 min",
-    videoUrl: "",
+    videoUrl:
+      "https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7431804532759642112?compact=1",
     title: "Innovation in Practice: How EvolTech Builds for Tomorrow",
     description:
       "Innovation is not an abstract concept at EvolTech — it is a daily practice. Our CEO reveals the frameworks, mindsets, and team rituals that keep EvolTech ahead of the curve.",
@@ -1261,7 +1275,7 @@ const rawEventDetailsConfig: RawEventDetail[] = [
             "Late evenings by the beach, shared meals, and spontaneous adventures made this offsite one for the books. Goa gave us the perfect backdrop to step back, recharge, and return stronger.",
         },
       ],
-      images: [TheGOATrip, DinnerWithTeam, LunchwithTheTeam],
+      images: [TheGOATrip, GoaTrip1, GoaTrip2, GoaTrip3, GoaTrip4],
     },
   },
   {

@@ -8,10 +8,10 @@ import {
 } from "@/data/eventDetailsConfig";
 import CuratedEventCard from "../components/CuratedEventCard";
 import { TabButton } from "@/components/services/tabButton";
-import { SpaceSwitch } from "@/components/SpaceSwitch";
 import ThemeButton from "@/components/Button/ThemeButton";
 import { RoundChevronDown } from "@/assets/icons/custom-icons";
 import CEOVideoLibraryCard from "../components/CEOVideoLibraryCard";
+import ConferenceSection from "./ConferenceSection";
 
 type FilterType = "all" | "upcoming" | "past";
 type CategoryFilter = "all" | EventCategory;
@@ -44,7 +44,20 @@ const getSpaceFromQuery = (space: string | null): SpaceFilter => {
   return "evoltech";
 };
 
+/* ── Thin router: delegates to the right section component ────────── */
 const Section2 = () => {
+  const searchParams = useSearchParams();
+  const activeCategory = getCategoryFromQuery(searchParams.get("category"));
+
+  if (activeCategory === "conference") {
+    return <ConferenceSection />;
+  }
+
+  return <InternalSection />;
+};
+
+/* ── Internal events section (EvolTech Space + CEO Space + All) ───── */
+const InternalSection = () => {
   const searchParams = useSearchParams();
   const router = useRouter();
   const [activeFilter, setActiveFilter] = useState<FilterType>("all");
@@ -52,23 +65,36 @@ const Section2 = () => {
   const [visibleCount, setVisibleCount] = useState(6);
   const activeCategory = getCategoryFromQuery(searchParams.get("category"));
   const activeSpace = getSpaceFromQuery(searchParams.get("space"));
+
   const availableYears = useMemo(() => {
     const years = new Set<number>();
-
-    listedEventDetailsConfig.forEach((event) => {
-      const fromYear = new Date(`${event.fromDate}T00:00:00`).getFullYear();
-      const toYear = new Date(`${event.toDate}T00:00:00`).getFullYear();
-
-      for (let year = fromYear; year <= toYear; year += 1) {
-        years.add(year);
-      }
-    });
-
+    listedEventDetailsConfig
+      .filter((event) => {
+        if (activeCategory === "all") return event.category !== "conference";
+        if (event.category !== activeCategory) return false;
+        if (activeCategory === "internal") {
+          return activeSpace === "ceo"
+            ? event.space === "ceo"
+            : event.space !== "ceo";
+        }
+        return true;
+      })
+      .forEach((event) => {
+        const fromYear = new Date(`${event.fromDate}T00:00:00`).getFullYear();
+        const toYear = new Date(`${event.toDate}T00:00:00`).getFullYear();
+        for (let year = fromYear; year <= toYear; year += 1) {
+          years.add(year);
+        }
+      });
     return Array.from(years).sort((left, right) => right - left);
-  }, []);
+  }, [activeCategory, activeSpace]);
 
   const filteredEvents = useMemo<EventDetail[]>(() => {
     return listedEventDetailsConfig.filter((event) => {
+      // In "all" view, exclude conference events (they live in ConferenceSection)
+      if (activeCategory === "all" && event.category === "conference") {
+        return false;
+      }
       const matchesStatus =
         activeFilter === "all"
           ? true
@@ -84,9 +110,7 @@ const Section2 = () => {
             ? event.space === "ceo"
             : event.space !== "ceo";
 
-      if (!matchesStatus || !matchesCategory || !matchesSpace) {
-        return false;
-      }
+      if (!matchesStatus || !matchesCategory || !matchesSpace) return false;
 
       if (selectedYear) {
         const year = Number(selectedYear);
@@ -94,10 +118,7 @@ const Section2 = () => {
         const eventEnd = new Date(`${event.toDate}T23:59:59`);
         const filterStart = new Date(year, 0, 1);
         const filterEnd = new Date(year, 11, 31, 23, 59, 59, 999);
-
-        if (eventEnd < filterStart || eventStart > filterEnd) {
-          return false;
-        }
+        if (eventEnd < filterStart || eventStart > filterEnd) return false;
       }
 
       return true;
@@ -169,21 +190,29 @@ const Section2 = () => {
         <div className="col-span-4 col-start-1 sm:col-span-8 lg:col-span-10 lg:col-start-2 ">
           {activeCategory === "internal" && (
             <div className="mb-10">
-              <SpaceSwitch
-                options={SPACE_FILTERS}
-                activeValue={activeSpace}
-                onChange={(v) => {
-                  const params = new URLSearchParams(searchParams.toString());
-                  if (v === "evoltech") {
-                    params.delete("space");
-                  } else {
-                    params.set("space", v);
-                  }
-                  router.replace(`/events?${params.toString()}`, {
-                    scroll: false,
-                  });
-                }}
-              />
+              <div className="flex gap-[10px] bg-[#58619D] rounded-full p-1 shadow-md w-fit">
+                {SPACE_FILTERS.map((sf) => (
+                  <TabButton
+                    key={sf.value}
+                    label={sf.label}
+                    tabKey={sf.value}
+                    activeTab={activeSpace}
+                    onSelect={(v) => {
+                      const params = new URLSearchParams(
+                        searchParams.toString(),
+                      );
+                      if (v === "evoltech") {
+                        params.delete("space");
+                      } else {
+                        params.set("space", v);
+                      }
+                      router.replace(`/events?${params.toString()}`, {
+                        scroll: false,
+                      });
+                    }}
+                  />
+                ))}
+              </div>
             </div>
           )}
 
@@ -197,17 +226,20 @@ const Section2 = () => {
               </p>
             </div>
 
-            <div className="flex gap-[10px] bg-[#58619D] rounded-full p-1 shadow-md shrink-0">
-              {FILTERS.map((filter) => (
-                <TabButton
-                  key={filter.value}
-                  label={filter.label}
-                  tabKey={filter.value}
-                  activeTab={activeFilter}
-                  onSelect={(tab) => setActiveFilter(tab as FilterType)}
-                />
-              ))}
-            </div>
+            {/* Hide All / Upcoming / Past for EvolTech Space and CEO Space — all events are shown */}
+            {activeCategory !== "internal" && (
+              <div className="flex gap-[10px] bg-[#58619D] rounded-full p-1 shadow-md shrink-0">
+                {FILTERS.map((filter) => (
+                  <TabButton
+                    key={filter.value}
+                    label={filter.label}
+                    tabKey={filter.value}
+                    activeTab={activeFilter}
+                    onSelect={(tab) => setActiveFilter(tab as FilterType)}
+                  />
+                ))}
+              </div>
+            )}
           </div>
 
           <div className="mb-6 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between flex-wrap">

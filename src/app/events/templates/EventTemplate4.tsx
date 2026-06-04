@@ -6,6 +6,7 @@ import TitleBackground from "./TitleBackground";
 import ThemeButton from "@/components/Button/ThemeButton";
 import { RoundChevronRight } from "@/assets/icons/custom-icons";
 import { useRouter } from "next/navigation";
+import EventPhotoAlbum from "../components/EventPhotoAlbum";
 
 interface EventTemplate4Props {
   event: EventDetail;
@@ -21,7 +22,25 @@ const EventTemplate4: React.FC<EventTemplate4Props> = ({ event }) => {
         style={{
           backgroundImage:
             "linear-gradient(to bottom, rgba(217, 229, 251, 0.5) 0%, #ffff 40%)",
-        }}>
+        }}
+      >
+        {event.bannerImage && (
+          <div className="w-full pt-8 pb-2">
+            <div className="grid grid-cols-4 sm:grid-cols-8 lg:grid-cols-12 gap-5 max-w-7xl mx-auto px-4 lg:px-0">
+              <div className="col-span-4 col-start-1 lg:col-span-10 lg:col-start-2">
+                <div className="relative h-[160px] sm:h-[280px] w-full overflow-hidden rounded-2xl shadow-lg">
+                  <Image
+                    src={event.bannerImage}
+                    alt={event.title}
+                    fill
+                    className="object-cover"
+                    priority
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
         <div className="w-full py-10">
           <div className="grid grid-cols-4 sm:grid-cols-8 lg:grid-cols-12 grid-rows-1 gap-5 max-w-7xl mx-auto px-4 lg:px-0">
             <div className="col-span-4 col-start-1 lg:col-span-10 lg:col-start-2">
@@ -59,7 +78,8 @@ const EventTemplate4: React.FC<EventTemplate4Props> = ({ event }) => {
                       {event.detailContent.speakers.map((speaker) => (
                         <div
                           key={speaker.name}
-                          className="flex flex-col items-center text-center">
+                          className="flex flex-col items-center text-center"
+                        >
                           <div className="relative mb-4 h-28 w-28 overflow-hidden rounded-full shadow-md sm:h-32 sm:w-32">
                             <Image
                               src={speaker.image}
@@ -76,6 +96,20 @@ const EventTemplate4: React.FC<EventTemplate4Props> = ({ event }) => {
                     </div>
                   </div>
                 )}
+
+              {event.detailContent.images?.length ||
+              event.detailContent.videos?.length ? (
+                <div className="mt-12">
+                  <h2 className="mb-6 text-center text-2xl font-bold text-[#1a1a2e]">
+                    Conference Highlights
+                  </h2>
+                  <EventPhotoAlbum
+                    images={event.detailContent.images ?? []}
+                    eventTitle={event.title}
+                    videos={event.detailContent.videos}
+                  />
+                </div>
+              ) : null}
 
               {event.detailContent.ctaText && (
                 <div className="flex w-full items-center justify-center py-10">

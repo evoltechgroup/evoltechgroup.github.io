@@ -11,3 +11,7 @@ export { default as sampleBanner } from "./sampleBanner.png";
 export { default as GregArms } from "./Greg-Banner.jpeg";
 export { default as TenthYearBanner } from "./10-years-Banner.png";
 export { default as TenthYearBanner1 } from "./10years-Banner.png";
+export { default as ChristmasBanner } from "./ChristmasBanner.png";
+export { default as DiwaliBanner } from "./DiwaliBanner.png";
+export { default as AiBanner } from "./AiBanner.png";
+export { default as AiBanner2} from "./AiTrainingBanner.png";

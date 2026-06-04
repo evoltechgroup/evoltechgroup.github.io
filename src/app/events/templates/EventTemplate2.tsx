@@ -1,5 +1,6 @@
 "use client";
 import React from "react";
+import Image from "next/image";
 import { EventDetail } from "@/data/eventDetailsConfig";
 import TitleBackground from "./TitleBackground";
 import ThemeButton from "@/components/Button/ThemeButton";
@@ -23,6 +24,23 @@ const EventTemplate2: React.FC<EventTemplate2Props> = ({ event }) => {
             "linear-gradient(to bottom, rgba(217, 229, 251, 0.5) 0%, #ffff 40%)",
         }}
       >
+        {event.bannerImage && (
+          <div className="w-full pt-8 pb-2">
+            <div className="grid grid-cols-4 sm:grid-cols-8 lg:grid-cols-12 gap-5 max-w-7xl mx-auto px-4 lg:px-0">
+              <div className="col-span-4 col-start-1 lg:col-span-10 lg:col-start-2">
+                <div className="relative h-[160px] sm:h-[280px] w-full overflow-hidden rounded-2xl shadow-lg">
+                  <Image
+                    src={event.bannerImage}
+                    alt={event.title}
+                    fill
+                    className="object-cover"
+                    priority
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
         <div className="w-full py-10">
           <div className="grid grid-cols-4 sm:grid-cols-8 lg:grid-cols-12 grid-rows-1 gap-5 max-w-7xl mx-auto px-4 lg:px-0">
             <div className="col-span-4 col-start-1 lg:col-span-10 lg:col-start-2">
@@ -50,18 +68,21 @@ const EventTemplate2: React.FC<EventTemplate2Props> = ({ event }) => {
                 </div>
               ))}
 
-              {(event.detailContent.images?.length || event.detailContent.videos?.length) ? (
-                  <div className="mt-12">
-                    <h2 className="text-2xl font-bold text-[#1a1a2e] mb-6 text-center">
-                      Here are few photos from the event!
-                    </h2>
-                    <EventPhotoAlbum
-                      images={event.detailContent.images ?? []}
-                      eventTitle={event.title}
-                      videos={event.detailContent.videos}
-                    />
-                  </div>
-                ) : null}
+              {event.detailContent.images?.length ||
+              event.detailContent.videos?.length ? (
+                <div className="mt-12">
+                  <h2 className="text-2xl font-bold text-[#1a1a2e] mb-6 text-center">
+                    {event.category === "conference"
+                      ? "Conference Highlights"
+                      : "Here are few photos from the event!"}
+                  </h2>
+                  <EventPhotoAlbum
+                    images={event.detailContent.images ?? []}
+                    eventTitle={event.title}
+                    videos={event.detailContent.videos}
+                  />
+                </div>
+              ) : null}
 
               {event.detailContent.ctaText && (
                 <div className="flex w-full items-center justify-center py-10">
