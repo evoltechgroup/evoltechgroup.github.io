@@ -15,7 +15,10 @@ const EventTemplate3: React.FC<EventTemplate3Props> = ({ event }) => {
   const router = useRouter();
   return (
     <div className="w-full">
-      <TitleBackground event={event} />
+      <TitleBackground
+        event={event}
+        showBgImage={event.showTitleBgImage ?? true}
+      />
 
       {/* ── Video player — shown when the event has a videoUrl ── */}
       {event.episode && (
@@ -112,7 +115,7 @@ const EventTemplate3: React.FC<EventTemplate3Props> = ({ event }) => {
             event.detailContent.videos?.length ? (
               <div className="mt-16">
                 <h2 className="text-2xl md:text-3xl font-bold text-[#1a1a2e] mb-8 text-center">
-                  Here are few photos from the event!
+                  Reliving the Best Moments
                 </h2>
                 <EventPhotoAlbum
                   images={event.detailContent.images ?? []}

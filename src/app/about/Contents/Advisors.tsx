@@ -7,8 +7,8 @@ const advisors: LeaderProfileData[] = [
   {
     image: Greg,
     name: "Greg Arms",
-    title: "Strategic Advisor",
-    role: "Strategic Advisor",
+    title: "Senior Strategic Advisor",
+    role: "Senior Strategic Advisor",
     linkedinUrl: "https://www.linkedin.com/in/gregarms/",
     heading: "Our Advisor",
     bio: [
@@ -23,7 +23,8 @@ const Advisors = () => {
   return (
     <section
       className="w-full h-1/2 bg-[#EFF7FF] relative"
-      id="advisors-section">
+      id="advisors-section"
+    >
       <div className="absolute w-full h-full overflow-hidden z-1">
         <div className="absolute -left-10 bottom-0 md:top-0 scale-x-[-1]">
           {topRightRing}

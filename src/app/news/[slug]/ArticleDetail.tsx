@@ -177,10 +177,10 @@ function Sidebar({ article }: { article: NewsArticle }) {
   const related = getRelated(article.related);
   return (
     <aside className="space-y-6">
-      {/* Article details card */}
+      {/* News details card */}
       <div className="rounded-2xl border border-white/[0.08] bg-[#0d1222] p-5">
         <p className="text-[10px] uppercase tracking-widest text-[#C7E5FF]/40 font-semibold mb-4">
-          Article Details
+          News Details
         </p>
         <div className="space-y-3 text-sm">
           <div className="flex items-center gap-2.5">

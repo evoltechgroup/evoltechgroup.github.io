@@ -74,6 +74,12 @@ export { default as Cruise2 } from "./Cruise.jpg";
 export { default as Cruise3 } from "./Cruise3.jpg";
 export { default as FireCamp } from "./FireCamp.jpg";
 export { default as Resort } from "./resort.jpeg";
+export { default as Cruise4 } from "./Cruise4.jpg";
+export { default as Cruise5 } from "./Cruise5.jpg";
+export { default as AndamanTrip20 } from "./AndamanTrip15.jpeg";
+export { default as AndamanTrip21 } from "./Andaman12.jpg";
+export { default as AndamanTrip22 } from "./AndamanTrip16.jpg";
+
 
 //moments with ceo
 export { default as MomentsWithCEO1 } from "./MomentsWithCeo.jpeg";
@@ -83,6 +89,8 @@ export { default as MomentsWithCEO4 } from "./MomentsWithCeo3.jpeg";
 export { default as MomentsWithCEO5 } from "./MomentsWithCeo4.jpeg";
 export { default as MomentsWithCEO6 } from "./MomentsWithCeo5.jpeg";
 export { default as MomentsWithCEO7 } from "./MomentsWithCeo6.jpeg";
+export { default as MomentsWithCEO8 } from "./MomentsWithCeo7.jpg";
+
 
 //Pune Trip
 export { default as PuneTrip1 } from "./pune.jpeg";

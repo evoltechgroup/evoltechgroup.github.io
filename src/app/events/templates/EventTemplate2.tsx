@@ -16,7 +16,10 @@ const EventTemplate2: React.FC<EventTemplate2Props> = ({ event }) => {
   const router = useRouter();
   return (
     <div className="w-full bg-white">
-      <TitleBackground event={event} />
+      <TitleBackground
+        event={event}
+        showBgImage={event.showTitleBgImage ?? true}
+      />
       <div
         className="w-full bg-white py-1"
         style={{
@@ -74,7 +77,7 @@ const EventTemplate2: React.FC<EventTemplate2Props> = ({ event }) => {
                   <h2 className="text-2xl font-bold text-[#1a1a2e] mb-6 text-center">
                     {event.category === "conference"
                       ? "Conference Highlights"
-                      : "Here are few photos from the event!"}
+                      : "Relive the Moments — A Few Highlights from the Event"}
                   </h2>
                   <EventPhotoAlbum
                     images={event.detailContent.images ?? []}

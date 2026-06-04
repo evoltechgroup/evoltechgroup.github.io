@@ -103,8 +103,9 @@ const InternalSection = () => {
             : event.status === activeFilter;
       const matchesCategory =
         activeCategory === "all" ? true : event.category === activeCategory;
+      // Both "all" and "internal" apply the space filter (no more mixed curated view)
       const matchesSpace =
-        activeCategory !== "internal"
+        activeCategory === "conference"
           ? true
           : activeSpace === "ceo"
             ? event.space === "ceo"
@@ -146,29 +147,14 @@ const InternalSection = () => {
         pluralCountLabel: "CEO events",
       };
     }
+    // "all" now defaults to EvolTech Space — no more "Curated Experiences" view
     return {
-      all: {
-        title: "Curated Experiences",
-        description:
-          "Explore our latest conference appearances and EvolTech Space moments in one place.",
-        singularCountLabel: "event",
-        pluralCountLabel: "events",
-      },
-      conference: {
-        title: "Conference Experiences",
-        description:
-          "Browse conferences where EvolTech is learning, connecting, and sharing ideas across industries.",
-        singularCountLabel: "conference event",
-        pluralCountLabel: "conference events",
-      },
-      internal: {
-        title: "EvolTech Space",
-        description:
-          "See the internal moments that shape our culture, from leadership gatherings to team experiences.",
-        singularCountLabel: "EvolTech Space event",
-        pluralCountLabel: "EvolTech Space events",
-      },
-    }[activeCategory];
+      title: "EvolTech Space",
+      description:
+        "See the internal moments that shape our culture, from leadership gatherings to team experiences.",
+      singularCountLabel: "EvolTech Space event",
+      pluralCountLabel: "EvolTech Space events",
+    };
   })();
 
   const countLabel =
@@ -188,7 +174,7 @@ const InternalSection = () => {
     >
       <div className="grid grid-cols-4 sm:grid-cols-8 lg:grid-cols-12 grid-rows-1 gap-5 max-w-7xl mx-auto px-4 lg:px-0 ">
         <div className="col-span-4 col-start-1 sm:col-span-8 lg:col-span-10 lg:col-start-2 ">
-          {activeCategory === "internal" && (
+          {(activeCategory === "internal" || activeCategory === "all") && (
             <div className="mb-10">
               <div className="flex gap-[10px] bg-[#58619D] rounded-full p-1 shadow-md w-fit">
                 {SPACE_FILTERS.map((sf) => (
@@ -227,7 +213,7 @@ const InternalSection = () => {
             </div>
 
             {/* Hide All / Upcoming / Past for EvolTech Space and CEO Space — all events are shown */}
-            {activeCategory !== "internal" && (
+            {activeCategory !== "internal" && activeCategory !== "all" && (
               <div className="flex gap-[10px] bg-[#58619D] rounded-full p-1 shadow-md shrink-0">
                 {FILTERS.map((filter) => (
                   <TabButton
@@ -280,7 +266,8 @@ const InternalSection = () => {
           </div>
 
           <div className="mt-5 grid grid-cols-1 items-stretch gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {activeCategory === "internal" && activeSpace === "ceo" ? (
+            {(activeCategory === "internal" || activeCategory === "all") &&
+            activeSpace === "ceo" ? (
               <>
                 {/* Real CEO Space events from eventDetailsConfig */}
                 {visibleEvents.map((event) => (
@@ -302,7 +289,11 @@ const InternalSection = () => {
                   category={
                     activeCategory === "all" ? undefined : activeCategory
                   }
-                  variant={activeCategory === "internal" ? "compact" : "sleek"}
+                  variant={
+                    activeCategory === "internal" || activeCategory === "all"
+                      ? "compact"
+                      : "sleek"
+                  }
                 />
               ))
             )}
@@ -318,7 +309,10 @@ const InternalSection = () => {
             </div>
           )}
           {filteredEvents.length === 0 &&
-            !(activeCategory === "internal" && activeSpace === "ceo") && (
+            !(
+              (activeCategory === "internal" || activeCategory === "all") &&
+              activeSpace === "ceo"
+            ) && (
               <p className="col-span-4 sm:col-span-8 lg:col-span-10 lg:col-start-2 text-center text-gray-400 mt-10 text-lg">
                 No events found.
               </p>

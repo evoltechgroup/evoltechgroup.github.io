@@ -1,5 +1,10 @@
 import { StaticImageData } from "next/image";
-import { EventsBg, GroupPic1, GroupPic2 } from "@/assets/images/Events";
+import {
+  EventsBg,
+  EvoltechGroupV2,
+  GroupPic1,
+  GroupPic2,
+} from "@/assets/images/Events";
 import {
   AnnualLeadershipSummit01,
   AnnualLeadershipSummit02,
@@ -45,6 +50,12 @@ import {
   CEO6,
   CEO7,
   CEO8,
+  CEO9,
+  Awards1,
+  Awards2,
+  Awards3,
+  Awards4,
+  Awards5,
 } from "@/assets/images/Events/EvoltechSpace/Moments-With-Ceo/index";
 import {
   AISession1,
@@ -66,7 +77,9 @@ import {
   AndamanTrip16,
   AndamanTrip17,
   AndamanTrip18,
-  AndamanTrip19,
+  AndamanTrip20,
+  AndamanTrip21,
+  AndamanTrip22,
   Cruise2,
   Cruise3,
   FireCamp,
@@ -113,6 +126,7 @@ import {
   MomentsWithCEO5,
   MomentsWithCEO6,
   MomentsWithCEO7,
+  MomentsWithCEO8,
   AiTraining1,
   AiTraining2,
   AiTraining3,
@@ -121,7 +135,10 @@ import {
   GoaTrip4,
   GoaTrip3,
   GoaTrip2,
+  Cruise4,
+  Cruise5,
 } from "@/assets/images/Events/EvoltechSpace";
+
 import {
   AiBanner,
   ChristmasBanner,
@@ -131,6 +148,9 @@ import {
 import {
   AmericanBankers1,
   AmericanBankers2,
+  AmericanBankers3,
+  AmericanBankers4,
+  AmericanBankers5,
   AmericanBankersBanner,
 } from "@/assets/images/Events/Confrence";
 import {
@@ -201,6 +221,8 @@ export interface EventDetail {
   episode?: string;
   /** Runtime for video-type events, e.g. "18 min" */
   duration?: string;
+  /** When false, the event-specific bg image is hidden in the TitleBackground — only brand color layers show. Defaults to true. */
+  showTitleBgImage?: boolean;
   detailContent: EventDetailContent;
 }
 
@@ -287,8 +309,8 @@ const rawEventDetailsConfig: RawEventDetail[] = [
     title: "SIIA Spring Exchange 2026",
     description:
       "SIIA's Spring Exchange brings self-insurance leaders together for relationship-building, capital conversations, and practical business growth.",
-    fromDate: "2027-03-30",
-    toDate: "2027-04-01",
+    fromDate: "2026-03-30",
+    toDate: "2026-04-01",
     tags: [
       { label: "Conference", bgColor: "#FE7F00" },
       { label: "Networking", bgColor: "#FFBB00" },
@@ -332,8 +354,8 @@ const rawEventDetailsConfig: RawEventDetail[] = [
     title: "GrowATL 2025 - Tech Panel",
     description:
       "EvolTech joined GrowATL 2025 for a technology panel focused on innovation, insights, impact, and the future of the Atlanta startup ecosystem.",
-    fromDate: "2026-09-06",
-    toDate: "2026-09-06",
+    fromDate: "2025-09-06",
+    toDate: "2025-09-06",
     tags: [
       { label: "Conference", bgColor: "#FE7F00" },
       { label: "Technology", bgColor: "#4A90E2" },
@@ -503,7 +525,13 @@ const rawEventDetailsConfig: RawEventDetail[] = [
             "The conference created meaningful opportunities to hear directly from banking leaders, understand the pressures facing community institutions, and connect our solutions to real operational needs.",
         },
       ],
-      images: [AmericanBankers1, AmericanBankers2],
+      images: [
+        AmericanBankers1,
+        AmericanBankers2,
+        AmericanBankers3,
+        AmericanBankers4,
+        AmericanBankers5,
+      ],
       ctaText: "More details",
       ctaLink:
         "https://www.aba.com/training-events/conferences/conference-for-community-bankers/program",
@@ -666,6 +694,7 @@ const rawEventDetailsConfig: RawEventDetail[] = [
     template: "template3",
     category: "internal",
     image: Cruise3,
+    bannerImage: EvoltechGroupV2,
     title: "2026 Team Meetup - Andaman Islands",
     description:
       "Our entire team escaped to the stunning Andaman Islands for an unforgettable 2026 offsite. Sun, sea, sand, and shared experiences helped us bond, recharge...",
@@ -708,15 +737,21 @@ const rawEventDetailsConfig: RawEventDetail[] = [
         AndamanTrip18,
         AndamanTrip15,
         AndamanTrip17,
-        AndamanTrip19,
+        // AndamanTrip19,
         AndamanTrip10,
         AndamanTrip16,
         AndamanTrip13,
+        AndamanTrip12,
         Resort,
-        FireCamp,
+
         Cruise,
         Cruise2,
         Cruise3,
+        Cruise4,
+        Cruise5,
+        AndamanTrip20,
+        AndamanTrip21,
+        AndamanTrip22,
 
         // AndamanEvent,
         AndamanTrip1,
@@ -727,10 +762,11 @@ const rawEventDetailsConfig: RawEventDetail[] = [
         AndamanTrip5,
         AndamanTrip6,
         AndamanTrip11,
-        AndamanTrip12,
+        FireCamp,
+        // AndamanTrip12,
         // AndamanTrip14,
         // AndamanTrip15,
-        AndamanTrip16,
+        // AndamanTrip16,
       ],
     },
   },
@@ -739,7 +775,7 @@ const rawEventDetailsConfig: RawEventDetail[] = [
     slug: "moments-with-our-ceo",
     template: "template3",
     category: "internal",
-    image: MomentsWithCEO5,
+    image: EvoltechGroupV2,
     title: "Moments with Our CEO",
     description:
       "Celebrating the meaningful moments, shared experiences, and human connection between our CEO, Thulasidharan LG, and the EvolTech teams in India.",
@@ -788,6 +824,9 @@ const rawEventDetailsConfig: RawEventDetail[] = [
         MomentsWithCEO4,
         MomentsWithCEO6,
         MomentsWithCEO7,
+        MomentsWithCEO8,
+        Cruise4,
+        Cruise5,
         // CEO4,
         CEO1,
         CEO2,
@@ -797,6 +836,11 @@ const rawEventDetailsConfig: RawEventDetail[] = [
         CEO6,
         CEO7,
         CEO8,
+        CEO9,
+        Awards1,
+        Awards2,
+        Awards3,
+        Awards4,
         // CEO4,
       ],
     },
@@ -806,6 +850,7 @@ const rawEventDetailsConfig: RawEventDetail[] = [
     slug: "evoltech-pongal-celebration-2026",
     template: "template2",
     category: "internal",
+    showTitleBgImage: false,
     image: PongalCelebration2,
     title: "EvolTech Pongal Celebration 2026",
     description:
@@ -855,8 +900,8 @@ const rawEventDetailsConfig: RawEventDetail[] = [
     title: "EvolTech Christmas & Year-End Social",
     description:
       "Wrapping up 2025 with holiday cheer, Secret Santa surprises, and a celebration of our team's collective success.",
-    fromDate: "2025-12-24",
-    toDate: "2025-12-24",
+    fromDate: "2025-12-22",
+    toDate: "2025-12-22",
     tags: [
       { label: "Internal Event", bgColor: "#B6D2FF" },
       { label: "Celebration", bgColor: "#FFBB00" },
@@ -902,6 +947,7 @@ const rawEventDetailsConfig: RawEventDetail[] = [
     slug: "chennai-marathon-run-for-our-national-heroes-2026",
     template: "template3",
     category: "internal",
+    showTitleBgImage: false,
     image: Marathon1,
     title: "Chennai Marathon - Run for our National Heroes",
     description:
@@ -1058,8 +1104,8 @@ const rawEventDetailsConfig: RawEventDetail[] = [
     title: "Office Opening Ceremony",
     description:
       "Commemorating the official inauguration of our Chennai operations and the beginning of a new chapter for the team.",
-    fromDate: "2025-08-14",
-    toDate: "2025-08-14",
+    fromDate: "2025-06-05",
+    toDate: "2025-06-05",
     tags: [
       { label: "Internal Event", bgColor: "#B6D2FF" },
       { label: "Milestone", bgColor: "#4A90E2" },
@@ -1250,8 +1296,8 @@ const rawEventDetailsConfig: RawEventDetail[] = [
     title: "Team Offsite — Goa",
     description:
       "The EvolTech team escaped to the sun-soaked shores of Goa for a well-deserved offsite — a perfect blend of relaxation, team bonding, and unforgettable memories.",
-    fromDate: "2024-08-02",
-    toDate: "2024-08-04",
+    fromDate: "2024-09-02",
+    toDate: "2024-09-02",
     tags: [
       { label: "Team Offsite", bgColor: "#B6D2FF" },
       { label: "Goa", bgColor: "#4A90E2" },
@@ -1284,11 +1330,12 @@ const rawEventDetailsConfig: RawEventDetail[] = [
     template: "template2",
     category: "internal",
     image: ThePuneTeam,
+    showTitleBgImage: false,
     title: "Pune Team Outing",
     description:
       "The EvolTech Pune team came together for a memorable outing — a day filled with laughter, great food, and the kind of connection that only happens when you step out of the office.",
-    fromDate: "2025-04-15",
-    toDate: "2025-04-15",
+    fromDate: "2025-04-23",
+    toDate: "2025-04-23",
     tags: [
       { label: "Team Outing", bgColor: "#B6D2FF" },
       { label: "Pune", bgColor: "#4A90E2" },

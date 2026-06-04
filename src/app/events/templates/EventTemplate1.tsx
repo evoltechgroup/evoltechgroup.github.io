@@ -18,7 +18,10 @@ const EventTemplate1: React.FC<EventTemplate1Props> = ({ event }) => {
 
   return (
     <div className="w-full bg-white">
-      <TitleBackground event={event} />
+      <TitleBackground
+        event={event}
+        showBgImage={event.showTitleBgImage ?? true}
+      />
       <div
         className="w-full bg-white py-16"
         style={{

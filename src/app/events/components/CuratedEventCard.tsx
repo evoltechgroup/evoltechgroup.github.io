@@ -79,7 +79,7 @@ function SleekCard({
               </p>
               {/* Date pill */}
               <div className="mt-3">
-                <div className="inline-flex items-center gap-2 text-sm text-[#444444] bg-white/70 backdrop-blur-sm border border-[#E4EAF4] rounded-full px-3 py-1.5 shadow-sm">
+                <div className="inline-flex items-center gap-2 text-xs text-[#444444] font-bold bg-white/70 backdrop-blur-sm border border-[#E4EAF4] rounded-full px-3 py-1.5 shadow-sm">
                   <span className="text-[#4C96D7]">{CalenderIcon}</span>
                   <span>
                     {formatEventDateRange(event.fromDate, event.toDate)}

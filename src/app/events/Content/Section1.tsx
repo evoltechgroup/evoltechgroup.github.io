@@ -15,10 +15,17 @@ import { followArrowDown } from "@/assets/svg";
 import Text from "@/components/Text";
 import { useSearchParams } from "next/navigation";
 import { getCategoryFromQuery } from "./Section2";
+import ConferenceHero from "./ConferenceHero";
 
 const Section1 = () => {
   const searchParams = useSearchParams();
   const activeCategory = getCategoryFromQuery(searchParams.get("category"));
+  const rawCategory = searchParams.get("category");
+
+  /* ── Conferences get their own animated floating-image hero ── */
+  if (rawCategory === "conference") {
+    return <ConferenceHero />;
+  }
   const SectionTitle =
     activeCategory === "conference"
       ? "Explore Our Conferences"
@@ -36,7 +43,7 @@ const Section1 = () => {
       ? EventsBg
       : activeCategory === "internal"
         ? EvoltechGroupV2
-        : EventsBg;
+        : EvoltechGroupV2;
 
   return (
     <section className="relative flex w-full flex-col items-center bg-[#ffff] py-10 h-[60vh] lg:h-[75vh] xl:h-[75vh]">

@@ -31,9 +31,14 @@ interface TitleBackgroundProps {
     image?: StaticImageData;
     bannerImage?: StaticImageData;
   };
+  /** When false, the event-specific bg image is hidden — only brand color layers show. Defaults to true. */
+  showBgImage?: boolean;
 }
 
-const TitleBackgroundContent: React.FC<TitleBackgroundProps> = ({ event }) => {
+const TitleBackgroundContent: React.FC<TitleBackgroundProps> = ({
+  event,
+  showBgImage = true,
+}) => {
   const router = useRouter();
   const searchParams = useSearchParams();
 
@@ -69,14 +74,14 @@ const TitleBackgroundContent: React.FC<TitleBackgroundProps> = ({ event }) => {
             className="md:absolute w-full h-full object-cover"
           />
         </div>
-        <div className="absolute z-4 w-full h-full">
+        <div className="absolute z-4 w-full h-full mt-10">
           <img
             src={Bg188.src}
             alt=""
             className="md:absolute w-full h-full object-cover"
           />
         </div>
-        {!isConference && (
+        {!isConference && showBgImage && (
           <div className="absolute z-8 w-full h-full">
             <img
               src={eventBg.src}
@@ -139,17 +144,17 @@ const TitleBackgroundContent: React.FC<TitleBackgroundProps> = ({ event }) => {
               {event.title}
             </h1>
             <div className="flex flex-wrap items-center gap-2">
-              <span className="text-sm text-black bg-[#FFBB00] px-2 py-1 rounded-md font-semibold">
+              <span className="text-sm bg-transparent border border-yellow-400 text-[#FFBB00] px-2 py-1 rounded-full font-medium">
                 {event.dateLabel ??
                   formatEventDateRange(event.fromDate, event.toDate)}
               </span>
               {event.city && (
-                <span className="text-sm text-black bg-[#FFBB00] px-2 py-1 rounded-md font-semibold">
+                <span className="text-sm bg-transparent border border-yellow-400 text-[#FFBB00] px-2 py-1 rounded-full font-medium">
                   {event.city}, {event.state}
                 </span>
               )}
               {event.venue && (
-                <span className="text-sm text-black bg-[#FFBB00] px-2 py-1 rounded-md font-semibold">
+                <span className="text-sm bg-transparent border border-yellow-400 text-[#FFBB00] px-2 py-1 rounded-full font-medium">
                   {event.venue}
                 </span>
               )}
@@ -168,38 +173,61 @@ const TitleBackgroundContent: React.FC<TitleBackgroundProps> = ({ event }) => {
         <div className="grid grid-cols-4 sm:grid-cols-8 lg:grid-cols-12 grid-rows-1 gap-5 max-w-7xl mx-auto px-4 lg:px-0 w-full">
           <div className="col-span-4 col-start-1 flex w-full flex-col items-start text-left lg:col-span-8 lg:col-start-2">
             <div
-              className="w-full flex flex-col items-start gap-4 rounded-2xl p-6 backdrop-blur-sm"
-              style={{
-                background: "rgba(255,255,255,0.10)",
-                border: "1px solid rgba(255,255,255,0.18)",
-                boxShadow: "0 4px 32px rgba(0,0,0,0.18)",
-              }}
+              className="w-full flex flex-col items-start gap-4 rounded-2xl px-6 py-5"
+              style={
+                event.bannerImage
+                  ? {
+                      background: "rgba(255,255,255,0.25)",
+                      border: "1px solid rgba(255,255,255,0.40)",
+                      boxShadow: "0 8px 32px rgba(0,0,0,0.15)",
+                      backdropFilter: "blur(10px)",
+                    }
+                  : {
+                      background: "rgba(0,0,0,0.30)",
+                      boxShadow: "0 8px 32px rgba(0,0,0,0.28)",
+                    }
+              }
             >
               <ThemeButton
                 text="Back to All Events"
                 onClick={() => router.back()}
                 startIcon={
-                  <span className="">
+                  <span>
                     <ChevronLeft />
                   </span>
                 }
-                extraStyles="!bg-transparent border border-[#FFFFFFD] !text-[#FFFFFF] hover:!bg-[#FFFFFF1A] hover:!text-white hover:brightness-200 !pl-2"
+                extraStyles={`
+    !bg-[rgba(255,255,255,0.25)]
+    border border-white/40
+    ${event.bannerImage ? "!text-black/70 hover:!text-black" : "!text-white hover:!text-white/80"}
+    backdrop-blur-md
+    shadow-[0_8px_32px_rgba(0,0,0,0.15)]
+    hover:!bg-[rgba(255,255,255,0.35)]
+    hover:border-white/50
+    !pl-2
+  `}
               />
-              <h1 className="text-3xl md:text-5xl font-bold text-white mb-2">
+              <h1
+                className="text-3xl md:text-5xl font-bold text-white mb-2"
+                style={{
+                  textShadow:
+                    "0 2px 16px rgba(0,0,0,0.55), 0 1px 4px rgba(0,0,0,0.40)",
+                }}
+              >
                 {event.title}
               </h1>
               <div className="flex flex-wrap items-center gap-2">
-                <span className="text-sm text-black bg-[#FFBB00] px-2 py-1 rounded-md font-semibold">
+                <span className="text-sm text-white bg-[#FFBB00] px-2 py-1 rounded-md font-medium shadow-[0_2px_8px_rgba(0,0,0,0.30)]">
                   {event.dateLabel ??
                     formatEventDateRange(event.fromDate, event.toDate)}
                 </span>
                 {event.city && (
-                  <span className="text-sm text-black bg-[#FFBB00] px-2 py-1 rounded-md font-semibold">
+                  <span className="text-sm text-white bg-[#FFBB00] px-2 py-1 rounded-md font-medium shadow-[0_2px_8px_rgba(0,0,0,0.30)]">
                     {event.city}, {event.state}
                   </span>
                 )}
                 {event.venue && (
-                  <span className="text-sm text-black bg-[#FFBB00] px-2 py-1 rounded-md font-semibold">
+                  <span className="text-sm text-white bg-[#FFBB00] px-2 py-1 rounded-md font-medium shadow-[0_2px_8px_rgba(0,0,0,0.30)]">
                     {event.venue}
                   </span>
                 )}
@@ -212,12 +240,15 @@ const TitleBackgroundContent: React.FC<TitleBackgroundProps> = ({ event }) => {
   );
 };
 
-const TitleBackground: React.FC<TitleBackgroundProps> = ({ event }) => {
+const TitleBackground: React.FC<TitleBackgroundProps> = ({
+  event,
+  showBgImage = true,
+}) => {
   return (
     <Suspense
       fallback={<div className="h-[60vh] lg:h-[75vh] w-full bg-black" />}
     >
-      <TitleBackgroundContent event={event} />
+      <TitleBackgroundContent event={event} showBgImage={showBgImage} />
     </Suspense>
   );
 };

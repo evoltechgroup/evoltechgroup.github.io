@@ -259,7 +259,7 @@ export default function NewsPage() {
                     {/* Subheadline */}
                     <div className="mb-5">
                       <p className="text-white text-sm font-bold uppercase tracking-[0.18em] leading-snug">
-                        Strategic Advisor &mdash;
+                        Senior Strategic Advisor &mdash;
                       </p>
                       <p className="text-[#38bdf8] text-sm font-bold uppercase tracking-[0.18em] leading-snug mt-1">
                         Healthcare &amp; Insurance

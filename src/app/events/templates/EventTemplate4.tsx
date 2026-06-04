@@ -16,7 +16,7 @@ const EventTemplate4: React.FC<EventTemplate4Props> = ({ event }) => {
   const router = useRouter();
   return (
     <div className="w-full bg-white">
-      <TitleBackground event={event} />
+      <TitleBackground event={event} showBgImage={event.showTitleBgImage ?? true} />
       <div
         className="w-full bg-white py-1"
         style={{
