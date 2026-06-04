@@ -403,15 +403,17 @@ export default function ArticleDetail({ article }: { article: NewsArticle }) {
             {/* Action buttons */}
             <div className="flex items-center gap-2">
               <ShareButton />
-              <a
-                href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(article.title)}&url=${encodeURIComponent(`https://www.evoltechgroup.com/news/${article.slug}`)}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/10 text-[#C7E5FF]/70 text-xs font-medium hover:border-[#4C96D7]/40 hover:text-white transition-all duration-200"
-              >
-                <Share2 size={13} />
-                Share
-              </a>
+              {article.pressReleaseUrl && (
+                <a
+                  href={article.pressReleaseUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[#FFBB00]/40 text-[#FFBB00] text-xs font-semibold hover:bg-[#FFBB00]/10 hover:border-[#FFBB00]/70 transition-all duration-200"
+                >
+                  <ExternalLink size={13} />
+                  View Press Release
+                </a>
+              )}
             </div>
           </motion.div>
         </motion.div>
@@ -428,8 +430,16 @@ export default function ArticleDetail({ article }: { article: NewsArticle }) {
           {article.bannerImage ? (
             /* Full-cover photo banner */
             <div
-              className="relative rounded-3xl overflow-hidden bg-[#040c22] w-full"
+              className={`relative rounded-3xl overflow-hidden bg-[#040c22] w-full${article.pressReleaseUrl ? " cursor-pointer group/banner" : ""}`}
               style={{ aspectRatio: "9 / 4" }}
+              onClick={() =>
+                article.pressReleaseUrl &&
+                window.open(
+                  article.pressReleaseUrl,
+                  "_blank",
+                  "noopener,noreferrer",
+                )
+              }
             >
               <Image
                 src={article.bannerImage}

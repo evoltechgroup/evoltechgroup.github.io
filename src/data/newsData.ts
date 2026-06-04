@@ -47,6 +47,8 @@ export interface NewsArticle {
   bannerImage?: StaticImageData;
   /** Small square-friendly image used in related-story thumbnails. Falls back to bannerImage. */
   coverImage?: StaticImageData;
+  /** Optional external press release URL shown as a button inside the article. */
+  pressReleaseUrl?: string;
   body: ContentBlock[];
   related: string[]; // slugs of related articles
 }
@@ -67,6 +69,8 @@ export const NEWS_ARTICLES: NewsArticle[] = [
     accentColor: "#FFBB00",
     bannerImage: GregArms,
     coverImage: GregArmsImg,
+    pressReleaseUrl:
+      "https://www.globenewswire.com/news-release/2026/06/04/3306783/0/en/evoltech-appoints-greg-arms-as-senior-strategic-advisor.html",
 
     body: [
       {

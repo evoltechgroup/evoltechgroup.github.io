@@ -49,6 +49,7 @@ interface Article {
   accentColor: string;
   image?: StaticImageData;
   href: string;
+  pressReleaseUrl?: string;
 }
 
 const CATEGORY_COLORS: Record<ArticleCategory, string> = {
@@ -78,6 +79,8 @@ const ALL_ARTICLES: Article[] = [
     accentColor: "#FFBB00",
     image: GregArmsImg,
     href: "/news/greg-arms-strategic-advisor",
+    pressReleaseUrl:
+      "https://www.globenewswire.com/news-release/2026/06/04/3306783/0/en/evoltech-appoints-greg-arms-as-senior-strategic-advisor.html",
   },
   // ── Add new articles below — newest date wins featured ────────────────────
   {
@@ -182,9 +185,9 @@ export default function NewsPage() {
         <div className="max-w-7xl mx-auto">
           {isGregArmsFeatured ? (
             /* ── Premium hero banner ── */
-            <Link href={FEATURED.href} className="group block">
+            <div className="group block">
               <div
-                className="relative rounded-3xl overflow-hidden cursor-pointer transition-all duration-500 group-hover:shadow-[0_0_60px_rgba(76,150,215,0.25)] group-hover:scale-[1.005]"
+                className="relative rounded-3xl overflow-hidden transition-all duration-500 group-hover:shadow-[0_0_60px_rgba(76,150,215,0.25)] group-hover:scale-[1.005]"
                 style={{ minHeight: 540 }}
               >
                 {/* Dark navy base */}
@@ -226,9 +229,14 @@ export default function NewsPage() {
                   {/* LEFT — text */}
                   <div className="flex flex-col justify-center px-8 sm:px-12 py-12 lg:py-16">
                     {/* Category badge */}
-                    <div className="inline-flex w-fit items-center px-4 py-1.5 rounded-full border border-[#4C96D7] text-[#8DCAFF] text-[11px] font-bold tracking-[0.25em] uppercase mb-6">
+                    <a
+                      href={FEATURED.pressReleaseUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex w-fit items-center px-4 py-1.5 rounded-full border border-[#4C96D7] text-[#8DCAFF] text-[11px] font-bold tracking-[0.25em] uppercase mb-6 hover:bg-[#4C96D7]/10 transition-colors duration-200"
+                    >
                       Company News
-                    </div>
+                    </a>
 
                     {/* Headline */}
                     <div className="mb-6">
@@ -238,8 +246,11 @@ export default function NewsPage() {
                       >
                         Introducing
                       </h2>
-                      <h2
-                        className="font-black leading-[1.0] py-2"
+                      <a
+                        href={FEATURED.pressReleaseUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="font-black leading-[1.0] py-2 block hover:opacity-80 transition-opacity duration-200"
                         style={{
                           fontSize: "clamp(3rem, 6vw, 5.5rem)",
                           background:
@@ -250,7 +261,7 @@ export default function NewsPage() {
                         }}
                       >
                         Greg Arms
-                      </h2>
+                      </a>
                     </div>
 
                     {/* Accent divider */}
@@ -274,7 +285,9 @@ export default function NewsPage() {
                     </p>
 
                     {/* CTA button — liquid glass */}
-                    <LiquidGlassButton />
+                    <Link href={FEATURED.href}>
+                      <LiquidGlassButton />
+                    </Link>
                   </div>
 
                   {/* RIGHT — quote card + portrait + icons */}
@@ -360,7 +373,7 @@ export default function NewsPage() {
                   </div>
                 </div>
               </div>
-            </Link>
+            </div>
           ) : (
             /* ── Standard gradient card ── */
             <Link href={FEATURED.href} className="group block">
