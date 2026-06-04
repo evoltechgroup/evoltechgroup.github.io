@@ -1,0 +1,1 @@
+export {default as Christmas} from "./christmas.mp4";

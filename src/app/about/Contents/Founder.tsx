@@ -44,12 +44,12 @@ const Founder = () => {
                 Chief Executive Officer
               </Text>
             </div>
-            <div className="flex gap-3 w-full items-center justify-start">
-              <div className="w-5 h-5">{linkedInIcon}</div>
+            <div className="flex w-full items-center justify-start">
               <Link
                 href="https://www.linkedin.com/in/thulasidharan-lg-603aa711"
                 target="_blank"
-                className="xl:text-base sm:text-sm cursor-pointer text-[#007EBB] font-semibold">
+                className="xl:text-base flex gap-3 w-full items-center justify-start sm:text-sm cursor-pointer text-[#007EBB] font-semibold">
+                <div className="w-5 h-5">{linkedInIcon}</div>
                 View LinkedIn Profile
               </Link>
             </div>

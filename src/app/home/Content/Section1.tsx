@@ -6,15 +6,12 @@ import {
   rectangle190,
   rectangle191,
 } from "@/assets/effects";
-import { ButtonEffect, RoundChevronRight } from "@/assets/icons/custom-icons";
+import { RoundChevronRight } from "@/assets/icons/custom-icons";
 import { mainFollowArrow } from "@/assets/svg";
-import Button from "@/components/Button";
 import ThemeButton from "@/components/Button/ThemeButton";
 import InfoCard from "@/components/Card/InfoCard";
 import Text from "@/components/Text";
 import { infoCards } from "@/data/about-us";
-import { CircleChevronRight } from "lucide-react";
-import Image from "next/image";
 import { useRouter } from "next/navigation";
 
 const Section1 = () => {
@@ -22,7 +19,7 @@ const Section1 = () => {
   return (
     <section className="relative h-screen sm:h-[80vh] lg:h-screen flex flex-col justify-center items-center text-center overflow-hidden">
       <div className="absolute inset-0 z-0 w-full h-full flex bg-[#2D2550] overflow-hidden pointer-events-none">
-         <div className="absolute z-7 w-full h-full">{eclipseEffect}</div>
+        <div className="absolute z-7 w-full h-full">{eclipseEffect}</div>
         <div className="absolute z-4 w-full h-full">{rectangle191}</div>
         <div className="absolute z-3 w-full h-full">{rectangle190}</div>
         <div className="absolute z-2 w-full h-full flex items-center justify-center">

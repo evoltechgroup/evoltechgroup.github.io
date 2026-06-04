@@ -1,17 +1,42 @@
 "use client";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
+import { usePathname, useSearchParams } from "next/navigation";
+import { Suspense, useEffect, useState } from "react";
 import Logo from "@/assets/logo/logo.svg";
 import { ChevronDown, ChevronUp, X } from "lucide-react";
 import { hamburgerIcon } from "@/assets/svg";
 import Anniversary from "@/assets/svg/animations/10Years.svg";
 
-export default function Header() {
+function HeaderInner() {
   const pathname = usePathname();
+  const searchParams = useSearchParams();
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
+  const [whoWeAreOpen, setWhoWeAreOpen] = useState(false);
+
+  const isEvolTechSpace =
+    pathname.startsWith("/events") &&
+    searchParams.get("category") === "internal";
+  const isServicesPath = pathname.startsWith("/services");
+  const isExperiencesPath = pathname.startsWith("/events") && !isEvolTechSpace;
+  const isWhoWeArePath =
+    pathname === "/about" ||
+    pathname === "/careers" ||
+    pathname === "/news" ||
+    isEvolTechSpace;
+
+  const hasDarkHero =
+    pathname === "/" ||
+    pathname === "/about" ||
+    pathname.startsWith("/services") ||
+    pathname === "/products" ||
+    pathname === "/careers" ||
+    pathname === "/events" ||
+    pathname === "/contact" ||
+    pathname === "/news";
+
+  const showSolidBg = isScrolled || !hasDarkHero;
 
   useEffect(() => {
     const handleScroll = () => {
@@ -53,9 +78,10 @@ export default function Header() {
     <>
       <header
         className={`w-full fixed top-0 left-0 z-50 transition-all duration-300
-          ${isScrolled ? "bg-[#181B2B] shadow-md" : "md:bg-transparent"}
+          ${showSolidBg ? "bg-[#181B2B] shadow-md" : "md:bg-transparent"}
           ${mobileMenuOpen ? "hidden" : ""}
-        `}>
+        `}
+      >
         <div className="grid grid-cols-4 sm:grid-cols-8 lg:grid-cols-10 xl:grid-cols-12 grid-rows-1 gap-5 max-w-7xl mx-auto sm:px-10 py-4 xl:py-6 px-4 lg:px-0">
           <div className="w-full h-full flex col-span-4 sm:col-span-8 col-start-1 lg:col-span-8 xl:col-span-12 lg:col-start-2 xl:col-start-1 justify-between">
             <div className="relative flex items-center justify-center gap-4">
@@ -79,24 +105,20 @@ export default function Header() {
               <div className="relative group">
                 <span
                   className={`cursor-pointer transition ${
-                    pathname.startsWith("/services")
-                      ? "text-[#FFBB00]"
-                      : "text-[#C7E5FF]"
-                  }`}>
+                    isServicesPath ? "text-[#FFBB00]" : "text-[#C7E5FF]"
+                  }`}
+                >
                   Services
                 </span>
                 <div
                   className={`absolute top-full -left-5 mt-3 lg:text-xs xl:text-sm bg-[#282D45] text-[#BBBBBB] rounded-full shadow-lg p-1 py-1
                          opacity-0 invisible group-hover:opacity-100 group-hover:visible
-                         transition-opacity duration-200 z-50 flex gap-2.5 whitespace-nowrap`}>
+                         transition-opacity duration-200 z-50 flex gap-2.5 whitespace-nowrap`}
+                >
                   <div
                     className={`absolute -top-2 left-10 w-0 h-0 
                             border-l-8 border-r-8 border-b-8 
-                            border-l-transparent border-r-transparent ${
-                              isScrolled
-                                ? "border-b-[#282D45]"
-                                : "border-b-[#282d4524]"
-                            }`}
+                            border-l-transparent border-r-transparent border-b-[#282D45]`}
                   />
                   <Link
                     href="/services/consulting"
@@ -104,7 +126,8 @@ export default function Header() {
                       pathname === "/services/consulting"
                         ? "bg-white text-[#0B0F2B] font-bold"
                         : "hover:bg-white hover:text-[#0B0F2B]"
-                    }`}>
+                    }`}
+                  >
                     Consulting
                   </Link>
                   <Link
@@ -113,7 +136,8 @@ export default function Header() {
                       pathname === "/services/technology"
                         ? "bg-white text-[#0B0F2B] font-bold"
                         : "hover:bg-white hover:text-[#0B0F2B]"
-                    }`}>
+                    }`}
+                  >
                     Technology
                   </Link>
                   <Link
@@ -122,7 +146,8 @@ export default function Header() {
                       pathname === "/services/operations"
                         ? "bg-white text-[#0B0F2B] font-bold"
                         : "hover:bg-white hover:text-[#0B0F2B]"
-                    }`}>
+                    }`}
+                  >
                     Operations
                   </Link>
                 </div>
@@ -132,30 +157,82 @@ export default function Header() {
                 href="/products"
                 className={`hover:text-[#FFBB00] transition ${
                   pathname === "/products" ? "text-[#FFBB00]" : ""
-                }`}>
+                }`}
+              >
                 Products
               </Link>
               <span className="text-[#63A4DD]">/</span>
               <Link
-                href="/careers"
+                href="/events?category=conference"
                 className={`hover:text-[#FFBB00] transition ${
-                  pathname === "/careers" ? "text-[#FFBB00]" : ""
-                }`}>
-                Careers
+                  isExperiencesPath ? "text-[#FFBB00]" : ""
+                }`}
+              >
+                Events
               </Link>
               <span className="text-[#63A4DD]">/</span>
-              <Link
-                href="/about"
-                className={`hover:text-[#FFBB00] transition ${
-                  pathname === "/about" ? "text-[#FFBB00]" : ""
-                }`}>
-                Who we are
-              </Link>
+              <div className="relative group">
+                <span
+                  className={`cursor-pointer transition ${
+                    isWhoWeArePath ? "text-[#FFBB00]" : "text-[#C7E5FF]"
+                  }`}
+                >
+                  Who we are
+                </span>
+                <div
+                  className={`absolute top-full -left-25 mt-3 lg:text-xs xl:text-sm bg-[#282D45] text-[#BBBBBB] rounded-full shadow-lg p-1 py-1
+	                         opacity-0 invisible group-hover:opacity-100 group-hover:visible
+	                         transition-opacity duration-200 z-50 flex gap-2.5 whitespace-nowrap`}
+                >
+                  <div
+                    className={`absolute -top-2 left-30 w-0 h-0 
+	                            border-l-8 border-r-8 border-b-8 
+	                            border-l-transparent border-r-transparent border-b-[#282D45]`}
+                  />
+                  <Link
+                    href="/about"
+                    className={`p-2 px-4 rounded-full transition ${
+                      pathname === "/about"
+                        ? "bg-white text-[#0B0F2B] font-bold"
+                        : "hover:bg-white hover:text-[#0B0F2B]"
+                    }`}
+                  >
+                    About us
+                  </Link>
+                  <Link
+                    href="/careers"
+                    className={`p-2 px-4 rounded-full transition ${
+                      pathname === "/careers"
+                        ? "bg-white text-[#0B0F2B] font-bold"
+                        : "hover:bg-white hover:text-[#0B0F2B]"
+                    }`}
+                  >
+                    Careers
+                  </Link>
+                  <Link
+                    href="/news"
+                    className={`p-2 px-4 rounded-full transition ${
+                      pathname === "/news"
+                        ? "bg-white text-[#0B0F2B] font-bold"
+                        : "hover:bg-white hover:text-[#0B0F2B]"
+                    }`}
+                  >
+                    News
+                  </Link>
+                  <Link
+                    href="/events?category=internal"
+                    className="p-2 px-4 rounded-full transition hover:bg-white hover:text-[#0B0F2B]"
+                  >
+                    EvolTech Space
+                  </Link>
+                </div>
+              </div>
             </nav>
             <div className="hidden lg:flex">
               <Link
                 href="/contact"
-                className="bg-transparent border border-yellow-400 text-[#FFBB00] px-6 py-2 rounded-full font-semibold hover:bg-yellow-400 hover:text-[#0B0F2B] transition">
+                className="bg-transparent border border-yellow-400 text-[#FFBB00] px-6 py-2 rounded-full font-semibold hover:bg-yellow-400 hover:text-[#0B0F2B] transition"
+              >
                 Contact us
               </Link>
             </div>
@@ -163,7 +240,8 @@ export default function Header() {
               <div className="lg:hidden border border-[#445767] px-2 py-1 rounded flex">
                 <button
                   onClick={toggleMobileMenu}
-                  className="text-white flex items-center gap-2">
+                  className="text-white flex items-center gap-2"
+                >
                   <span className=" hidden sm:block text-sm font-normal">
                     Menu
                   </span>
@@ -179,7 +257,8 @@ export default function Header() {
         <div className="fixed inset-0 bg-[#000000FA] z-50 flex flex-col items-center pt-20 justify-start gap-6 text-white text-xl font-semibold lg:hidden">
           <button
             onClick={toggleMobileMenu}
-            className="absolute top-5 right-5 text-white text-3xl border border-[#445767] rounded p-2">
+            className="absolute top-5 right-5 text-white text-3xl border border-[#445767] rounded p-2"
+          >
             <X />
           </button>
 
@@ -198,7 +277,8 @@ export default function Header() {
           <div className="flex flex-col gap-10 items-center py-5 justify-center font-medium *:text-[#C7E5FF]">
             <button
               onClick={() => setServicesOpen(!servicesOpen)}
-              className="flex items-center gap-2 ">
+              className="flex items-center gap-2 "
+            >
               Services
               <span className="text-sm">
                 {servicesOpen ? <ChevronUp /> : <ChevronDown />}
@@ -220,16 +300,42 @@ export default function Header() {
             <Link href="/products" onClick={toggleMobileMenu}>
               Products
             </Link>
-            <Link href="/careers" onClick={toggleMobileMenu}>
-              Careers
+            <Link href="/events?category=conference" onClick={toggleMobileMenu}>
+              Events
             </Link>
-            <Link href="/about" onClick={toggleMobileMenu}>
+            <button
+              onClick={() => setWhoWeAreOpen(!whoWeAreOpen)}
+              className="flex items-center gap-2 "
+            >
               Who we are
-            </Link>
+              <span className="text-sm">
+                {whoWeAreOpen ? <ChevronUp /> : <ChevronDown />}
+              </span>
+            </button>
+            {whoWeAreOpen && (
+              <div className="flex flex-col gap-4 items-center text-base font-normal">
+                <Link href="/about" onClick={toggleMobileMenu}>
+                  About us
+                </Link>
+                <Link href="/careers" onClick={toggleMobileMenu}>
+                  Careers
+                </Link>
+                <Link href="/news" onClick={toggleMobileMenu}>
+                  News
+                </Link>
+                <Link
+                  href="/events?category=internal"
+                  onClick={toggleMobileMenu}
+                >
+                  EvolTech Space
+                </Link>
+              </div>
+            )}
             <Link
               href="/contact"
               onClick={toggleMobileMenu}
-              className="bg-transparent border border-yellow-400 !text-[#FFBB00] px-6 py-2 rounded-full hover:bg-yellow-400 hover:text-[#0B0F2B] transition">
+              className="bg-transparent border border-yellow-400 !text-[#FFBB00] px-6 py-2 rounded-full hover:bg-yellow-400 hover:text-[#0B0F2B] transition"
+            >
               Contact us
             </Link>
           </div>
@@ -238,5 +344,13 @@ export default function Header() {
         </div>
       )}
     </>
+  );
+}
+
+export default function Header() {
+  return (
+    <Suspense fallback={null}>
+      <HeaderInner />
+    </Suspense>
   );
 }
