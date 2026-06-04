@@ -13,6 +13,6 @@ export { default as ABAConference } from "./BannerImages/ABA_CONFERENCE.jpg";
 export { default as SIIA2Conference } from "./BannerImages/SIIA_2-Conference.jpg";
 export { default as SIIADubaiConference } from "./BannerImages/SIIA_DUBAI-Conference.jpg";
 export { default as SIIAConference } from "./BannerImages/SIIA-Conference.jpg";
-export { default as SIIAPriceConference } from "./BannerImages/SIIA-Price-Conference.jpg";
+export { default as SIIAPriceConference } from "./BannerImages/SIIA-price-Conference.jpg";
 export { default as SIIAGoldConference } from "./BannerImages/SIIA_Gold-club-Conference.jpg";
 export { default as SIIA } from "./BannerImages/SIIA.jpg";
