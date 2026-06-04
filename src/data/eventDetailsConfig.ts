@@ -106,6 +106,8 @@ import {
   PongalCelebration9,
   PongalCelebration10,
   PongalCelebration11,
+  PongalCelebration12,
+  PongalCelebration13,
   Marathon4,
   Marathon2,
   Marathon3,
@@ -694,7 +696,6 @@ const rawEventDetailsConfig: RawEventDetail[] = [
     template: "template3",
     category: "internal",
     image: Cruise3,
-    bannerImage: EvoltechGroupV2,
     title: "2026 Team Meetup - Andaman Islands",
     description:
       "Our entire team escaped to the stunning Andaman Islands for an unforgettable 2026 offsite. Sun, sea, sand, and shared experiences helped us bond, recharge...",
@@ -743,7 +744,6 @@ const rawEventDetailsConfig: RawEventDetail[] = [
         AndamanTrip13,
         AndamanTrip12,
         Resort,
-
         Cruise,
         Cruise2,
         Cruise3,
@@ -752,7 +752,6 @@ const rawEventDetailsConfig: RawEventDetail[] = [
         AndamanTrip20,
         AndamanTrip21,
         AndamanTrip22,
-
         // AndamanEvent,
         AndamanTrip1,
         AndamanTrip2,
@@ -850,8 +849,8 @@ const rawEventDetailsConfig: RawEventDetail[] = [
     slug: "evoltech-pongal-celebration-2026",
     template: "template2",
     category: "internal",
-    showTitleBgImage: false,
-    image: PongalCelebration2,
+    // showTitleBgImage: false,
+    image: PongalCelebration5,
     title: "EvolTech Pongal Celebration 2026",
     description:
       "A vibrant celebration of harvest and heritage at our Chennai office, featuring traditional decor, festive food, and team festivities.",
@@ -887,6 +886,8 @@ const rawEventDetailsConfig: RawEventDetail[] = [
         PongalCelebration9,
         PongalCelebration10,
         PongalCelebration11,
+        PongalCelebration12,
+        PongalCelebration13,
       ],
     },
   },
@@ -947,8 +948,7 @@ const rawEventDetailsConfig: RawEventDetail[] = [
     slug: "chennai-marathon-run-for-our-national-heroes-2026",
     template: "template3",
     category: "internal",
-    showTitleBgImage: false,
-    image: Marathon1,
+    image: Marathon4,
     title: "Chennai Marathon - Run for our National Heroes",
     description:
       "The EvolTech team hit the streets of Chennai to run in honor of our national heroes, promoting fitness and gratitude.",
@@ -1330,7 +1330,6 @@ const rawEventDetailsConfig: RawEventDetail[] = [
     template: "template2",
     category: "internal",
     image: ThePuneTeam,
-    showTitleBgImage: false,
     title: "Pune Team Outing",
     description:
       "The EvolTech Pune team came together for a memorable outing — a day filled with laughter, great food, and the kind of connection that only happens when you step out of the office.",
@@ -1359,7 +1358,7 @@ const rawEventDetailsConfig: RawEventDetail[] = [
             "The team rounded off the day with a friendly bowling session — competitive, noisy, and full of memories. These are the moments that build the culture we are proud of.",
         },
       ],
-      images: [ThePuneTeam, BowlingWithTheTeam, LunchwithTheTeam],
+      images: [ThePuneTeam, BowlingWithTheTeam, DinnerWithTeam  ],
     },
   },
 ];

@@ -10,6 +10,8 @@ export { default as PongalCelebration8 } from "./Pongal4.jpeg";
 export { default as PongalCelebration9 } from "./Pongal5.jpeg";
 export { default as PongalCelebration10 } from "./Pongal6.jpeg";
 export { default as PongalCelebration11 } from "./Pongal7.jpeg";
+export { default as PongalCelebration12 } from "./Pongal8.jpg";
+export { default as PongalCelebration13 } from "./pongal9.jpg";
 
 // Christmas Celebration
 export { default as ChristmasCelebration1 } from "./Christmas Celebration 1.jpeg";
@@ -80,7 +82,6 @@ export { default as AndamanTrip20 } from "./AndamanTrip15.jpeg";
 export { default as AndamanTrip21 } from "./Andaman12.jpg";
 export { default as AndamanTrip22 } from "./AndamanTrip16.jpg";
 
-
 //moments with ceo
 export { default as MomentsWithCEO1 } from "./MomentsWithCeo.jpeg";
 export { default as MomentsWithCEO2 } from "./MomentsWithCeo1.jpeg";
@@ -91,12 +92,10 @@ export { default as MomentsWithCEO6 } from "./MomentsWithCeo5.jpeg";
 export { default as MomentsWithCEO7 } from "./MomentsWithCeo6.jpeg";
 export { default as MomentsWithCEO8 } from "./MomentsWithCeo7.jpg";
 
-
 //Pune Trip
 export { default as PuneTrip1 } from "./pune.jpeg";
 export { default as PuneTrip2 } from "./pune1.jpeg";
 export { default as PuneTrip3 } from "./pune2.jpeg";
-
 
 //Goa Trip
 export { default as GoaTrip1 } from "./Goa.jpeg";
