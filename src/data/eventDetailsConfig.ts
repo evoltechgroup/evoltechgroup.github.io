@@ -1060,7 +1060,7 @@ const rawEventDetailsConfig: RawEventDetail[] = [
     bannerImage: AiBanner,
     title: "AI & Future Tech: Internal Deep-Dive",
     description:
-      "Exploring the intersection of Generative AI, image restoration, and automated workflows in our development pipeline.",
+      "An internal learning session focused on LLM workflows, Agentic AI, and emerging AI technologies, helping our team stay updated with the latest industry advancements.",
     fromDate: "2025-11-15",
     toDate: "2025-11-15",
     city: "Chennai",
@@ -1068,30 +1068,29 @@ const rawEventDetailsConfig: RawEventDetail[] = [
     venue: "EvolTech Office - Innovation Lab",
     detailContent: {
       overview:
-        "Our engineering team gathered for an intensive session on leveraging AI tools to enhance our technical delivery and creative workflows.",
+        "As part of our continuous learning initiative, the team participated in a knowledge-sharing session covering modern AI workflows, Agentic AI concepts, and their practical applications in today's technology landscape.",
+
       sections: [
         {
-          title: "Mastering Generative Workflows",
+          title: "LLM & AI Workflows",
           content:
-            "This session focused on the practical application of Generative AI within our current projects. We explored techniques for high-fidelity image restoration and cinematic video generation, aligning with our commitment to delivering professional-grade visual content for events like the EvolTech Summit.",
+            "The session explored Large Language Model (LLM) workflows, development processes, and real-world implementation approaches that are shaping modern AI solutions.",
         },
         {
-          title: "AI-Powered Development",
+          title: "Agentic AI Applications",
           content:
-            "Beyond visual media, we discussed integrating AI into our coding standards. The team shared insights on using LLMs to maintain our 'Architecture over Speed' philosophy, ensuring that AI-assisted code still adheres to our strict modularity and clean code principles.",
-        },
-        {
-          title: "Future Roadmap: CLRFI & Automation",
-          content:
-            "We dedicated the final segment to discussing how AI will power the next phase of the CLRFI platform. From automated lead generation to intelligent mortgage flyer processing, the session provided a roadmap for making our serverless infrastructure even more autonomous.",
+            "Team members gained insights into Agentic AI, MCP concepts, and emerging use cases, fostering discussions on how these technologies can drive innovation and improve business outcomes.",
         },
       ],
+
       highlights: [
-        "Workshop on AI-driven image sharpening and studio lighting",
-        "Demo of cinematic video generation from static photos",
-        "Strategic planning for AI integration in the CLRFI platform",
-        "Collaborative session on AI-assisted clean code practices",
+        "Overview of LLM and AI development workflows",
+        "Introduction to Agentic AI and MCP concepts",
+        "Knowledge-sharing and collaborative discussions",
+        "Exploration of practical AI applications",
+        "Interactive Q&A and team engagement",
       ],
+
       images: [AiTraining1, AiTraining2, AiTraining3, AiTraining4],
     },
   },
@@ -1358,7 +1357,7 @@ const rawEventDetailsConfig: RawEventDetail[] = [
             "The team rounded off the day with a friendly bowling session — competitive, noisy, and full of memories. These are the moments that build the culture we are proud of.",
         },
       ],
-      images: [ThePuneTeam, BowlingWithTheTeam, DinnerWithTeam  ],
+      images: [ThePuneTeam, BowlingWithTheTeam, DinnerWithTeam],
     },
   },
 ];
