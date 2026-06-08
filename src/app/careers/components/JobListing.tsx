@@ -14,7 +14,55 @@ interface JobListing {
 }
 
 const jobListings: JobListing[] = [
-   {
+  {
+    id: "iam-solution-architect",
+    title: "IAM Solution Architect",
+    experience: "10 - 15 years experience",
+    location: "India",
+  },
+  {
+    id: "Senior-Systems-Engineer-Aptare",
+    title: "Senior Systems Engineer - Aptare",
+    experience: "8 - 12 years experience",
+    location: "India",
+  },
+  {
+    id: "senior-sybase-dba-l3",
+    title: "Senior Sybase DBA (L3) – Sybase ASE & Sybase IQ",
+    experience: "8 - 12 years experience",
+    location: "India",
+  },
+  {
+    id: "ms-sql-server-dba",
+    title: "MS SQL Server DBA",
+    experience: "5 - 7 years experience",
+    location: "India",
+  },
+  {
+    id: "senior-oracle-database-administrator",
+    title: "Senior Oracle Database Administrator",
+    experience: "5 - 7 years experience",
+    location: "India",
+  },
+  {
+    id: "middleware-infrastructure-engineer",
+    title: "Middleware Infrastructure Engineer",
+    experience: "7 - 12 years experience",
+    location: "India",
+  },
+  {
+    id: "senior-network-engineer",
+    title: "Senior Network Engineer",
+    experience: "10 - 15 years experience",
+    location: "India",
+  },
+  {
+    id: "senior-application-support-specialist-l3",
+    title: "Senior Application Support Specialist (L3)",
+    experience: "7 - 12 years experience",
+    location: "India",
+  },
+  {
     id: "devops-engineer-terraform-harness",
     title: "DevOps Engineer - Terraform & Harness",
     experience: "4 - 8 years experience",
@@ -45,7 +93,7 @@ const jobListings: JobListing[] = [
     location: "India",
   },
   {
-    id:"senior-observability-engineer-l3",
+    id: "senior-observability-engineer-l3",
     title: "Senior Observability Engineer (L3)",
     experience: "10 - 15 years experience",
     location: "India",
@@ -134,7 +182,6 @@ const jobListings: JobListing[] = [
     experience: "4 - 8 years experience",
     location: "India",
   },
- 
 ];
 
 const JOBS_PER_PAGE = 7;
