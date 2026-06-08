@@ -1082,9 +1082,9 @@ export const jobDescriptions: { id: string; data: JobDescriptionData }[] = [
   {
     id: "senior-sybase-dba-l3",
     data: {
-      title: "Senior Sybase DBA (L3)",
+      title: "Senior Sybase DBA (L3) – Sybase ASE & Sybase IQ",
       experience: "8 to 12 years",
-      location: "Not Specified",
+      location: "India",
       applyUrl: "https://evoltech.keka.com/careers/applyjob/74908",
       description: [
         "The Senior Sybase DBA (L3) is responsible for expert-level administration, architecture, and escalation support for Sybase ASE (OLTP) and Sybase IQ (Analytics/Data Warehouse) environments.",
