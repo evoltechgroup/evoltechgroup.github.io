@@ -16,3 +16,5 @@ export { default as SIIAConference } from "./BannerImages/SIIA-Conference.jpg";
 export { default as SIIAPriceConference } from "./BannerImages/SIIA-price-Conference.jpg";
 export { default as SIIAGoldConference } from "./BannerImages/SIIA_Gold-club-Conference.jpg";
 export { default as SIIA } from "./BannerImages/SIIA.jpg";
+export { default as SIIAInsuranceInstituteBanner } from "./BannerImages/Siia-insurance-institute-banner2.png";
+export { default as HCAABanner2026 } from "./BannerImages/hcaa-banner-2026.jpg";

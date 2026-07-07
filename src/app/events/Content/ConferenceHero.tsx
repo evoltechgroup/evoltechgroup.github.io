@@ -1,223 +1,349 @@
-﻿"use client";
+"use client";
 
-import {
-  SpringExchangeBanner,
-  AbaBanner,
-  HCAAConference,
-  ABAConference,
-  SIIA2Conference,
-  SIIADubaiConference,
-  SIIAConference,
-  SIIAPriceConference,
-  SIIAGoldConference,
-  HCAABanner,
-  HCAA,
-} from "@/assets/images/Events/CuratedEvents";
-import { EventsBg } from "@/assets/images/Events";
-import { eclipseEffect } from "@/assets/effects";
-import {
-  Bg126,
-  Bg188,
-  Bg189,
-  Bg190,
-  Bg191,
-  Bg193,
-} from "@/assets/images/Events";
-import Text from "@/components/Text";
 import { motion, AnimatePresence } from "framer-motion";
-import { useEffect, useState } from "react";
-import { followArrowDown } from "@/assets/svg";
-import { StaticImageData } from "next/image";
+import { useEffect, useState, useRef } from "react";
+import Image, { StaticImageData } from "next/image";
+import { eventDetailsConfig } from "@/data/eventDetailsConfig";
 
-interface CardConfig {
+// ─── Conference Data ────────────────────────────────────────────────────────
+
+interface Conference {
   image: StaticImageData;
-  style: React.CSSProperties;
-  rotate: number;
-  className: string;
+  tag: string;
+  title: string;
+  location: string;
+  date: string;
 }
 
-const CARDS: CardConfig[] = [
-  //   {
-  //     image: SpringExchangeBanner,
-  //     style: { top: "6%", left: "2%" },
-  //     rotate: -7,
-  //     className: "w-40 h-28 md:w-52 md:h-36 lg:w-60 lg:h-40",
-  //   },
-  {
-    image: EventsBg,
-    style: { top: "18%", right: "2%" },
-    rotate: 6,
-    className: "w-36 h-24 md:w-48 md:h-32 lg:w-56 lg:h-36",
-  },
-  {
-    image: ABAConference,
-    style: { bottom: "10%", left: "3%" },
-    rotate: 5,
-    className: "w-36 h-24 md:w-44 md:h-28 lg:w-52 lg:h-36",
-  },
-  {
-    image: SIIA2Conference,
-    style: { bottom: "5%", right: "2%" },
-    rotate: -6,
-    className: "w-40 h-28 md:w-52 md:h-32 lg:w-60 lg:h-40",
-  },
-  {
-    image: HCAABanner,
-    style: { top: "42%", left: "0.5%" },
-    rotate: -4,
-    className: "hidden sm:block w-36 h-24 md:w-44 md:h-28 lg:w-52 lg:h-32",
-  },
-  {
-    image: SIIAConference,
-    style: { top: "40%", right: "1%" },
-    rotate: 5,
-    className: "hidden sm:block w-36 h-24 md:w-44 md:h-28 lg:w-52 lg:h-32",
-  },
-  {
-    image: SIIADubaiConference,
-    style: { top: "12%", left: "31%" },
-    rotate: 2,
-    className: "hidden md:block w-32 h-20 lg:w-44 lg:h-28",
-  },
-  {
-    image: SIIAPriceConference,
-    style: { bottom: "3%", right: "29%" },
-    rotate: -3,
-    className: "hidden md:block w-32 h-20 lg:w-44 lg:h-28",
-  },
-  {
-    image: HCAA,
-    style: { top: "16%", left: "18%" },
-    rotate: -5,
-    className: "hidden lg:block w-36 h-24",
-  },
-  {
-    image: SIIAGoldConference,
-    style: { top: "14%", right: "17%" },
-    rotate: 7,
-    className: "hidden lg:block w-36 h-24",
-  },
-];
+/**
+ * Derives conference hero slides from eventDetailsConfig.
+ * Shows all past conferences. The latest completed conference is automatically
+ * included as events transition to "past" status over time.
+ */
+function getConferenceHeroSlides(): Conference[] {
+  const past = eventDetailsConfig.filter(
+    (e) => e.category === "conference" && e.status === "past",
+  );
+  return past.map((e) => ({
+    image: (e.bannerImage ?? e.image) as StaticImageData,
+    tag:
+      e.tags?.find((t) => t.label !== "Conference")?.label ??
+      e.tags?.[0]?.label ??
+      "Conference",
+    title: e.title,
+    location: [e.city, e.state].filter(Boolean).join(", ") || "International",
+    date: new Date(`${e.fromDate}T00:00:00`).toLocaleDateString("en-US", {
+      month: "long",
+      year: "numeric",
+    }),
+  }));
+}
+
+const CONFERENCES = getConferenceHeroSlides();
+
+// ─── Amber pagination bar ───────────────────────────────────────────────────
+
+const AUTOPLAY_MS = 5000;
+
+function PaginationBar({
+  index,
+  active,
+  past,
+  onClick,
+}: {
+  index: number;
+  active: boolean;
+  past: boolean;
+  onClick: () => void;
+}) {
+  return (
+    <button
+      onClick={onClick}
+      aria-label={`Go to conference ${index + 1}`}
+      className="relative h-1.5 w-10 rounded-full overflow-hidden cursor-pointer"
+      style={{ background: "rgba(255,255,255,0.15)" }}
+    >
+      {/* Past: fully filled amber */}
+      {past && (
+        <span
+          className="absolute inset-0 rounded-full"
+          style={{ background: "oklch(0.85 0.16 85)" }}
+        />
+      )}
+      {/* Active: animating fill */}
+      {active && (
+        <motion.span
+          key="fill"
+          className="absolute inset-y-0 left-0 rounded-full"
+          style={{ background: "oklch(0.85 0.16 85)" }}
+          initial={{ width: "0%" }}
+          animate={{ width: "100%" }}
+          transition={{ duration: AUTOPLAY_MS / 1000, ease: "linear" }}
+        />
+      )}
+    </button>
+  );
+}
+
+// ─── Main Component ─────────────────────────────────────────────────────────
 
 const ConferenceHero = () => {
   const [activeIndex, setActiveIndex] = useState(0);
+  const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
+
+  const resetTimer = (nextIndex?: number) => {
+    if (intervalRef.current) clearInterval(intervalRef.current);
+    intervalRef.current = setInterval(() => {
+      setActiveIndex((prev) => (prev + 1) % CONFERENCES.length);
+    }, AUTOPLAY_MS);
+    if (nextIndex !== undefined) setActiveIndex(nextIndex);
+  };
 
   useEffect(() => {
-    const timer = setInterval(() => {
-      setActiveIndex((prev) => (prev + 1) % CARDS.length);
-    }, 3500);
-    return () => clearInterval(timer);
+    resetTimer();
+    return () => {
+      if (intervalRef.current) clearInterval(intervalRef.current);
+    };
   }, []);
 
+  const handleDotClick = (i: number) => {
+    resetTimer(i);
+  };
+
+  const conf = CONFERENCES[activeIndex];
+
   return (
-    <section className="relative flex w-full flex-col h-[60vh] lg:h-[72vh] xl:h-[80vh] overflow-hidden">
-      {/* ── Brand background layers ── */}
-      <div className="absolute inset-0 z-0 w-full h-full flex bg-black overflow-hidden pointer-events-none">
-        <div className="absolute inset-0 z-0 w-full h-full flex bg-black overflow-hidden pointer-events-none">
-          <div className="absolute z-8 w-full h-full">{eclipseEffect}</div>
-          <div className="absolute z-7 w-full h-full">
-            <img
-              src={Bg191.src}
-              alt=""
-              className="md:absolute w-full h-full object-cover"
-            />
-          </div>
-          <div className="absolute z-6 w-full h-full">
-            <img
-              src={Bg190.src}
-              alt=""
-              className="md:absolute w-full h-full object-cover"
-            />
-          </div>
-          <div className="absolute z-5 w-full h-full">
-            <img
-              src={Bg189.src}
-              alt=""
-              className="md:absolute w-full h-full object-cover"
-            />
-          </div>
-          <div className="absolute z-4 w-full h-full">
-            <img
-              src={Bg188.src}
-              alt=""
-              className="md:absolute w-full h-full object-cover"
-            />
-          </div>
-          <div className="absolute z-2 w-full h-full">
-            <img
-              src={Bg193.src}
-              alt=""
-              className="md:absolute w-full h-full object-cover"
-            />
-          </div>
-          <div className="absolute z-1 w-full h-full">
-            <img
-              src={Bg126.src}
-              alt=""
-              className="md:absolute w-full h-full object-cover"
-            />
-          </div>
-        </div>
-      </div>
-
-      {/* ── Vignette overlay across the full section ── */}
-      <div className="absolute inset-0 z-[5] bg-black/40 pointer-events-none" />
-
-      {/* ── Active image — centered card, not full-bleed ── */}
-      <div className="absolute inset-0 z-[6] flex items-end justify-center pb-6 sm:pb-8 pointer-events-none">
-        <div className="relative w-[86%] max-w-[960px] h-[62%] sm:h-[75%] rounded-2xl overflow-hidden shadow-2xl ring-1 ring-white/20">
-          <AnimatePresence mode="sync">
-            <motion.img
-              key={activeIndex}
-              src={CARDS[activeIndex].image.src}
-              alt={`Conference ${activeIndex + 1}`}
-              className="absolute inset-0 w-full h-full object-cover"
-              initial={{ opacity: 0, scale: 1.06 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.96 }}
-              transition={{ duration: 1.1, ease: [0.4, 0, 0.2, 1] }}
-            />
-          </AnimatePresence>
-        </div>
-      </div>
-
-      {/* ── Corner thumbnail cards — always visible, dim when their image is active ── */}
-      {CARDS.map((card, i) => (
-        <motion.div
-          key={i}
-          className={`absolute rounded-2xl overflow-hidden shadow-xl ${card.className}`}
-          style={{ ...card.style, zIndex: 15 }}
-          animate={{
-            opacity: i === activeIndex ? 0.08 : 0.55,
-            scale: i === activeIndex ? 0.72 : 0.9,
-            rotate: card.rotate,
-            filter: i === activeIndex ? "blur(6px)" : "blur(4px)",
+    <section
+      className="relative w-full overflow-hidden"
+      style={{
+        minHeight: "600px",
+        height: "78vh",
+        background: "oklch(0.13 0.05 265)",
+      }}
+    >
+      {/* ── Layered blue radial glows ── */}
+      <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
+        {/* Primary glow — center-left */}
+        <div
+          className="absolute rounded-full"
+          style={{
+            width: "700px",
+            height: "700px",
+            top: "50%",
+            left: "30%",
+            transform: "translate(-50%, -50%)",
+            background:
+              "radial-gradient(circle, oklch(0.45 0.22 260 / 0.28) 0%, transparent 70%)",
+            filter: "blur(120px)",
           }}
-          transition={{ duration: 0.8, ease: [0.4, 0, 0.2, 1] }}
-        >
-          <img
-            src={card.image.src}
-            alt=""
-            className="w-full h-full object-cover"
-          />
-        </motion.div>
-      ))}
+        />
+        {/* Secondary glow — top-right */}
+        <div
+          className="absolute rounded-full"
+          style={{
+            width: "500px",
+            height: "500px",
+            top: "-10%",
+            right: "10%",
+            background:
+              "radial-gradient(circle, oklch(0.55 0.22 260 / 0.18) 0%, transparent 70%)",
+            filter: "blur(140px)",
+          }}
+        />
+        {/* Tertiary glow — bottom-left */}
+        <div
+          className="absolute rounded-full"
+          style={{
+            width: "400px",
+            height: "400px",
+            bottom: "5%",
+            left: "5%",
+            background:
+              "radial-gradient(circle, oklch(0.4 0.2 260 / 0.15) 0%, transparent 70%)",
+            filter: "blur(130px)",
+          }}
+        />
+      </div>
 
-      {/* ── Text overlay — centered over the full image ── */}
-      {/* <div className="relative z-20 flex flex-col h-full w-full items-center justify-center gap-3 md:gap-5 px-4 text-center">
-        <Text
-          className="font-semibold text-3xl sm:text-4xl md:text-5xl xl:text-6xl text-center"
-          tag="p"
+      {/* ── Center carousel card (z-10) ── */}
+      <div className="absolute inset-0 z-10 flex items-center justify-center px-4 pt-20">
+        <div
+          className="relative w-full max-w-4xl"
+          style={{ aspectRatio: "16/9", maxHeight: "60vh" }}
         >
-          Explore Our Conferences
-        </Text>
-        <Text className="text-xl sm:text-2xl md:text-3xl max-w-[40rem] text-center text-[#FFBB00]">
-          Connect with industry experts
-        </Text>
-        <div className="flex items-center justify-center w-10 md:w-[71px]">
-          {followArrowDown}
+          <div
+            className="relative w-full h-full rounded-2xl overflow-hidden"
+            style={{
+              border: "1px solid rgba(255,255,255,0.1)",
+              boxShadow: "0 30px 120px -20px oklch(0.45 0.22 260 / 0.8)",
+            }}
+          >
+            {/* Slide images with cross-fade */}
+            <AnimatePresence mode="sync">
+              <motion.div
+                key={activeIndex}
+                className="absolute inset-0"
+                initial={{ opacity: 0, scale: 1.04 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.98 }}
+                transition={{ duration: 1.1, ease: [0.4, 0, 0.2, 1] }}
+              >
+                <Image
+                  src={conf.image}
+                  alt={conf.title}
+                  fill
+                  priority
+                  sizes="(max-width: 1280px) 100vw, 1280px"
+                  className="object-contain"
+                />
+                {/* Diagonal gradient overlay: top-right → bottom-left */}
+                <div
+                  className="absolute inset-0"
+                  style={{
+                    background:
+                      "linear-gradient(135deg, transparent 0%, oklch(0.13 0.05 265 / 0.85) 100%)",
+                  }}
+                />
+              </motion.div>
+            </AnimatePresence>
+
+            {/* ── Text stack — bottom-left with staggered entry ── */}
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={`text-${activeIndex}`}
+                className="absolute bottom-0 left-0 p-8 md:p-12 z-10 flex flex-col gap-3"
+              >
+                {/* Tag pill */}
+                <motion.span
+                  initial={{ opacity: 0, y: 16 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -8 }}
+                  transition={{
+                    duration: 0.6,
+                    delay: 0.25,
+                    ease: [0.4, 0, 0.2, 1],
+                  }}
+                  className="self-start px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-widest text-white/80"
+                  style={{
+                    background: "rgba(255,255,255,0.1)",
+                    backdropFilter: "blur(8px)",
+                    border: "1px solid rgba(255,255,255,0.15)",
+                  }}
+                >
+                  {conf.tag}
+                </motion.span>
+
+                {/* Headline — glassmorphism */}
+                <motion.h1
+                  initial={{ opacity: 0, y: 16 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -8 }}
+                  transition={{
+                    duration: 0.6,
+                    delay: 0.35,
+                    ease: [0.4, 0, 0.2, 1],
+                  }}
+                  className="font-semibold leading-tight max-w-2xl"
+                  style={{
+                    fontSize: "clamp(1.25rem, 2.5vw, 2.5rem)",
+                    color: "rgba(255,255,255,0.95)",
+                    padding: "8px 16px",
+                    borderRadius: "12px",
+                    backdropFilter: "blur(18px) saturate(1.6)",
+                    background: "rgba(255, 255, 255, 0.1)",
+                    border: "1px solid rgba(255,255,255,0.22)",
+                    boxShadow:
+                      "0 4px 24px 0 rgba(0,0,0,0.18), inset 0 1px 0 rgba(255,255,255,0.18)",
+                    display: "inline-block",
+                    marginLeft: "-12px",
+                    textShadow: "0 1px 8px rgba(0,0,0,0.35)",
+                  }}
+                >
+                  {conf.title}
+                </motion.h1>
+
+                {/* Meta row — glassmorphism */}
+                <motion.div
+                  initial={{ opacity: 0, y: 16 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -8 }}
+                  transition={{
+                    duration: 0.6,
+                    delay: 0.45,
+                    ease: [0.4, 0, 0.2, 1],
+                  }}
+                  style={{
+                    padding: "5px 14px",
+                    borderRadius: "999px",
+                    backdropFilter: "blur(16px) saturate(1.5)",
+                    background: "rgba(255, 255, 255, 0.1)",
+                    border: "1px solid rgba(255,255,255,0.2)",
+                    boxShadow:
+                      "0 2px 16px 0 rgba(0,0,0,0.15), inset 0 1px 0 rgba(255,255,255,0.15)",
+                    display: "inline-flex",
+                    alignItems: "center",
+                    gap: "10px",
+                    alignSelf: "flex-start",
+                    marginLeft: "-10px",
+                  }}
+                >
+                  {/* Amber dot + location */}
+                  <span className="flex items-center gap-2">
+                    <span
+                      className="w-1.5 h-1.5 rounded-full flex-shrink-0"
+                      style={{
+                        background: "oklch(0.85 0.16 85)",
+                        boxShadow: "0 0 6px oklch(0.85 0.16 85 / 0.7)",
+                      }}
+                    />
+                    <span
+                      className="text-sm font-medium"
+                      style={{
+                        color: "rgba(255,255,255,0.88)",
+                        textShadow: "0 1px 4px rgba(0,0,0,0.3)",
+                      }}
+                    >
+                      {conf.location}
+                    </span>
+                  </span>
+                  {/* Separator */}
+                  <span
+                    style={{
+                      color: "rgba(255,255,255,0.25)",
+                      fontSize: "0.65rem",
+                    }}
+                  >
+                    ·
+                  </span>
+                  {/* Date */}
+                  <span
+                    className="text-sm"
+                    style={{
+                      color: "rgba(255,255,255,0.55)",
+                      textShadow: "0 1px 4px rgba(0,0,0,0.25)",
+                    }}
+                  >
+                    {conf.date}
+                  </span>
+                </motion.div>
+              </motion.div>
+            </AnimatePresence>
+
+            {/* ── Pagination — bottom center inside card ── */}
+            <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-20 flex items-center gap-2">
+              {CONFERENCES.map((_, i) => (
+                <PaginationBar
+                  key={i}
+                  index={i}
+                  active={i === activeIndex}
+                  past={i < activeIndex}
+                  onClick={() => handleDotClick(i)}
+                />
+              ))}
+            </div>
+          </div>
         </div>
-      </div> */}
+      </div>
     </section>
   );
 };

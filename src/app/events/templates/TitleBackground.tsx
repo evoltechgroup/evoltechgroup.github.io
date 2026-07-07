@@ -13,9 +13,21 @@ import {
 import { formatEventDateRange } from "@/data/eventDetailsConfig";
 import ThemeButton from "@/components/Button/ThemeButton";
 import { ChevronLeft } from "lucide-react";
+import { Manrope, Inter } from "next/font/google";
 import { useRouter, useSearchParams } from "next/navigation";
 import { Suspense } from "react";
 import { StaticImageData } from "next/image";
+
+const manrope = Manrope({
+  subsets: ["latin"],
+  variable: "--font-manrope-tb",
+  display: "swap",
+});
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter-tb",
+  display: "swap",
+});
 
 interface TitleBackgroundProps {
   event: {
@@ -94,71 +106,221 @@ const TitleBackgroundContent: React.FC<TitleBackgroundProps> = ({
     </div>
   );
 
-  /* ── CONFERENCE layout: back button card → centered image → meta ── */
+  /* ── CONFERENCE layout: premium dark hero ── */
   if (isConference) {
     return (
-      <div className="relative flex flex-col w-full h-[70vh] lg:h-[80vh] xl:h-[85vh] overflow-hidden mt-20">
-        {BrandBackground}
-
-        <div className="relative z-10 flex flex-col h-full w-full max-w-5xl mx-auto px-4 lg:px-8 ">
-          {/* TOP: transparent card with back button */}
-          <div className="pt-5 pb-3">
-            <div
-              className="inline-flex"
+      <div
+        className={`${manrope.variable} ${inter.variable} w-full mt-20`}
+        style={{
+          background:
+            "linear-gradient(180deg, #020617 0%, #071426 60%, #0F172A 100%)",
+        }}
+      >
+        <div className="max-w-6xl mx-auto px-4 lg:px-8 pt-6 pb-10 flex flex-col gap-5">
+          {/* ── 1. Back nav pill ── */}
+          <div>
+            <button
+              type="button"
+              onClick={() => router.back()}
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full transition-all duration-200"
               style={{
-                background: "rgba(255,255,255,0.10)",
-                border: "1px solid rgba(255,255,255,0.18)",
-                borderRadius: "2rem",
-                backdropFilter: "blur(8px)",
-                WebkitBackdropFilter: "blur(8px)",
+                background: "rgba(255,255,255,0.06)",
+                border: "1px solid rgba(255,255,255,0.10)",
+                backdropFilter: "blur(12px)",
+                WebkitBackdropFilter: "blur(12px)",
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.background = "rgba(56,189,248,0.08)";
+                e.currentTarget.style.borderColor = "rgba(56,189,248,0.28)";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.background = "rgba(255,255,255,0.06)";
+                e.currentTarget.style.borderColor = "rgba(255,255,255,0.10)";
               }}
             >
-              <ThemeButton
-                text="Back to All"
-                onClick={() => router.back()}
-                startIcon={
-                  <span>
-                    <ChevronLeft />
-                  </span>
-                }
-                extraStyles="!bg-transparent !text-white hover:!bg-[#FFFFFF1A] hover:!text-white hover:brightness-100 !pl-2 !pr-4"
-              />
-            </div>
-          </div>
-
-          {/* MIDDLE: event image as a visible rounded card */}
-          <div className="flex-1 flex items-center justify-center overflow-hidden py-2">
-            <div className="relative w-full max-w-5xl h-full overflow-hidden rounded-2xl shadow-2xl ring-1 ring-white/10">
-              <img
-                src={eventBg.src}
-                alt={event.title}
-                className="w-full h-full object-cover"
-              />
-              <div className="absolute inset-x-0 bottom-0 h-1/4 bg-gradient-to-t from-black/30 to-transparent pointer-events-none" />
-            </div>
-          </div>
-
-          {/* BOTTOM: title + meta tags — no card, transparent */}
-          <div className="py-4 flex flex-col gap-2">
-            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight">
-              {event.title}
-            </h1>
-            <div className="flex flex-wrap items-center gap-2">
-              <span className="text-sm bg-transparent border border-yellow-400 text-[#FFBB00] px-2 py-1 rounded-full font-medium">
-                {event.dateLabel ??
-                  formatEventDateRange(event.fromDate, event.toDate)}
+              <svg
+                width="14"
+                height="14"
+                viewBox="0 0 20 20"
+                fill="none"
+                aria-hidden
+              >
+                <path
+                  d="M13 4l-6 6 6 6"
+                  stroke="#38BDF8"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+              <span
+                className="text-sm font-medium"
+                style={{
+                  fontFamily: "var(--font-inter-tb), Inter, sans-serif",
+                  color: "rgba(255,255,255,0.85)",
+                }}
+              >
+                Back to All
               </span>
-              {event.city && (
-                <span className="text-sm bg-transparent border border-yellow-400 text-[#FFBB00] px-2 py-1 rounded-full font-medium">
-                  {event.city}, {event.state}
-                </span>
-              )}
-              {event.venue && (
-                <span className="text-sm bg-transparent border border-yellow-400 text-[#FFBB00] px-2 py-1 rounded-full font-medium">
-                  {event.venue}
-                </span>
-              )}
-            </div>
+            </button>
+          </div>
+
+          {/* ── 2. Banner image container ── */}
+          <div
+            className="relative w-full overflow-hidden"
+            style={{
+              borderRadius: 24,
+              border: "1px solid rgba(255,255,255,0.08)",
+              boxShadow:
+                "0 24px 60px rgba(0,0,0,0.55), 0 0 0 1px rgba(255,255,255,0.04), inset 0 1px 0 rgba(255,255,255,0.06)",
+            }}
+          >
+            <img
+              src={eventBg.src}
+              alt={event.title}
+              className="w-full object-cover block"
+              style={{ maxHeight: 380 }}
+            />
+            {/* Bottom gradient fade: transparent → deep navy */}
+            <div
+              className="absolute inset-x-0 bottom-0 pointer-events-none"
+              style={{
+                height: "40%",
+                background:
+                  "linear-gradient(to bottom, transparent 0%, rgba(7,20,38,0.30) 60%, rgba(7,20,38,0.55) 100%)",
+              }}
+            />
+          </div>
+
+          {/* ── 3. Title block ── */}
+          <h1
+            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold leading-tight text-white"
+            style={{
+              fontFamily: "var(--font-manrope-tb), Manrope, sans-serif",
+            }}
+          >
+            {event.title}
+          </h1>
+
+          {/* ── 4. Meta pill row ── */}
+          <div className="flex flex-wrap items-center gap-2">
+            {/* Date */}
+            <span
+              className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-sm"
+              style={{
+                fontFamily: "var(--font-inter-tb), Inter, sans-serif",
+                background: "rgba(7,20,38,0.70)",
+                border: "1px solid rgba(255,255,255,0.10)",
+                backdropFilter: "blur(8px)",
+                WebkitBackdropFilter: "blur(8px)",
+                color: "rgba(255,255,255,0.75)",
+              }}
+            >
+              <svg
+                width="12"
+                height="12"
+                viewBox="0 0 16 16"
+                fill="none"
+                aria-hidden
+              >
+                <rect
+                  x="1"
+                  y="3"
+                  width="14"
+                  height="11"
+                  rx="2"
+                  stroke="#38BDF8"
+                  strokeWidth="1.4"
+                />
+                <path d="M1 7h14" stroke="#38BDF8" strokeWidth="1.4" />
+                <path
+                  d="M5 1v4M11 1v4"
+                  stroke="#38BDF8"
+                  strokeWidth="1.4"
+                  strokeLinecap="round"
+                />
+              </svg>
+              {event.dateLabel ??
+                formatEventDateRange(event.fromDate, event.toDate)}
+            </span>
+
+            {/* Location */}
+            {event.city && (
+              <span
+                className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-sm"
+                style={{
+                  fontFamily: "var(--font-inter-tb), Inter, sans-serif",
+                  background: "rgba(7,20,38,0.70)",
+                  border: "1px solid rgba(255,255,255,0.10)",
+                  backdropFilter: "blur(8px)",
+                  WebkitBackdropFilter: "blur(8px)",
+                  color: "rgba(255,255,255,0.75)",
+                }}
+              >
+                <svg
+                  width="11"
+                  height="13"
+                  viewBox="0 0 16 16"
+                  fill="none"
+                  aria-hidden
+                >
+                  <path
+                    d="M8 1a5 5 0 0 1 5 5c0 3.5-5 9-5 9S3 9.5 3 6a5 5 0 0 1 5-5Z"
+                    stroke="#38BDF8"
+                    strokeWidth="1.4"
+                  />
+                  <circle
+                    cx="8"
+                    cy="6"
+                    r="1.6"
+                    stroke="#38BDF8"
+                    strokeWidth="1.4"
+                  />
+                </svg>
+                {event.city}
+                {event.state ? `, ${event.state}` : ""}
+              </span>
+            )}
+
+            {/* Venue */}
+            {event.venue && (
+              <span
+                className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-sm"
+                style={{
+                  fontFamily: "var(--font-inter-tb), Inter, sans-serif",
+                  background: "rgba(7,20,38,0.70)",
+                  border: "1px solid rgba(255,255,255,0.10)",
+                  backdropFilter: "blur(8px)",
+                  WebkitBackdropFilter: "blur(8px)",
+                  color: "rgba(255,255,255,0.75)",
+                }}
+              >
+                <svg
+                  width="12"
+                  height="12"
+                  viewBox="0 0 16 16"
+                  fill="none"
+                  aria-hidden
+                >
+                  <rect
+                    x="2"
+                    y="1"
+                    width="12"
+                    height="14"
+                    rx="1.5"
+                    stroke="#38BDF8"
+                    strokeWidth="1.4"
+                  />
+                  <path
+                    d="M5 5h6M5 8h6M5 11h4"
+                    stroke="#38BDF8"
+                    strokeWidth="1.2"
+                    strokeLinecap="round"
+                  />
+                </svg>
+                {event.venue}
+              </span>
+            )}
           </div>
         </div>
       </div>

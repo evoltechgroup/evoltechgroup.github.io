@@ -1,6 +1,7 @@
 "use client";
 import React, { useState, useMemo, useEffect } from "react";
 import Link from "next/link";
+import { Manrope, Inter } from "next/font/google";
 import {
   listedEventDetailsConfig,
   formatEventDateRange,
@@ -9,228 +10,287 @@ import {
 import CuratedEventCard from "../components/CuratedEventCard";
 import { TabButton } from "@/components/services/tabButton";
 import ThemeButton from "@/components/Button/ThemeButton";
-import { RoundChevronDown, CalenderIcon } from "@/assets/icons/custom-icons";
+import { RoundChevronDown } from "@/assets/icons/custom-icons";
+
+const manrope = Manrope({
+  subsets: ["latin"],
+  variable: "--font-manrope",
+  display: "swap",
+});
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+  display: "swap",
+});
 
 /* ─────────────────────────────────────────────────────────────────────────────
- * Upcoming / ongoing conference highlight card.
- * Layout: 40% vibrant brand-colored left panel | 60% clear bright image right.
- * Animated shimmer gradient outer border. No heavy dark overlay on the image.
- * variant="hero"    — tall, full description, vivid orange CTA button
- * variant="compact" — shorter, no description, inline CTA link
+ * Countdown hook — minutes tick, safe: interval-only (no sync setState in effect)
  * ───────────────────────────────────────────────────────────────────────────── */
-function UpcomingGlassCard({
-  event,
-  variant = "hero",
-}: {
-  event: EventDetail;
-  variant?: "hero" | "compact";
-}) {
+function useCountdown(targetDate: string) {
+  const [timeLeft, setTimeLeft] = useState(() => {
+    const diff = new Date(`${targetDate}T00:00:00`).getTime() - Date.now();
+    if (diff <= 0) return { days: 0, hrs: 0, min: 0 };
+    return {
+      days: Math.floor(diff / 86_400_000),
+      hrs: Math.floor((diff % 86_400_000) / 3_600_000),
+      min: Math.floor((diff % 3_600_000) / 60_000),
+    };
+  });
+
+  useEffect(() => {
+    const compute = () => {
+      const diff = new Date(`${targetDate}T00:00:00`).getTime() - Date.now();
+      if (diff <= 0) return { days: 0, hrs: 0, min: 0 };
+      return {
+        days: Math.floor(diff / 86_400_000),
+        hrs: Math.floor((diff % 86_400_000) / 3_600_000),
+        min: Math.floor((diff % 3_600_000) / 60_000),
+      };
+    };
+    const id = setInterval(() => setTimeLeft(compute()), 60_000);
+    return () => clearInterval(id);
+  }, [targetDate]);
+
+  return timeLeft;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+ * Premium "featured upcoming" card.
+ * Deep navy glass surface · blue→cyan accents · Manrope headings · Inter body
+ * Left panel  — event image bg + dark gradient overlay + glass status pill +
+ *               glass countdown (Days / Hrs / Min)
+ * Right panel — format label, title, description, date + venue row, CTA button
+ * ───────────────────────────────────────────────────────────────────────────── */
+function FeaturedConferenceCard({ event }: { event: EventDetail }) {
   const isOngoing = event.status === "ongoing";
-  const badgeLabel = isOngoing ? "Ongoing" : "Upcoming";
-  const badgeColor = isOngoing ? "#16A34A" : "#FE7F00";
+  const { days, hrs, min } = useCountdown(event.fromDate);
   const href = `/events/${event.slug}`;
-  const locationStr = [event.city, event.state].filter(Boolean).join(", ");
-  const isHero = variant === "hero";
+  const locationStr = [event.venue, event.city, event.state]
+    .filter(Boolean)
+    .join(", ");
+  const imageSrc = (event.bannerImage ?? event.image).src;
 
   return (
     <div
-      style={{
-        background:
-          "linear-gradient(270deg, #FE7F00, #58619D, #4C96D7, #FE7F00)",
-        backgroundSize: "300% 300%",
-        animation: "shimmer-border 4s ease infinite",
-        borderRadius: "1rem",
-        padding: "2px",
-        /* Glow around the whole card */
-        boxShadow:
-          "0 0 0 1px rgba(88,97,157,0.15), 0 8px 32px rgba(88,97,157,0.22), 0 0 60px rgba(254,127,0,0.10)",
-      }}
+      className={`${manrope.variable} ${inter.variable} relative`}
+      /* Ambient glow blobs live behind the card, not inside */
     >
-      <Link href={href} className="block">
+      {/* Purple glow — top-left */}
+      <div
+        className="absolute -top-16 -left-16 w-72 h-72 rounded-full pointer-events-none"
+        style={{
+          background:
+            "radial-gradient(circle, rgba(88,97,157,0.28) 0%, transparent 68%)",
+          filter: "blur(40px)",
+          zIndex: 0,
+        }}
+      />
+      {/* Orange glow — bottom-right */}
+      <div
+        className="absolute -bottom-12 -right-12 w-60 h-60 rounded-full pointer-events-none"
+        style={{
+          background:
+            "radial-gradient(circle, rgba(254,127,0,0.14) 0%, transparent 68%)",
+          filter: "blur(36px)",
+          zIndex: 0,
+        }}
+      />
+
+      {/* ── Card ── */}
+      <Link href={href} className="block group relative z-10">
         <div
-          className={`group relative flex overflow-hidden rounded-2xl ${
-            isHero ? "h-[280px] md:h-[320px]" : "h-[160px] sm:h-[180px]"
-          }`}
+          className="relative flex overflow-hidden"
+          style={{
+            borderRadius: 28,
+            minHeight: 380,
+            background:
+              "linear-gradient(135deg, rgba(15,23,42,0.92) 0%, rgba(7,20,38,0.96) 100%)",
+            border: "1px solid rgba(255,255,255,0.07)",
+            boxShadow:
+              "0 32px 72px rgba(0,0,0,0.55), 0 0 0 1px rgba(255,255,255,0.04), inset 0 1px 0 rgba(255,255,255,0.06)",
+          }}
         >
-          {/* ─────────────────────────────
-           * LEFT 40% — vivid brand panel
-           * ───────────────────────────── */}
+          {/* ── LEFT: image panel (44%) ── */}
           <div
-            className={`relative flex flex-col justify-between shrink-0 ${
-              isHero
-                ? "w-[42%] sm:w-[40%] p-5 sm:p-7"
-                : "w-[48%] sm:w-[44%] p-4 sm:p-5"
-            }`}
+            className="relative shrink-0 w-[44%] sm:w-[65%]"
+            style={{ minHeight: 380 }}
+          >
+            <img
+              src={imageSrc}
+              alt={event.title}
+              className="absolute inset-0 w-full h-full object-cover"
+            />
+            {/* Dark gradient overlay for legibility */}
+            <div
+              className="absolute inset-0"
+              style={{
+                background:
+                  "linear-gradient(to bottom, rgba(2,6,23,0.28) 0%, rgba(2,6,23,0.08) 100%, rgba(2,6,23,0.62) 10%, rgba(2,6,23,0.92) 100%)",
+              }}
+            />
+            {/* Right-edge feather so image blends into right panel */}
+            <div
+              className="absolute inset-y-0 right-0 w-20 pointer-events-none"
+              style={{
+                background:
+                  "linear-gradient(to right, transparent 0%, rgba(7,20,38,0.80) 70%, rgba(7,20,38,0.96) 100%)",
+              }}
+            />
+          </div>
+
+          {/* ── RIGHT: content panel ── */}
+          <div
+            className="flex-1 flex flex-col justify-center px-6 py-8 sm:px-8"
             style={{
               background:
-                "linear-gradient(145deg, #111C5D 0%, #1E2D7D 40%, #0B0F2B 100%)",
+                "linear-gradient(135deg, rgba(255,255,255,0.025) 0%, transparent 100%)",
             }}
           >
-            {/* Dot-grid texture for depth */}
-            <div
-              className="absolute inset-0 pointer-events-none"
+            {/* Format / category label */}
+            <p
+              className="text-[11px] font-semibold tracking-[0.20em] uppercase mb-4"
               style={{
-                backgroundImage:
-                  "radial-gradient(circle, rgba(255,255,255,0.07) 1px, transparent 1px)",
-                backgroundSize: "18px 18px",
+                fontFamily: "var(--font-inter), Inter, sans-serif",
+                background: "linear-gradient(90deg, #58619D, #4C96D7)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
               }}
-            />
-            {/* Ambient color glow from badge color */}
-            <div
-              className="absolute -top-8 -left-8 w-36 h-36 rounded-full pointer-events-none"
-              style={{
-                background: `radial-gradient(circle, ${badgeColor}33 0%, transparent 70%)`,
-              }}
-            />
-
-            {/* Content */}
-            <div className="relative z-10">
-              {/* Badge */}
-              <span
-                className={`inline-flex items-center gap-1.5 text-white font-bold rounded-full ${
-                  isHero
-                    ? "text-xs px-3 py-1 mb-3"
-                    : "text-[0.65rem] px-2.5 py-0.5 mb-2"
-                }`}
-                style={{
-                  backgroundColor: badgeColor,
-                  boxShadow: `0 0 12px ${badgeColor}99, 0 0 28px ${badgeColor}44`,
-                }}
-              >
-                <span
-                  className="rounded-full inline-block animate-pulse bg-white"
-                  style={{ width: isHero ? 6 : 5, height: isHero ? 6 : 5 }}
-                />
-                {badgeLabel}
-              </span>
-
-              <h3
-                className={`text-white font-extrabold leading-snug line-clamp-2 ${
-                  isHero
-                    ? "text-lg sm:text-xl md:text-2xl mb-2"
-                    : "text-sm sm:text-[0.95rem] mb-1"
-                }`}
-              >
-                {event.title}
-              </h3>
-
-              {isHero && (
-                <p className="text-white/55 text-xs sm:text-sm leading-relaxed line-clamp-3">
-                  {event.description}
-                </p>
-              )}
-            </div>
-
-            {/* Bottom: meta + CTA */}
-            <div
-              className={`relative z-10 flex flex-col ${
-                isHero ? "gap-1.5" : "gap-1"
-              }`}
             >
-              {locationStr && (
-                <div className="flex items-center gap-1.5 text-white/65 text-xs">
+              Conference
+            </p>
+
+            {/* Title */}
+            <h3
+              className="text-white font-extrabold text-xl sm:text-2xl leading-tight line-clamp-2 mb-3"
+              style={{ fontFamily: "var(--font-manrope), Manrope, sans-serif" }}
+            >
+              {event.title}
+            </h3>
+
+            {/* Description */}
+            <p
+              className="text-white/45 text-sm leading-relaxed line-clamp-2 mb-6"
+              style={{ fontFamily: "var(--font-inter), Inter, sans-serif" }}
+            >
+              {event.description}
+            </p>
+
+            {/* Info row: date + venue */}
+            <div className="flex flex-col gap-2.5 mb-7">
+              {/* Date */}
+              <div className="flex items-center gap-2.5">
+                <div
+                  className="w-8 h-8 rounded-xl flex items-center justify-center shrink-0"
+                  style={{
+                    background: "rgba(88,97,157,0.10)",
+                    border: "1px solid rgba(88,97,157,0.28)",
+                  }}
+                >
                   <svg
-                    width={isHero ? 12 : 10}
-                    height={isHero ? 12 : 10}
+                    width="13"
+                    height="13"
                     viewBox="0 0 16 16"
                     fill="none"
                     aria-hidden
                   >
-                    <path
-                      d="M8 1a5 5 0 0 1 5 5c0 3.5-5 9-5 9S3 9.5 3 6a5 5 0 0 1 5-5Z"
-                      stroke="currentColor"
+                    <rect
+                      x="1"
+                      y="3"
+                      width="14"
+                      height="11"
+                      rx="2"
+                      stroke="#4C96D7"
                       strokeWidth="1.4"
                     />
-                    <circle
-                      cx="8"
-                      cy="6"
-                      r="1.6"
-                      stroke="currentColor"
+                    <path d="M1 7h14" stroke="#4C96D7" strokeWidth="1.4" />
+                    <path
+                      d="M5 1v4M11 1v4"
+                      stroke="#4C96D7"
                       strokeWidth="1.4"
+                      strokeLinecap="round"
                     />
                   </svg>
-                  <span className="truncate">{locationStr}</span>
                 </div>
-              )}
-              <div className="flex items-center gap-1.5 text-white/65 text-xs">
                 <span
-                  className={`opacity-75 ${
-                    isHero
-                      ? "[&>svg]:w-3 [&>svg]:h-3"
-                      : "[&>svg]:w-2.5 [&>svg]:h-2.5"
-                  }`}
+                  className="text-white/60 text-xs"
+                  style={{ fontFamily: "var(--font-inter), Inter, sans-serif" }}
                 >
-                  {CalenderIcon}
-                </span>
-                <span>
                   {formatEventDateRange(event.fromDate, event.toDate)}
                 </span>
               </div>
 
-              {isHero ? (
-                <div className="mt-2">
-                  <span
-                    className="inline-flex items-center gap-2 text-white font-bold text-xs sm:text-sm px-4 py-2 rounded-full transition-all duration-300 group-hover:brightness-110 group-hover:scale-[1.03]"
+              {/* Venue */}
+              {locationStr && (
+                <div className="flex items-center gap-2.5">
+                  <div
+                    className="w-8 h-8 rounded-xl flex items-center justify-center shrink-0"
                     style={{
-                      background:
-                        "linear-gradient(90deg, #FE7F00 0%, #FF9F2F 100%)",
-                      boxShadow:
-                        "0 4px 14px rgba(254,127,0,0.50), 0 1px 3px rgba(0,0,0,0.2)",
+                      background: "rgba(88,97,157,0.10)",
+                      border: "1px solid rgba(88,97,157,0.28)",
                     }}
                   >
-                    View Details
                     <svg
-                      width="14"
-                      height="14"
-                      viewBox="0 0 20 20"
+                      width="11"
+                      height="13"
+                      viewBox="0 0 16 16"
                       fill="none"
                       aria-hidden
                     >
                       <path
-                        d="M4 10h12M12 6l4 4-4 4"
-                        stroke="white"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
+                        d="M8 1a5 5 0 0 1 5 5c0 3.5-5 9-5 9S3 9.5 3 6a5 5 0 0 1 5-5Z"
+                        stroke="#4C96D7"
+                        strokeWidth="1.4"
+                      />
+                      <circle
+                        cx="8"
+                        cy="6"
+                        r="1.6"
+                        stroke="#4C96D7"
+                        strokeWidth="1.4"
                       />
                     </svg>
-                  </span>
-                </div>
-              ) : (
-                <div className="flex items-center gap-1 text-[#FF9F2F] text-xs font-bold mt-0.5 group-hover:gap-2 transition-[gap] duration-300">
-                  <span>View Details</span>
-                  <svg
-                    width="11"
-                    height="11"
-                    viewBox="0 0 20 20"
-                    fill="none"
-                    aria-hidden
+                  </div>
+                  <span
+                    className="text-white/60 text-xs line-clamp-1"
+                    style={{
+                      fontFamily: "var(--font-inter), Inter, sans-serif",
+                    }}
                   >
-                    <path
-                      d="M4 10h12M12 6l4 4-4 4"
-                      stroke="currentColor"
-                      strokeWidth="2.2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
+                    {locationStr}
+                  </span>
                 </div>
               )}
             </div>
-          </div>
 
-          {/* ─────────────────────────────
-           * RIGHT 60% — clear, bright event image
-           * No dark overlay — image shows in full colour
-           * ───────────────────────────── */}
-          <div className="relative flex-1 overflow-hidden">
-            <img
-              src={event.image.src}
-              alt={event.title}
-              className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-            />
-            {/* Thin left-edge feather so left panel and image blend seamlessly */}
-            <div className="absolute inset-y-0 left-0 w-10 bg-gradient-to-r from-[#111C5D] to-transparent pointer-events-none" />
+            {/* Single CTA — "View details" gradient button */}
+            <div>
+              <span
+                className="inline-flex items-center gap-2 text-white text-sm font-semibold px-6 py-2.5 rounded-full transition-all duration-300 group-hover:-translate-y-0.5 group-hover:shadow-[0_14px_32px_rgba(254,127,0,0.45)]"
+                style={{
+                  fontFamily: "var(--font-inter), Inter, sans-serif",
+                  background:
+                    "linear-gradient(135deg, #FE7F00 0%, #FF9F2F 100%)",
+                  boxShadow: "0 6px 20px rgba(254,127,0,0.40)",
+                }}
+              >
+                View details
+                <svg
+                  width="14"
+                  height="14"
+                  viewBox="0 0 20 20"
+                  fill="none"
+                  aria-hidden
+                >
+                  <path
+                    d="M4 10h12M12 6l4 4-4 4"
+                    stroke="white"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </span>
+            </div>
           </div>
         </div>
       </Link>
@@ -352,114 +412,148 @@ const ConferenceSection = () => {
             </div>
           </div>
 
-          {/* ── Upcoming Highlights ── */}
+          {/* ── Featured Upcoming Highlights ── */}
           {highlightedEvents.length > 0 && (
             <div className="mb-10">
-              <div className="flex items-center gap-2 mb-4">
-                <span className="inline-flex items-center gap-1.5 bg-[#FE7F00]/10 border border-[#FE7F00]/30 text-[#FE7F00] text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wide">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#FE7F00] animate-pulse inline-block" />
+              {/* Section label */}
+              <div className="flex items-center gap-2 mb-5">
+                <span
+                  className="inline-flex items-center gap-1.5 text-[11px] font-semibold px-3 py-1 rounded-full uppercase tracking-widest"
+                  style={{
+                    fontFamily: "var(--font-inter), Inter, sans-serif",
+                    background: "#fff",
+                    border: "1px solid rgba(254,127,0,0.35)",
+                    color: "#FE7F00",
+                  }}
+                >
+                  <span
+                    className="w-1.5 h-1.5 rounded-full animate-pulse inline-block"
+                    style={{ backgroundColor: "#FE7F00" }}
+                  />
                   Upcoming
                 </span>
               </div>
 
-              {/* Single event — plain hero; multiple events — animated carousel */}
-              {highlightedEvents.length === 1 ? (
-                <UpcomingGlassCard
-                  event={highlightedEvents[0]}
-                  variant="hero"
-                />
-              ) : (
-                <div>
-                  {/* Slide strip */}
-                  <div className="relative overflow-hidden">
-                    <div
-                      className="flex transition-transform duration-700 ease-in-out"
-                      style={{
-                        transform: `translateX(-${activeSlide * 100}%)`,
-                      }}
-                    >
-                      {highlightedEvents.map((ev) => (
-                        <div key={ev.id} className="min-w-full">
-                          <UpcomingGlassCard event={ev} variant="hero" />
-                        </div>
-                      ))}
-                    </div>
-
-                    {/* Prev arrow */}
-                    <button
-                      type="button"
-                      onClick={() =>
-                        setActiveSlide(
-                          (prev) =>
-                            (prev - 1 + highlightedEvents.length) %
-                            highlightedEvents.length,
-                        )
-                      }
-                      className="absolute left-3 top-1/2 -translate-y-1/2 z-20 w-9 h-9 rounded-full bg-black/40 backdrop-blur-sm border border-white/25 flex items-center justify-center hover:bg-black/60 transition-colors"
-                      aria-label="Previous conference"
-                    >
-                      <svg
-                        width="16"
-                        height="16"
-                        viewBox="0 0 20 20"
-                        fill="none"
-                        aria-hidden
-                      >
-                        <path
-                          d="M13 4l-6 6 6 6"
-                          stroke="white"
-                          strokeWidth="2"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        />
-                      </svg>
-                    </button>
-
-                    {/* Next arrow */}
-                    <button
-                      type="button"
-                      onClick={() =>
-                        setActiveSlide(
-                          (prev) => (prev + 1) % highlightedEvents.length,
-                        )
-                      }
-                      className="absolute right-3 top-1/2 -translate-y-1/2 z-20 w-9 h-9 rounded-full bg-black/40 backdrop-blur-sm border border-white/25 flex items-center justify-center hover:bg-black/60 transition-colors"
-                      aria-label="Next conference"
-                    >
-                      <svg
-                        width="16"
-                        height="16"
-                        viewBox="0 0 20 20"
-                        fill="none"
-                        aria-hidden
-                      >
-                        <path
-                          d="M7 4l6 6-6 6"
-                          stroke="white"
-                          strokeWidth="2"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        />
-                      </svg>
-                    </button>
+              {/* Cross-fade card strip — all cards share the same grid cell */}
+              <div style={{ display: "grid" }}>
+                {highlightedEvents.map((ev, i) => (
+                  <div
+                    key={ev.id}
+                    style={{
+                      gridArea: "1 / 1",
+                      opacity: i === activeSlide ? 1 : 0,
+                      transition: "opacity 0.55s ease",
+                      pointerEvents: i === activeSlide ? "auto" : "none",
+                    }}
+                  >
+                    <FeaturedConferenceCard event={ev} />
                   </div>
+                ))}
+              </div>
+
+              {/* Carousel controls — only shown when 2+ events */}
+              {highlightedEvents.length > 1 && (
+                <div className="flex items-center justify-center gap-4 mt-5">
+                  {/* Prev */}
+                  <button
+                    type="button"
+                    onClick={() =>
+                      setActiveSlide(
+                        (prev) =>
+                          (prev - 1 + highlightedEvents.length) %
+                          highlightedEvents.length,
+                      )
+                    }
+                    className="w-8 h-8 rounded-full flex items-center justify-center transition-colors duration-200"
+                    style={{
+                      border: "1px solid rgba(255,255,255,0.10)",
+                    }}
+                    onMouseEnter={(e) =>
+                      (e.currentTarget.style.background =
+                        "rgba(88,97,157,0.22)")
+                    }
+                    onMouseLeave={(e) =>
+                      (e.currentTarget.style.background =
+                        "rgba(255,255,255,0.06)")
+                    }
+                    aria-label="Previous conference"
+                  >
+                    <svg
+                      width="24"
+                      height="24"
+                      viewBox="0 0 20 20"
+                      fill="none"
+                      aria-hidden
+                    >
+                      <path
+                        d="M13 4l-6 6 6 6"
+                        stroke="white"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
+                  </button>
 
                   {/* Dot indicators */}
-                  <div className="flex justify-center items-center gap-2 mt-3">
+                  <div className="flex items-center gap-2">
                     {highlightedEvents.map((_, i) => (
                       <button
                         key={i}
                         type="button"
                         onClick={() => setActiveSlide(i)}
-                        className={`rounded-full transition-all duration-300 ${
-                          i === activeSlide
-                            ? "bg-[#FE7F00] w-5 h-2"
-                            : "bg-gray-300 w-2 h-2 hover:bg-gray-400"
-                        }`}
+                        className="rounded-full transition-all duration-300"
+                        style={{
+                          background:
+                            i === activeSlide
+                              ? "#58619d"
+                              : "rgba(255,255,255,0.20)",
+                          width: i === activeSlide ? 20 : 7,
+                          height: 7,
+                        }}
                         aria-label={`Go to slide ${i + 1}`}
                       />
                     ))}
                   </div>
+
+                  {/* Next */}
+                  <button
+                    type="button"
+                    onClick={() =>
+                      setActiveSlide(
+                        (prev) => (prev + 1) % highlightedEvents.length,
+                      )
+                    }
+                    className="w-8 h-8 rounded-full flex items-center justify-center transition-colors duration-200"
+                    style={{
+                      border: "1px solid rgba(255,255,255,0.10)",
+                    }}
+                    onMouseEnter={(e) =>
+                      (e.currentTarget.style.background =
+                        "rgba(88,97,157,0.22)")
+                    }
+                    onMouseLeave={(e) =>
+                      (e.currentTarget.style.background =
+                        "rgba(255,255,255,0.06)")
+                    }
+                    aria-label="Next conference"
+                  >
+                    <svg
+                      width="24"
+                      height="24"
+                      viewBox="0 0 20 20"
+                      fill="none"
+                      aria-hidden
+                    >
+                      <path
+                        d="M7 4l6 6-6 6"
+                        stroke="white"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
+                  </button>
                 </div>
               )}
 

@@ -23,37 +23,37 @@ const EventTemplate1: React.FC<EventTemplate1Props> = ({ event }) => {
         showBgImage={event.showTitleBgImage ?? true}
       />
       <div
-        className="w-full bg-white py-16"
+        className="w-full bg-white"
         style={{
           backgroundImage:
             "linear-gradient(to bottom, rgba(217, 229, 251, 0.5) 0%, #ffff 40%)",
         }}
       >
         {hasBanner && (
-          <div className="w-full pb-5">
+          <div className="w-full">
             <div className="grid grid-cols-4 sm:grid-cols-8 lg:grid-cols-12 grid-rows-1 gap-5 max-w-7xl mx-auto px-4 lg:px-0">
-              <div className="col-span-4 col-start-1 lg:col-span-10 lg:col-start-2">
-                <div className="relative h-[150px] sm:h-[270px] w-full overflow-hidden shadow-lg">
+              <div className="col-span-10 col-start-1 lg:col-span-10 lg:col-start-2">
+                <div className="relative h-[180px] sm:h-[270px] w-full overflow-hidden shadow-lg">
                   <Image
                     src={event.bannerImage!}
                     alt={event.title}
                     fill
-                    className="sm:object-cover"
+                    className="object-cover"
                   />
                 </div>
               </div>
             </div>
           </div>
         )}
-        <div className="w-full md:py-10">
+        <div className="w-full py-8 sm:py-12 md:py-16">
           <div className="grid grid-cols-4 sm:grid-cols-8 lg:grid-cols-12 grid-rows-1 gap-5 max-w-7xl mx-auto px-4 lg:px-0">
-            <div className="col-span-4 col-start-1 lg:col-span-10 lg:col-start-2">
+            <div className="col-span-10 col-start-1 lg:col-span-10 lg:col-start-2">
               {event.detailContent.overview && (
-                <div className="mb-10">
-                  <h2 className="text-2xl font-bold text-[#1a1a2e] mb-4">
+                <div className="mb-8 sm:mb-10">
+                  <h2 className="text-xl sm:text-2xl font-bold text-[#1a1a2e] mb-3 sm:mb-4">
                     Overview
                   </h2>
-                  <p className="text-base text-gray-700 leading-relaxed ">
+                  <p className="text-sm sm:text-base text-gray-700 leading-relaxed">
                     {event.detailContent.overview}
                   </p>
                 </div>
@@ -70,13 +70,13 @@ const EventTemplate1: React.FC<EventTemplate1Props> = ({ event }) => {
                 >
                   {section.title && (
                     <h3
-                      className={`text-xl !font-semibold text-[#1a1a2e] ${section.content && "mb-3"}`}
+                      className={`text-base sm:text-xl !font-semibold text-[#1a1a2e] ${section.content && "mb-3"}`}
                       dangerouslySetInnerHTML={{ __html: section.title }}
                     />
                   )}
                   {section.content && (
                     <p
-                      className={`event-section-content text-base font-medium text-gray-600 leading-relaxed whitespace-pre-line ${section.leftHighlight ? "font-semibold !text-[#1a1a2e] text-xl" : ""}`}
+                      className={`event-section-content text-sm sm:text-base font-medium text-gray-600 leading-relaxed whitespace-pre-line ${section.leftHighlight ? "font-semibold !text-[#1a1a2e] sm:text-xl" : ""}`}
                       dangerouslySetInnerHTML={{ __html: section.content }}
                     />
                   )}
@@ -86,7 +86,7 @@ const EventTemplate1: React.FC<EventTemplate1Props> = ({ event }) => {
               {event.detailContent.images?.length ||
               event.detailContent.videos?.length ? (
                 <div className="mt-12">
-                  <h2 className="text-2xl font-bold text-[#1a1a2e] mb-6 text-center">
+                  <h2 className="text-xl sm:text-2xl font-bold text-[#1a1a2e] mb-4 sm:mb-6 text-center">
                     Conference Highlights
                   </h2>
                   <EventPhotoAlbum
