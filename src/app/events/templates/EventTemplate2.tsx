@@ -44,12 +44,12 @@ const EventTemplate2: React.FC<EventTemplate2Props> = ({ event }) => {
             </div>
           </div>
         )}
-        <div className="w-full py-10">
+        <div className="w-full py-6 sm:py-10">
           <div className="grid grid-cols-4 sm:grid-cols-8 lg:grid-cols-12 grid-rows-1 gap-5 max-w-7xl mx-auto px-4 lg:px-0">
-            <div className="col-span-4 col-start-1 lg:col-span-10 lg:col-start-2">
+            <div className="col-span-10 col-start-1 lg:col-span-10 lg:col-start-2">
               {event.detailContent.overview && (
-                <div className="bg-white p-8 rounded-2xl shadow-sm border-l-4 border-[#4A90E2] mb-10">
-                  <p className="text-lg text-gray-800 leading-relaxed font-medium">
+                <div className="bg-white p-5 sm:p-8 rounded-2xl shadow-sm border-l-4 border-[#4A90E2] mb-8 sm:mb-10">
+                  <p className="text-base sm:text-lg text-gray-800 leading-relaxed font-medium">
                     {event.detailContent.overview}
                   </p>
                 </div>
@@ -58,13 +58,13 @@ const EventTemplate2: React.FC<EventTemplate2Props> = ({ event }) => {
               {event.detailContent.sections?.map((section, idx) => (
                 <div key={idx} className="mb-8">
                   {section.title && (
-                    <h2 className="text-2xl font-bold text-[#1a1a2e] mb-4">
+                    <h2 className="text-xl sm:text-2xl font-bold text-[#1a1a2e] mb-3 sm:mb-4">
                       {section.title}
                     </h2>
                   )}
                   {section.content && (
                     <p
-                      className="text-base text-gray-700 leading-relaxed whitespace-pre-line"
+                      className="text-sm sm:text-base text-gray-700 leading-relaxed whitespace-pre-line"
                       dangerouslySetInnerHTML={{ __html: section.content }}
                     />
                   )}
@@ -74,7 +74,7 @@ const EventTemplate2: React.FC<EventTemplate2Props> = ({ event }) => {
               {event.detailContent.images?.length ||
               event.detailContent.videos?.length ? (
                 <div className="mt-12">
-                  <h2 className="text-2xl font-bold text-[#1a1a2e] mb-6 text-center">
+                  <h2 className="text-xl sm:text-2xl font-bold text-[#1a1a2e] mb-4 sm:mb-6 text-center">
                     {event.category === "conference"
                       ? "Conference Highlights"
                       : "Relive the Moments — A Few Highlights from the Event"}

@@ -81,7 +81,7 @@ const EventTemplate3: React.FC<EventTemplate3Props> = ({ event }) => {
       )}
 
       <div
-        className="w-full bg-white py-16"
+        className="w-full bg-white py-8 sm:py-16"
         style={{
           backgroundImage:
             "linear-gradient(to bottom, rgba(217, 229, 251, 0.5) 0%, #ffff 40%)",
@@ -90,8 +90,8 @@ const EventTemplate3: React.FC<EventTemplate3Props> = ({ event }) => {
         <div className="grid grid-cols-4 sm:grid-cols-8 lg:grid-cols-12 grid-rows-1 gap-5 max-w-7xl mx-auto px-4 lg:px-0">
           <div className="col-span-4 col-start-1 lg:col-span-10 lg:col-start-2">
             {event.detailContent.overview && (
-              <div className="mb-10">
-                <h2 className="text-2xl md:text-3xl font-bold text-[#1a1a2e] border-l-4 border-[#4A90E2] pl-4 mb-6 bg-white shadow-sm py-2">
+              <div className="mb-8 sm:mb-10">
+                <h2 className="text-lg sm:text-2xl md:text-3xl font-bold text-[#1a1a2e] border-l-4 border-[#4A90E2] pl-3 sm:pl-4 mb-4 sm:mb-6 bg-white shadow-sm py-2">
                   {event.detailContent.overview}
                 </h2>
               </div>
@@ -100,12 +100,12 @@ const EventTemplate3: React.FC<EventTemplate3Props> = ({ event }) => {
             {event.detailContent.sections?.map((section, idx) => (
               <div key={idx} className="mb-10">
                 {section.title && (
-                  <h3 className="text-xl font-bold text-[#1a1a2e] mb-4">
+                  <h3 className="text-base sm:text-xl font-bold text-[#1a1a2e] mb-3 sm:mb-4">
                     {section.title}
                   </h3>
                 )}
                 <p
-                  className="text-base text-gray-700 leading-relaxed whitespace-pre-line"
+                  className="text-sm sm:text-base text-gray-700 leading-relaxed whitespace-pre-line"
                   dangerouslySetInnerHTML={{ __html: section.content || "" }}
                 />
               </div>
@@ -113,8 +113,8 @@ const EventTemplate3: React.FC<EventTemplate3Props> = ({ event }) => {
 
             {event.detailContent.images?.length ||
             event.detailContent.videos?.length ? (
-              <div className="mt-16">
-                <h2 className="text-2xl md:text-3xl font-bold text-[#1a1a2e] mb-8 text-center">
+              <div className="mt-10 sm:mt-16">
+                <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-[#1a1a2e] mb-5 sm:mb-8 text-center">
                   Reliving the Best Moments
                 </h2>
                 <EventPhotoAlbum

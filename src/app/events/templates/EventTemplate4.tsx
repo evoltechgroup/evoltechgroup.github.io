@@ -16,7 +16,10 @@ const EventTemplate4: React.FC<EventTemplate4Props> = ({ event }) => {
   const router = useRouter();
   return (
     <div className="w-full bg-white">
-      <TitleBackground event={event} showBgImage={event.showTitleBgImage ?? true} />
+      <TitleBackground
+        event={event}
+        showBgImage={event.showTitleBgImage ?? true}
+      />
       <div
         className="w-full bg-white py-1"
         style={{
@@ -41,12 +44,12 @@ const EventTemplate4: React.FC<EventTemplate4Props> = ({ event }) => {
             </div>
           </div>
         )}
-        <div className="w-full py-10">
+        <div className="w-full py-6 sm:py-10">
           <div className="grid grid-cols-4 sm:grid-cols-8 lg:grid-cols-12 grid-rows-1 gap-5 max-w-7xl mx-auto px-4 lg:px-0">
-            <div className="col-span-4 col-start-1 lg:col-span-10 lg:col-start-2">
+            <div className="col-span-10 col-start-1 lg:col-span-10 lg:col-start-2">
               {event.detailContent.overview && (
-                <div className="mb-10 rounded-2xl border-l-4 border-[#4A90E2] bg-white p-8 shadow-sm">
-                  <p className="text-lg font-medium leading-relaxed text-gray-800">
+                <div className="mb-8 sm:mb-10 rounded-2xl border-l-4 border-[#4A90E2] bg-white p-5 sm:p-8 shadow-sm">
+                  <p className="text-base sm:text-lg font-medium leading-relaxed text-gray-800">
                     {event.detailContent.overview}
                   </p>
                 </div>
@@ -55,13 +58,13 @@ const EventTemplate4: React.FC<EventTemplate4Props> = ({ event }) => {
               {event.detailContent.sections?.map((section, idx) => (
                 <div key={idx} className="mb-8">
                   {section.title && (
-                    <h2 className="mb-4 text-2xl font-bold text-[#1a1a2e]">
+                    <h2 className="mb-3 sm:mb-4 text-xl sm:text-2xl font-bold text-[#1a1a2e]">
                       {section.title}
                     </h2>
                   )}
                   {section.content && (
                     <p
-                      className="whitespace-pre-line text-base leading-relaxed text-gray-700"
+                      className="whitespace-pre-line text-sm sm:text-base leading-relaxed text-gray-700"
                       dangerouslySetInnerHTML={{ __html: section.content }}
                     />
                   )}
@@ -71,7 +74,7 @@ const EventTemplate4: React.FC<EventTemplate4Props> = ({ event }) => {
               {event.detailContent.speakers &&
                 event.detailContent.speakers.length > 0 && (
                   <div className="mt-12">
-                    <h2 className="mb-8 text-center text-2xl font-bold text-[#1a1a2e]">
+                    <h2 className="mb-6 sm:mb-8 text-center text-xl sm:text-2xl font-bold text-[#1a1a2e]">
                       Featured Speakers
                     </h2>
                     <div className="grid grid-cols-2 gap-6 sm:grid-cols-3 lg:grid-cols-5">
@@ -100,7 +103,7 @@ const EventTemplate4: React.FC<EventTemplate4Props> = ({ event }) => {
               {event.detailContent.images?.length ||
               event.detailContent.videos?.length ? (
                 <div className="mt-12">
-                  <h2 className="mb-6 text-center text-2xl font-bold text-[#1a1a2e]">
+                  <h2 className="mb-4 sm:mb-6 text-center text-xl sm:text-2xl font-bold text-[#1a1a2e]">
                     Conference Highlights
                   </h2>
                   <EventPhotoAlbum

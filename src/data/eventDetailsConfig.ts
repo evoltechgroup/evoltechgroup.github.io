@@ -24,6 +24,8 @@ import {
   AbaBanner,
   HCAABanner,
   HCAA,
+  SIIAInsuranceInstituteBanner,
+  HCAABanner2026,
 } from "@/assets/images/Events/CuratedEvents";
 import Alwyn from "@/assets/images/Events/atea/Alwyn.png";
 import AteaBg from "@/assets/images/Events/atea/Atea-Bg.png";
@@ -154,7 +156,7 @@ import {
   AmericanBankers4,
   AmericanBankers5,
   AmericanBankersBanner,
-} from "@/assets/images/Events/Confrence";
+} from "@/assets/images/Events/Conference";
 import {
   TheGOATrip,
   ThePuneTeam,
@@ -303,11 +305,106 @@ export const getEventStatus = (
 
 const rawEventDetailsConfig: RawEventDetail[] = [
   {
+    id: 4,
+    slug: "siia-national-conference-phoenix-2026",
+    template: "template2",
+    category: "conference",
+    image: SIIAInsuranceInstituteBanner,
+    title: "SIIA National Conference - Phoenix",
+    description:
+      "EvolTech will be attending the SIIA National Conference 2026 in Phoenix — connecting with industry leaders, exploring emerging trends, and engaging with the future of self-insurance and employee benefits.",
+    fromDate: "2026-10-11",
+    toDate: "2026-10-13",
+    tags: [
+      { label: "Conference", bgColor: "#FE7F00" },
+      { label: "Self-Insurance", bgColor: "#4A90E2" },
+      { label: "Industry Leadership", bgColor: "#FFBB00" },
+    ],
+    city: "Phoenix",
+    state: "AZ",
+    detailContent: {
+      overview:
+        "EvolTech will be attending the SIIA National Conference 2026 in Phoenix — one of the industry's most influential gatherings for self-insurance, employee benefits, and risk management professionals. The conference brings together TPAs, self-funded employers, stop-loss carriers, brokers, captives, and technology providers to discuss trends, innovation, and the future of healthcare and benefits administration.",
+
+      sections: [
+        {
+          title: "Why EvolTech Is Attending",
+          content:
+            "The SIIA National Conference is a key opportunity to engage directly with organizations shaping the self-insurance market. We're attending to better understand the challenges facing TPAs, self-funded employers, and healthcare organizations and to explore how technology can support operational transformation and stronger member outcomes.",
+          leftHighlight: true,
+        },
+        {
+          title: "How EvolTech Supports the Industry",
+          content:
+            "EvolTech works with organizations seeking to modernize operations through AI-powered solutions, digital transformation, cloud modernization, data and analytics platforms, and workflow optimization, practical capabilities built for the demands of the self-insurance industry.",
+        },
+        {
+          title: "Let's Connect at the Conference",
+          content:
+            "If you'll be attending the SIIA National Conference 2026 in Phoenix, we'd love to connect and discuss how EvolTech's technology and operational expertise can support your organization.",
+          leftHighlight: true,
+        },
+      ],
+
+      ctaText: "More Details",
+      ctaLink: "https://siiaconferences.org/",
+    },
+  },
+  {
+    id: 9,
+    slug: "hcaa-tpa-summit-2026",
+    template: "template2",
+    category: "conference",
+    image: HCAABanner2026,
+    title: "HCAA TPA Summit 2026",
+    description:
+      "EvolTech will be attending the HCAA TPA Summit 2026 to connect with healthcare administrators, TPAs, self-funded employers, and industry leaders shaping the future of healthcare administration and benefits management.",
+    fromDate: "2026-07-27",
+    toDate: "2026-07-29",
+    tags: [
+      { label: "Conference", bgColor: "#FE7F00" },
+      { label: "Healthcare", bgColor: "#4A90E2" },
+      { label: "TPA Summit", bgColor: "#00B894" },
+    ],
+    city: "Dallas",
+    state: "TX",
+    venue: "Omni PGA Frisco Resort",
+    detailContent: {
+      overview:
+        "EvolTech will be attending the HCAA TPA Summit 2026 in Dallas, Texas a premier industry event bringing together TPAs, self-funded employers, healthcare service providers, and technology partners. Hosted by the Healthcare Administrators Association (HCAA), the summit is a key forum for discussing emerging trends, operational challenges, and the evolving needs of the self-insurance ecosystem.",
+
+      sections: [
+        {
+          title: "Why EvolTech Is Attending",
+          content:
+            "The HCAA TPA Summit gives EvolTech direct access to organizations navigating rapid change across healthcare administration and benefits management. Our goal is to understand evolving industry priorities, strengthen relationships, and explore how modern technology can help organizations improve efficiency, scalability, and member outcomes.",
+          leftHighlight: true,
+        },
+        {
+          title: "What We're Bringing to the Conversation",
+          content:
+            "We'll be discussing AI-powered operational solutions, workflow automation, digital transformation, and managed technology services, practical capabilities designed to help TPAs and healthcare organizations modernize operations and reduce administrative friction.",
+        },
+        {
+          title: "Let's Connect at the Summit",
+          content:
+            "If you'll be attending the HCAA TPA Summit 2026, we'd welcome the opportunity to connect, exchange ideas, and explore how technology can support your organization's goals.",
+          leftHighlight: true,
+        },
+      ],
+
+      ctaText: "More Details",
+
+      ctaLink: "https://www.hcaa.org/events/EventDetails.aspx?id=1969867",
+    },
+  },
+  {
     id: 1,
     slug: "spring-exchange-2026",
     template: "template1",
     category: "conference",
     image: SpringExchange,
+    bannerImage: SpringExchangeBanner,
     title: "SIIA Spring Exchange 2026",
     description:
       "SIIA's Spring Exchange brings self-insurance leaders together for relationship-building, capital conversations, and practical business growth.",
@@ -614,6 +711,7 @@ const rawEventDetailsConfig: RawEventDetail[] = [
       ctaLink: "https://www.siia.org/i4a/pages/index.cfm?pageid=8032",
     },
   },
+
   {
     id: 2,
     slug: "evoltech-office-blessing-2026",
@@ -651,9 +749,9 @@ const rawEventDetailsConfig: RawEventDetail[] = [
     slug: "annual-leadership-summit-2025",
     template: "template3",
     category: "internal",
-    image: AnnualLeadershipSummit01,
+    image: EvoltechGroupV2,
     // bannerImage: AnnualLeadershipSummit01,
-    title: "EvolTech Annual Leadership Summit 2025!",
+    title: "EvolTech Annual Leadership Summit 2025",
     description:
       "Celebrating excellence is at the heart of EvolTech. Our R&R initiatives spotlight individual and team achievements, fostering a culture of appreciation...",
     fromDate: "2026-01-23",
@@ -681,6 +779,16 @@ const rawEventDetailsConfig: RawEventDetail[] = [
         AnnualLeadershipSummit06,
         AnnualLeadershipSummit07,
         AnnualLeadershipSummit08,
+        Awards1,
+        Awards2,
+        Awards3,
+        Awards4,
+        CEO1,
+        CEO2,
+        CEO5,
+        CEO6,
+        CEO7,
+        // CEO8,
       ],
       highlights: [
         "Team building activities and workshops",
@@ -774,7 +882,7 @@ const rawEventDetailsConfig: RawEventDetail[] = [
     slug: "moments-with-our-ceo",
     template: "template3",
     category: "internal",
-    image: EvoltechGroupV2,
+    image: AnnualLeadershipSummit01,
     title: "Moments with Our CEO",
     description:
       "Celebrating the meaningful moments, shared experiences, and human connection between our CEO, Thulasidharan LG, and the EvolTech teams in India.",
@@ -823,24 +931,13 @@ const rawEventDetailsConfig: RawEventDetail[] = [
         MomentsWithCEO4,
         MomentsWithCEO6,
         MomentsWithCEO7,
-        MomentsWithCEO8,
+        // MomentsWithCEO8,
         Cruise4,
         Cruise5,
         // CEO4,
-        CEO1,
-        CEO2,
         CEO3,
         MomentsWithCEO5,
-        CEO5,
-        CEO6,
-        CEO7,
-        CEO8,
         CEO9,
-        Awards1,
-        Awards2,
-        Awards3,
-        Awards4,
-        // CEO4,
       ],
     },
   },
@@ -883,9 +980,9 @@ const rawEventDetailsConfig: RawEventDetail[] = [
         PongalCelebration7,
         PongalCelebration8,
         PongalCelebration6,
-        PongalCelebration9,
+        // PongalCelebration9,
         PongalCelebration10,
-        PongalCelebration11,
+        // PongalCelebration11,
         PongalCelebration12,
         PongalCelebration13,
       ],
