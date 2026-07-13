@@ -26,6 +26,7 @@ import {
   HCAA,
   SIIAInsuranceInstituteBanner,
   HCAABanner2026,
+  WCIBanner,
 } from "@/assets/images/Events/CuratedEvents";
 import Alwyn from "@/assets/images/Events/atea/Alwyn.png";
 import AteaBg from "@/assets/images/Events/atea/Atea-Bg.png";
@@ -304,6 +305,52 @@ export const getEventStatus = (
 };
 
 const rawEventDetailsConfig: RawEventDetail[] = [
+ {
+  id: 15,
+  slug: "wci-2026",
+  template: "template2",
+  category: "conference",
+  image: WCIBanner,
+  title: "WCI 2026",
+  description:
+    "EvolTech will be attending the WCI 2026 Conference to connect with leaders across the workers' compensation and insurance industry, explore emerging trends, and engage with the future of claims management, workplace safety, and digital transformation.",
+  fromDate: "2026-08-23",
+  toDate: "2026-08-26",
+  tags: [
+    { label: "Conference", bgColor: "#FE7F00" },
+    { label: "Workers' Compensation", bgColor: "#4A90E2" },
+    { label: "Insurance", bgColor: "#FFBB00" },
+  ],
+  city: "Orlando",
+  state: "FL",
+  detailContent: {
+    overview:
+      "EvolTech will be attending the WCI 2026 Conference, the 80th Annual Workers' Compensation Educational Conference and 37th Safety & Health Conference, taking place August 23–26, 2026, at the Orlando World Center Marriott in Orlando, Florida. The event brings together insurers, TPAs, employers, healthcare providers, claims professionals, legal experts, and technology providers to explore the future of workers' compensation, workplace safety, and claims innovation.",
+
+    sections: [
+      {
+        title: "About WCI",
+        content:
+          "The Workers' Compensation Institute (WCI) is a leading organization dedicated to advancing education, collaboration, and innovation across the workers' compensation industry. Each year, the conference brings together thousands of professionals through expert-led educational sessions, networking opportunities, and one of the industry's largest exhibit halls.",
+        leftHighlight: true,
+      },
+      {
+        title: "Why EvolTech Is Participating",
+        content:
+          "As EvolTech continues to expand its presence across healthcare, insurance, and enterprise technology, WCI provides an opportunity to engage with organizations shaping the future of workers' compensation. We look forward to connecting with industry leaders, understanding evolving operational challenges, and exploring how AI, digital transformation, cloud modernization, data analytics, and workflow automation can help improve efficiency, streamline claims operations, and deliver better outcomes.",
+      },
+      {
+        title: "Let's Connect at WCI 2026",
+        content:
+          "If you're attending WCI 2026 in Orlando, we'd love to connect. Let's discuss how EvolTech's expertise in AI, cloud technologies, automation, and enterprise digital transformation can help modernize operations and support the evolving needs of the workers' compensation and insurance industry.",
+        leftHighlight: true,
+      },
+    ],
+
+    ctaText: "More Details",
+    ctaLink: "https://wci360.com/wci2026//",
+  },
+},
   {
     id: 4,
     slug: "siia-national-conference-phoenix-2026",

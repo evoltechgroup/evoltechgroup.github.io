@@ -99,10 +99,9 @@ function FeaturedConferenceCard({ event }: { event: EventDetail }) {
       {/* ── Card ── */}
       <Link href={href} className="block group relative z-10">
         <div
-          className="relative flex overflow-hidden"
+          className="relative flex flex-col sm:flex-row overflow-hidden"
           style={{
             borderRadius: 28,
-            minHeight: 380,
             background:
               "linear-gradient(135deg, rgba(15,23,42,0.92) 0%, rgba(7,20,38,0.96) 100%)",
             border: "1px solid rgba(255,255,255,0.07)",
@@ -110,10 +109,9 @@ function FeaturedConferenceCard({ event }: { event: EventDetail }) {
               "0 32px 72px rgba(0,0,0,0.55), 0 0 0 1px rgba(255,255,255,0.04), inset 0 1px 0 rgba(255,255,255,0.06)",
           }}
         >
-          {/* ── LEFT: image panel (44%) ── */}
+          {/* ── Image panel ── */}
           <div
-            className="relative shrink-0 w-[44%] sm:w-[65%]"
-            style={{ minHeight: 380 }}
+            className="relative w-full h-56 sm:h-auto sm:w-[65%] sm:min-h-[380px] sm:shrink-0"
           >
             <img
               src={imageSrc}
@@ -122,25 +120,32 @@ function FeaturedConferenceCard({ event }: { event: EventDetail }) {
             />
             {/* Dark gradient overlay for legibility */}
             <div
-              className="absolute inset-0"
               style={{
-                background:
-                  "linear-gradient(to bottom, rgba(2,6,23,0.28) 0%, rgba(2,6,23,0.08) 100%, rgba(2,6,23,0.62) 10%, rgba(2,6,23,0.92) 100%)",
-              }}
+  background:
+    "linear-gradient(to bottom, rgba(2,6,23,0.12) 0%, rgba(2,6,23,0.05) 50%, rgba(2,6,23,0.18) 100%)",
+}}
             />
-            {/* Right-edge feather so image blends into right panel */}
+            {/* Right-edge feather — horizontal layout (sm+) only */}
             <div
-              className="absolute inset-y-0 right-0 w-20 pointer-events-none"
+              className="hidden sm:block absolute inset-y-0 right-0 w-20 pointer-events-none"
               style={{
                 background:
                   "linear-gradient(to right, transparent 0%, rgba(7,20,38,0.80) 70%, rgba(7,20,38,0.96) 100%)",
+              }}
+            />
+            {/* Bottom-edge feather — mobile column layout only */}
+            <div
+              className="sm:hidden absolute inset-x-0 bottom-0 h-14 pointer-events-none"
+              style={{
+                background:
+                  "linear-gradient(to bottom, transparent 0%, rgba(7,20,38,0.92) 100%)",
               }}
             />
           </div>
 
           {/* ── RIGHT: content panel ── */}
           <div
-            className="flex-1 flex flex-col justify-center px-6 py-8 sm:px-8"
+            className="flex-1 flex flex-col justify-center px-5 py-6 sm:px-8 sm:py-8"
             style={{
               background:
                 "linear-gradient(135deg, rgba(255,255,255,0.025) 0%, transparent 100%)",
@@ -416,7 +421,7 @@ const ConferenceSection = () => {
           {highlightedEvents.length > 0 && (
             <div className="mb-10">
               {/* Section label */}
-              <div className="flex items-center gap-2 mb-5">
+              <div className="flexitems-center gap-2 mb-5">
                 <span
                   className="inline-flex items-center gap-1.5 text-[11px] font-semibold px-3 py-1 rounded-full uppercase tracking-widest"
                   style={{

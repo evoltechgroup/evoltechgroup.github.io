@@ -18,3 +18,4 @@ export { default as SIIAGoldConference } from "./BannerImages/SIIA_Gold-club-Con
 export { default as SIIA } from "./BannerImages/SIIA.jpg";
 export { default as SIIAInsuranceInstituteBanner } from "./BannerImages/Siia-insurance-institute-banner2.png";
 export { default as HCAABanner2026 } from "./BannerImages/hcaa-banner-2026.jpg";
+export { default as WCIBanner } from "./BannerImages/WCI-Banner-red.webp";
