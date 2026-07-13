@@ -421,7 +421,7 @@ const ConferenceSection = () => {
           {highlightedEvents.length > 0 && (
             <div className="mb-10">
               {/* Section label */}
-              <div className="flexitems-center gap-2 mb-5">
+              <div className="flex items-center gap-2 mb-5">
                 <span
                   className="inline-flex items-center gap-1.5 text-[11px] font-semibold px-3 py-1 rounded-full uppercase tracking-widest"
                   style={{
