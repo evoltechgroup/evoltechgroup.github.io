@@ -114,10 +114,9 @@ const ConferenceHero = () => {
 
   return (
     <section
-      className="relative w-full overflow-hidden"
+      className="relative w-full overflow-hidden md:h-[78vh]"
       style={{
         minHeight: "600px",
-        height: "78vh",
         background: "oklch(0.13 0.05 265)",
       }}
     >
@@ -165,8 +164,127 @@ const ConferenceHero = () => {
         />
       </div>
 
-      {/* ── Center carousel card (z-10) ── */}
-      <div className="absolute inset-0 z-10 flex items-center justify-center px-4 pt-20">
+      {/* ── Mobile: stacked image card + text below ── */}
+      <div className="md:hidden relative z-10 flex flex-col pt-20 px-4 pb-8 gap-5">
+        {/* Image card — taller on mobile */}
+        <div
+          className="relative w-full h-[260px] rounded-2xl overflow-hidden"
+          style={{
+            border: "1px solid rgba(255,255,255,0.1)",
+            boxShadow: "0 20px 80px -10px oklch(0.45 0.22 260 / 0.7)",
+          }}
+        >
+          <AnimatePresence mode="sync">
+            <motion.div
+              key={`mob-${activeIndex}`}
+              className="absolute inset-0"
+              initial={{ opacity: 0, scale: 1.04 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.98 }}
+              transition={{ duration: 1.1, ease: [0.4, 0, 0.2, 1] }}
+            >
+              <Image
+                src={conf.image}
+                alt={conf.title}
+                fill
+                priority
+                sizes="100vw"
+                className="object-cover"
+              />
+              <div
+                className="absolute inset-0"
+                style={{
+                  background:
+                    "linear-gradient(to bottom, transparent 40%, oklch(0.13 0.05 265 / 0.55) 100%)",
+                }}
+              />
+            </motion.div>
+          </AnimatePresence>
+          {/* Pagination */}
+          <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-20 flex items-center gap-2">
+            {CONFERENCES.map((_, i) => (
+              <PaginationBar
+                key={i}
+                index={i}
+                active={i === activeIndex}
+                past={i < activeIndex}
+                onClick={() => handleDotClick(i)}
+              />
+            ))}
+          </div>
+        </div>
+
+        {/* Text block below image */}
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={`mob-text-${activeIndex}`}
+            className="flex flex-col gap-3"
+          >
+            <motion.span
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -6 }}
+              transition={{ duration: 0.5, delay: 0.1, ease: [0.4, 0, 0.2, 1] }}
+              className="self-start px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-widest text-white/80"
+              style={{
+                background: "rgba(255,255,255,0.1)",
+                backdropFilter: "blur(8px)",
+                border: "1px solid rgba(255,255,255,0.15)",
+              }}
+            >
+              {conf.tag}
+            </motion.span>
+            <motion.h2
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -6 }}
+              transition={{ duration: 0.5, delay: 0.2, ease: [0.4, 0, 0.2, 1] }}
+              className="text-xl font-semibold leading-tight"
+              style={{ color: "rgba(255,255,255,0.95)" }}
+            >
+              {conf.title}
+            </motion.h2>
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -6 }}
+              transition={{ duration: 0.5, delay: 0.3, ease: [0.4, 0, 0.2, 1] }}
+              className="inline-flex items-center gap-2.5 self-start"
+              style={{
+                padding: "5px 14px",
+                borderRadius: "999px",
+                backdropFilter: "blur(16px) saturate(1.5)",
+                background: "rgba(255,255,255,0.1)",
+                border: "1px solid rgba(255,255,255,0.2)",
+                boxShadow: "0 2px 16px 0 rgba(0,0,0,0.15), inset 0 1px 0 rgba(255,255,255,0.15)",
+              }}
+            >
+              <span className="flex items-center gap-2">
+                <span
+                  className="w-1.5 h-1.5 rounded-full flex-shrink-0"
+                  style={{
+                    background: "oklch(0.85 0.16 85)",
+                    boxShadow: "0 0 6px oklch(0.85 0.16 85 / 0.7)",
+                  }}
+                />
+                <span
+                  className="text-sm font-medium"
+                  style={{ color: "rgba(255,255,255,0.88)" }}
+                >
+                  {conf.location}
+                </span>
+              </span>
+              <span style={{ color: "rgba(255,255,255,0.25)", fontSize: "0.65rem" }}>·</span>
+              <span className="text-sm" style={{ color: "rgba(255,255,255,0.55)" }}>
+                {conf.date}
+              </span>
+            </motion.div>
+          </motion.div>
+        </AnimatePresence>
+      </div>
+
+      {/* ── Desktop carousel card (z-10) ── */}
+      <div className="hidden md:flex absolute inset-0 z-10 items-center justify-center px-4 pt-20">
         <div
           className="relative w-full max-w-4xl"
           style={{ aspectRatio: "16/9", maxHeight: "60vh" }}
@@ -213,25 +331,7 @@ const ConferenceHero = () => {
                 key={`text-${activeIndex}`}
                 className="absolute bottom-0 left-0 p-8 md:p-12 z-10 flex flex-col gap-3"
               >
-                {/* Tag pill */}
-                <motion.span
-                  initial={{ opacity: 0, y: 16 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -8 }}
-                  transition={{
-                    duration: 0.6,
-                    delay: 0.25,
-                    ease: [0.4, 0, 0.2, 1],
-                  }}
-                  className="self-start px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-widest text-white/80"
-                  style={{
-                    background: "rgba(255,255,255,0.1)",
-                    backdropFilter: "blur(8px)",
-                    border: "1px solid rgba(255,255,255,0.15)",
-                  }}
-                >
-                  {conf.tag}
-                </motion.span>
+             
 
                 {/* Headline — glassmorphism */}
                 <motion.h1
