@@ -15,6 +15,30 @@ interface JobListing {
 
 const jobListings: JobListing[] = [
   {
+    id: "solution-architect-application-architect-l3",
+    title: "Solution Architect – Application Architect (L3)",
+    experience: "6 to 12 years",
+    location: "India",
+  },
+  {
+    id: "solution-architect-migration-architect-l3",
+    title: "Solution Architect – Migration Architect (L3)",
+    experience: "6 to 12 years",
+    location: "India",
+  },
+  {
+    id: "qa-test-engineer-l3-automated-testing-migration",
+    title: "QA Test Engineer (L3) - Automated Testing & Migration",
+    experience: "6 to 12 years",
+    location: "India",
+  },
+  {
+    id: "senior-java-developer-l3",
+    title: "Senior Java Developer (L3)",
+    experience: "6 - 12 years experience",
+    location: "India",
+  },
+  {
     id: "iam-solution-architect",
     title: "IAM Solution Architect",
     experience: "10 - 15 years experience",

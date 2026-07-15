@@ -91,7 +91,7 @@ const EventTemplate3: React.FC<EventTemplate3Props> = ({ event }) => {
           <div className="col-span-4 col-start-1 lg:col-span-10 lg:col-start-2">
             {event.detailContent.overview && (
               <div className="mb-8 sm:mb-10">
-                <h2 className="text-lg sm:text-2xl md:text-3xl font-bold text-[#1a1a2e] font-bold border-l-4 border-[#4A90E2] pl-3 sm:pl-4 mb-4 sm:mb-6 bg-white shadow-sm py-2">
+                <h2 className="text-lg sm:text-2xl md:text-3xl font-bold text-[#1a1a2e] border-l-4 border-[#4A90E2] pl-3 sm:pl-4 mb-4 sm:mb-6 bg-white shadow-sm py-2">
                   {event.detailContent.overview}
                 </h2>
               </div>
