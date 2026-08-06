@@ -15,6 +15,12 @@ interface JobListing {
 
 const jobListings: JobListing[] = [
   {
+    id: "hr-recruiter-tech38",
+    title: "HR Recruiter",
+    experience: "0 to 2 years",
+    location: "Chennai, India",
+  },
+  {
     id: "solution-architect-application-architect-l3",
     title: "Solution Architect – Application Architect (L3)",
     experience: "6 to 12 years",
