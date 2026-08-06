@@ -11,7 +11,7 @@ import {
 import ImageGrid from "../components/ImageGrid";
 import {
   Abhisek,
-  Aishwarya,
+  PreetiMohan,
   Ankitha,
   Atul,
   Aysha,
@@ -25,7 +25,7 @@ const imageGrid = [
     { src: Aysha.src, alt: "ayesha" },
   ],
   [
-    { src: Aishwarya.src, alt: "aishwarya" },
+    { src: PreetiMohan.src, alt: "preeti mohan" },
     { src: Atul.src, alt: "atul" },
     { src: Harini.src, alt: "harini" },
   ],
@@ -65,7 +65,8 @@ const Section1 = () => {
               <div className="flex flex-col gap-4 justify-end md:justify-center lg:mt-10 w-full h-full items-center lg:items-start">
                 <Text
                   className="font-semibold text-4xl lg:text-5xl xl:text-6xl w-full text-left"
-                  tag="p">
+                  tag="p"
+                >
                   Careers
                 </Text>
                 <Text className="text-sm lg:text-lg xl:text-xl max-w-full xl:max-w-[30rem]  text-[#C5E1FF]   text-left ">
