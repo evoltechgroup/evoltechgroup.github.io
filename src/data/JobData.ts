@@ -1708,7 +1708,7 @@ export const jobDescriptions: { id: string; data: JobDescriptionData }[] = [
       title: "HR Recruiter",
       experience: "0 to 2 years",
       location: "India",
-      applyUrl: "",
+      applyUrl: "https://evoltech.keka.com/careers/applyjob/82997",
       description: [
         "EvolTech is seeking an enthusiastic and motivated Recruiter to join its Talent Acquisition team and contribute to building a high-performing workforce.",
         "The Recruiter will manage the end-to-end recruitment process, including candidate sourcing, resume screening, interview coordination, offer rollout, and onboarding.",
