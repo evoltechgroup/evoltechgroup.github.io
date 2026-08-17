@@ -57,38 +57,26 @@ const TeamShowCase: React.FC = () => {
   const buildGroupedSlots = () => {
     const result: { type: "label" | "spacer"; slotIndexes: number[] }[] = [];
     let imageCounter = 0;
-    let labelIndex = 0;
 
-    while (labelIndex < labelTexts.length) {
-      for (let i = 0; i < 4 && labelIndex < labelTexts.length; i++) {
-        const image1 = imageCounter++ % totalImages;
-        const image2 = imageCounter++ % totalImages;
-        result.push({ type: "label", slotIndexes: [image1, image2] });
-        labelIndex++;
+    const maxBatches = Math.floor(totalImages / 10);
+
+    for (let batch = 0; batch < maxBatches; batch++) {
+      for (let i = 0; i < 4; i++) {
+        result.push({
+          type: "label",
+          slotIndexes: [imageCounter++, imageCounter++],
+        });
       }
-
-      const spacerImage1 = imageCounter++ % totalImages;
-      const spacerImage2 = imageCounter++ % totalImages;
       result.push({
         type: "spacer",
-        slotIndexes: [spacerImage1, spacerImage2],
+        slotIndexes: [imageCounter++, imageCounter++],
       });
     }
 
-    const usedIndexes = result.flatMap((g) => g.slotIndexes);
-    const allIndexes = Array.from({ length: totalImages }, (_, i) => i);
-    const unusedIndexes = allIndexes.filter((i) => !usedIndexes.includes(i));
-    let extraImages = [...unusedIndexes];
-
-    if (extraImages.length % 2 !== 0) {
-      const firstAvailable = allIndexes.find((i) => !extraImages.includes(i));
-      if (firstAvailable !== undefined) extraImages.push(firstAvailable);
-    }
-
-    for (let i = 0; i < extraImages.length; i += 2) {
+    while (imageCounter + 1 < totalImages) {
       result.push({
         type: "spacer",
-        slotIndexes: [extraImages[i], extraImages[i + 1]],
+        slotIndexes: [imageCounter++, imageCounter++],
       });
     }
 
@@ -155,7 +143,9 @@ const TeamShowCase: React.FC = () => {
         {groupedSlots.map((group, idx) => {
           const padding = staggeredPadding[idx % staggeredPadding.length];
           const isLabel = group.type === "label";
-          const labelTextsToShow = isLabel ? labelTexts[labelIndexLocal] : null;
+          const labelTextsToShow = isLabel
+            ? labelTexts[labelIndexLocal % labelTexts.length]
+            : null;
           const labelOffsets = getLabelOffset(labelIndexLocal);
 
           const labelsToRender = labelTextsToShow
@@ -165,7 +155,8 @@ const TeamShowCase: React.FC = () => {
                   <div
                     key={i}
                     className="absolute z-10 whitespace-nowrap top-0"
-                    style={{ top: `${offset}%`, transform: "translateY(0%)" }}>
+                    style={{ top: `${offset}%`, transform: "translateY(0%)" }}
+                  >
                     <Label text={text} />
                   </div>
                 );
@@ -177,7 +168,8 @@ const TeamShowCase: React.FC = () => {
           return (
             <div
               key={idx}
-              className="flex items-stretch h-screen mt-10 relative">
+              className="flex items-stretch h-screen mt-10 relative"
+            >
               <div className={`${padding} justify-end flex flex-col items-end`}>
                 {group.slotIndexes.map((slotIndex, i) => {
                   const currentImage = TeamImages[slotIndex];
@@ -190,7 +182,8 @@ const TeamShowCase: React.FC = () => {
                         setCursorPos({ x: e.clientX, y: e.clientY })
                       }
                       onMouseEnter={() => setHoveredName(currentImage.name)}
-                      onMouseLeave={() => setHoveredName(null)}>
+                      onMouseLeave={() => setHoveredName(null)}
+                    >
                       <img
                         src={currentImage.image.src}
                         alt={currentImage.name}
@@ -237,7 +230,8 @@ const TeamShowCase: React.FC = () => {
               pointerEvents: "none",
               zIndex: 9999,
               whiteSpace: "nowrap",
-            }}>
+            }}
+          >
             {hoveredName}
           </div>,
           document.body,
@@ -247,12 +241,14 @@ const TeamShowCase: React.FC = () => {
         <div className="absolute p-5 mt-20 flex z-10 justify-between gap-4 w-full h-full items-center pointer-events-none">
           <button
             className="w-10 h-10 flex bg-white shadow hover:text-white cursor-pointer text-black items-center justify-center rounded-full hover:bg-gray-800 transition pointer-events-auto"
-            onClick={() => manualScroll(-200)}>
+            onClick={() => manualScroll(-200)}
+          >
             <ChevronLeft />
           </button>
           <button
             className="w-10 h-10 flex md:mr-5 bg-white shadow hover:text-white cursor-pointer text-black items-center justify-center rounded-full hover:bg-gray-800 transition pointer-events-auto"
-            onClick={() => manualScroll(200)}>
+            onClick={() => manualScroll(200)}
+          >
             <ChevronRight />
           </button>
         </div>
@@ -260,7 +256,8 @@ const TeamShowCase: React.FC = () => {
         <div
           ref={containerRef}
           className="flex"
-          style={{ width: "max-content", overflow: "hidden" }}>
+          style={{ width: "max-content", overflow: "hidden" }}
+        >
           <div ref={contentRef} className="flex relative z-1">
             {Array.from({ length: DUPLICATE_COUNT }).map((_, idx) => (
               <React.Fragment key={idx}>
