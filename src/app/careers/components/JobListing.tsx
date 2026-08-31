@@ -15,6 +15,12 @@ interface JobListing {
 
 const jobListings: JobListing[] = [
   {
+    id: "expert-system-engineer-vmware-virtualization",
+    title: "Expert System Engineer - VMware Virtualization",
+    experience: "10 to 16 years experience",
+    location: "India",
+  },
+  {
     id: "hr-recruiter-tech38",
     title: "HR Recruiter",
     experience: "0 to 2 years",
