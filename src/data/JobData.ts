@@ -1,7 +1,7 @@
 import { JobDescriptionData } from "@/app/careers/components/JobDescription";
 
 export const jobDescriptions: { id: string; data: JobDescriptionData }[] = [
- {
+  {
     id: "hr-recruiter-tech38",
     data: {
       title: "HR Recruiter",
@@ -43,7 +43,7 @@ export const jobDescriptions: { id: string; data: JobDescriptionData }[] = [
     },
   },
 
-   {
+  {
     id: "senior-azure-devops-engineer",
     data: {
       title: "Senior Azure DevOps Engineer",
@@ -101,7 +101,7 @@ export const jobDescriptions: { id: string; data: JobDescriptionData }[] = [
       ],
     },
   },
-    {
+  {
     id: "senior-aws-devops-engineer",
     data: {
       title: "Senior AWS DevOps Engineer",
@@ -153,5 +153,54 @@ export const jobDescriptions: { id: string; data: JobDescriptionData }[] = [
       ],
     },
   },
- 
+  {
+    id: "expert-system-engineer-vmware-virtualization",
+    data: {
+      title: "Expert System Engineer - VMware Virtualization",
+      experience: "10 to 16 years",
+      location: "India",
+      applyUrl: "https://evoltech.keka.com/careers/applyjob/86633",
+      description: [
+        "The Virtualization and Infrastructure Engineer is responsible for designing, implementing, managing, and optimizing enterprise VMware virtualized environments.",
+        "The role focuses on VMware vSphere, ESXi, vCenter, storage, networking, disaster recovery, cloud migrations, automation, and infrastructure transformation initiatives.",
+        "The position requires the ability to lead technical initiatives, troubleshoot complex infrastructure issues, and support mission-critical data center operations.",
+      ],
+      responsibilities: [
+        "Lead the design, deployment, and administration of enterprise VMware vSphere infrastructure.",
+        "Manage VMware ESXi hosts, vCenter Servers, clusters, HA, DRS, vMotion, and Storage vMotion.",
+        "Perform infrastructure upgrades, patching, lifecycle management, and hardware refresh activities.",
+        "Drive data center consolidation, virtualization, and cloud migration initiatives.",
+        "Implement and manage disaster recovery solutions, backup strategies, and business continuity plans.",
+        "Perform advanced troubleshooting across virtualization, storage, networking, and operating systems.",
+        "Collaborate with cloud, server, network, storage, and security teams on infrastructure projects.",
+        "Manage VM provisioning, capacity planning, performance tuning, and resource optimization.",
+        "Develop infrastructure automation using PowerCLI, PowerShell, and infrastructure management tools.",
+        "Lead knowledge transfer sessions and provide technical guidance to operations teams.",
+        "Create and maintain technical documentation, architecture diagrams, and operational procedures.",
+        "Support infrastructure compliance, governance, and security requirements.",
+      ],
+      qualifications: [
+        "Experience designing, implementing, and managing enterprise VMware virtualized environments.",
+        "Strong knowledge of VMware vSphere 6.x, 7.x, and 8.x.",
+        "Hands-on experience with VMware ESXi and vCenter Server.",
+        "Strong understanding of VMware HA, DRS, vMotion, and Storage vMotion.",
+        "Experience with VMware Lifecycle Manager (vLCM).",
+        "Knowledge of VMware Site Recovery Manager (SRM) and VMware Aria Operations (vROps).",
+        "Strong understanding of SAN, NAS, Fibre Channel (FC), iSCSI, and NFS storage technologies.",
+        "Experience with Dell, Lenovo, Cisco UCS, and HPE infrastructure platforms.",
+        "Experience administering Windows Server and Linux environments.",
+        "Proficiency with PowerCLI and PowerShell automation.",
+        "Experience with AWS cloud infrastructure.",
+        "Knowledge of Nutanix AHV and Nutanix Cloud Clusters (NC2).",
+        "Strong knowledge of disaster recovery and business continuity practices.",
+        "Experience with infrastructure performance analysis and capacity planning.",
+        "Strong troubleshooting and problem-solving skills across virtualization, storage, networking, and operating systems.",
+        "Ability to lead technical initiatives and infrastructure transformation projects.",
+        "Ability to collaborate effectively with cross-functional infrastructure and security teams.",
+        "Strong technical documentation and architecture diagramming skills.",
+        "Ability to provide technical guidance and knowledge transfer to operations teams.",
+        "Understanding of infrastructure compliance, governance, and security requirements.",
+      ],
+    },
+  },
 ];
