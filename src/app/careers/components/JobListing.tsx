@@ -15,6 +15,18 @@ interface JobListing {
 
 const jobListings: JobListing[] = [
   {
+    id: "expert-solution-architect-solution-design-tech41",
+    title: "Expert Solution Architect – Solution Design",
+    experience: "10 to 16 years",
+    location: "India",
+  },
+  {
+    id: "senior-full-stack-developer-tech40",
+    title: "Senior Full Stack Developer",
+    experience: "8 to 12 years",
+    location: "Chennai, India",
+  },
+  {
     id: "expert-system-engineer-vmware-virtualization",
     title: "Expert System Engineer - VMware Virtualization",
     experience: "10 to 16 years experience",
