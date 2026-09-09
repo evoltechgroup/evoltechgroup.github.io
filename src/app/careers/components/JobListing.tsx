@@ -32,12 +32,6 @@ const jobListings: JobListing[] = [
     experience: "10 to 16 years experience",
     location: "India",
   },
-  {
-    id: "hr-recruiter-tech38",
-    title: "HR Recruiter",
-    experience: "0 to 2 years",
-    location: "Chennai, India",
-  },
 
   {
     id: "senior-aws-devops-engineer",
