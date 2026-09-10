@@ -15,6 +15,18 @@ interface JobListing {
 
 const jobListings: JobListing[] = [
   {
+    id: "hr-recruiter-tech38",
+    title: "HR Recruiter",
+    experience: "6 months to 2 years",
+    location: "Chennai, India",
+  },
+  {
+    id: "azure-devops-engineer-career-tech42",
+    title: "Azure DevOps Engineer - Career",
+    experience: "2 to 6 years",
+    location: "Chennai",
+  },
+  {
     id: "expert-solution-architect-solution-design-tech41",
     title: "Expert Solution Architect – Solution Design",
     experience: "10 to 16 years",
