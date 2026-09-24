@@ -1,0 +1,274 @@
+"use client";
+
+import React, { useRef, useState, useEffect } from "react";
+import Label from "@/components/Label";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+import { TeamImages } from "@/data/team";
+import { createPortal } from "react-dom";
+
+const SCROLL_SPEED = 50;
+const DUPLICATE_COUNT = 3;
+
+const staggeredPadding = [
+  "pb-30",
+  "pb-48",
+  "pb-25",
+  "pb-40",
+  "pb-26",
+  "pb-44",
+  "pb-34",
+  "pb-24",
+];
+
+const baseLabelOffsets = [[5], [15, -5], [8], [2]];
+const getLabelOffset = (index: number) =>
+  baseLabelOffsets[index % baseLabelOffsets.length];
+
+const labelTexts = [
+  ["55% women driving innovation and efficiency."],
+  ["Diverse workforce leading the way."],
+  ["Team owns their impact with pride."],
+  ["Team chooses workspaces—remote or in-office."],
+  ["Flat structure: they’re the boss, no bureaucracy."],
+  ["We don’t wait for change—we drive it."],
+  ["Every line of code, every decision—owned with pride."],
+  ["Accountability isn’t assigned, it’s embraced."],
+  ["We build with purpose, and it shows."],
+  ["Delivering excellence is not a task—it’s a mindset."],
+  ["No red tape, just real results."],
+  ["Everyone leads. Everyone delivers."],
+  ["Flat by design. Fast by nature."],
+  ["Hierarchy out, ownership in."],
+  ["Leadership is a role, not a rank."],
+  ["Different minds, united mission."],
+  ["Innovation thrives where voices differ."],
+];
+
+const TeamShowCase: React.FC = () => {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const contentRef = useRef<HTMLDivElement>(null);
+  const [scrollX, setScrollX] = useState(0);
+  const [isAutoScrolling, setIsAutoScrolling] = useState(true);
+  const [cursorPos, setCursorPos] = useState({ x: 0, y: 0 });
+  const [hoveredName, setHoveredName] = useState<string | null>(null);
+
+  const totalImages = TeamImages.length;
+
+  const buildGroupedSlots = () => {
+    const result: { type: "label" | "spacer"; slotIndexes: number[] }[] = [];
+    let imageCounter = 0;
+
+    const maxBatches = Math.floor(totalImages / 10);
+
+    for (let batch = 0; batch < maxBatches; batch++) {
+      for (let i = 0; i < 4; i++) {
+        result.push({
+          type: "label",
+          slotIndexes: [imageCounter++, imageCounter++],
+        });
+      }
+      result.push({
+        type: "spacer",
+        slotIndexes: [imageCounter++, imageCounter++],
+      });
+    }
+
+    while (imageCounter + 1 < totalImages) {
+      result.push({
+        type: "spacer",
+        slotIndexes: [imageCounter++, imageCounter++],
+      });
+    }
+
+    return result;
+  };
+
+  const groupedSlots = buildGroupedSlots();
+
+  useEffect(() => {
+    if (!isAutoScrolling || !contentRef.current) return;
+
+    let animationFrameId: number;
+    let lastTime: number | null = null;
+    const originalContentWidth =
+      contentRef.current.scrollWidth / DUPLICATE_COUNT;
+
+    contentRef.current.style.willChange = "transform";
+
+    const step = (time: number) => {
+      if (lastTime !== null) {
+        const delta = time - lastTime;
+        let newScrollX = scrollX + (SCROLL_SPEED * delta) / 1000;
+        if (newScrollX >= originalContentWidth)
+          newScrollX -= originalContentWidth;
+        setScrollX(newScrollX);
+      }
+      lastTime = time;
+      animationFrameId = requestAnimationFrame(step);
+    };
+
+    animationFrameId = requestAnimationFrame(step);
+
+    return () => {
+      cancelAnimationFrame(animationFrameId);
+      if (contentRef.current) contentRef.current.style.willChange = "auto";
+    };
+  }, [isAutoScrolling, scrollX]);
+
+  useEffect(() => {
+    if (contentRef.current) {
+      contentRef.current.style.transform = `translateX(${-scrollX}px)`;
+    }
+  }, [scrollX]);
+
+  const manualScroll = (offset: number) => {
+    if (!contentRef.current) return;
+
+    const originalContentWidth =
+      contentRef.current.scrollWidth / DUPLICATE_COUNT;
+    let newScrollX = scrollX + offset;
+
+    if (newScrollX < 0) newScrollX += originalContentWidth;
+    else if (newScrollX >= originalContentWidth)
+      newScrollX -= originalContentWidth;
+
+    setScrollX(newScrollX);
+  };
+
+  const renderShowcaseContent = () => {
+    let labelIndexLocal = 0;
+
+    return (
+      <div className="flex select-none">
+        {groupedSlots.map((group, idx) => {
+          const padding = staggeredPadding[idx % staggeredPadding.length];
+          const isLabel = group.type === "label";
+          const labelTextsToShow = isLabel
+            ? labelTexts[labelIndexLocal % labelTexts.length]
+            : null;
+          const labelOffsets = getLabelOffset(labelIndexLocal);
+
+          const labelsToRender = labelTextsToShow
+            ? labelTextsToShow.map((text, i) => {
+                const offset = labelOffsets[i] ?? 10;
+                return (
+                  <div
+                    key={i}
+                    className="absolute z-10 whitespace-nowrap top-0"
+                    style={{ top: `${offset}%`, transform: "translateY(0%)" }}
+                  >
+                    <Label text={text} />
+                  </div>
+                );
+              })
+            : null;
+
+          if (isLabel) labelIndexLocal++;
+
+          return (
+            <div
+              key={idx}
+              className="flex items-stretch h-screen mt-10 relative"
+            >
+              <div className={`${padding} justify-end flex flex-col items-end`}>
+                {group.slotIndexes.map((slotIndex, i) => {
+                  const currentImage = TeamImages[slotIndex];
+                  return (
+                    <div
+                      key={idx * 2 + i}
+                      className="relative h-[215px] w-[172px] border-4 border-white bg-white overflow-hidden"
+                      style={{ cursor: "none" }}
+                      onMouseMove={(e) =>
+                        setCursorPos({ x: e.clientX, y: e.clientY })
+                      }
+                      onMouseEnter={() => setHoveredName(currentImage.name)}
+                      onMouseLeave={() => setHoveredName(null)}
+                    >
+                      <img
+                        src={currentImage.image.src}
+                        alt={currentImage.name}
+                        className="absolute inset-0 w-full h-full grayscale-50 object-cover pointer-events-none"
+                      />
+                    </div>
+                  );
+                })}
+              </div>
+
+              <div
+                className="h-full"
+                style={{
+                  width: "1px",
+                  background:
+                    "linear-gradient(to bottom, transparent, #4444445a, transparent)",
+                }}
+              />
+
+              {labelsToRender && (
+                <div className="flex relative">{labelsToRender}</div>
+              )}
+            </div>
+          );
+        })}
+      </div>
+    );
+  };
+
+  return (
+    <>
+      {hoveredName &&
+        createPortal(
+          <div
+            style={{
+              position: "fixed",
+              left: cursorPos.x + 14,
+              top: cursorPos.y + 14,
+              background: "black",
+              color: "white",
+              fontSize: "12px",
+              padding: "4px 10px",
+              borderRadius: "4px",
+              pointerEvents: "none",
+              zIndex: 9999,
+              whiteSpace: "nowrap",
+            }}
+          >
+            {hoveredName}
+          </div>,
+          document.body,
+        )}
+
+      <div className="relative overflow-hidden" style={{ width: "100vw" }}>
+        <div className="absolute p-5 mt-20 flex z-10 justify-between gap-4 w-full h-full items-center pointer-events-none">
+          <button
+            className="w-10 h-10 flex bg-white shadow hover:text-white cursor-pointer text-black items-center justify-center rounded-full hover:bg-gray-800 transition pointer-events-auto"
+            onClick={() => manualScroll(-200)}
+          >
+            <ChevronLeft />
+          </button>
+          <button
+            className="w-10 h-10 flex md:mr-5 bg-white shadow hover:text-white cursor-pointer text-black items-center justify-center rounded-full hover:bg-gray-800 transition pointer-events-auto"
+            onClick={() => manualScroll(200)}
+          >
+            <ChevronRight />
+          </button>
+        </div>
+
+        <div
+          ref={containerRef}
+          className="flex"
+          style={{ width: "max-content", overflow: "hidden" }}
+        >
+          <div ref={contentRef} className="flex relative z-1">
+            {Array.from({ length: DUPLICATE_COUNT }).map((_, idx) => (
+              <React.Fragment key={idx}>
+                {renderShowcaseContent()}
+              </React.Fragment>
+            ))}
+          </div>
+        </div>
+      </div>
+    </>
+  );
+};
+
+export default TeamShowCase;
